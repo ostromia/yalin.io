@@ -1,0 +1,75 @@
+@font-face {
+  font-family: 'cabin';
+  src: url('/../resources/Cabin-VariableFont_wdth,wght.ttf');
+}
+
+body > div {
+  height: 100vh !important;
+}
+
+/* NAVIGATION MENU */
+body > nav {
+  position: fixed;
+  background-color: transparent !important;
+  display: grid;
+  grid-template-columns: 0 1fr auto auto auto 0;
+  grid-template-rows: 0 1fr 0;
+  gap: 10px;
+}
+
+body > nav > button {
+  cursor: pointer;
+}
+
+.textButton{
+  color: white;
+  background: #333842;
+
+  font-size: 0.8vw;
+  font-family: 'cabin';
+
+  border: 1;
+  border-radius: 4px;
+  border-color: #282c34;
+}
+
+#clearTerminal     { grid-area: 2 / 3 / 2 / 3 }
+#savePythonCode    { grid-area: 2 / 4 / 2 / 4 }
+#executePythonCode { grid-area: 2 / 5 / 2 / 5 }
+
+#savePythonCode {
+  color: grey;
+}
+
+/* MAIN CONTAINER */
+body > div {
+  display: grid;
+  grid-template-rows: 0 auto 1fr 0;
+  grid-template-columns: 0 auto auto auto auto 0;
+  gap: 10px;
+}
+
+ #pythonLogo, #terminalLogo {
+  height: 1.5vw;
+  width: 1.5vw;
+}
+
+#pythonSpan, #terminalSpan {
+  font-size: 1vw;
+  font-family: 'cabin';
+  color: white;
+  margin: auto 0 auto 2vw;
+}
+
+#terminalEditor {
+  width: auto;
+  resize: none;
+  background-color: #282a36;
+  color: white;
+  border: 0;
+}
+
+#pythonLogo,   #pythonSpan   { grid-area: 2 / 2 / 2 / 2 }
+#terminalLogo, #terminalSpan { grid-area: 2 / 4 / 2 / 4 }
+#pythonEditor   { grid-area: 3 / 2 / 3 / 4 }
+#terminalEditor { grid-area: 3 / 4 / 3 / 6 }
