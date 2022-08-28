@@ -1,54 +1,60 @@
 <!doctype html>
 <html lang='en'>
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Python Interpreter</title>
-  <link rel="stylesheet" href="styles/styles.css">
-  <link rel="stylesheet" href="styles/pythonInterpreter.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Python Interpreter</title>
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/pythonInterpreter.css">
 </head>
+
 <body onload="brython(0)">
-  <!-- NAVIGATION SECTION -->
-  <nav>
-    <button type="button" class="textButton" id="clearTerminal">
-      &nbspClear Terminal&nbsp
-    </button>
+    <!-- NAVIGATION SECTION -->
+    <nav>
+        <button id="homeButton">
+            &nbspberkay-yalin.io&nbsp
+        </button>
 
-    <button type="button" class="textButton" id="savePythonCode" disabled>
-      &nbspSave Python Code&nbsp
-    </button>
+        <button type="button" class="textButton" id="clearTerminal">
+            &nbspClear Terminal&nbsp
+        </button>
 
-    <button type="button" class="textButton" id="executePythonCode">
-      &nbspExecute Python Code&nbsp
-    </button>
-  </nav>
+        <button type="button" class="textButton" id="savePythonCode" disabled>
+            &nbspSave Python Code&nbsp
+        </button>
 
-  <!-- MAIN CONTAINER -->
-  <div>
-    <span id="pythonSpan">Python</span>
-    <img id="pythonLogo" src="resources\python-original.svg">
-    <div id="pythonEditor"></div>
+        <button type="button" class="textButton" id="executePythonCode">
+            &nbspExecute Python Code&nbsp
+        </button>
+    </nav>
 
-    <span id="terminalSpan">Terminal</span>
-    <img id="terminalLogo" src="resources\Windows_Terminal_logo.svg">
-    <textarea id="terminalEditor"></textarea>
-  </div>
+    <!-- MAIN CONTAINER -->
+    <div>
+        <span id="pythonSpan">Python</span>
+        <img id="pythonLogo" src="resources/python-original.svg">
+        <div id="pythonTextarea"></div>
 
-  <!-- JAVASCRIPT -->
-  <script src="dependencies/AceJS/ace.js" type="text/javascript" charset="utf-8"></script>
+        <span id="terminalSpan">Terminal</span>
+        <img id="terminalLogo" src="resources/Windows_Terminal_logo.svg">
+        <textarea id="terminalTextarea" readonly></textarea>
+    </div>
 
-  <script src="dependencies\Brython-3.10.6\brython.js"></script>
-  <script src="dependencies\Brython-3.10.6\brython_stdlib.js"></script>
+    <!-- JAVASCRIPT -->
+    <script src="dependencies/AceJS/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script src="dependencies/Brython-3.10.6/brython.js"></script>
+    <script src="dependencies/Brython-3.10.6/brython_stdlib.js"></script>
 
-  <script type="text/python" id="brythonScript">
-    from browser import document, bind
-    def interpret(ev):
-      code = document["pythonEditor"].text.split('\n')
-      code = '\n'.join( code[int(len(code) / 2): len(code)] )
-      output = exec(code)
-    document["executePythonCode"].bind("click", interpret)
-  </script>
-
-  <script src="scripts/pythonInterpreter.js" type='module' charset="utf-8"></script>
+    <script src="scripts/scripts.js" type='module' charset="utf-8"></script>
+    <script src="scripts/pythonInterpreter.js" type='module' charset="utf-8"></script>
+    <script type="text/python" id="brythonScript">
+        from browser import document
+        def interpret(ev):
+            code = document["pythonTextarea"].text.split('\n')
+            code = '\n'.join( code[int(len(code) / 2): len(code)] )
+            exec(code)
+        document["executePythonCode"].bind("click", interpret)
+    </script>
 </body>
+
 </html>
