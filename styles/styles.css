@@ -1,6 +1,15 @@
-@font-face {
-  font-family: 'cabin';
-  src: url('/../resources/Cabin-VariableFont_wdth,wght.ttf');
+::-webkit-scrollbar {
+  height: 0.5rem;
+  width: 0.5rem;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 body {
@@ -9,11 +18,14 @@ body {
   margin: 0;
   padding: 0;
   background-color: #2e323b;
+  /* overflow-x: hidden; */
 }
 
 body > div {
   height: 95vh;
   width: 100vw;
+  margin: 0;
+  padding: 0;
 }
 
 body > nav {
@@ -29,6 +41,7 @@ body > nav > button {
 
 #homeButton {
   height: 100%;
+  grid-area: 2 / 2 / 2 / 2;
 
   font-size: 2vh;
   font-family: courier;

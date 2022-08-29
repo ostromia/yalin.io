@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'cabin';
+  src: url('/../resources/Cabin-VariableFont_wdth,wght.ttf');
+}
+
 /* NAVIGATION MENU */
 body > nav {
   display: grid;
@@ -20,7 +25,6 @@ body > nav {
   display: inline-block;
 }
 
-#homeButton        { grid-area: 2 / 2 / 2 / 2 }
 #clearTerminal     { grid-area: 2 / 4 / 2 / 4 }
 #savePythonCode    { grid-area: 2 / 5 / 2 / 5 }
 #executePythonCode { grid-area: 2 / 6 / 2 / 6 }
