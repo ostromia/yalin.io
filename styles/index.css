@@ -1,13 +1,3 @@
-@font-face {
-  font-family: 'cabin';
-  src: url('/../resources/Cabin-VariableFont_wdth,wght.ttf');
-}
-
-@font-face {
-  font-family: 'kanit';
-  src: url('/../resources/Kanit-Black.ttf');
-}
-
 /* NAVIGATION MENU */
 body > nav {
   display: grid;

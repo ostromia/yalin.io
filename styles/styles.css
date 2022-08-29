@@ -1,3 +1,8 @@
+@font-face {
+  font-family: 'cabin';
+  src: url("https://berkay-yalin.github.io/berkay-yalin.io/resources/Cabin-VariableFont_wdth,wght.ttf");
+}
+
 ::-webkit-scrollbar {
   height: 0.5rem;
   width: 0.5rem;

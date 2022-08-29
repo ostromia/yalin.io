@@ -1,8 +1,3 @@
-@font-face {
-  font-family: 'cabin';
-  src: url('/../resources/Cabin-VariableFont_wdth,wght.ttf');
-}
-
 /* NAVIGATION MENU */
 body > nav {
   display: grid;
