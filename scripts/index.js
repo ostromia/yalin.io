@@ -1,5 +1,5 @@
 document.getElementById('p2pImage').addEventListener('click', function () {
-  window.location.href = "./psuedocode2python.html";
+  window.location.href = "./pseudocode2python.html";
 });
 
 document.getElementById('piImage').addEventListener('click', function () {
