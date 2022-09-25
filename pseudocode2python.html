@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang='en'>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pseudocode to Python Transpiler</title>
+
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="styles/pseudocode2python.css">
+</head>
+<body>
+  <!-- NAVIGATION SECTION -->
+  <nav>
+    <button id="homeButton">
+        berkay-yalin.io
+    </button>
+
+    <button type="button" class="textButton" id="viewPastPaperPseudocode">
+      &nbspView Past Paper Pseudocode&nbsp
+    </button>
+
+    <!-- <p>This webpage is still heavily under development.</p> -->
+
+    <button type="button" class="textButton" id="viewPseudocodeGuide">
+      &nbspView Pseudocode Guide (J277)&nbsp
+    </button>
+
+    <button type="button" class="textButton" id="convertPseudocodeToPython">
+      &nbspConvert Pseudocode to Python&nbsp
+    </button>
+
+    <button type="button" class="textButton" id="executePythonCode" disabled>
+      &nbspExecute Python Code&nbsp
+    </button>
+  </nav>
+
+  <!-- MAIN CONTAINER -->
+  <div>
+    <span id="pseudoSpan">Pseudocode</span>
+    <img id="pseudoLogo" src="resources\ocr logo.svg">
+    <div id="pseudoEditor"></div>
+
+    <span id="pythonSpan">Python</span>
+    <img id="pythonLogo" src="resources\python-original.svg">
+    <div id="pythonEditor"></div>
+
+    <div id="J277Editor">
+      <img id="j227_01" src="resources\Pseudocode-Guide-J277\01.jpg">
+      <img id="j227_02" src="resources\Pseudocode-Guide-J277\02.jpg">
+      <img id="j227_03" src="resources\Pseudocode-Guide-J277\03.jpg">
+      <img id="j227_04" src="resources\Pseudocode-Guide-J277\04.jpg">
+      <img id="j227_05" src="resources\Pseudocode-Guide-J277\05.jpg">
+      <img id="j227_06" src="resources\Pseudocode-Guide-J277\06.jpg">
+      <img id="j227_07" src="resources\Pseudocode-Guide-J277\07.jpg">
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT -->
+  <script src="dependencies/AceJS/ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="scripts/scripts.js" type='module' charset="utf-8"></script>
+  <script src="scripts/pseudocode2python.js" type='module' charset="utf-8"></script>
+</body>
+</html>
