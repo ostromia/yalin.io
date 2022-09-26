@@ -60,6 +60,8 @@ implement FileHandling() function in pseudocode2python_transpiler.js
 
 implement tailwind.css to replace alert() function when displaying errors
 
+implement "for i to j" in IterationCountControlled() 
+
 LIST OF RESERVED KEYWORDS
 --- --- --- --- --- --- --- ---
 AND, OR, NOT, MOD, DIV

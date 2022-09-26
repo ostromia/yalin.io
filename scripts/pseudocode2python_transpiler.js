@@ -253,12 +253,10 @@ function IterationCountControlled(INDENT, INDEX)
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   let line = python[INDEX][2];
-  if (line.endsWith(':')) { line = line.slice(0, -1) }
 
   let iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?):*$/;
   let iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?):*$/;
   let iccRegex3 = /^for\s+(.*?)\s+in\s+range\s*\((.*?),(.*?)\):*/;
-  let iccRegex4 = /^for\s+(.*?)\s+in\s+range\s*(.*?)\s+to\s+(.*?):*$/
 
   if (iccRegex1.test(line)) {
     // for a = b to c
@@ -276,13 +274,6 @@ function IterationCountControlled(INDENT, INDEX)
   else if (iccRegex3.test(line)) {
     // for a in range (b, c)
     let [a, b, c] = line.match(iccRegex3).slice(-3);
-    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
-  }
-  else if (iccRegex4.test(line)) {
-    // for a in range b to c
-    let parts = iccRegex4.exec(line);
-    const [a, b, c] = iccRegex4.exec(line).slice(-3);
-    python[INDEX][0] = 'python';
     python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
   }
   else {
@@ -451,7 +442,8 @@ function Subroutines2(INDENT, INDEX)
 export function transpiler(pseudoArrayInput)
 {
   python = pseudoArrayInput;
-  randomImport = false
+  randomImport = false;
+  errorPresent = false;
 
   for (let i = 0; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
@@ -498,7 +490,7 @@ export function transpiler(pseudoArrayInput)
   }
 
   if (errorPresent == true) {
-    return [['pseudo', 0, 'not working']];
+    return 0;
   }
   return python.filter(i => i[2] != 'REMOVED');
 }

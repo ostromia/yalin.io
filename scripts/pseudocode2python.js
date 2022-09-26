@@ -38,12 +38,14 @@ function transpileInit() {
 
   const pythonArray = transpiler(pseudoArray);
 
-  const pythonText = pythonArray.map(i => {
-    let [type, indent, line] = i;
-    return `${' '.repeat(indent)}${line}`;
-  });
+  if (pythonArray != 0) {
+    const pythonText = pythonArray.map(i => {
+      let [type, indent, line] = i;
+      return `${' '.repeat(indent)}${line}`;
+    });
 
-  pythonEditor.setValue(pythonText.join('\n'), -1);
+    pythonEditor.setValue(pythonText.join('\n'), -1);
+  }
 }
 
 // // INITIALIZE ACEJS TEXT EDITORS // // // // // // // // // // // // // // //
