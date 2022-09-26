@@ -253,29 +253,54 @@ function IterationCountControlled(INDENT, INDEX)
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   let line = python[INDEX][2];
-  let iccRegex1 = /^for(.*?)in\s*range\s*\((.*?),(.*?)\)/;
-  let iccRegex2 = /^for(.*?)=(.*?)to(.*?)step(.*?)$/;
-  let iccRegex3 = /^for(.*?)=(.*?)to(.*?)$/;
+  if (line.endsWith(':')) { line = line.slice(0, -1) }
+
+  let iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?):*$/;
+  let iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?):*$/;
+  let iccRegex3 = /^for\s+(.*?)\s+in\s+range\s*\((.*?),(.*?)\):*/;
+  let iccRegex4 = /^for\s+(.*?)\s+in\s+range\s*(.*?)\s+to\s+(.*?):*$/
 
   if (iccRegex1.test(line)) {
-    // for a in range (b, c)   (pseudocode)
-    // for a in range(b, c):   (python)
-    let [a, b, c] = line.match(iccRegex1).slice(-3).map(i => i.trim());
-    line = `for ${a} in range(${b}, ${c}):`;
+    // for a = b to c
+    let [a, b, c] = line.match(iccRegex1).slice(-3);
+    python[INDEX][0] = 'python';
+    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`
   }
+
   else if (iccRegex2.test(line)) {
-    // for a = b to c step d      (pseudocode)
-    // for a in range(b, c, d):   (python)
-    let [a, b, c, d] = line.match(iccRegex2).slice(-4).map(i => i.trim());
-    line = `for ${a} in range(${b}, ${c}, ${d}):`;
+    // for a = b to c step d
+    let [a, b, c, d] = line.match(iccRegex2).slice(-4);
+    python[INDEX][0] = 'python';
+    python[INDEX][2] = `for ${a} in range(${b}, ${c}, ${d}):`;
   }
   else if (iccRegex3.test(line)) {
-    // for a = b to c           (pseudocode)
-    // for a in range(b, c):    (python)
-    let [a, b, c] = line.match(iccRegex3).slice(-3).map(i => i.trim());
-    line = `for ${a} in range(${b}, ${c}):`
+    // for a in range (b, c)
+    let [a, b, c] = line.match(iccRegex3).slice(-3);
+    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
   }
-  python[INDEX] = ['python', INDENT, line];
+  else if (iccRegex4.test(line)) {
+    // for a in range b to c
+    let parts = iccRegex4.exec(line);
+    const [a, b, c] = iccRegex4.exec(line).slice(-3);
+    python[INDEX][0] = 'python';
+    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
+  }
+  else {
+    const message = `line: {${INDEX}} code: {${python[INDEX][2]}}
+Please declare for loops as specified by the OCR guide:
+
+e.g.,
+for i=0 to 9
+  ...
+next i
+
+for i=2 to 10 step 2
+  ...
+next i`;
+    alert(message);
+    console.log('hello');
+    errorPresent = true;
+  }
 }
 
 function IterationConditionControlled1(INDENT, INDEX)
@@ -472,6 +497,9 @@ export function transpiler(pseudoArrayInput)
     python.unshift(['python', 0, 'from random import randint']);
   }
 
+  if (errorPresent == true) {
+    return [['pseudo', 0, 'not working']];
+  }
   return python.filter(i => i[2] != 'REMOVED');
 }
 
@@ -480,3 +508,4 @@ export function transpiler(pseudoArrayInput)
 // GLOBAL VARIABLES
 let python = null;
 let randomImport = false;
+let errorPresent = false;
