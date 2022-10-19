@@ -1,0 +1,70 @@
+implement function to execute converted python code
++ enable "executePythonCode" button
++ look into "Brython" and "PyScript"
+
+implement function to toggle visibility of pseudocode and python pane
++ convert pseudoSpan and pythonSpan into buttons
++ upon pressing either button, the respective editor pane should disappear
++ implement smooth transitions for editor pane appearance or disappearance
+
+add "about" button to <nav> detailing functionality of the webpage
+
+implement smooth transition for toggling visibility of pseudocode guide
+
+create functions to validate pseudocode
++ if validation returns false, highlight line in pseudoEditor which caused the error
+
+clean up code in viewPseudocodeGuide() function in pseudocode2python.js
+
+
+allow multiple string handling operations to be used on the same line
++ e.g., bvariable = (str(32), int('32')).length
+
+mention switch case isnt supported
+
+support in-line commenting
+
+support if statement without the 'then' keyword
+
+write javascript for "view past paper pseudocode" button
++ drop down button with pseudocode from past papers
+
+add hyperlink to github profile
++ use github-original.svg
+
+dont allow ().left(), ().right(), ().upper(), or ().lower() to be entered
+
+dont alllow 'hello'.substring or similar to be typed
+
+add home button to pseudocode2python.html
+
+support inline comments for pseudocode to python transpiler
+
+test for missing endwhile endfunction etc.
+
+prevent keywords inside strings from being changed
++ e.g. "hello AND world" shouldn't transpile to "hello and world"
+
+optimise Operators() function and functions with similar implementations
++ e.g. use dictionaries instead of several for loops
+
+validate inputted pseudocode
++ ensure all brackets are paired and of the same type
++ prevent more than one variable declarer  on the same line
+  only one of {const, let, var, global} per line
+
+optimise javascript
++ abstract section with "if (beforeBracket != null)"
+
+implement FileHandling() function in pseudocode2python_transpiler.js
+
+implement tailwind.css to replace alert() function when displaying errors
+
+implement "for i to j" in IterationCountControlled() 
+
+LIST OF RESERVED KEYWORDS
+--- --- --- --- --- --- --- ---
+AND, OR, NOT, MOD, DIV
+procedure, function
+//
+const, let, var, global

@@ -1,70 +1,34 @@
-implement function to execute converted python code
-+ enable "executePythonCode" button
-+ look into "Brython" and "PyScript"
-
-implement function to toggle visibility of pseudocode and python pane
-+ convert pseudoSpan and pythonSpan into buttons
-+ upon pressing either button, the respective editor pane should disappear
-+ implement smooth transitions for editor pane appearance or disappearance
-
-add "about" button to <nav> detailing functionality of the webpage
-
-implement smooth transition for toggling visibility of pseudocode guide
-
-create functions to validate pseudocode
-+ if validation returns false, highlight line in pseudoEditor which caused the error
-
-clean up code in viewPseudocodeGuide() function in pseudocode2python.js
 
 
-allow multiple string handling operations to be used on the same line
-+ e.g., bvariable = (str(32), int('32')).length
 
-mention switch case isnt supported
+!! PADDING N MARGINS N STUFF FOR right_Project.svelte
 
-support in-line commenting
+!! CHECK FOR fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
 
-support if statement without the 'then' keyword
+!! implement iframe
 
-write javascript for "view past paper pseudocode" button
-+ drop down button with pseudocode from past papers
+!! go to sleep
 
-add hyperlink to github profile
-+ use github-original.svg
++page.svelte
+	use absolute units for height of componets (to enable scrolling instead of component resize)
+  use grid instead of manual paddings onto each component
 
-dont allow ().left(), ().right(), ().upper(), or ().lower() to be entered
+  look into using border instead of padding to remove extra div wrapper around components
 
-dont alllow 'hello'.substring or similar to be typed
+right_Projects.svelte
+  prevent overflow of 'language' elements (probablly with flex)
 
-add home button to pseudocode2python.html
+left_Profile.svelte
+  (n) implement image as an SVG
+  (x) figure out how to redirect to GitHub profile when image is clicked
+  (x) prevent image distortion when component is resized
 
-support inline comments for pseudocode to python transpiler
+left_Repositories.svelte
+  check github api works with repository cards
 
-test for missing endwhile endfunction etc.
+  add section title e.g. "Repositories & Contributions"
+    use {font-size: 1.25vw; font-family: 'cabin';color: black;}
 
-prevent keywords inside strings from being changed
-+ e.g. "hello AND world" shouldn't transpile to "hello and world"
+  fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
 
-optimise Operators() function and functions with similar implementations
-+ e.g. use dictionaries instead of several for loops
-
-validate inputted pseudocode
-+ ensure all brackets are paired and of the same type
-+ prevent more than one variable declarer  on the same line
-  only one of {const, let, var, global} per line
-
-optimise javascript
-+ abstract section with "if (beforeBracket != null)"
-
-implement FileHandling() function in pseudocode2python_transpiler.js
-
-implement tailwind.css to replace alert() function when displaying errors
-
-implement "for i to j" in IterationCountControlled() 
-
-LIST OF RESERVED KEYWORDS
---- --- --- --- --- --- --- ---
-AND, OR, NOT, MOD, DIV
-procedure, function
-//
-const, let, var, global
+  use svelte {#each} to create repository cards
