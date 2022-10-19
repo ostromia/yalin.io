@@ -34,7 +34,7 @@
   <!-- </div> -->
 </div>
 
-<style>
+<style lang="scss">
   :root {
     --k: calc(2.5s);
   }
@@ -43,8 +43,6 @@
     height: 10vh;
     width: 50vw;
 
-    border: 0;
-    margin: 0;
     padding: 0.5rem 0.5rem 0.5rem 1rem;
     box-sizing: border-box;
 

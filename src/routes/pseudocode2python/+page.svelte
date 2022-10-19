@@ -8,21 +8,20 @@
 
 <iframe title="Python Interpreter" src={url}></iframe>
 
-<style>
-  :global(body) {
+<style lang="scss">
+  @mixin full-screen {
     height: 100vh;
     width: 100vw;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #2e323b;
-  }
-
-iframe {
-    height: 100%;
-    width: 100%;
     border: 0;
     margin: 0;
     padding: 0;
   }
+
+  :global(body) {
+    @include full-screen;
+    overflow: hidden;
+    background-color: #2e323b;
+  }
+
+  iframe { @include full-screen }
 </style>

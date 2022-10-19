@@ -31,26 +31,29 @@
 </script>
 
 <div id="container" style="grid-column:{column}; grid-row:{row}; {cssThemeVariables}">
-  <div>
-    <div id="title">
-      <svg height="16" width="16" viewBox="0 0 16 16" version="1.1">
-        <path fill-rule="evenodd" d={repositoryIcon}></path>
-      </svg>
-      <a href="{data.html_url}">{data.name}</a>
-    </div>
+  <div id="title">
+    <svg><path fill-rule="evenodd" d={repositoryIcon}></path></svg>
+    &nbsp<a href="{data.html_url}">{data.name}</a>
+  </div>
 
-    <div id="languages">
-      <span id="language-span-icon"></span>
-      <span id="language-span-text">{data.language}</span>
-    </div>
+  <div id="languages">
+    <span id="languageSpanColor"></span>
+    &nbsp<span id="languageSpanText">{data.language}</span>
+  </div>
 
-    <div id="description">
-      {data.description}
-    </div>
+  <div id="description">
+    {data.description}
   </div>
 </div>
 
 <style lang="scss">
+  @mixin flex-setup {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: centre;
+  }
+
   #container {
     height: 100%;
     width: 100%;
@@ -68,36 +71,34 @@
     flex-direction: column;
   }
 
-  #title {
-    height: 2rem;
+  #title, #languages { @include flex-setup }
 
-    display: flex;
-    align-items: center;
+  #title > svg {
+    height: 1rem;
+    width: 1rem;
 
-    > svg {fill: var(--color) }
+    margin: 0 0.2rem 0 0;
 
-    > a {
-      color: var(--link-color);
-      text-decoration: none;
-     }
+    fill: var(--color);
   }
 
-  #languages {
-    height: 2rem;
-
-    display: flex;
-    align-items: center;
+  #title > a {
+    color: var(--link-color);
+    text-decoration: none;
   }
 
-  #language-span-icon {
-    height: 12px;
-    width: 12px;
+  #languages { padding: 0.2rem 0 0 0 }
+
+  #languages > #languageSpanColor {
+    height: 0.8rem;
+    width: 0.8rem;
+
+    top: 1px;
+    margin: 0 0.3rem 0 0.1rem;
     border-radius: 100%;
+
+    position: relative;
+
     background-color: var(--language-color);
   }
-
-  // MANUAL POSITIONING
-  #title > a { margin: 0 0 3px 5px }
-
-  #language-span-text { margin: -5px 0 0 5px }
 </style>

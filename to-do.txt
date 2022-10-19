@@ -1,34 +1,36 @@
+(x) fix padding and margins @ right_Projects.svelte
 
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ right_Projects.svelte
 
+(n) implement image as an SVG @ left_Profile.svelte
 
-!! PADDING N MARGINS N STUFF FOR right_Project.svelte
+(x) figure out how to redirect to GitHub profile when image is clicked @ left_Profile.svelte
 
-!! CHECK FOR fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
+(x) prevent image distortion when component is resized @ left_Profile.svelte
 
-!! implement iframe
+implement github api to retrive data for repository cards @ left_Repositories.svelte
 
-!! go to sleep
+(x) add section title e.g. "Repositories & Contributions" @ left_Repositories.svelte
+    use {font-size: 1.25vw; font-family: 'cabin'; color: black;}
 
-+page.svelte
-	use absolute units for height of componets (to enable scrolling instead of component resize)
-  use grid instead of manual paddings onto each component
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ left_Repositories.svelte
 
-  look into using border instead of padding to remove extra div wrapper around components
+use svelte {#each} to create repository cards @ left_Repositories.svelte
 
-right_Projects.svelte
-  prevent overflow of 'language' elements (probablly with flex)
+use grid instead of manual paddings onto each component @ /+page.svelte
 
-left_Profile.svelte
-  (n) implement image as an SVG
-  (x) figure out how to redirect to GitHub profile when image is clicked
-  (x) prevent image distortion when component is resized
+(x) look into using border instead of padding to remove extra div wrapper around components @ /+page.svelte
 
-left_Repositories.svelte
-  check github api works with repository cards
+prevent overflow of 'language' elements (probablly with flex) @ right_Projects.svelte
 
-  add section title e.g. "Repositories & Contributions"
-    use {font-size: 1.25vw; font-family: 'cabin';color: black;}
+(x) use absolute units for height of componets (to enable scrolling instead of component resize) @ /+page.svelte
 
-  fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
+(x) fix padding and margins @ right_Projects.svelte
 
-  use svelte {#each} to create repository cards
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ right_Projects.svelte
+
+(x) implement psuedocode2python.html and pythonInterpreter.html as iframes
+
+redevelop psuedocode2python.html and pythonInterpreter.html using svelte framework
+
+(x) improve styling and positioning for 'github repository cards'

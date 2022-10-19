@@ -15,7 +15,7 @@
       src: url("./Cabin-VariableFont_wdth,wght.ttf");
     }
     ::-webkit-scrollbar {
-      /* height: 0.5rem; */
+      height: 0.5rem;
       width: 0.5vw;
     }
     ::-webkit-scrollbar-track {
@@ -46,33 +46,24 @@
   </div>
 </main>
 
-<style>
-  :global(body) {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    box-sizing: border-box;
-  }
+<style lang="scss">
+  :global(body) { margin: 0 }
 
   main {
     width: 100%;
 
-    margin: 0;
     padding-top: 5vh;
 
-    background-color: #2e323b;
+    background-color: $bc;
 
     display: flex;
 
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
   }
 
   #left, #right {
     width: 50vw;
-
-    margin: 0;
-    padding: 0;
 
     display: flex;
     flex-direction: column;
