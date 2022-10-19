@@ -1,0 +1,34 @@
+
+
+
+!! PADDING N MARGINS N STUFF FOR right_Project.svelte
+
+!! CHECK FOR fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
+
+!! implement iframe
+
+!! go to sleep
+
++page.svelte
+	use absolute units for height of componets (to enable scrolling instead of component resize)
+  use grid instead of manual paddings onto each component
+
+  look into using border instead of padding to remove extra div wrapper around components
+
+right_Projects.svelte
+  prevent overflow of 'language' elements (probablly with flex)
+
+left_Profile.svelte
+  (n) implement image as an SVG
+  (x) figure out how to redirect to GitHub profile when image is clicked
+  (x) prevent image distortion when component is resized
+
+left_Repositories.svelte
+  check github api works with repository cards
+
+  add section title e.g. "Repositories & Contributions"
+    use {font-size: 1.25vw; font-family: 'cabin';color: black;}
+
+  fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom)
+
+  use svelte {#each} to create repository cards
