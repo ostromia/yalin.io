@@ -68,17 +68,19 @@
 
 <style>
 #container {
-  height: 50vh;
+  min-height: 50vh;
   width: 50vw;
 
   border: 0;
   margin: 0;
   padding: 0.5rem 0.5rem 1rem 1rem;
   box-sizing: border-box;
+
+  overflow-x: hidden;
 }
 
 #repository-grid {
-  height: 100%;
+  min-height: 100%;
   width: 100%;
 
   border: 0;
@@ -89,8 +91,6 @@
   grid-template-rows: 1fr 1fr 1fr;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.5rem;
-
-  overflow: auto;
 }
 
 /* #container, #repository-grid { overflow-y: visible } */

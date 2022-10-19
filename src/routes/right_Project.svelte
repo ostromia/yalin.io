@@ -26,8 +26,8 @@
   // };
 </script>
 
-<!-- <div> -->
-  <div id="container">
+<div id="container">
+  <div id="container2">
     <div id="title">
       <svg height="16" width="16" viewBox="0 0 16 16" version="1.1">
         <path fill-rule="evenodd" d={repositoryIcon}></path>
@@ -56,15 +56,13 @@
     </div>
 
     <div id="image_container">
-      <div>
-        <img alt="" on:click={go_p2p} id="image_p2p" style="margin-top: 1rem" src="Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg">
-      </div>
-      <div>
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
+        <img alt="" on:click={go_p2p} id="image_p2p" src="Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <img alt="" id="image_pi" on:click={go_pi} src="Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg">
-      </div>
     </div>
   </div>
-<!-- </div> -->
+</div>
 
 <style lang="scss">
   $background-color: rgb(33, 37, 43);
@@ -72,23 +70,30 @@
   $link-color: rgb(88, 166, 255);
 
   #container {
-    height: 100%;
+    width: 100%;
+    padding: 1rem 0.5rem 1rem 0.5rem;
+    box-sizing: border-box;
+  }
+
+  #container2 {
     width: 100%;
 
+    margin: 0;
     padding: 1rem;
-    border-radius: 0.5rem;
     box-sizing: border-box;
+
+    border-radius: 0.5rem;
 
     background-color: $background-color;
 
-    overflow: auto;
+    overflow-x: hidden;
   }
 
   $lh: 25px;
   $th: 16px;
 
   #title {
-    height: $lh;
+    height: 2rem;
     width: 100%;
 
     display: flex;
@@ -103,9 +108,12 @@
       text-decoration: none;
     }
   }
+
   #languages {
-    height: $lh;
+    height: 2rem;
     width: 100%;
+
+    // background-color: green;
 
     display: flex;
     align-items: center;
@@ -122,12 +130,13 @@
     font-family: Segoe UI;
     color: $link-color;
     text-decoration: none;
+
+    // background-color: red;
   }
 
   #title > a {margin-left: 5px; align-self: start; }
-  .language-span-text { margin-left: 5px; align-self: start; }
+  .language-span-text { margin-left: 5px; margin-top: -5px; }
   .language-span-icon { margin-left: 15px }
-  #html5-span-icon { margin-left: 0 !important }
 
   #javascript-span-icon { background-color: #f1e05a }
   #html5-span-icon      { background-color: #e34c26 }
@@ -144,16 +153,17 @@
 
     display: flex;
     flex-direction: column;
-
-    > div {
-      > img {
-        border: 2px solid white;
-        width: 100%;
-        cursor: pointer;
-        margin-bottom: 1rem;
-      }
-    }
   }
+
+  img {
+        border: 2px solid white;
+        // width: 100%;
+        // width: 100%;
+        cursor: pointer;
+        max-width: 100%;
+        margin-top: 1rem;
+        // margin-bottom: 1rem;
+    }
 </style>
 
 <!-- <style lang="scss">

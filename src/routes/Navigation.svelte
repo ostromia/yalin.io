@@ -6,6 +6,8 @@
 nav {
   height: 5vh;
   width: 100%;
+  position: fixed;
+  z-index: 99;
   background-color: #21252B;
   display: flex;
   align-items: center;

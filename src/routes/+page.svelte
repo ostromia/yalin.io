@@ -30,26 +30,21 @@
   </style>
 </svelte:head>
 
-
 <Navigation/>
 
-<!-- <div id="container"> -->
-  <main>
-    <div style="height: 200vh"></div>
+<main>
+  <div id="left">
+    <Profile/>
+    <Devicons/>
+    <Title text="Repositories & Contributions"/>
+    <Repositories/>
+  </div>
 
-    <div id="left">
-      <Profile/>
-      <Devicons/>
-      <Title text="Repositories & Contributions"/>
-      <Repositories/>
-    </div>
-
-    <div id="right">
-      <Title style="margin-top: 1rem" text="Projects"/>
-      <div style="height: calc(90vh - 1rem); width: 100%; margin: 0; padding: 1rem; box-sizing: border-box"><Projects/>
-    </div>
-  </main>
-<!-- </div> -->
+  <div id="right">
+    <Title style="margin-top: 1rem" text="Projects"/>
+    <Projects/>
+  </div>
+</main>
 
 <style>
   :global(body) {
@@ -60,21 +55,20 @@
   }
 
   main {
-    height: 95vh;
     width: 100%;
+
+    margin: 0;
+    padding-top: 5vh;
+
+    background-color: #2e323b;
 
     display: flex;
 
-    margin: 0;
-    padding: 0;
-
-    overflow: hidden;
-
-    background-color: #2e323b;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   #left, #right {
-    height: 95vh;
     width: 50vw;
 
     margin: 0;
