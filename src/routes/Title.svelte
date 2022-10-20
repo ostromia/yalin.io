@@ -12,7 +12,7 @@
     line-height: $lh;
     text-align: center;
     font-family: 'cabin';
-    font-size: $lh;
+    font-size: 2rem;
     color: white;
     z-index: 2;
   }

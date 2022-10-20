@@ -36,7 +36,7 @@
   <div id="left">
     <Profile/>
     <Devicons/>
-    <Title text="Repositories & Contributions"/>
+    <Title style="margin-top: 0.5rem" text="Repositories & Contributions"/>
     <Repositories/>
   </div>
 

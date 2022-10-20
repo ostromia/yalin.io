@@ -1,105 +1,95 @@
-<div>
-  <!-- <div> -->
-    <!-- <div id="cDevicon"> -->
-      <img alt="" src="devicon/c-original.svg">
-    <!-- </div> -->
+<script lang="ts">
+  const devicons: string[] = [
+    "devicon/c-original.svg",
+    "devicon/python-original.svg",
+    "devicon/javascript-original.svg",
+    "devicon/html5-original.svg",
+    "devicon/css3-original.svg",
+    "devicon/svelte-original.svg",
+    "devicon/flask-original.svg",
+    "devicon/sqlite-original.svg"
+  ];
+</script>
 
-    <!-- <div id="pythonDevicon"> -->
-      <img alt="" src="devicon/python-original.svg">
-    <!-- </div> -->
 
-    <!-- <div id="javascriptDevicon"> -->
-      <img alt="" src="devicon/javascript-original.svg">
-    <!-- </div> -->
+<div id="gradient-to-left"></div>
+<div id="gradient-to-right"></div>
 
-    <!-- <div id="html5Devicon"> -->
-      <img alt="" src="devicon/html5-original.svg">
-    <!-- </div> -->
+<div id="container">
+    <ul id="list">
+      {#each devicons as path}
+        <li class="image"><img alt="" src={path}></li>
+      {/each}
 
-    <!-- <div id="css3Devicon"> -->
-      <img alt="" src="devicon/css3-original.svg">
-    <!-- </div> -->
-
-    <!-- <div id="svelteDevicon"> -->
-      <img alt="" src="devicon/svelte-original.svg">
-    <!-- </div> -->
-
-    <!-- <div id="flaskDevicon"> -->
-      <img alt="" src="devicon/flask-original.svg">
-    <!-- </div> -->
-
-    <!-- <div id="sqliteDevicon"> -->
-      <img alt="" src="devicon/sqlite-original.svg">
-    <!-- </div> -->
-  <!-- </div> -->
-</div>
+      {#each devicons as path}
+        <li class="image"><img alt="" src={path}></li>
+      {/each}
+    </ul>
+  </div>
 
 <style lang="scss">
-  :root {
-    --k: calc(2.5s);
-  }
+  $height: calc(10vh - 1rem);
+  $width: calc(50vw - 1.5rem);
 
-  div {
-    height: 10vh;
-    width: 50vw;
+  $transform: translateX(calc(-200px * 5));
+  $animation: translate 10s linear infinite;
+  @-webkit-keyframes translate { 100% { transform: $transform } }
+  @keyframes         translate { 100% { transform: $transform } }
 
-    padding: 0.5rem 0.5rem 0.5rem 1rem;
-    box-sizing: border-box;
-
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-  }
-
-  div > img {
-    height: 80%;
-    width: 80%;
-  }
-
-
-  /* div > div {
-    height: 100%; width: 100%;
-    padding: 0; margin: 0; border: 0;
-
-    position: relative;
-
-    overflow: hidden;
-  } */
-
-  /* div > div > div {
-    height: 8vh; width: 8vh;
-    padding: 0; margin: 0; border: 0;
-
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-
+  @mixin gradient-setup {
+    height: $height;
+    width: calc($width / 2);
 
     position: absolute;
-    left: -8vh;
+    top: calc(5vh + 0.5rem + 30vh + 0.5rem);
 
-    animation: cloud 20s linear infinite;
-  } */
+    z-index: 99;
+  }
 
-  /* div > div > div > img {
-    height: 95%;
-    width: 95%;
-  } */
+  #gradient-to-right {
+    @include gradient-setup;
+    left: 1rem;
+    background: linear-gradient(to right, $bc 0%, transparent 50%);
+  }
 
-  /* @keyframes cloud {
-    to {
-      transform: translateX( calc(50vw + 8vh) );
+  #gradient-to-left {
+    @include gradient-setup;
+    left: calc(1rem + calc($width / 2));
+    background: linear-gradient(to left, $bc 0%, transparent 50%);
+  }
+
+  #container {
+    height: $height;
+    width: $width;
+
+    margin-top: 1rem !important; //separate attribute as a reminder
+    margin: 0.5rem 0.5rem 0.5rem 1rem;
+
+    overflow: hidden;
+
+    display: flex;
+  }
+
+  ul {
+    width: calc(200px * 10);
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+
+    > li {
+      width: 10vw;
+
+      display: flex;
+      flex: 1;
+      justify-content: center;
+      align-items: center;
+
+      -webkit-animation: $animation;
+      animation: $animation;
+
+      > img { height: 7.5vh; }
     }
-  } */
-
-  /* #cDevicon {          animation-delay: 0s !important;                 }
-  #pythonDevicon {     animation-delay: calc(1 * var(--k)) !important; }
-  #javascriptDevicon { animation-delay: calc(2 * var(--k)) !important; }
-  #html5Devicon {      animation-delay: calc(3 * var(--k)) !important; }
-  #css3Devicon {       animation-delay: calc(4 * var(--k)) !important; }
-  #svelteDevicon {     animation-delay: calc(5 * var(--k)) !important; }
-  #flaskDevicon {      animation-delay: calc(6 * var(--k)) !important; }
-  #sqliteDevicon {     animation-delay: calc(7 * var(--k)) !important; } */
+  }
 </style>
