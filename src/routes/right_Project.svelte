@@ -6,6 +6,15 @@
 
   const repositoryIcon: string = "M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z";
 
+  const languages = [
+    {'name': 'HTML', 'color': '#e34c26'},
+    {'name': 'Svelte', 'color': '#ff3e00'},
+    {'name': 'JavaScript', 'color': '#f1e05a'},
+    {'name': 'TypeScript', 'color': '#3178c6'},
+    {'name': 'CSS', 'color': '#563d7c'},
+    {'name': 'Sass', 'color': '#a53b70'}
+  ];
+
   let data: any = {};
   data.html_url = `https://github.com/berkay-yalin/berkay-yalin.io`
   data.name = "berkay-yalin.io";
@@ -23,23 +32,12 @@
     </div>
 
     <div id="languages">
-      <span class="language-span-icon" id="html5-span-icon"></span>
-      <span class="language-span-text">HTML</span>
-
-      <span class="language-span-icon" id="svelte-span-icon"></span>
-      <span class="language-span-text">Svelte</span>
-
-      <span class="language-span-icon" id="javascript-span-icon"></span>
-      <span class="language-span-text">JavaScript</span>
-
-      <span class="language-span-icon" id="typescript-span-icon"></span>
-      <span class="language-span-text">TypeScript</span>
-
-      <span class="language-span-icon" id="css3-span-icon"></span>
-      <span class="language-span-text">CSS</span>
-
-      <span class="language-span-icon" id="sass-span-icon"></span>
-      <span class="language-span-text">Sass</span>
+      {#each languages as {name, color}}
+        <div>
+          <div class="language-icon" id="{name.toLowerCase()}-icon" style="background-color:{color}"></div>
+          <div class="language-text">{name}</div>
+        </div>
+      {/each}
     </div>
 
     <div id="image_container">
@@ -74,7 +72,7 @@
   }
 
   #title {
-    height: 2rem;
+    min-height: 2rem;
 
     display: flex;
     align-items: center;
@@ -87,25 +85,41 @@
      }
   }
 
+  #title > a { margin: 0 0 3px 5px }
+
+  $l_lh: 14px;
+
   #languages {
-    height: 2rem;
+    min-height: 2rem;
+    width: 100%;
 
     display: flex;
     align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    > div {
+      min-height: $l_lh;
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.5rem;
+    }
   }
 
-  .language-span-icon {
-    height: 12px;
-    width: 12px;
+  .language-icon {
+    height: $l_lh;
+    width: $l_lh;
     border-radius: 100%;
   }
 
-  #javascript-span-icon { background-color: #f1e05a }
-  #html5-span-icon      { background-color: #e34c26 }
-  #css3-span-icon       { background-color: #563d7c }
-  #svelte-span-icon     { background-color: #ff3e00 }
-  #sass-span-icon       { background-color: #a53b70 }
-  #typescript-span-icon { background-color: #3178c6 }
+  .language-text {
+    font-weight: bold;
+    line-height: $l_lh;
+    font-size: $l_lh;
+  }
+
+  #languages > div { margin-right: 15px }
+  .language-text { padding-left: 5px }
 
   #image_container {
     display: flex;
@@ -118,13 +132,5 @@
     cursor: pointer;
   }
 
-  // MANUAL POSITIONING
-  #title > a { margin: 0 0 3px 5px }
-
-  .language-span-text { margin: -5px 0 0 5px }
-
-  .language-span-icon { margin-left: 15px }
-  #html5-span-icon { margin-left: 0 !important }
-
-  img { margin-top: 1rem }
+  #image_p2p { margin-bottom: 1rem; }
 </style>

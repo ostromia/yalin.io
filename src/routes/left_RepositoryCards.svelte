@@ -15,23 +15,16 @@
   data.description = description;
   data.language = language;
 
-  const theme = {
-    backgroundColor: '#21252B',
-    borderColor: 'rgb(48, 54, 61)',
-    color: 'rgb(139, 148, 158)',
-    linkColor: 'rgb(88, 166, 255)',
-    languageColor: githubLanguageColors[data.language]
-  }
   const cssThemeVariables = `
-    --background-color: ${theme.backgroundColor};
-    --color: ${theme.color};
-    --link-color: ${theme.linkColor};
-    --language-color: ${theme.languageColor}
+    --background-color: #21252B;
+    --border-color: rgb(48, 54, 61);
+    --color: rgb(139, 148, 158);
+    --link-color: rgb(88, 166, 255);
+    --language-color: ${githubLanguageColors[data.language]}
   `;
 </script>
 
-<div id="repository-container" style="grid-column:{column}; grid-row:{row}; {cssThemeVariables}">
-  <div>
+<div id="card-container" style="grid-column:{column}; grid-row:{row}; {cssThemeVariables}">
     <div id="title">
       <svg height="16" width="16" viewBox="0 0 16 16" version="1.1">
         <path fill-rule="evenodd" d={repositoryIcon}></path>
@@ -40,20 +33,30 @@
     </div>
 
     <div id="languages">
-      <span id="language-span-icon"></span>
-      <span id="language-span-text">{data.language}</span>
+        <div>
+          <div class="language-icon" id="language-span-icon"></div>
+          <div class="language-text" id="language-span-text">{language}</div>
+        </div>
     </div>
 
     <div id="description">
       {data.description}
     </div>
-  </div>
 </div>
 
 <style lang="scss">
-  #repository-container {
-    height: 100%;
-    width: 100%;
+  $background-color: var(--background-color);
+  $border-color: var(--border-color);
+  $color: var(--color);
+  $link-color: var(--link-color);
+  $language-color: var(--language-color);
+
+  $title-height: 16px;
+  $language-height: 14px;
+
+  #card-container {
+    min-height: 100%;
+    // width: 100%;
 
     padding: 1rem;
     border-radius: 0.5rem;
@@ -61,43 +64,63 @@
 
     font-family: Segoe UI;
 
-    color: var(--color);
-    background-color: var(--background-color);
+    color: $color;
+    background-color: $background-color;
 
     display: flex;
     flex-direction: column;
   }
 
+  #card-container > div { margin-bottom: 1vh; max-width: 100%; }
+
+
   #title {
-    height: 2rem;
+    min-height: $title-height;
 
     display: flex;
     align-items: center;
 
-    > svg {fill: var(--color) }
+    > svg {fill: $color }
 
     > a {
-      color: var(--link-color);
+      color: $link-color;
       text-decoration: none;
-     }
+      line-height: $title-height;
+      font-size: $title-height;
+    }
   }
 
+  #title > a { margin: 0 0 3px 5px }
+
   #languages {
-    height: 2rem;
+    height: $language-height;
+    width: 100%;
 
     display: flex;
     align-items: center;
+    justify-content: start;
+    flex-wrap: wrap;
+
+    > div {
+      min-height: $language-height;
+      display: flex;
+      align-items: center;
+    }
   }
 
   #language-span-icon {
-    height: 12px;
-    width: 12px;
+    height: $language-height;
+    width: $language-height;
     border-radius: 100%;
-    background-color: var(--language-color);
+    background-color: $language-color;
   }
 
-  // MANUAL POSITIONING
-  #title > a { margin: 0 0 3px 5px }
+  #language-span-text {
+    line-height: $language-height;
+    font-size: $language-height;
+  }
 
-  #language-span-text { margin: -5px 0 0 5px }
+  #languages > div { margin-right: 15px }
+  #language-span-text { padding-left: 5px }
+
 </style>

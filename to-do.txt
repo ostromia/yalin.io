@@ -37,4 +37,8 @@ redevelop psuedocode2python.html and pythonInterpreter.html using svelte framewo
 
 (x) update scrollbar apperance
 
-replace manual html with svelte {#each} block for languages div @ right_Project.svelte
+(x) replace manual html with svelte {#each} block for languages div @ right_Project.svelte
+
+add titles for project images @ right_Project.svelte
+
+fix resizing issues with devicon animations @ left_Devicons.svelte

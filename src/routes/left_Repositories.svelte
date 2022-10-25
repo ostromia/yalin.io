@@ -22,7 +22,7 @@
     min-height: 55vh;
 
     display: grid;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr auto;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
   }
