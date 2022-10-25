@@ -11,25 +11,24 @@
   ];
 </script>
 
+<div id="devicon-container">
+  <div id="gradient-to-left"></div>
+  <div id="gradient-to-right"></div>
 
-<div id="gradient-to-left"></div>
-<div id="gradient-to-right"></div>
+  <ul id="list">
+    {#each devicons as path}
+      <li class="image"><img alt="" class="devicon" src={path}></li>
+    {/each}
 
-<div id="container">
-    <ul id="list">
-      {#each devicons as path}
-        <li class="image"><img alt="" src={path}></li>
-      {/each}
-
-      {#each devicons as path}
-        <li class="image"><img alt="" src={path}></li>
-      {/each}
-    </ul>
-  </div>
+    {#each devicons as path}
+      <li class="image"><img alt="" class="devicon" src={path}></li>
+    {/each}
+  </ul>
+</div>
 
 <style lang="scss">
-  $height: calc(10vh - 1rem);
-  $width: calc(50vw - 1.5rem);
+  $height: 10vh;
+  $width: 100%;
 
   $transform: translateX(calc(-200px * 5));
   $animation: translate 10s linear infinite;
@@ -39,57 +38,50 @@
   @mixin gradient-setup {
     height: $height;
     width: calc($width / 2);
-
     position: absolute;
-    top: calc(5vh + 0.5rem + 30vh + 0.5rem);
-
     z-index: 99;
   }
 
   #gradient-to-right {
     @include gradient-setup;
-    left: 1rem;
     background: linear-gradient(to right, $bc 0%, transparent 50%);
   }
 
   #gradient-to-left {
     @include gradient-setup;
-    left: calc(1rem + calc($width / 2));
+    left: calc(50%);
     background: linear-gradient(to left, $bc 0%, transparent 50%);
   }
 
-  #container {
+  #devicon-container {
     height: $height;
     width: $width;
 
-    margin-top: 1rem !important; //separate attribute as a reminder
-    margin: 0.5rem 0.5rem 0.5rem 1rem;
-
     overflow: hidden;
+
+    position: relative;
 
     display: flex;
   }
 
   ul {
     width: calc(200px * 10);
-
     margin: 0;
     padding: 0;
 
     display: flex;
-
-    > li {
-      width: 10vw;
-
-      display: flex;
-      flex: 1;
-      justify-content: center;
-      align-items: center;
-
-      -webkit-animation: $animation;
-      animation: $animation;
-
-      > img { height: 7.5vh; }
-    }
   }
+
+  ul > li {
+    width: 10vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    -webkit-animation: $animation;
+    animation: $animation;
+  }
+
+  .devicon { height: 7.5vh }
 </style>

@@ -17,7 +17,7 @@ implement github api to retrive data for repository cards @ left_Repositories.sv
 
 use svelte {#each} to create repository cards @ left_Repositories.svelte
 
-use grid instead of manual paddings onto each component @ /+page.svelte
+(x) use grid instead of manual paddings onto each component @ /+page.svelte
 
 (x) look into using border instead of padding to remove extra div wrapper around components @ /+page.svelte
 
@@ -34,3 +34,7 @@ prevent overflow of 'language' elements (probablly with flex) @ right_Projects.s
 redevelop psuedocode2python.html and pythonInterpreter.html using svelte framework
 
 (x) improve styling and positioning for 'github repository cards'
+
+update scrollbar apperance
+
+replace manual html with svelte {#each} block for languages div @ right_Project.svelte

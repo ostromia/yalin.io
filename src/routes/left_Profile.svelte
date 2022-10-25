@@ -6,30 +6,23 @@
 
 <style lang="scss">
   div {
-    height: 30vh;
-    width: 50vw;
-
-    padding: 1rem 0.5rem 0.5rem 1rem;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
-  }
-
-  div > a {
-    height: 100%;
     width: 100%;
-
-    padding: 0 0.5rem 0 0.5rem;
-    border-radius: 0.5rem;
-    box-sizing: border-box;
 
     background-color: $fc;
 
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+
+    overflow: hidden; // so border-radius is overlapped
+  }
+
+  div > a {
     display: flex;
-    justify-items: center;
+    justify-content: center;
   }
 
   div > a > img {
-    width: 100%;
+    max-width: 100%;
     cursor: pointer;
   }
 </style>

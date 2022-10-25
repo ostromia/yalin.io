@@ -13,7 +13,7 @@
   data.language = "JavaScript";
 </script>
 
-<div id="container">
+<div id="project-container">
   <div>
     <div id="title">
       <svg height="16" width="16" viewBox="0 0 16 16" version="1.1">
@@ -56,10 +56,8 @@
   $color: rgb(139, 148, 158);
   $link-color: rgb(88, 166, 255);
 
-  #container {
+  #project-container {
     width: 100%;
-    padding: 1rem 0.5rem 1rem 0.5rem;
-    box-sizing: border-box;
 
     > div {
       padding: 1rem;

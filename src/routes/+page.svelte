@@ -14,57 +14,48 @@
       font-family: 'cabin';
       src: url("./Cabin-VariableFont_wdth,wght.ttf");
     }
-    ::-webkit-scrollbar {
-      height: 0.5rem;
-      width: 0.5vw;
-    }
-    ::-webkit-scrollbar-track {
-      background: none;
-    }
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-    }
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
   </style>
 </svelte:head>
 
 <Navigation/>
+<div style="height: 5vh"></div>
 
 <main>
-  <div id="left">
+  <section id="left">
     <Profile/>
+    <div style="height: 1rem"></div>
     <Devicons/>
-    <Title style="margin-top: 0.5rem" text="Repositories & Contributions"/>
+    <div style="height: 1rem"></div>
+    <Title text="Repositories & Contributions"/>
     <Repositories/>
-  </div>
+  </section>
 
-  <div id="right">
-    <Title style="margin-top: 1rem" text="Projects"/>
+  <section id="right">
+    <Title text="Projects"/>
     <Projects/>
-  </div>
+  </section>
 </main>
 
 <style lang="scss">
-  :global(body) { margin: 0 }
+  :global(html) { background-color: $bc }
+
+  :global(body) { margin: 0 !important }
 
   main {
-    width: 100%;
+    height: 95vh;
 
-    padding-top: 5vh;
-
-    background-color: $bc;
-
-    display: flex;
+    padding: 1rem;
+    box-sizing: border-box;
 
     overflow-y: scroll;
-    overflow-x: hidden;
+
+    display: grid;
+    grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+    grid-template-rows: auto;
+    gap: 1rem;
   }
 
   #left, #right {
-    width: 50vw;
-
     display: flex;
     flex-direction: column;
   }

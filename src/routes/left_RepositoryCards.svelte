@@ -30,7 +30,7 @@
   `;
 </script>
 
-<div id="container" style="grid-column:{column}; grid-row:{row}; {cssThemeVariables}">
+<div id="repository-container" style="grid-column:{column}; grid-row:{row}; {cssThemeVariables}">
   <div>
     <div id="title">
       <svg height="16" width="16" viewBox="0 0 16 16" version="1.1">
@@ -51,7 +51,7 @@
 </div>
 
 <style lang="scss">
-  #container {
+  #repository-container {
     height: 100%;
     width: 100%;
 
