@@ -35,6 +35,6 @@ redevelop psuedocode2python.html and pythonInterpreter.html using svelte framewo
 
 (x) improve styling and positioning for 'github repository cards'
 
-update scrollbar apperance
+(x) update scrollbar apperance
 
 replace manual html with svelte {#each} block for languages div @ right_Project.svelte
