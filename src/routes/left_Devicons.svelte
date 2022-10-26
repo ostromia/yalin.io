@@ -15,28 +15,28 @@
   <div id="gradient-to-left"></div>
   <div id="gradient-to-right"></div>
 
-  <ul id="list">
+  <div class="devicon-strip">
     {#each devicons as path}
-      <li class="image"><img alt="" class="devicon" src={path}></li>
+      <div class="devicon-wrapper">
+        <img alt="" class="devicon" src={path}>
+      </div>
     {/each}
+  </div>
 
+  <div class="devicon-strip">
     {#each devicons as path}
-      <li class="image"><img alt="" class="devicon" src={path}></li>
+      <div class="devicon-wrapper">
+        <img alt="" class="devicon" src={path}>
+      </div>
     {/each}
-  </ul>
+  </div>
 </div>
 
 <style lang="scss">
-  $height: 10vh;
   $width: 100%;
 
-  $transform: translateX(calc(-200px * 5));
-  $animation: translate 10s linear infinite;
-  @-webkit-keyframes translate { 100% { transform: $transform } }
-  @keyframes         translate { 100% { transform: $transform } }
-
   @mixin gradient-setup {
-    height: $height;
+    height: 10vh;
     width: calc($width / 2);
     position: absolute;
     z-index: 99;
@@ -54,7 +54,6 @@
   }
 
   #devicon-container {
-    height: $height;
     width: $width;
 
     overflow: hidden;
@@ -64,24 +63,30 @@
     display: flex;
   }
 
-  ul {
-    width: calc(200px * 10);
-    margin: 0;
-    padding: 0;
+  @-webkit-keyframes translate { 100% { transform: translateX(calc(-1 * $width)) } }
+  @keyframes         translate { 100% { transform: translateX(calc(-1 * $width)) } }
+
+  .devicon-strip {
+    min-width: $width;
 
     display: flex;
-  }
-
-  ul > li {
-    width: 10vw;
-
-    display: flex;
-    justify-content: center;
     align-items: center;
 
-    -webkit-animation: $animation;
-    animation: $animation;
+    animation: translate 10s linear infinite;
   }
 
-  .devicon { height: 7.5vh }
+  .devicon-wrapper {
+    min-width: calc($width / 8);
+
+    display: flex;
+    align-items: center;
+  }
+
+  @media (min-width:800px) {  .devicon { max-height: 10vh     }  }
+  @media (max-width:800px) {  .devicon { width: calc(100 / 8) }  }
+
+  .devicon {
+    margin-left: 2vw;
+  }
+
 </style>

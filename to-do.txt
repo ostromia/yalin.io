@@ -21,7 +21,7 @@
 
 (x) look into using border instead of padding to remove extra div wrapper around components @ /+page.svelte
 
-prevent overflow of 'language' elements (probablly with flex) @ right_Projects.svelte
+(x) prevent overflow of 'language' elements (probablly with flex) @ right_Projects.svelte
 
 (x) use absolute units for height of componets (to enable scrolling instead of component resize) @ /+page.svelte
 
@@ -41,4 +41,4 @@ redevelop psuedocode2python.html and pythonInterpreter.html using svelte framewo
 
 add titles for project images @ right_Project.svelte
 
-fix resizing issues with devicon animations @ left_Devicons.svelte
+(x) fix resizing issues with devicon animations @ left_Devicons.svelte
