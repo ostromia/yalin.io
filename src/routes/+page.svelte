@@ -5,6 +5,9 @@
   import Devicons from './left_Devicons.svelte';
   import Repositories from './left_Repositories.svelte';
   import Projects from './right_Project.svelte';
+
+  let innerWidth: number = 0;
+  let innerHeight: number = 0;
 </script>
 
 <svelte:head>
@@ -22,23 +25,41 @@
   </style>
 </svelte:head>
 
+<svelte:window bind:innerWidth bind:innerHeight />
+
 <Navigation/>
 <div style="height: 5vh"></div>
 
 <main>
-  <section id="left">
-    <Profile/>
-    <div style="height: 1rem"></div>
-    <Devicons/>
-    <div style="height: 1rem"></div>
-    <Title text="Repositories & Contributions"/>
-    <Repositories/>
-  </section>
+  {#if innerWidth > 1000}
+    <section id="left">
+      <Profile/>
+      <div style="height: 1rem"></div>
+      <Devicons/>
+      <div style="height: 1rem"></div>
+      <Title text="Repositories & Contributions"/>
+      <Repositories/>
+    </section>
 
-  <section id="right">
-    <Title text="Projects"/>
-    <Projects/>
-  </section>
+    <section id="right">
+      <Title text="Projects"/>
+      <Projects/>
+    </section>
+  {/if}
+
+  {#if innerWidth < 1000}
+    <section id="singular">
+      <Profile/>
+      <div style="height: 1rem"></div>
+      <Devicons/>
+      <div style="height: 1rem"></div>
+      <Title text="Projects"/>
+      <Projects/>
+      <div style="height: 1rem"></div>
+      <Title text="Repositories & Contributions"/>
+      <Repositories/>
+    </section>
+{/if}
 </main>
 
 <style lang="scss">
@@ -48,20 +69,29 @@
 
   main {
     height: 95vh;
-
     padding: 1rem;
     box-sizing: border-box;
-
     overflow-y: scroll;
-
-    display: grid;
-    grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
-    grid-template-rows: auto;
-    gap: 1rem;
   }
 
-  #left, #right {
-    display: flex;
-    flex-direction: column;
-  }
+  @media (min-width:1000px) {
+    main {
+      display: grid;
+      grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+      grid-template-rows: auto;
+      gap: 1rem;
+    }
+
+    #left, #right {
+      display: flex;
+      flex-direction: column;
+    }
+  } //screen size bigger than 1000px
+
+  @media (max-width:1000px) {
+    #singular {
+      display: flex;
+      flex-direction: column;
+    }
+  } //screen size smaller than 1000px
 </style>
