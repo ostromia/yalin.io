@@ -1,5 +1,9 @@
+<script lang="ts">
+  export let route_: string;
+</script>
+
 <nav>
-  <a href="/">~/berkay-yalin.io</a>
+  <a href="{route_}/">~/berkay-yalin.io</a>
 </nav>
 
 <style lang="scss">
