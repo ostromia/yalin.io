@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let route_: string;
+  import { base } from "$app/paths";
 </script>
 
 <nav>
-  <a href="{route_}/">~/berkay-yalin.io</a>
+  <a href="{base}/">~/berkay-yalin.io</a>
 </nav>
 
 <style lang="scss">

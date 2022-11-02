@@ -12,7 +12,10 @@ const config = {
   }),
 
 	kit: {
-		adapter: adapter()
+		adapter: adapter(),
+    paths: {
+      base: process.env.NODE_ENV === "production" ? "/berkay-yalin.io" : "",
+    },
 	}
 };
 

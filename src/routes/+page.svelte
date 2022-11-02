@@ -6,8 +6,6 @@
   import Repositories from './left_Repositories.svelte';
   import Projects from './right_Project.svelte';
 
-  const route_: string = process.env.NODE_ENV === "production" ? "/berkay-yalin.io" : "";
-
   let innerWidth: number = 0;
   let innerHeight: number = 0;
 </script>
@@ -29,7 +27,7 @@
 
 <svelte:window bind:innerWidth bind:innerHeight />
 
-<Navigation route_={route_}/>
+<Navigation/>
 <div style="height: 5vh"></div>
 
 <main>
@@ -45,7 +43,7 @@
 
     <section id="right">
       <Title text="Projects"/>
-      <Projects route_={route_}/>
+      <Projects/>
     </section>
   {/if}
 
@@ -56,7 +54,7 @@
       <Devicons/>
       <div style="height: 1rem"></div>
       <Title text="Projects"/>
-      <Projects route_={route_}/>
+      <Projects/>
       <div style="height: 1rem"></div>
       <Title text="Repositories & Contributions"/>
       <Repositories/>

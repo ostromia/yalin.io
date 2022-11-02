@@ -1,13 +1,8 @@
 <script lang="ts">
+  import { base } from "$app/paths";
+
   const devicons: string[] = [
-    "devicon/c-original.svg",
-    "devicon/python-original.svg",
-    "devicon/javascript-original.svg",
-    "devicon/html5-original.svg",
-    "devicon/css3-original.svg",
-    "devicon/svelte-original.svg",
-    "devicon/flask-original.svg",
-    "devicon/sqlite-original.svg"
+    'c', 'python', 'javascript', 'html5', 'css3', 'svelte', 'flask', 'sqlite'
   ];
 </script>
 
@@ -18,7 +13,7 @@
   <div class="devicon-strip">
     {#each devicons as path}
       <div class="devicon-wrapper">
-        <img alt="" class="devicon" src={path}>
+        <img alt="" class="devicon" src="{base}/devicon/{path}-original.svg">
       </div>
     {/each}
   </div>
@@ -26,7 +21,7 @@
   <div class="devicon-strip">
     {#each devicons as path}
       <div class="devicon-wrapper">
-        <img alt="" class="devicon" src={path}>
+        <img alt="" class="devicon" src="{base}/devicon/{path}-original.svg">
       </div>
     {/each}
   </div>

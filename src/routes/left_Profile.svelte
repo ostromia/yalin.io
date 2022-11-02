@@ -1,6 +1,10 @@
+<script>
+  import { base } from "$app/paths";
+</script>
+
 <div>
   <a href="https://github.com/berkay-yalin">
-    <img alt="" src="profile-details2.png"/>
+    <img alt="" src="{base}/profile-details2.png"/>
   </a>
 </div>
 
