@@ -1,4 +1,4 @@
-import {transpiler} from './pseudocode2python_transpiler.js';
+import {transpiler} from './m_pseudocode2python_transpiler.js';
 
 // // TOGGLE VIEW PAST PAPER PSEUDOCDE BUTTON // // // // // // // // // // //
 document.getElementById('viewPastPaperPseudocode').onclick = () => {
@@ -15,13 +15,13 @@ document.getElementById('viewPseudocodeGuide').onclick = () => {
 
   if (state == 'hidden') {
     J277Editor.style.visibility = 'visible';
-    pythonLogo.src = 'resources/ocr logo.svg';
+    pythonLogo.src = 'ocr-logo.svg';
     pythonSpan.innerHTML = 'Pseudocode Guide';
     button.innerHTML = "&nbspClose Pseudocode Guide (J277)&nbsp";
   }
   else {
     J277Editor.style.visibility = 'hidden';
-    pythonLogo.src = 'resources/python-original.svg';
+    pythonLogo.src = 'devicon/python-original.svg';
     pythonSpan.innerHTML = 'Python';
     button.innerHTML = "&nbspView Pseudocode Guide (J277)&nbsp";
   }
