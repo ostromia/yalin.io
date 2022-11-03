@@ -1,9 +1,5 @@
-<script lang="ts">
-  import { base } from "$app/paths";
-</script>
-
 <nav>
-  <a href="{base}/">~/berkay-yalin.io</a>
+  <a href="/">~/berkay-yalin.io</a>
 </nav>
 
 <style lang="scss">

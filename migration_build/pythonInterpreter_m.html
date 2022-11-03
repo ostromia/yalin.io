@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="m_styles.css">
-  <link rel="stylesheet" href="m_pythonInterpreter.css">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="pythonInterpreter.css">
 </head>
 
 <body onload="brython(0)">
@@ -31,20 +31,20 @@
   <!-- MAIN CONTAINER -->
   <div>
     <span id="pythonSpan">Python</span>
-    <img id="pythonLogo" src="devicon/python-original.svg">
+    <img id="pythonLogo" src="resources/python-original.svg">
     <div id="pythonTextarea"></div>
 
     <span id="terminalSpan">Terminal</span>
-    <img id="terminalLogo" src="devicon/bash-plain.svg">
+    <img id="terminalLogo" src="resources/Windows_Terminal_logo.svg">
     <textarea id="terminalTextarea" readonly></textarea>
   </div>
 
   <!-- JAVASCRIPT -->
-  <script src="AceJS/ace.js" type="text/javascript" charset="utf-8"></script>
-  <script src="BrythonJS-3.10.6/brython.js"></script>
-  <script src="BrythonJS-3.10.6/brython_stdlib.js"></script>
+  <script src="ace.js" type="text/javascript" charset="utf-8"></script>
+  <script src="brython.js"></script>
+  <script src="brython_stdlib.js"></script>
 
-  <script src="m_pythonInterpreter.js" type='module' charset="utf-8"></script>
+  <script src="pythonInterpreter.js" type='module' charset="utf-8"></script>
 
   <script type="text/python" id="brythonScript">
     from browser import document
