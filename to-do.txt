@@ -42,3 +42,5 @@ redevelop psuedocode2python.html and pythonInterpreter.html using svelte framewo
 add titles for project images @ right_Project.svelte
 
 (x) fix resizing issues with devicon animations @ left_Devicons.svelte
+
+make image links more obvious @ right_Project.svelte
