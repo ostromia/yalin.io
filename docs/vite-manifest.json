@@ -1,18 +1,16 @@
 {
   "node_modules/@sveltejs/kit/src/runtime/client/start.js": {
-    "file": "_app/immutable/start-44e6f962.js",
+    "file": "_app/immutable/start-879e07ec.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/client/start.js",
     "isEntry": true,
     "imports": [
       "_index-448f7777.js",
-      "_singletons-e5d5344a.js"
+      "_singletons-1b275c47.js"
     ],
     "dynamicImports": [
       ".svelte-kit/generated/nodes/0.js",
       ".svelte-kit/generated/nodes/1.js",
-      ".svelte-kit/generated/nodes/2.js",
-      ".svelte-kit/generated/nodes/3.js",
-      ".svelte-kit/generated/nodes/4.js"
+      ".svelte-kit/generated/nodes/2.js"
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/layout.svelte": {
@@ -24,46 +22,24 @@
     ]
   },
   "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
-    "file": "_app/immutable/components/error.svelte-cbc07e31.js",
+    "file": "_app/immutable/components/error.svelte-5da15e87.js",
     "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte",
     "isEntry": true,
     "imports": [
       "_index-448f7777.js",
-      "_singletons-e5d5344a.js"
+      "_singletons-1b275c47.js"
     ]
   },
   "src/routes/+page.svelte": {
-    "file": "_app/immutable/components/pages/_page.svelte-0ef29844.js",
+    "file": "_app/immutable/components/pages/_page.svelte-1836018e.js",
     "src": "src/routes/+page.svelte",
     "isEntry": true,
     "imports": [
       "_index-448f7777.js",
-      "_singletons-e5d5344a.js"
+      "_singletons-1b275c47.js"
     ],
     "css": [
-      "_app/immutable/assets/_page-344624b3.css"
-    ]
-  },
-  "src/routes/pseudocode2python/+page.svelte": {
-    "file": "_app/immutable/components/pages/pseudocode2python/_page.svelte-79c62a70.js",
-    "src": "src/routes/pseudocode2python/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-448f7777.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page-a3ca138c.css"
-    ]
-  },
-  "src/routes/pythonInterpreter/+page.svelte": {
-    "file": "_app/immutable/components/pages/pythonInterpreter/_page.svelte-3d4509d1.js",
-    "src": "src/routes/pythonInterpreter/+page.svelte",
-    "isEntry": true,
-    "imports": [
-      "_index-448f7777.js"
-    ],
-    "css": [
-      "_app/immutable/assets/_page-a3ca138c.css"
+      "_app/immutable/assets/_page-927ee81d.css"
     ]
   },
   "src/routes/+layout.js": {
@@ -74,8 +50,8 @@
       "__layout-8d2a742b.js"
     ]
   },
-  "_singletons-e5d5344a.js": {
-    "file": "_app/immutable/chunks/singletons-e5d5344a.js",
+  "_singletons-1b275c47.js": {
+    "file": "_app/immutable/chunks/singletons-1b275c47.js",
     "imports": [
       "_index-448f7777.js"
     ]
@@ -96,7 +72,7 @@
     ]
   },
   ".svelte-kit/generated/nodes/1.js": {
-    "file": "_app/immutable/chunks/1-f573faa7.js",
+    "file": "_app/immutable/chunks/1-96905c3b.js",
     "src": ".svelte-kit/generated/nodes/1.js",
     "isDynamicEntry": true,
     "imports": [
@@ -104,35 +80,15 @@
     ]
   },
   ".svelte-kit/generated/nodes/2.js": {
-    "file": "_app/immutable/chunks/2-b291d1f3.js",
+    "file": "_app/immutable/chunks/2-f2e82911.js",
     "src": ".svelte-kit/generated/nodes/2.js",
     "isDynamicEntry": true,
     "imports": [
       "src/routes/+page.svelte"
     ]
   },
-  ".svelte-kit/generated/nodes/3.js": {
-    "file": "_app/immutable/chunks/3-9bb0180a.js",
-    "src": ".svelte-kit/generated/nodes/3.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/pseudocode2python/+page.svelte"
-    ]
-  },
-  ".svelte-kit/generated/nodes/4.js": {
-    "file": "_app/immutable/chunks/4-5c0b033a.js",
-    "src": ".svelte-kit/generated/nodes/4.js",
-    "isDynamicEntry": true,
-    "imports": [
-      "src/routes/pythonInterpreter/+page.svelte"
-    ]
-  },
   "src/routes/+page.css": {
-    "file": "_app/immutable/assets/_page-344624b3.css",
+    "file": "_app/immutable/assets/_page-927ee81d.css",
     "src": "src/routes/+page.css"
-  },
-  "src/routes/pythonInterpreter/+page.css": {
-    "file": "_app/immutable/assets/_page-a3ca138c.css",
-    "src": "src/routes/pythonInterpreter/+page.css"
   }
 }
