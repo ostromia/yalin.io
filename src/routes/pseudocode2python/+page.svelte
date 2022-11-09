@@ -3,6 +3,7 @@
 
   import {pastPaperPseudocode} from './stores.js';
   import {transpiler} from './transpiler.js';
+  import Heading from './Heading.svelte';
 
   let pseudoEditor: any;
   let pythonEditor: any;
@@ -59,8 +60,7 @@
       font-family: 'cabin';
       src: url("./Cabin-VariableFont_wdth,wght.ttf");
     }
-
-    ::-webkit-scrollbar             { width: 0.5vw; height: 0.5vh;   }
+    ::-webkit-scrollbar             { height: 0.2rem; width: 0.2rem  }
     ::-webkit-scrollbar-track       { background: rgb(206, 206, 206) }
     ::-webkit-scrollbar-thumb       { background: rgb(136, 136, 136) }
     ::-webkit-scrollbar-thumb:hover { background: rgb(85, 85, 85)    }
@@ -74,57 +74,54 @@
 <nav>
   <span>Online OCR Pseudocode to Python Transpiler</span>
 
-  <button
-    type="button" class="textButton" id="viewPastPaperPseudocode"on:click={viewPastPaperPseudocode}>
+  <button id="viewPastPaperPseudocode"on:click={viewPastPaperPseudocode}>
     View Past Paper Pseudocode
   </button>
 
-  <button type="button" class="textButton" id="viewPseudocodeGuide" on:click={viewPseudocodeGuide}>
-    View Pseudocode Guide (J277)
-  </button>
+  {#if viewPseudocodeGuideState}
+    <button id="viewPseudocodeGuide" on:click={viewPseudocodeGuide}>
+      Hide Pseudocode Guide (J277)
+    </button>
+  {:else}
+    <button  id="viewPseudocodeGuide" on:click={viewPseudocodeGuide}>
+      View Pseudocode Guide (J277)
+    </button>
+  {/if}
 
-  <button type="button" class="textButton" id="convertPseudocodeToPython" on:click={convertPseudocodeToPython}>
+  <button id="convertPseudocodeToPython" on:click={convertPseudocodeToPython}>
     Convert Pseudocode to Python
   </button>
 
-  <button type="button" class="textButton" id="executePythonCode" disabled>
+  <button id="executePythonCode" disabled>
     Execute Python Code
   </button>
 </nav>
 
 <main>
-  <span id="pseudoSpan">Pseudocode</span>
-  <img alt="" id="pseudoLogo" src="ocr-logo.svg">
-  <div id="pseudoEditor" style="grid-area: 3 / 2 / 3 / 2"></div>
+  <Heading style="grid-column: 1; grid-row: 1" text="Pseudocode" src="ocr-logo.svg"/>
 
   {#if viewPseudocodeGuideState}
-    <span id="pythonSpan">Pseudocode Guide</span>
-    <img alt="" id="pythonLogo" src="ocr-logo.svg">
+    <Heading style="grid-column: 2; grid-row: 1" text="Pseudocode Guide" src="ocr-logo.svg"/>
   {:else}
-    <span id="pythonSpan">Python</span>
-    <img alt="" id="pythonLogo" src="../devicon/python-original.svg">
+    <Heading style="grid-column: 2; grid-row: 1" text="Python" src="../devicon/python-original.svg"/>
   {/if}
 
+  <div id="pseudoEditor"></div>
 
-  <div style="grid-area: 3 / 3 / 3 / 3" id="pythonEditor"></div>
+  <div id="pythonEditor"></div>
 
   {#if viewPseudocodeGuideState}
     <div id="J277Editor">
-      <img alt="" id="j227_01" src="Pseudocode-Guide-J277/01.jpg">
-      <img alt="" id="j227_02" src="Pseudocode-Guide-J277/02.jpg">
-      <img alt="" id="j227_03" src="Pseudocode-Guide-J277/03.jpg">
-      <img alt="" id="j227_04" src="Pseudocode-Guide-J277/04.jpg">
-      <img alt="" id="j227_05" src="Pseudocode-Guide-J277/05.jpg">
-      <img alt="" id="j227_06" src="Pseudocode-Guide-J277/06.jpg">
-      <img alt="" id="j227_07" src="Pseudocode-Guide-J277/07.jpg">
+      {#each Array.from({length:7},(v,k)=>k+1) as i}
+        <img alt="" src="Pseudocode-Guide-J277/0{i}.jpg">
+      {/each}
     </div>
   {/if}
-
 </main>
 
 <style lang="scss">
   @import "./src/routes/pseudocode2python/navigation.scss";
-  @import "./src/routes/pseudocode2python/pseudocode2python.scss";
+  @import "./src/routes/pseudocode2python/editors.scss";
 
   :global(html) { background-color: $bc }
 
@@ -134,9 +131,12 @@
     height: 95vh;
     width: 100vw;
 
+    padding: 0.5rem;
+    box-sizing: border-box;
+
     display: grid;
-    grid-template-rows: 0 auto 1fr 0;
-    grid-template-columns: 0 1fr 1fr 0;
-    gap: 10px;
+    grid-template-rows: auto 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
   }
 </style>

@@ -7,13 +7,13 @@ nav {
   align-items: center;
 
   padding-left: 1rem;
-  padding-right: 1rem;
+  padding-right: 0.5rem;
   box-sizing: border-box;
 
   display: grid;
   grid-template-columns: auto 1fr auto auto auto auto;
   grid-template-rows: 1fr;
-  gap: 1rem;
+  gap: 0.5rem;
 
   overflow-y: hidden;
   overflow-x: auto;
@@ -24,7 +24,7 @@ nav > span {
   color: white;
   text-decoration: none;
   font-size: 2vh;
-  font-family: courier;
+  font-family: 'cabin';
   font-weight: bold;
   cursor: default;
 }
