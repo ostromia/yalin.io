@@ -11,7 +11,6 @@
 
 <style>
   .heading-wrapper {
-    /* height: inherit; */
     width: 100%;
 
     display: flex;
