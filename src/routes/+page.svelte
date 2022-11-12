@@ -24,6 +24,10 @@
       font-family: 'cabin';
       src: url("./Cabin-VariableFont_wdth,wght.ttf");
     }
+    @font-face {
+      font-family: 'segoe';
+      src: url("./Segoe-UI.ttf");
+    }
 
     ::-webkit-scrollbar             { width: 0.5vw                   }
     ::-webkit-scrollbar-track       { background: rgb(206, 206, 206) }

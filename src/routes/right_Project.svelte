@@ -65,7 +65,7 @@
       background-color: $background-color;
 
       font-size: 16px;
-      font-family: Segoe UI;
+      font-family: 'segoe';
       color: $color;
       text-decoration: none;
     }

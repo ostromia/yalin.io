@@ -62,7 +62,7 @@
     border-radius: 0.5rem;
     box-sizing: border-box;
 
-    font-family: Segoe UI;
+    font-family: 'segoe';
 
     color: $color;
     background-color: $background-color;
