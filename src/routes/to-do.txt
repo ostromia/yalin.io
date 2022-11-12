@@ -46,3 +46,5 @@ add titles for project images @ right_Project.svelte
 (x) fix resizing issues with devicon animations @ left_Devicons.svelte
 
 make image links more obvious @ right_Project.svelte
+
+set up github actions for github-profile-summary-cards svg file

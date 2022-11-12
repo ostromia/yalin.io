@@ -1,10 +1,17 @@
 <script lang="ts">
+  import {onMount} from 'svelte';
+
   import Navigation from './Navigation.svelte';
   import Title from './Title.svelte';
   import Profile from './left_Profile.svelte';
   import Devicons from './left_Devicons.svelte';
   import Repositories from './left_Repositories.svelte';
   import Projects from './right_Project.svelte';
+
+  onMount(() => {
+    let main: any = document.getElementById('m');
+    main.style.visibility = 'visible';
+  });
 
   let innerWidth: number = 0;
   let innerHeight: number = 0;
@@ -30,7 +37,7 @@
 <Navigation/>
 <div style="height: 5vh"></div>
 
-<main>
+<main id="m">
   {#if innerWidth > 1000}
     <section id="left">
       <Profile/>
@@ -74,6 +81,7 @@
     padding: 1rem;
     box-sizing: border-box;
     overflow-y: scroll;
+    visibility: hidden;
   }
 
   @media (min-width:1000px) {
