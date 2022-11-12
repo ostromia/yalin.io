@@ -1,0 +1,3 @@
+rewrite in typescript @ transpiler.js
+use svelte logic blocks to remove duplicate code @ +page.svelte
+fix rendering for J277Guide.svelte
