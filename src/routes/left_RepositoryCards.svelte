@@ -71,8 +71,7 @@
     flex-direction: column;
   }
 
-  #card-container > div { margin-bottom: 1vh; max-width: 100%; }
-
+  #title, #languages { margin-bottom: 1vh }
 
   #title {
     min-height: $title-height;

@@ -8,5 +8,5 @@
 {#if $viewPseudocodeGuideState}
   <Heading style="grid-column: 2; grid-row: 1" text="Pseudocode Guide" src="ocr-logo.svg"/>
 {:else}
-  <Heading style="grid-column: 2; grid-row: 1" text="Python" src="../devicon/python-original.svg"/>
+  <Heading style="grid-column: 2; grid-row: 1" text="Python" src="devicon/python-original.svg"/>
 {/if}

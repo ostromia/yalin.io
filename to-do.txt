@@ -48,3 +48,4 @@ make image links more obvious @ right_Project.svelte
 /pseudocode2python
   rewrite in typescript @ transpiler.js
   use svelte logic blocks to remove duplicate code @ +page.svelte
+  fix rendering for J277Guide.svelte

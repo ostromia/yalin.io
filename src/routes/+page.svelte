@@ -34,15 +34,17 @@
   {#if innerWidth > 1000}
     <section id="left">
       <Profile/>
-      <div style="height: 1rem"></div>
+      <div style="height: 2rem"></div>
       <Devicons/>
-      <div style="height: 1rem"></div>
+      <div style="height: 2rem"></div>
       <Title text="Repositories & Contributions"/>
+      <div style="height: 1rem"></div>
       <Repositories/>
     </section>
 
     <section id="right">
       <Title text="Projects"/>
+      <div style="height: 1rem"></div>
       <Projects/>
     </section>
   {/if}
