@@ -9,44 +9,47 @@
     "devicon/flask-original.svg",
     "devicon/sqlite-original.svg"
   ];
+  let innerWidth: number;
 </script>
 
-<div id="devicon-container">
+<svelte:window bind:innerWidth/>
+
+<div id="devicon-container" style="--inner-width: {(innerWidth > 1000) ? innerWidth / 2 : innerWidth}px">
   <div id="gradient-to-left"></div>
   <div id="gradient-to-right"></div>
 
   <div class="devicon-strip">
     {#each devicons as path}
-      <div class="devicon-wrapper">
+      <div class="devicon-div">
         <img alt="" class="devicon" src={path}>
       </div>
+      <div style="width: 2vw;"></div>
     {/each}
   </div>
 
   <div class="devicon-strip">
     {#each devicons as path}
-      <div class="devicon-wrapper">
+      <div class="devicon-div">
         <img alt="" class="devicon" src={path}>
       </div>
+      <div style="width: 2vw;"></div>
     {/each}
   </div>
 </div>
 
 <style lang="scss">
-  $width: 100%;
+  $width: calc( var(--inner-width) - 2rem );
 
   @mixin gradient-setup {
-    height: 10vh;
+    height: 100%;
     width: calc($width / 2);
     position: absolute;
-    z-index: 99;
+    z-index: 2;
   }
-
   #gradient-to-right {
     @include gradient-setup;
     background: linear-gradient(to right, $bc 0%, transparent 50%);
   }
-
   #gradient-to-left {
     @include gradient-setup;
     left: calc(50%);
@@ -55,12 +58,9 @@
 
   #devicon-container {
     width: $width;
-
-    overflow: hidden;
-
     position: relative;
-
     display: flex;
+    overflow: hidden;
   }
 
   @-webkit-keyframes translate { 100% { transform: translateX(calc(-1 * $width)) } }
@@ -75,18 +75,13 @@
     animation: translate 10s linear infinite;
   }
 
-  .devicon-wrapper {
-    min-width: calc($width / 8);
+  .devicon-div {
+    width: calc($width / 8);
 
     display: flex;
     align-items: center;
+    justify-content: center;
   }
 
-  @media (min-width:800px) {  .devicon { max-height: 10vh     }  }
-  @media (max-width:800px) {  .devicon { width: calc(100 / 8) }  }
-
-  .devicon {
-    margin-left: 2vw;
-  }
-
+  .devicon { width: 95% }
 </style>

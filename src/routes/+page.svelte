@@ -9,8 +9,8 @@
   import Projects from './right_Project.svelte';
 
   onMount(() => {
-    let main: any = document.getElementById('m');
-    main.style.visibility = 'visible';
+    // @ts-ignore
+    document.getElementById('main').style.visibility = 'visible';
   });
 
   let innerWidth: number = 0;
@@ -41,7 +41,7 @@
 <Navigation/>
 <div style="height: 5vh"></div>
 
-<main id="m">
+<main id="main">
   {#if innerWidth > 1000}
     <section id="left">
       <Profile/>
@@ -49,47 +49,45 @@
       <Devicons/>
       <div style="height: 2rem"></div>
       <Title text="Repositories & Contributions"/>
-      <div style="height: 1rem"></div>
+      <div style="height: 0.5rem"></div>
       <Repositories/>
     </section>
 
     <section id="right">
       <Title text="Projects"/>
-      <div style="height: 1rem"></div>
+      <div style="height: 0.5rem"></div>
       <Projects/>
     </section>
+  {:else}
+    <Profile/>
+    <div style="height: 1rem"></div>
+    <Devicons/>
+    <div style="height: 1rem"></div>
+    <Title text="Projects"/>
+    <div style="height: 0.5rem"></div>
+    <Projects/>
+    <div style="height: 1rem"></div>
+    <Title text="Repositories & Contributions"/>
+    <div style="height: 0.5rem"></div>
+    <Repositories/>
   {/if}
-
-  {#if innerWidth < 1000}
-    <section id="singular">
-      <Profile/>
-      <div style="height: 1rem"></div>
-      <Devicons/>
-      <div style="height: 1rem"></div>
-      <Title text="Projects"/>
-      <Projects/>
-      <div style="height: 1rem"></div>
-      <Title text="Repositories & Contributions"/>
-      <Repositories/>
-    </section>
-{/if}
 </main>
 
 <style lang="scss">
   :global(html) { background-color: $bc }
-
   :global(body) { margin: 0 !important }
 
-  main {
-    height: 95vh;
-    padding: 1rem;
-    box-sizing: border-box;
-    overflow-y: scroll;
-    visibility: hidden;
-  }
+  main { visibility: hidden }
 
-  @media (min-width:1000px) {
+  @media (min-width: 1000px) {
     main {
+      height: 95vh;
+      padding: 1rem;
+      box-sizing: border-box;
+      overflow-y: scroll;
+
+      visibility: hidden;
+
       display: grid;
       grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
       grid-template-rows: auto;
@@ -102,10 +100,14 @@
     }
   } //screen size bigger than 1000px
 
-  @media (max-width:1000px) {
-    #singular {
+  @media (max-width: 1000px) {
+    main {
       display: flex;
       flex-direction: column;
+      padding: 1rem;
+      box-sizing: border-box;
+
+      visibility: hidden;
     }
   } //screen size smaller than 1000px
 </style>

@@ -33,10 +33,10 @@
     </div>
 
     <div id="languages">
-        <div>
-          <div class="language-icon" id="language-span-icon"></div>
-          <div class="language-text" id="language-span-text">{language}</div>
-        </div>
+      <div>
+        <div class="language-icon" id="language-span-icon"></div>
+        <div class="language-text" id="language-span-text">{language}</div>
+      </div>
     </div>
 
     <div id="description">
@@ -122,4 +122,7 @@
   #languages > div { margin-right: 15px }
   #language-span-text { padding-left: 5px }
 
+  @media (max-width: 1000px) {
+    #description { text-align: center }
+  }
 </style>

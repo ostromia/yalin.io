@@ -43,7 +43,6 @@
       row: '2 / 4'
     }
   ];
-
 </script>
 
 <div id="repository-grid">
@@ -55,7 +54,7 @@
 <style lang="scss">
   #repository-grid {
     display: grid;
-    grid-template-rows: auto auto auto;
+    grid-template-rows: repeat(3, min-content);
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
   }
