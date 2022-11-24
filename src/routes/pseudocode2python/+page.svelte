@@ -1,5 +1,6 @@
 <svelte:head>
   <title>Pseudocode to Python Transpiler</title>
+
   <style>
     @font-face {
       font-family: 'cabin';
@@ -20,7 +21,7 @@
   import {onMount} from 'svelte';
 
   import Navigation from './Navigation.svelte';
-  import Header from './Header.svelte';
+  import Heading from './Heading.svelte';
   import J277Guide from './J277Guide.svelte';
 
   import {pastPaperPseudocode} from './stores.js';
@@ -79,7 +80,13 @@
 <Navigation on:vPPP={viewPastPaperPseudocode} on:vPG={viewPseudocodeGuide} on:cPTP={convertPseudocodeToPython}/>
 
 <main>
-  <Header/>
+  <Heading style="grid-column: 1; grid-row: 1" text="Pseudocode" src="ocr-logo.svg"/>
+  {#if $viewPseudocodeGuideState}
+    <Heading style="grid-column: 2; grid-row: 1" text="Pseudocode Guide" src="ocr-logo.svg"/>
+  {:else}
+    <Heading style="grid-column: 2; grid-row: 1" text="Python" src="devicon/python-original.svg"/>
+  {/if}
+
   <div id="pseudoEditor"></div>
   <div id="pythonEditor"></div>
   <J277Guide/>

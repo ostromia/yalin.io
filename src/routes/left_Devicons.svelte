@@ -1,27 +1,19 @@
 <script lang="ts">
-  const devicons: string[] = [
-    "devicon/c-original.svg",
-    "devicon/python-original.svg",
-    "devicon/javascript-original.svg",
-    "devicon/html5-original.svg",
-    "devicon/css3-original.svg",
-    "devicon/svelte-original.svg",
-    "devicon/flask-original.svg",
-    "devicon/sqlite-original.svg"
-  ];
+  export let style: string = '';
+  const devicons = ['c', 'python', 'javascript', 'html5', 'css3', 'svelte', 'flask', 'sqlite'];
   let innerWidth: number;
 </script>
 
 <svelte:window bind:innerWidth/>
 
-<div id="devicon-container" style="--inner-width: {(innerWidth > 1000) ? innerWidth / 2 : innerWidth}px">
+<div id="devicon-container" style="{style}; --inner-width: {(innerWidth > 1000) ? innerWidth / 2 : innerWidth}px">
   <div id="gradient-to-left"></div>
   <div id="gradient-to-right"></div>
 
   <div class="devicon-strip">
     {#each devicons as path}
       <div class="devicon-div">
-        <img alt="" class="devicon" src={path}>
+        <img alt="" class="devicon" src="devicon/{path}-original.svg">
       </div>
       <div style="width: 2vw;"></div>
     {/each}
@@ -30,7 +22,7 @@
   <div class="devicon-strip">
     {#each devicons as path}
       <div class="devicon-div">
-        <img alt="" class="devicon" src={path}>
+        <img alt="" class="devicon" src="devicon/{path}-original.svg">
       </div>
       <div style="width: 2vw;"></div>
     {/each}
@@ -73,6 +65,7 @@
     align-items: center;
 
     animation: translate 10s linear infinite;
+    -webkit-animation: translate 10s linear infinite;
   }
 
   .devicon-div {

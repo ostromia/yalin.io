@@ -1,14 +1,13 @@
 <script lang="ts">
   export let text: string;
-  export let style: string = '';
-
 </script>
 
-<span style={style}>{text}</span>
+<span>{text}</span>
 
 <style lang="scss">
   $lh: 5vh;
   span {
+    margin-bottom: 0.5rem;
     line-height: $lh;
     text-align: center;
     font-family: 'cabin';

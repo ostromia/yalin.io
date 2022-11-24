@@ -1,3 +1,21 @@
+<svelte:head>
+  <title>berkay-yalin.io</title>
+  <style>
+    @font-face {
+      font-family: 'cabin';
+      src: url("./Cabin-VariableFont_wdth,wght.ttf");
+    }
+    @font-face {
+      font-family: 'segoe';
+      src: url("./Segoe-UI.ttf");
+    }
+    ::-webkit-scrollbar             { width: 0.5vw                   }
+    ::-webkit-scrollbar-track       { background: rgb(206, 206, 206) }
+    ::-webkit-scrollbar-thumb       { background: rgb(136, 136, 136) }
+    ::-webkit-scrollbar-thumb:hover { background: rgb(85, 85, 85)    }
+  </style>
+</svelte:head>
+
 <script lang="ts">
   import {onMount} from 'svelte';
 
@@ -17,97 +35,54 @@
   let innerHeight: number = 0;
 </script>
 
-<svelte:head>
-  <title>berkay-yalin.io</title>
-  <style>
-    @font-face {
-      font-family: 'cabin';
-      src: url("./Cabin-VariableFont_wdth,wght.ttf");
-    }
-    @font-face {
-      font-family: 'segoe';
-      src: url("./Segoe-UI.ttf");
-    }
-
-    ::-webkit-scrollbar             { width: 0.5vw                   }
-    ::-webkit-scrollbar-track       { background: rgb(206, 206, 206) }
-    ::-webkit-scrollbar-thumb       { background: rgb(136, 136, 136) }
-    ::-webkit-scrollbar-thumb:hover { background: rgb(85, 85, 85)    }
-  </style>
-</svelte:head>
-
-<svelte:window bind:innerWidth bind:innerHeight />
+<svelte:window bind:innerWidth bind:innerHeight/>
 
 <Navigation/>
-<div style="height: 5vh"></div>
 
 <main id="main">
-  {#if innerWidth > 1000}
-    <section id="left">
-      <Profile/>
-      <div style="height: 2rem"></div>
-      <Devicons/>
-      <div style="height: 2rem"></div>
-      <Title text="Repositories & Contributions"/>
-      <div style="height: 0.5rem"></div>
-      <Repositories/>
-    </section>
-
-    <section id="right">
-      <Title text="Projects"/>
-      <div style="height: 0.5rem"></div>
-      <Projects/>
-    </section>
-  {:else}
-    <Profile/>
-    <div style="height: 1rem"></div>
-    <Devicons/>
-    <div style="height: 1rem"></div>
-    <Title text="Projects"/>
-    <div style="height: 0.5rem"></div>
-    <Projects/>
-    <div style="height: 1rem"></div>
+  <section id="left">
+    <Profile style="margin-bottom: 2rem"/>
+    <Devicons style="margin-bottom: 2rem"/>
     <Title text="Repositories & Contributions"/>
-    <div style="height: 0.5rem"></div>
     <Repositories/>
-  {/if}
+  </section>
+
+  <section id="right">
+    <Title text="Projects"/>
+    <Projects/>
+  </section>
 </main>
 
 <style lang="scss">
   :global(html) { background-color: $bc }
   :global(body) { margin: 0 !important }
 
-  main { visibility: hidden }
+  @mixin column-flex {
+    display: flex;
+    flex-direction: column;
+  }
+
+  main {
+    visibility: hidden;
+    margin-top: 5vh;
+    padding: 1rem;
+    box-sizing: border-box;
+    > section { @include column-flex }
+  }
 
   @media (min-width: 1000px) {
     main {
       height: 95vh;
-      padding: 1rem;
-      box-sizing: border-box;
       overflow-y: scroll;
-
-      visibility: hidden;
-
       display: grid;
       grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
       grid-template-rows: auto;
       gap: 1rem;
     }
-
-    #left, #right {
-      display: flex;
-      flex-direction: column;
-    }
-  } //screen size bigger than 1000px
+  } // width > 1000px
 
   @media (max-width: 1000px) {
-    main {
-      display: flex;
-      flex-direction: column;
-      padding: 1rem;
-      box-sizing: border-box;
-
-      visibility: hidden;
-    }
-  } //screen size smaller than 1000px
+    main { @include column-flex }
+    #right { margin-top: 1rem }
+  } // width < 1000px
 </style>

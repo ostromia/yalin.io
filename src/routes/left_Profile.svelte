@@ -1,9 +1,10 @@
 <script lang="ts">
   import {goto} from '$app/navigation';
+  export let style: string = '';
 </script>
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div id="profile-wrapper" on:click={()=>{ goto('https://github.com/berkay-yalin') }}>
+<div style={style} id="profile-wrapper" on:click={()=>{ goto('https://github.com/berkay-yalin') }}>
   <img alt="" src="profile-details.svg"/>
 </div>
 
