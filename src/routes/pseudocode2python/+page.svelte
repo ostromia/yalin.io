@@ -30,6 +30,7 @@
   import {viewPseudocodeGuideState} from './stores.js';
 
   import {transpiler} from './transpiler.js';
+  import {validator} from './validator.js';
 
   let pseudoEditor, pythonEditor;
 
@@ -43,11 +44,11 @@
     ace_init(pseudoEditor);
     pythonEditor = ace.edit("pythonEditor");
     ace_init(pythonEditor);
-    pythonEditor.session.setMode("ace/mode/python");
+    pythonEditor.setReadOnly(true);
   });
 
   function viewPastPaperPseudocode() {
-    pseudoEditor.setValue($pastPaperPseudocode);
+    pseudoEditor.setValue($pastPaperPseudocode, 1);
   }
 
   function viewPseudocodeGuide() {
@@ -58,16 +59,23 @@
     const pseudoText = pseudoEditor.getValue();
 
     const pseudoArray = pseudoText.split('\n').map(
-      i => ['pseudo', i.search(/\S|$/), i.trim()]
+      i => [false, i.search(/\S|$/), i.trim()]
     );
 
-    const pythonArray = transpiler(pseudoArray);
+    let pythonArray = validator(pseudoArray);
 
-    const pythonText = pythonArray.map(
-      i => `${' '.repeat(i[1])}${i[2]}`
-    );
-
-    pythonEditor.setValue(pythonText.join('\n'));
+    if (pythonArray === true) {
+      pythonArray = transpiler(pseudoArray);
+      const pythonText = pythonArray.map(
+        i => `${' '.repeat(i[1])}${i[2]}`
+      );
+      pythonEditor.session.setMode("ace/mode/python");
+      pythonEditor.setValue(pythonText.join('\n'), 1);
+    }
+    else {
+      pythonEditor.session.setMode("ace/mode/text");
+      pythonEditor.setValue(pythonArray, 1);
+    }
   }
 </script>
 

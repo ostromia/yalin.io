@@ -243,11 +243,9 @@ function IterationCountControlled(INDENT, INDEX)
 {
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(type == 'pseudo' && indent == INDENT);
-
-    if (isPseudo && line.includes('next')) {
-      python[index] = ['python', INDENT, 'REMOVED'];
+    let [type, indent, line] = [...python[i]];
+    if (!type && indent == INDENT && line.includes('next')) {
+      python[i] = [true, INDENT, 'REMOVED'];
       break;
     }
   }
@@ -262,36 +260,20 @@ function IterationCountControlled(INDENT, INDEX)
   if (iccRegex1.test(line)) {
     // for a = b to c
     let [a, b, c] = line.match(iccRegex1).slice(-3);
-    python[INDEX][0] = 'python';
-    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`
+    python[INDEX][0] = true;
+    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
   }
-
   else if (iccRegex2.test(line)) {
     // for a = b to c step d
     let [a, b, c, d] = line.match(iccRegex2).slice(-4);
-    python[INDEX][0] = 'python';
+    python[INDEX][0] = true;
     python[INDEX][2] = `for ${a} in range(${b}, ${c}, ${d}):`;
   }
   else if (iccRegex3.test(line)) {
     // for a in range (b, c)
     let [a, b, c] = line.match(iccRegex3).slice(-3);
+    python[INDEX][0] = true;
     python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
-  }
-  else {
-    const message = `line: {${INDEX}} code: {${python[INDEX][2]}}
-Please declare for loops as specified by the OCR guide:
-
-e.g.,
-for i=0 to 9
-  ...
-next i
-
-for i=2 to 10 step 2
-  ...
-next i`;
-    alert(message);
-    console.log('hello');
-    errorPresent = true;
   }
 }
 
@@ -304,7 +286,7 @@ function IterationConditionControlled1(INDENT, INDEX)
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(type == 'pseudo' && indent == INDENT);
+    const isPseudo = !!(!type && indent == INDENT);
 
     if (isPseudo && line == 'endwhile') {
       python[index] = ['python', INDENT, 'REMOVED'];
@@ -333,7 +315,7 @@ function IterationConditionControlled2(INDENT, INDEX)
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(type == 'pseudo' && indent == INDENT);
+    const isPseudo = !!(!type && indent == INDENT);
 
     if (isPseudo && /^until(.*?)$/.test(line)) {
       python[index] = ['python', INDENT, 'REMOVED'];
@@ -364,7 +346,7 @@ function Selection(INDENT, INDEX)
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(type == 'pseudo' && indent == INDENT);
+    const isPseudo = !!(!type && indent == INDENT);
 
     if (isPseudo && line.match(/^elseif(.*?)then$/)) {
       let part = line.match(/^elseif(.*?)then$/)[1].trim();
@@ -406,7 +388,7 @@ function Subroutines1(INDENT, INDEX)
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    if (type == 'pseudo' && indent == INDENT && line == 'endprocedure') {
+    if (!type && indent == INDENT && line == 'endprocedure') {
       python[index] = ['python', INDENT, 'REMOVED'];
       break;
     }
@@ -427,7 +409,7 @@ function Subroutines2(INDENT, INDEX)
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    if (type == 'pseudo' && indent == INDENT && line == 'endfunction') {
+    if (!type && indent == INDENT && line == 'endfunction') {
       python[index] = ['python', INDENT, 'REMOVED'];
       break;
     }
@@ -443,62 +425,52 @@ function Subroutines2(INDENT, INDEX)
 export function transpiler(pseudoArrayInput)
 {
   python = pseudoArrayInput;
-  randomImport = false;
-  errorPresent = false;
 
   for (let i = 0; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    if (type == 'pseudo' && line != '' && line != 'REMOVED') {
-      python[index][2] = Commenting(python[index][2]);
-      python[index][2] = Operators(python[index][2]);
-      python[index][2] = Variables(python[index][2]);
-      // python[index][2] = InputOutput(python[index][2]);
-      python[index][2] = Casting(python[index][2]);
-      python[index][2] = StringHandlingOperations(python[index][2]);
-      // // python[index][2] = FileHandling(python[index][2]);
-      python[index][2] = Arrays(python[index][2]);
-      python[index][2] = RandomNumbers(python[index][2]);
-      python[index][2] = Other(python[index][2]);
+    const [type, indent, line] = [...python[i]];
+    if (!type && line != '' && line != 'REMOVED') {
+      python[i][2] = Commenting(python[i][2]);
+      python[i][2] = Operators(python[i][2]);
+      python[i][2] = Variables(python[i][2]);
+      // python[i][2] = InputOutput(python[i][2]);
+      python[i][2] = Casting(python[i][2]);
+      python[i][2] = StringHandlingOperations(python[i][2]);
+      // // python[i][2] = FileHandling(python[i][2]);
+      python[i][2] = Arrays(python[i][2]);
+      python[i][2] = RandomNumbers(python[i][2]);
+      python[i][2] = Other(python[i][2]);
 
-      if (/^for(.*?)$/.test(python[index][2])) {
-        IterationCountControlled(indent, index);
+      if (/^for(.*?)$/.test(python[i][2])) {
+        IterationCountControlled(indent, i);
       }
 
-      else if (/^while(.*?)$/.test(python[index][2])) {
-        IterationConditionControlled1(indent, index);
+      else if (/^while(.*?)$/.test(python[i][2])) {
+        IterationConditionControlled1(indent, i);
       }
-      else if (/^do(.*?)$/.test(python[index][2])) {
-        IterationConditionControlled2(indent, index);
+      else if (/^do(.*?)$/.test(python[i][2])) {
+        IterationConditionControlled2(indent, i);
       }
 
-      else if (/^if(.*?)$/.test(python[index][2])) {
-        Selection(indent, index);
+      else if (/^if(.*?)$/.test(python[i][2])) {
+        Selection(indent, i);
       }
 
       else if (/^procedure(.*?)$/.test(line)) {
-        Subroutines1(indent, index);
+        Subroutines1(indent, i);
       }
       else if (/^function(.*?)$/.test(line)) {
-        Subroutines2(indent, index);
+        Subroutines2(indent, i);
       }
     }
-
   }
 
-  if (randomImport == true) {
-    python.unshift(['python', 0, '']);
-    python.unshift(['python', 0, 'from random import randint']);
+  if (randomImport) {
+    python.unshift([true, 0, '']);
+    python.unshift([true, 0, 'from random import randint']);
   }
 
-  if (errorPresent == true) {
-    return 0;
-  }
   return python.filter(i => i[2] != 'REMOVED');
 }
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // //
-
-// GLOBAL VARIABLES
-let python = null;
+let python = [];
 let randomImport = false;
-let errorPresent = false;
