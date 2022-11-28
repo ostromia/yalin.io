@@ -17,7 +17,9 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/mode-python.min.js" integrity="sha512-W1k0SdTb7FU3nxWYkBLQVhTC8b8BU6Je3deBSnLm/dSQ956goMMnL+NYi2SXse1i7k0eUJNMNycTvbEdrJmEFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </svelte:head>
 
-<script lang="ts">
+
+<script>
+  // @ts-nocheck
   import {onMount} from 'svelte';
 
   import Navigation from './Navigation.svelte';
@@ -29,24 +31,19 @@
 
   import {transpiler} from './transpiler.js';
 
-  let pseudoEditor: any;
-  let pythonEditor: any;
+  let pseudoEditor, pythonEditor;
 
   onMount(() => {
-    // @ts-ignore
+    function ace_init(editor) {
+      editor.setTheme('ace/theme/dracula');
+      editor.setFontSize(16);
+      editor.resize();
+    }
     pseudoEditor = ace.edit("pseudoEditor");
-    pseudoEditor.setTheme("ace/theme/dracula");
-    pseudoEditor.session.setTabSize(2);
-    pseudoEditor.setFontSize(16);
-    pseudoEditor.resize();
-    pseudoEditor.setValue('');
-    // @ts-ignore
+    ace_init(pseudoEditor);
     pythonEditor = ace.edit("pythonEditor");
-    pythonEditor.setTheme("ace/theme/dracula");
+    ace_init(pythonEditor);
     pythonEditor.session.setMode("ace/mode/python");
-    pythonEditor.session.setTabSize(2);
-    pythonEditor.setFontSize(16);
-    pythonEditor.resize();
   });
 
   function viewPastPaperPseudocode() {
@@ -54,26 +51,23 @@
   }
 
   function viewPseudocodeGuide() {
-    viewPseudocodeGuideState.update(i => i = (i == false) ? true : false);
-    console.log($viewPseudocodeGuideState);
+    viewPseudocodeGuideState.update(i => i = i ? false : true);
   }
 
   function convertPseudocodeToPython() {
-    const pseudoText: string = pseudoEditor.getValue();
+    const pseudoText = pseudoEditor.getValue();
 
-    const pseudoArray: [string, number, string][] = pseudoText.split('\n').map((i: string) => {
-      return ['pseudo', i.search(/\S|$/), i.trim()];
-    });
+    const pseudoArray = pseudoText.split('\n').map(
+      i => ['pseudo', i.search(/\S|$/), i.trim()]
+    );
 
     const pythonArray = transpiler(pseudoArray);
 
-    const pythonText = pythonArray.map((i: [any, any, any]) => {
-      let indent: number = i[1];
-      let line: string = i[2];
-      return `${' '.repeat(indent)}${line}`;
-    });
+    const pythonText = pythonArray.map(
+      i => `${' '.repeat(i[1])}${i[2]}`
+    );
 
-    pythonEditor.setValue(pythonText.join('\n'), -1);
+    pythonEditor.setValue(pythonText.join('\n'));
   }
 </script>
 
