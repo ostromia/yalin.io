@@ -39,7 +39,7 @@ String.prototype.blockify = function(r1, r2) {
   return brackets
 }
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
 
 function Operators(line)
 {
@@ -232,41 +232,52 @@ function Other(line)
     const part = /^print\s*\((.*?)\)$/.exec(line)[1];
     return `print(${part})`;
   }
-
-
   return line;
 }
 
-// // // // // // // // // // // // // // // // // // // // // // // // // // //
+
+
+function isPseudo(type, indent1, indent2) {
+  if (!type && indent1 == indent2) {
+    return true;
+  }
+  else {
+    return false;
+  }
+}
+
+
 
 function IterationCountControlled(INDENT, INDEX)
 {
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
     let [type, indent, line] = [...python[i]];
-    if (!type && indent == INDENT && line.includes('next')) {
+    if (isPseudo(type, indent, INDENT) && line.includes('next')) {
       python[i] = [true, INDENT, 'REMOVED'];
       break;
     }
   }
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
-  let line = python[INDEX][2];
-
   const iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s*:?$/;
   const iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?)\s*:?$/;
+
+  let line = python[INDEX][2];
 
   // for a = b to c step d
   if (iccRegex2.test(line)) {
     let [a, b, c, d] = iccRegex2.exec(line).slice(-4);
-    python[INDEX] = [true, INDENT, `for ${a} in range(${b}, ${c}, ${d}):`];
+    line = `for ${a} in range(${b}, ${c}, ${d}):`;
   }
 
   // for a = b to c
   else if (iccRegex1.test(line)) {
     let [a, b, c] = iccRegex1.exec(line).slice(-3);
-    python[INDEX] = [true, INDENT, `for ${a} in range(${b}, ${c}):`];
+    line = `for ${a} in range(${b}, ${c}):`;
   }
+
+  python[INDEX] = [true, INDENT, line];
 }
 
 function IterationConditionControlled1(INDENT, INDEX)
@@ -277,25 +288,17 @@ function IterationConditionControlled1(INDENT, INDEX)
 
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(!type && indent == INDENT);
-
-    if (isPseudo && line == 'endwhile') {
-      python[index] = ['python', INDENT, 'REMOVED'];
-      break
+    let [type, indent, line] = [...python[i]];
+    if (isPseudo(type, indent, INDENT) && line == 'endwhile') {
+      python[i] = [true, INDENT, 'REMOVED'];
+      break;
     }
   }
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   let line = python[INDEX][2];
-  let part = line.match(/^while(.*?)$/)[1].trim();
-  if (part.endsWith(':')) {
-    line = `while ${part}`;
-  }
-  else {
-    line = `while ${part}:`;
-  }
-  python[INDEX] = ['python', INDENT, line];
+  let part = line.match(/^while(.*?):?$/)[1].trim();
+  python[INDEX] = [true, INDENT, `while ${part}:`];
 }
 
 function IterationConditionControlled2(INDENT, INDEX)
@@ -306,19 +309,18 @@ function IterationConditionControlled2(INDENT, INDEX)
 
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(!type && indent == INDENT);
+    let [type, indent, line] = [...python[i]];
 
-    if (isPseudo && /^until(.*?)$/.test(line)) {
-      python[index] = ['python', INDENT, 'REMOVED'];
+    if (isPseudo(type, indent, INDENT) && /^until(.*?)$/.test(line)) {
+      python[i] = [true, INDENT, 'REMOVED'];
 
       // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
-      python[INDEX] = ['python', INDENT, 'while True:'];
+      python[INDEX] = [true, INDENT, 'while True:'];
 
       let part = line.match(/^until(.*?)$/)[1].trim();
-      python.splice(index, 0, ['python', INDENT + 4, `break`]);
-      python.splice(index, 0, ['python', INDENT + 2, `if ${part}:`]);
-      python.splice(index, 0, ['python', INDENT + 2, ``]);
+      python.splice(i, 0, [true, INDENT + 4, `break`]);
+      python.splice(i, 0, [true, INDENT + 2, `if ${part}:`]);
+      python.splice(i, 0, [true, INDENT + 2, ``]);
       break;
     }
   }
@@ -337,82 +339,49 @@ function Selection(INDENT, INDEX)
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    const isPseudo = !!(!type && indent == INDENT);
-
-    if (isPseudo && line.match(/^elseif(.*?)then$/)) {
+    let [type, indent, line] = [...python[i]];
+    if (isPseudo(type, indent, INDENT) && line.match(/^elseif(.*?)then$/)) {
       let part = line.match(/^elseif(.*?)then$/)[1].trim();
-      python[index] = ['python', INDENT, `elif ${part}:`];
+      python[i] = [true, INDENT, `elif ${part}:`];
     }
-    else if (isPseudo && (line == 'else' || line == 'else:')) {
-      python[index] = ['python', INDENT, 'else:'];
+    else if (isPseudo(type, indent, INDENT) && (line == 'else' || line == 'else:')) {
+      python[i] = [true, INDENT, 'else:'];
     }
-    else if (isPseudo && line === 'endif') {
-      python[index] = ['python', INDENT, 'REMOVED'];
+    else if (isPseudo(type, indent, INDENT) && line === 'endif') {
+      python[i] = [true, INDENT, 'REMOVED'];
       break;
     }
   }
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   let line = python[INDEX][2];
-
-  if (/^if(.*?)then$/.test(line)) {
-    let part = line.match(/^if(.*?)then$/)[1].trim();
-    line = `if ${part}:`;
+  const sRegex = /^if\s+(.*?)\s*(?:then)?\:?$/;
+  if (sRegex.test(line)) {
+    line = `if ${sRegex.exec(line)[1]}:`;
+    python[INDEX] = [true, INDENT, line];
   }
-  else if (/^if(.*?)$/.test(line)) {
-    let part = line.match(/^if(.*?)$/)[1].trim();
-    if (part.endsWith(':')) {
-      line = `if ${part}`;
-    }
-    else {
-      line = `if ${part}:`;
-    }
-  }
-  python[INDEX] = ['python', INDENT, line];
 }
 
-function Subroutines1(INDENT, INDEX)
-{
-  // procedure name(...)
-  // endprocedure
-
-  // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
-  for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    if (!type && indent == INDENT && line == 'endprocedure') {
-      python[index] = ['python', INDENT, 'REMOVED'];
-      break;
-    }
-  }
-
-  // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
-  let part = python[INDEX][2].match(/^procedure(.*)$/)[1].trim();
-  python[INDEX] = ['python', INDENT, `def ${part}:`];
-}
-
-function Subroutines2(INDENT, INDEX)
+function Subroutines(INDENT, INDEX)
 {
   // function name(...)
   //   return ...
   // endfunction
-  // function(parameters)
 
   // REMOVE UNNECESSARY PSEUDOCODE BOILERPLATE
   for (let i = INDEX; i < python.length; i++) {
-    let [index, type, indent, line] = [python.indexOf(python[i]), ...python[i]];
-    if (!type && indent == INDENT && line == 'endfunction') {
-      python[index] = ['python', INDENT, 'REMOVED'];
+    let [type, indent, line] = [...python[i]];
+    if (isPseudo(type, indent, INDENT) && /^end(procedure|function)$/.test(line)) {
+      python[i] = [true, INDENT, 'REMOVED'];
       break;
     }
   }
 
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
-  let part = python[INDEX][2].match(/^function(.*)$/)[1].trim();
-  python[INDEX] = ['python', INDENT, `def ${part}:`];
+  let part = /^(?:procedure|function)\s(.*?)\s*:?$/.exec(python[INDEX][2]);
+  python[INDEX][0] = true;
+  python[INDEX][2] = `def ${part[1]}:`;
 }
-
-// // // // // // // // // // // // // // // // // // // // // // // // // // //
 
 export function transpiler(pseudoArrayInput)
 {
@@ -447,11 +416,8 @@ export function transpiler(pseudoArrayInput)
         Selection(indent, i);
       }
 
-      else if (/^procedure(.*?)$/.test(line)) {
-        Subroutines1(indent, i);
-      }
-      else if (/^function(.*?)$/.test(line)) {
-        Subroutines2(indent, i);
+      else if (/^(?:procedure|function)(.*?)$/.test(line)) {
+        Subroutines(indent, i);
       }
     }
   }

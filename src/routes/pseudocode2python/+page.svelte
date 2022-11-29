@@ -45,10 +45,6 @@
     pythonEditor = ace.edit("pythonEditor");
     ace_init(pythonEditor);
     pythonEditor.setReadOnly(true);
-
-    pseudoEditor.setValue(`for i = 0 to 33
-  print(i)
-next i`, 1);
   });
 
   function viewPastPaperPseudocode() {

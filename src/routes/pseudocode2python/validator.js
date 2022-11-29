@@ -5,6 +5,7 @@ String.prototype.isIdentifier = function() {
   return /^[a-zA-Z_]\w*$/.test(this);
 }
 
+// method to check if a string contains a valid integer
 String.prototype.isStringInteger = function() {
   return Number.isInteger(Number(this));
 }
@@ -19,16 +20,17 @@ function IterationCountControlled(INDENT, INDEX, LINE)
 
     if (!a.isIdentifier()) {
       message = `Error on line ${INDEX}\n    ${a} isn't a valid identifier`;
+      return false;
     }
-    if (!b.isIdentifier() && !Number.isInteger(Number(b))) {
+    if (!b.isIdentifier() && !b.isStringInteger()) {
       message = `Error on line ${INDEX}\n    ${b} isn't a valid identifier/number`;
       return false;
     }
-    if (!c.isIdentifier() && !Number.isInteger(Number(c))) {
+    if (!c.isIdentifier() && !c.isStringInteger()) {
       message = `Error on line ${INDEX}\n    ${c} isn't a valid identifier/number`;
       return false;
     }
-    if (!d.isIdentifier() && !Number.isInteger(Number(d))) {
+    if (!d.isIdentifier() && !d.isStringInteger()) {
       message = `Error on line ${INDEX}\n    ${d} isn't a valid identifier/number`;
       return false;
     }
