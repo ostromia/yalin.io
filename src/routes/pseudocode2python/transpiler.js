@@ -253,27 +253,19 @@ function IterationCountControlled(INDENT, INDEX)
   // CONVERT NECESSARY PSEUDOCODE INTO PYTHON
   let line = python[INDEX][2];
 
-  let iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?):*$/;
-  let iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?):*$/;
-  let iccRegex3 = /^for\s+(.*?)\s+in\s+range\s*\((.*?),(.*?)\):*/;
+  const iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s*:?$/;
+  const iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?)\s*:?$/;
 
-  if (iccRegex1.test(line)) {
-    // for a = b to c
-    let [a, b, c] = line.match(iccRegex1).slice(-3);
-    python[INDEX][0] = true;
-    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
+  // for a = b to c step d
+  if (iccRegex2.test(line)) {
+    let [a, b, c, d] = iccRegex2.exec(line).slice(-4);
+    python[INDEX] = [true, INDENT, `for ${a} in range(${b}, ${c}, ${d}):`];
   }
-  else if (iccRegex2.test(line)) {
-    // for a = b to c step d
-    let [a, b, c, d] = line.match(iccRegex2).slice(-4);
-    python[INDEX][0] = true;
-    python[INDEX][2] = `for ${a} in range(${b}, ${c}, ${d}):`;
-  }
-  else if (iccRegex3.test(line)) {
-    // for a in range (b, c)
-    let [a, b, c] = line.match(iccRegex3).slice(-3);
-    python[INDEX][0] = true;
-    python[INDEX][2] = `for ${a} in range(${b}, ${c}):`;
+
+  // for a = b to c
+  else if (iccRegex1.test(line)) {
+    let [a, b, c] = iccRegex1.exec(line).slice(-3);
+    python[INDEX] = [true, INDENT, `for ${a} in range(${b}, ${c}):`];
   }
 }
 

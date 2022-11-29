@@ -1,26 +1,63 @@
 // @ts-nocheck
+
+// method to check if string is valid python identifier
+String.prototype.isIdentifier = function() {
+  return /^[a-zA-Z_]\w*$/.test(this);
+}
+
+String.prototype.isStringInteger = function() {
+  return Number.isInteger(Number(this));
+}
+
 function IterationCountControlled(INDENT, INDEX, LINE)
 {
-  let iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?):*$/;
-  let iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?):*$/;
-  let iccRegex3 = /^for\s+(.*?)\s+in\s+range\s*\((.*?),(.*?)\):*/;
+  const iccRegex1 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s*:?$/;
+  const iccRegex2 = /^for\s+(.*?)\s*=\s*(.*?)\s+to\s+(.*?)\s+step\s+(.*?)\s*:?$/;
 
-  if (iccRegex1.test(LINE) || iccRegex2.test(LINE) || iccRegex3.test(LINE)) {
+  if (iccRegex2.test(LINE)) {
+    let [a, b, c, d] = iccRegex2.exec(LINE).slice(-4);
+
+    if (!a.isIdentifier()) {
+      message = `Error on line ${INDEX}\n    ${a} isn't a valid identifier`;
+    }
+    if (!b.isIdentifier() && !Number.isInteger(Number(b))) {
+      message = `Error on line ${INDEX}\n    ${b} isn't a valid identifier/number`;
+      return false;
+    }
+    if (!c.isIdentifier() && !Number.isInteger(Number(c))) {
+      message = `Error on line ${INDEX}\n    ${c} isn't a valid identifier/number`;
+      return false;
+    }
+    if (!d.isIdentifier() && !Number.isInteger(Number(d))) {
+      message = `Error on line ${INDEX}\n    ${d} isn't a valid identifier/number`;
+      return false;
+    }
     return true;
   }
-else {
-    message = `Error on line ${INDEX}
-    ${LINE}
 
-Please declare for loops as specified by the OCR guide.
+  else if (iccRegex1.test(LINE)) {
+    let [a, b, c] = iccRegex1.exec(LINE).slice(-3);
+    if (!a.isIdentifier()) {
+      message = `Error on line ${INDEX}\n    ${a} isn't a valid identifier`;
+      return false;
+    }
+    if (!b.isIdentifier() && !Number.isInteger(Number(b))) {
+      message = `Error on line ${INDEX}\n    ${b} isn't a valid identifier/number`;
+      return false;
+    }
+    if (!c.isIdentifier() && !Number.isInteger(Number(c))) {
+      message = `Error on line ${INDEX}\n    ${c} isn't a valid identifier/number`;
+      return false;
+    }
+    return true;
+  }
 
-Press "View Pseudocode Guide (J277)" to see some examples.
-
-For example:
+  else {
+    message = `Error on line ${INDEX}\n    ${LINE}\n
+Please declare for loops as specified by the OCR guide:
     for i=0 to 9
       ...
-    next i
-`;
+    next i`;
     return false;
   }
 }

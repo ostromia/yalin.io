@@ -45,6 +45,10 @@
     pythonEditor = ace.edit("pythonEditor");
     ace_init(pythonEditor);
     pythonEditor.setReadOnly(true);
+
+    pseudoEditor.setValue(`for i = 0 to 33
+  print(i)
+next i`, 1);
   });
 
   function viewPastPaperPseudocode() {
@@ -70,11 +74,11 @@
         i => `${' '.repeat(i[1])}${i[2]}`
       );
       pythonEditor.session.setMode("ace/mode/python");
-      pythonEditor.setValue(pythonText.join('\n'), 1);
+      pythonEditor.setValue(pythonText.join('\n') + '\n', 1);
     }
     else {
       pythonEditor.session.setMode("ace/mode/text");
-      pythonEditor.setValue(pythonArray, 1);
+      pythonEditor.setValue(pythonArray + '\n', 1);
     }
   }
 </script>
