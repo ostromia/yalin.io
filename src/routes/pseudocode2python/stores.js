@@ -1,7 +1,7 @@
 import { writable } from 'svelte/store';
 // import { readable } from 'svelte/store';
 
-export const viewPseudocodeGuideState = writable(false);
+export const VPG_s = writable(false);
 
 export const pastPaperPseudocode = writable(`// 2020 Sample assessment materials J277/02
 

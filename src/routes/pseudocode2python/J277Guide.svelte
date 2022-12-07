@@ -1,11 +1,10 @@
-<script lang="ts">
-  import {viewPseudocodeGuideState} from './stores.js';
-  const to7 = Array.from({length:7},(v,k)=>k+1);
+<script>
+  import {VPG_s} from './stores.js';
 </script>
 
-{#if $viewPseudocodeGuideState}
+{#if $VPG_s}
   <div id="J277Editor">
-    {#each to7 as i}
+    {#each [...Array(7).keys()] as i}
       <img alt="" src="Pseudocode-Guide-J277/0{i}.jpg">
     {/each}
   </div>

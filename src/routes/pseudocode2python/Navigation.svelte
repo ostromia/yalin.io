@@ -1,11 +1,7 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import {createEventDispatcher} from 'svelte';
+  import {VPG_s} from './stores.js';
   const dispatch = createEventDispatcher();
-
-  import {viewPseudocodeGuideState} from './stores.js';
-
-  let VPG_s = false;
-  viewPseudocodeGuideState.subscribe(i => { VPG_s = i });
 </script>
 
 <nav>
@@ -15,15 +11,9 @@
     View Past Paper Pseudocode
   </button>
 
-  {#if VPG_s}
-    <button id="viewPseudocodeGuide" on:click={()=>dispatch('vPG')}>
-      Hide Pseudocode Guide (J277)
-    </button>
-  {:else}
-    <button id="viewPseudocodeGuide" on:click={()=>dispatch('vPG')}>
-      View Pseudocode Guide (J277)
-    </button>
-  {/if}
+  <button id="viewPseudocodeGuide" on:click={()=>dispatch('vPG')}>
+    {($VPG_s == false ? 'Show' : 'Hide') + ' Pseudocode Guide (J277)'}
+  </button>
 
   <button id="convertPseudocodeToPython" on:click={()=>dispatch('cPTP')}>
     Convert Pseudocode to Python
