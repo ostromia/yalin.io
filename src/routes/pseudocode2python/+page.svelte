@@ -8,8 +8,7 @@
   import {pastPaperPseudocode} from './stores.js';
   import {VPG_s} from './stores.js';
 
-  import {transpiler} from './transpiler.js';
-  import {validator} from './validator.js';
+  import {p2p} from './p2p';
 
   let pseudoEditor: any;
   let pythonEditor: any;
@@ -38,25 +37,14 @@
   }
 
   function convertPseudocodeToPython() {
-    const pseudoText = pseudoEditor.getValue();
-
-    const pseudoArray = pseudoText.split('\n').map(
-      i => [false, i.search(/\S|$/), i.trim()]
-    );
-
-    let pythonArray = validator(pseudoArray);
-
-    if (pythonArray === true) {
-      pythonArray = transpiler(pseudoArray);
-      const pythonText = pythonArray.map(
-        i => `${' '.repeat(i[1])}${i[2]}`
-      );
+    const code = new p2p(pseudoEditor.getValue());
+    if (code.validate() === '') {
       pythonEditor.session.setMode("ace/mode/python");
-      pythonEditor.setValue(pythonText.join('\n') + '\n', 1);
+      pythonEditor.setValue(code.transpile().join('\n') + '\n', 1);
     }
     else {
       pythonEditor.session.setMode("ace/mode/text");
-      pythonEditor.setValue(pythonArray + '\n', 1);
+      pythonEditor.setValue(code.transpile() + '\n', 1);
     }
   }
 </script>
