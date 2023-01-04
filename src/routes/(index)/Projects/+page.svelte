@@ -43,94 +43,96 @@
     <!-- svelte-ignore a11y-click-events-have-key-events -->
     <div id="image_container">
       <img alt="" id="image_p2p" on:click={go_p2p} src="Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg">
+      <span style="width: 1rem"></span>
       <img alt="" id="image_pi" on:click={go_pi} src="Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg">
     </div>
   </div>
 </div>
 
 <style lang="scss">
-  $background-color: rgb(33, 37, 43);
-  $color: rgb(139, 148, 158);
-  $link-color: rgb(88, 166, 255);
+    $background-color: rgb(33, 37, 43);
+    $color: rgb(139, 148, 158);
+    $link-color: rgb(88, 166, 255);
 
-  #project-container {
-    width: 100%;
+    #project-container {
+        width: 100%;
 
-    > div {
-      padding: 1rem;
-      border-radius: 0.5rem;
-      box-sizing: border-box;
+        > div {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
 
-      background-color: $background-color;
+        background-color: $background-color;
 
-      font-size: 16px;
-      font-family: 'segoe';
-      color: $color;
-      text-decoration: none;
+        font-size: 16px;
+        font-family: 'segoe';
+        color: $color;
+        text-decoration: none;
+        }
     }
-  }
 
-  #title {
-    min-height: 2rem;
+    #title {
+        min-height: 2rem;
 
-    display: flex;
-    align-items: center;
+        display: flex;
+        align-items: center;
 
-    > svg {fill: $color }
+        > svg {fill: $color }
 
-    > a {
-      color: $link-color;
-      text-decoration: none;
-     }
-  }
-
-  #title > a { margin: 0 0 3px 5px }
-
-  $l_lh: 14px;
-
-  #languages {
-    min-height: 2rem;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    flex-wrap: wrap;
-
-    > div {
-      min-height: $l_lh;
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.5rem;
+        > a {
+        color: $link-color;
+        text-decoration: none;
+        }
     }
-  }
 
-  .language-icon {
-    height: $l_lh;
-    width: $l_lh;
-    border-radius: 100%;
-  }
+    #title > a { margin: 0 0 3px 5px }
 
-  .language-text {
-    font-weight: bold;
-    line-height: $l_lh;
-    font-size: $l_lh;
-  }
+    $l_lh: 14px;
 
-  #languages > div { margin-right: 15px }
-  .language-text { padding-left: 5px }
+    #languages {
+        min-height: 2rem;
+        width: 100%;
 
-  #image_container {
-    display: flex;
-    flex-direction: column;
-  }
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        flex-wrap: wrap;
 
-  #image_container > img {
-    width: 100%;
-    border: 2px solid white;
-    box-sizing: border-box;
-    cursor: pointer;
-  }
+        > div {
+        min-height: $l_lh;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5rem;
+        }
+    }
 
-  #image_p2p { margin-bottom: 1rem; }
+    .language-icon {
+        height: $l_lh;
+        width: $l_lh;
+        border-radius: 100%;
+    }
+
+    .language-text {
+        font-weight: bold;
+        line-height: $l_lh;
+        font-size: $l_lh;
+    }
+
+    #languages > div { margin-right: 15px }
+    .language-text { padding-left: 5px }
+
+    #image_container {
+        display: flex;
+        flex-direction: row;
+        margin-top: 1rem;
+    }
+
+    #image_container > img {
+        width: calc(50% - 0.5rem);
+        border: 2px solid white;
+        box-sizing: border-box;
+        cursor: pointer;
+        margin: auto;
+    }
+
 </style>
