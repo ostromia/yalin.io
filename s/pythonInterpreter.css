@@ -1,0 +1,88 @@
+@font-face {
+  font-family: 'cabin';
+  src: url("https://berkay-yalin.github.io/berkay-yalin.io/Cabin-VariableFont_wdth,wght.ttf");
+}
+
+::-webkit-scrollbar             { height: 0.5rem; width: 0.5rem }
+::-webkit-scrollbar-track       { background: #f1f1f1 }
+::-webkit-scrollbar-thumb       { background: #888 }
+::-webkit-scrollbar-thumb:hover { background: #555 }
+
+html { background-color: #2e323b }
+body { margin: 0 !important; height: 100vh; }
+
+nav {
+  height: 5vh;
+  width: 100vw;
+  background-color: #21252B;
+  align-items: center;
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  padding-left: 1rem;
+  padding-right: 0.5rem;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: auto auto 1fr auto auto auto;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
+}
+
+nav > span {
+  max-height: 5vh;
+  color: white;
+  text-decoration: none;
+  font-size: 2vh;
+  font-family: 'cabin';
+  font-weight: bold;
+  cursor: default;
+}
+
+nav > button {
+  height: 4vh;
+  color: white;
+  background: #333842;
+  font-family: 'cabin';
+  white-space: nowrap;
+  cursor: pointer;
+
+  border: 1;
+  border-radius: 4px;
+  border-color: #282c34;
+  box-sizing: border-box;
+}
+
+#icon { height: 3vh }
+svg { fill: white }
+
+#executePythonCode { grid-column: 4 }
+#viewTerminal      { grid-column: 5 }
+#savePythonCode    { grid-column: 6 }
+
+main {
+  height: 95vh;
+  width: 100vw;
+  display: flex;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+#python {
+  min-width: calc(50vw - 0.5rem);
+  margin-right: 0.5rem;
+  resize: horizontal;
+}
+
+#terminal {
+  border: none;
+  outline: none;
+  resize: none;
+  flex: 1;
+  min-width: 25vw;
+  background-color: #282a36;
+  color: white;
+}
+
+#python   { grid-column: 1 }
+#terminal { grid-column: 2 }
