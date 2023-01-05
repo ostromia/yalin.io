@@ -7,6 +7,16 @@
 
 <svelte:head>
     <style>
+        @font-face {
+            font-family: "roboto";
+            src: url("fonts/RobotoMono-VariableFont_wght.ttf");
+        } /* Namespace.svelte */
+
+        @font-face {
+            font-family: "segoe";
+            src: url("fonts/Segoe-UI.ttf");
+        } /* Repositories.svelte */
+
         ::-webkit-scrollbar { width: 0.5vw }
         ::-webkit-scrollbar-track { background: rgb(206, 206, 206) }
         ::-webkit-scrollbar-thumb { background: rgb(136, 136, 136) }
@@ -23,16 +33,6 @@
 </div>
 
 <style lang="scss">
-    @font-face {
-        font-family: "roboto";
-        src: url("fonts/RobotoMono-VariableFont_wght.ttf");
-    } // Namespace.svelte
-
-    @font-face {
-        font-family: "segoe";
-        src: url("fonts/Segoe-UI.ttf");
-    } // Repositories.svelte
-
     :global(html) { background-color: $bc }
 
     :global(body) {
