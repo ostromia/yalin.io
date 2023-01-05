@@ -48,3 +48,5 @@ add titles for project images @ right_Project.svelte
 make image links more obvious @ right_Project.svelte
 
 set up github actions for github-profile-summary-cards svg file
+
+make Namespace.svelte text size adjust respective to viewport

@@ -10,8 +10,9 @@ span {
     line-height: $lh;
     text-align: center;
     font-family: 'cabin';
-    font-size: $lh;
+    font-size: 10vw;
     color: white;
     z-index: 2;
+    white-space: nowrap;
 }
 </style>
