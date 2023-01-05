@@ -50,3 +50,5 @@ make image links more obvious @ right_Project.svelte
 set up github actions for github-profile-summary-cards svg file
 
 make Namespace.svelte text size adjust respective to viewport
+
+organise projects/+page.svelte css

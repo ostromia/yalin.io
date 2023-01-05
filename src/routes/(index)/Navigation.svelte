@@ -1,7 +1,7 @@
 <script>
     const links = [
-        { type: 'txt', id: 'projects', href: `/Projects` },
-        { type: 'txt', id: 'articles', href: `/Articles` },
+        { type: 'txt', id: 'projects', href: `/projects` },
+        { type: 'txt', id: 'articles', href: `/articles` },
         { type: 'txt', id: 'gists', href: `https://gist.github.com/berkay-yalin` },
         { type: 'svg', id: 'github', src: 'devicon/github-original.svg', href: `https://github.com/berkay-yalin` },
     ];
