@@ -1,8 +1,5 @@
 <script>
     import Navigation from "./Navigation.svelte";
-
-    let innerWidth = 0;
-    let innerHeight = 0;
 </script>
 
 <svelte:head>
@@ -24,12 +21,9 @@
     </style>
 </svelte:head>
 
-<svelte:window bind:innerWidth="{innerWidth}" bind:innerHeight="{innerHeight}"/>
-
 <Navigation/>
-
 <div id="main-wrapper">
-    <slot></slot>
+    <slot/>
 </div>
 
 <style lang="scss">

@@ -3,7 +3,7 @@
     export let style: string = '';
 </script>
 
-<div class="title" style={style}>
+<div class="title" {style}>
     {text}
 </div>
 
@@ -11,7 +11,7 @@
     $lh: 1.5rem;
     .title {
         line-height: $lh;
-        font-family: 'cabin';
+        font-family: "cabin";
         font-size: $lh;
         color: white;
         z-index: 2;

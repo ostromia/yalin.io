@@ -13,7 +13,7 @@
         'sqlite'
     ];
 
-  let innerWidth: number;
+    let innerWidth: number;
 </script>
 
 <svelte:window bind:innerWidth/>

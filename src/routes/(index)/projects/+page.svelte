@@ -2,25 +2,36 @@
     import {goto} from '$app/navigation';
     import Title from '$lib/Title.svelte';
 
-    const go_p2p = () => goto('https://berkay-yalin.github.io/berkay-yalin.io/pseudocode2python');
-    const go_pi = () => goto('https://berkay-yalin.github.io/berkay-yalin.io/s/pythonInterpreter.html');
+    const images = [
+        {
+            id: 'image_p2p',
+            url: 'https://berkay-yalin.github.io/berkay-yalin.io/pseudocode2python',
+            src: 'Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg'
+        },
+        {
+            id: 'image_pi',
+            url: 'https://berkay-yalin.github.io/berkay-yalin.io/s/pythonInterpreter.html',
+            src: 'Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg'
+        }
+    ];
 
     const repositoryIcon: string = "M2 2.5A2.5 2.5 0 014.5 0h8.75a.75.75 0 01.75.75v12.5a.75.75 0 01-.75.75h-2.5a.75.75 0 110-1.5h1.75v-2h-8a1 1 0 00-.714 1.7.75.75 0 01-1.072 1.05A2.495 2.495 0 012 11.5v-9zm10.5-1V9h-8c-.356 0-.694.074-1 .208V2.5a1 1 0 011-1h8zM5 12.25v3.25a.25.25 0 00.4.2l1.45-1.087a.25.25 0 01.3 0L8.6 15.7a.25.25 0 00.4-.2v-3.25a.25.25 0 00-.25-.25h-3.5a.25.25 0 00-.25.25z";
 
     const languages = [
-        {'name': 'HTML', 'color': '#e34c26'},
-        {'name': 'Svelte', 'color': '#ff3e00'},
-        {'name': 'JavaScript', 'color': '#f1e05a'},
-        {'name': 'TypeScript', 'color': '#3178c6'},
-        {'name': 'CSS', 'color': '#563d7c'},
-        {'name': 'Sass', 'color': '#a53b70'}
+        { name: 'HTML', color: '#e34c26' },
+        { name: 'Svelte', color: '#ff3e00' },
+        { name: 'JavaScript', color: '#f1e05a' },
+        { name: 'TypeScript', color: '#3178c6' },
+        { name: 'CSS', color: '#563d7c' },
+        { name: 'Sass', color: '#a53b70' },
     ];
 
-    let data: any = {};
-    data.html_url = `https://github.com/berkay-yalin/berkay-yalin.io`
-    data.name = "berkay-yalin.io";
-    data.description = "personal portfolio website";
-    data.language = "JavaScript";
+    const data = {
+        html_url: 'https://github.com/berkay-yalin/berkay-yalin.io',
+        name: 'berkay.yalin.io',
+        description: 'personal portfolio website',
+        language: 'JavaScript'
+    }
 </script>
 
 <div id="project-container">
@@ -34,21 +45,24 @@
 
         <div id="languages">
             {#each languages as {name, color}}
-            <div>
-                <div class="language-icon" id="{name.toLowerCase()}-icon" style="background-color:{color}"></div>
-                <div class="language-text">{name}</div>
-            </div>
+                <div>
+                    <div class="language-icon" id="{name.toLowerCase()}-icon" style="background-color:{color}"></div>
+                    <div class="language-text">{name}</div>
+                </div>
             {/each}
         </div>
 
-        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div id="image_container">
             <Title text="Pseudocde to Python Transpiler"/>
             <Title text="Online Python Interpreter"/>
+
             <p>Convert OCR regulated pseudocode into Python</p>
             <p>Simplistic IDE to write Python code in the browser</p>
-            <img alt="" id="image_p2p" on:click={go_p2p} src="Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg">
-            <img alt="" id="image_pi" on:click={go_pi} src="Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg">
+
+            {#each images as {id, url, src} }
+                <!-- svelte-ignore a11y-click-events-have-key-events -->
+                <img alt="" {id} on:click={() => goto(url)} {src}>
+            {/each}
         </div>
     </div>
 </div>
@@ -133,9 +147,7 @@
             "p1 p2"
             "i1 i2";
         grid-column-gap: 1rem;
-        // flex-direction: column;
         margin-top: 1rem;
-        // justify-content: start;
 
         p {
             line-height: 16px;
