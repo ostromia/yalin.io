@@ -1,14 +1,15 @@
 <script>
+    const base = `https://berkay-yalin.github.io/berkay-yalin.io`;
     const links = [
-        { type: 'txt', id: 'projects', href: `/projects` },
-        { type: 'txt', id: 'articles', href: `/articles` },
+        { type: 'txt', id: 'projects', href: base + `/projects` },
+        { type: 'txt', id: 'articles', href: base + `/articles` },
         { type: 'txt', id: 'gists', href: `https://gist.github.com/berkay-yalin` },
         { type: 'svg', id: 'github', src: 'devicon/github-original.svg', href: `https://github.com/berkay-yalin` },
     ];
 </script>
 
 <nav>
-    <a class="nav-text" id="nav-index" href="/">~/berkay-yalin.io</a>
+    <a class="nav-text" id="nav-index" href="{base}/">~/berkay-yalin.io</a>
     {#each links as i}
         {#if i.type == 'txt'}
             <a class="nav-text" style="grid-area: {i.id}" href={i.href}>
