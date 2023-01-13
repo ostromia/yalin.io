@@ -1,5 +1,5 @@
 <script lang="ts">
-    import RepositoryCard from "./RepositoryCard.svelte";
+    import RepositoryCard from "$index/RepositoryCard.svelte";
 
     const repositories = [
     {

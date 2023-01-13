@@ -1,16 +1,30 @@
 <script lang="ts">
+    import { base } from '$app/paths';
+
+    import c from '$lib/devicons/c.svg';
+    import css3 from '$lib/devicons/css3.svg';
+    import flask from '$lib/devicons/flask.svg';
+    import html5 from '$lib/devicons/html5.svg';
+    import javascript from '$lib/devicons/javascript.svg';
+    import lua from '$lib/devicons/lua.svg';
+    import python from '$lib/devicons/python.svg';
+    import sass from '$lib/devicons/sass.svg';
+    import sqlite from '$lib/devicons/sqlite.svg';
+    import svelte from '$lib/devicons/svelte.svg';
+    import typescript from '$lib/devicons/typescript.svg';
+
     const devicons = [
-        'c',
-        'python',
-        'lua',
-        'svelte',
-        'javascript',
-        'typescript',
-        'html5',
-        'css3',
-        'sass',
-        'flask',
-        'sqlite'
+        c,
+        css3,
+        flask,
+        html5,
+        javascript,
+        lua,
+        python,
+        sass,
+        sqlite,
+        svelte,
+        typescript
     ];
 
     let innerWidth: number;
@@ -22,21 +36,15 @@
     <div id="gradient-to-left"></div>
     <div id="gradient-to-right"></div>
 
-  <div class="devicon-strip">
-    {#each devicons as path}
-        <div class="devicon-div">
-            <img alt="" class="devicon" src="devicon/{path}-original.svg">
+    {#each [0,0] as _}
+        <div class="devicon-strip">
+            {#each devicons as i}
+                <div class="devicon-div">
+                    <img alt="" class="devicon" src={i}>
+                </div>
+            {/each}
         </div>
     {/each}
-  </div>
-
-  <div class="devicon-strip">
-    {#each devicons as path}
-        <div class="devicon-div">
-            <img alt="" class="devicon" src="devicon/{path}-original.svg">
-        </div>
-    {/each}
-  </div>
 </div>
 
 <style lang="scss">

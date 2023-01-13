@@ -9,6 +9,11 @@
         "skipLibCheck": true,
         "sourceMap": true,
         "strict": true
+    },
+    "paths": {
+        "$r": ["src/routes"],
+        "$s": ["static"],
+        "$index": ["src/routes/(index)"]
     }
     // Path aliases are handled by https://kit.svelte.dev/docs/configuration#alias
     //
