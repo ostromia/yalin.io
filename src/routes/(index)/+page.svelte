@@ -3,9 +3,9 @@
 </svelte:head>
 
 <script>
-    import Namespace from "$index/Namespace.svelte";
-    import Carousel from "$index/Carousel.svelte";
-    import Repositories from "$index/Repositories.svelte";
+    import Namespace from "$lib/index/Namespace.svelte";
+    import Carousel from "$lib/index/Carousel.svelte";
+    import Repositories from "$lib/index/Repositories.svelte";
 </script>
 
 <Namespace/>

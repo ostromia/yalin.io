@@ -1,5 +1,5 @@
 <script>
-    import Navigation from "$index/Navigation.svelte";
+    import Navigation from "$lib/Navigation.svelte";
 </script>
 
 <svelte:head>

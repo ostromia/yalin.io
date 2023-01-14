@@ -59,13 +59,13 @@
   <Heading
     style="grid-column: 1; grid-row: 1"
     text="Pseudocode"
-    src="ocr-logo.svg"
+    src="pseudocode2python/ocr-logo.svg"
   />
 
   <Heading
     style="grid-column: 2; grid-row: 1"
     text={$VPG_s ? 'Python' : 'Pseudocode Guide'}
-    src={$VPG_s ? 'devicon/python-original.svg' : 'ocr-logo.svg'}
+    src={$VPG_s ? 'pseudocode2python/python-logo.svg' : 'pseudocode2python/ocr-logo.svg'}
   />
 
   <div id="pseudoEditor"></div>
