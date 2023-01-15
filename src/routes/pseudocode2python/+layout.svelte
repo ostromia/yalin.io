@@ -4,7 +4,7 @@
   <style>
     @font-face {
       font-family: 'cabin';
-      src: url("./Cabin-VariableFont_wdth,wght.ttf");
+      src: url("fonts/Cabin-VariableFont_wdth,wght.ttf");
     }
 
     ::-webkit-scrollbar             { height: 0.2rem; width: 0.2rem  }
@@ -18,7 +18,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.12.5/mode-python.min.js" integrity="sha512-W1k0SdTb7FU3nxWYkBLQVhTC8b8BU6Je3deBSnLm/dSQ956goMMnL+NYi2SXse1i7k0eUJNMNycTvbEdrJmEFw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </svelte:head>
 
-<slot></slot>
+<slot/>
 
 <style lang="scss">
   :global(html) { background-color: $bc }

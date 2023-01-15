@@ -1,6 +1,6 @@
 <script>
   import {createEventDispatcher} from 'svelte';
-  import {VPG_s} from './stores.js';
+  import {VPG_s} from '$r/pseudocode2python/stores.js';
   const dispatch = createEventDispatcher();
 </script>
 

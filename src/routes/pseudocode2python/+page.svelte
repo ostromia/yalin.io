@@ -1,14 +1,17 @@
 <script lang="ts">
   import {onMount} from 'svelte';
 
-  import Navigation from './Navigation.svelte';
-  import Heading from './Heading.svelte';
-  import J277Guide from './J277Guide.svelte';
+  import Navigation from '$r/pseudocode2python/Navigation.svelte';
+  import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
 
-  import {pastPaperPseudocode} from './stores.js';
-  import {VPG_s} from './stores.js';
+  import {pastPaperPseudocode} from '$r/pseudocode2python/stores.js';
+  import {VPG_s} from '$r/pseudocode2python/stores.js';
 
-  import {p2p} from './p2p';
+
+  import python_logo from '$lib/devicons/python.svg';
+  import ocr_logo from '$lib/ocr-logo.svg';
+
+  import {p2p} from '$r/pseudocode2python/transpiler/p2p';
 
   let pseudoEditor: any;
   let pythonEditor: any;
@@ -56,17 +59,15 @@
 />
 
 <main>
-  <Heading
-    style="grid-column: 1; grid-row: 1"
-    text="Pseudocode"
-    src="ocr-logo.svg"
-  />
+  <div class="heading-wrapper">
+    <img alt="" class="logo" src={ocr_logo}>
+    <span class="text">Pseudocode</span>
+  </div>
 
-  <Heading
-    style="grid-column: 2; grid-row: 1"
-    text={$VPG_s ? 'Python' : 'Pseudocode Guide'}
-    src={$VPG_s ? 'devicon/python-original.svg' : 'ocr-logo.svg'}
-  />
+  <div class="heading-wrapper">
+    <img alt="" class="logo" src={$VPG_s ? ocr_logo : python_logo}>
+    <span class="text">{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
+  </div>
 
   <div id="pseudoEditor"></div>
   <div id="pythonEditor"></div>
@@ -84,9 +85,27 @@
     display: grid;
     grid-template-rows: auto 1fr;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas: "h0 h1" "e0 e1";
     gap: 0.5rem;
   }
 
-  #pseudoEditor { grid-column: 1; grid-row: 2 }
-  #pythonEditor { grid-column: 2; grid-row: 2 }
+  .heading-wrapper {
+    width: 100%;
+
+    display: flex;
+    align-content: center;
+
+    align-items: center;
+  }
+
+  .logo {
+    height: 3vh;
+  }
+
+  .text {
+    font-size: 2vh;
+    font-family: 'cabin';
+    color: white;
+    margin-left: 0.5vw;
+  }
 </style>
