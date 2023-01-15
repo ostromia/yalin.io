@@ -4,7 +4,7 @@
   <style>
     @font-face {
       font-family: 'cabin';
-      src: url("fonts/Cabin-VariableFont_wdth,wght.ttf");
+      src: url("./Cabin-VariableFont_wdth,wght.ttf");
     }
 
     ::-webkit-scrollbar             { height: 0.2rem; width: 0.2rem  }

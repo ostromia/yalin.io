@@ -1,0 +1,4 @@
+rewrite in typescript @ p2p_transpiler.ts
+(x) use svelte logic blocks to remove duplicate code @ +page.svelte
+(x) fix rendering for J277Guide.svelte
+implement try statements instead of returing boolean/string @ p2p_validator.ts

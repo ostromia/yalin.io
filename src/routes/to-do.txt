@@ -1,0 +1,54 @@
+(x) fix padding and margins @ right_Projects.svelte
+
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ right_Projects.svelte
+
+(n) implement image as an SVG @ left_Profile.svelte
+
+(x) figure out how to redirect to GitHub profile when image is clicked @ left_Profile.svelte
+
+(x) prevent image distortion when component is resized @ left_Profile.svelte
+
+(n) implement github api to retrive data for repository cards @ left_Repositories.svelte
+
+(x) add section title e.g. "Repositories & Contributions" @ left_Repositories.svelte
+    use {font-size: 1.25vw; font-family: 'cabin'; color: black;}
+
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ left_Repositories.svelte
+
+(x) use svelte {#each} to create repository cards @ left_Repositories.svelte
+
+(x) use grid instead of manual paddings onto each component @ /+page.svelte
+
+(x) look into using border instead of padding to remove extra div wrapper around components @ /+page.svelte
+
+(x) prevent overflow of 'language' elements (probablly with flex) @ right_Projects.svelte
+
+(x) use absolute units for height of componets (to enable scrolling instead of component resize) @ /+page.svelte
+
+(x) fix padding and margins @ right_Projects.svelte
+
+(x) fix incorrect height dimensions (there isnt a 0.5rem gap at the bottom) @ right_Projects.svelte
+
+(x) implement psuedocode2python.html and pythonInterpreter.html as iframes
+
+(x) redevelop psuedocode2python.html using svelte framework
+
+redevelop pythonInterpreter.html using svelte framework
+
+(x) improve styling and positioning for 'github repository cards'
+
+(x) update scrollbar apperance
+
+(x) replace manual html with svelte {#each} block for languages div @ right_Project.svelte
+
+add titles for project images @ right_Project.svelte
+
+(x) fix resizing issues with devicon animations @ left_Devicons.svelte
+
+make image links more obvious @ right_Project.svelte
+
+set up github actions for github-profile-summary-cards svg file
+
+make Namespace.svelte text size adjust respective to viewport
+
+organise projects/+page.svelte css

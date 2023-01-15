@@ -1,29 +1,17 @@
-<svelte:head>
-    <title>Projects</title>
-    <style>
-        @font-face {
-            font-family: "cabin";
-            src: url("fonts/Cabin-VariableFont_wdth,wght.ttf");
-        } /* +page.svelte */
-    </style>
-</svelte:head>
-
 <script lang="ts">
     import {goto} from '$app/navigation';
     import Title from '$lib/Title.svelte';
-
-    import { base } from '$app/paths';
 
     const images = [
         {
             id: 'image_p2p',
             url: 'https://berkay-yalin.github.io/berkay-yalin.io/pseudocode2python',
-            src: 'projects/pseudocode2python.jpeg'
+            src: 'Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg'
         },
         {
             id: 'image_pi',
-            url: 'https://berkay-yalin.github.io/berkay-yalin.io/projects/s/pythonInterpreter.html',
-            src: 'projects/pythoninterpreter.jpeg'
+            url: 'https://berkay-yalin.github.io/berkay-yalin.io/s/pythonInterpreter.html',
+            src: 'Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg'
         }
     ];
 
