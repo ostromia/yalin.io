@@ -40,6 +40,7 @@
 
 	function convertPseudocodeToPython() {
 		const code = new p2p(pseudoEditor.getValue());
+
 		if (code.validate() === '') {
 			pythonEditor.session.setMode("ace/mode/python");
 			pythonEditor.setValue(code.transpile().join('\n') + '\n', 1);

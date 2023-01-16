@@ -1,4 +1,3 @@
-// @ts-nocheck
 String.prototype.replaceBetween = function(start, stop, substring) {
 	const left = this.slice(0, start);
 	const right = this.slice(stop + 1, this.length);
@@ -355,7 +354,7 @@ function Selection(INDENT, INDEX)
 
 	// CONVERT NECESSARY PSEUDOCODE INTO PYTHON
 	let line = python[INDEX][2];
-	const sRegex = /^if\s+(.*?)\s*(?:then)?\:?$/;
+	const sRegex = /^if\s+(.*?)\s*(?:then)?:?$/;
 	if (sRegex.test(line)) {
 		line = `if ${sRegex.exec(line)[1]}:`;
 		python[INDEX] = [true, INDENT, line];
