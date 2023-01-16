@@ -2,21 +2,27 @@ import {transpiler} from './p2p_transpiler';
 import {validator} from './p2p_validator';
 
 export class p2p {
-	validate() {
-		let error = validator(this.pseudocode);
-		return (error === true) ? '' : error;
+	#parse(input) {
+		this.source = input
+			.split('\n')
+			.map( i => [false, i.search(/\S|$/), i.trim()] );
+	}
+
+	#validate() {
+		this.error = validator(this.source)
 	}
 
 	transpile() {
-		let source = transpiler(this.pseudocode);
-		return source.map(
-			(i) => `${' '.repeat(i[1])}${i[2]}`
-		);
+		return transpiler(this.source)
+			.filter(i => i[2] != 'REMOVED')
+			.map(i => ' '.repeat(i[1]) + i[2] )
+			.join('\n');
 	}
 
 	constructor(input) {
-		this.pseudocode = input.split('\n').map(
-			i => [false, i.search(/\S|$/), i.trim()]
-		);
+		this.source;
+		this.error = '';
+		this.#parse(input);
+		this.#validate();
 	}
 }

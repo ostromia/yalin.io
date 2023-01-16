@@ -41,13 +41,14 @@
 	function convertPseudocodeToPython() {
 		const code = new p2p(pseudoEditor.getValue());
 
-		if (code.validate() === '') {
+		if (code.error === '') {
 			pythonEditor.session.setMode("ace/mode/python");
-			pythonEditor.setValue(code.transpile().join('\n') + '\n', 1);
+			pythonEditor.setValue(code.transpile(), 1);
 		}
 		else {
 			pythonEditor.session.setMode("ace/mode/text");
-			pythonEditor.setValue(code.transpile() + '\n', 1);
+			pythonEditor.setValue(code.message, 1);
+			// pythonEditor.setValue(code.transpile() + '\n', 1);
 		}
 	}
 </script>

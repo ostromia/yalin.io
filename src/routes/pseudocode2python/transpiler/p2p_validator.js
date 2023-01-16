@@ -75,7 +75,7 @@ export function validator(pseudoArrayInput)
 			}
 		}
 	}
-	return true;
+	return message;
 }
 
 let python = [];

@@ -425,8 +425,8 @@ export function transpiler(pseudoArrayInput)
 		python.unshift([true, 0, '']);
 		python.unshift([true, 0, 'from random import randint']);
 	}
-
-	return python.filter(i => i[2] != 'REMOVED');
+	return python;
+	// return python.filter(i => i[2] != 'REMOVED');
 }
 
 let python = [];
