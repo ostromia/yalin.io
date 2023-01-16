@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	import {onMount} from 'svelte';
 
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
@@ -7,28 +7,27 @@
 	import {pastPaperPseudocode} from '$r/pseudocode2python/stores.js';
 	import {VPG_s} from '$r/pseudocode2python/stores.js';
 
-
 	import python_logo from '$lib/devicons/python.svg';
 	import ocr_logo from '$lib/ocr-logo.svg';
 
 	import {p2p} from '$r/pseudocode2python/transpiler/p2p';
 
-	let pseudoEditor: any;
-	let pythonEditor: any;
+	let pseudoEditor;
+	let pythonEditor;
 
-	onMount(() => {
-		function ace_init(editor: any) {
-			editor.setTheme('ace/theme/dracula');
-			editor.setFontSize(16);
-			editor.resize();
-		}
-		// @ts-ignore
-		pseudoEditor = ace.edit("pseudoEditor");
-		ace_init(pseudoEditor);
-		// @ts-ignore
-		pythonEditor = ace.edit("pythonEditor");
-		ace_init(pythonEditor);
-		pythonEditor.setReadOnly(true);
+	onMount(async () => {
+		const ace = await import('ace-builds/src-noconflict/ace');
+		await import('ace-builds/src-noconflict/theme-dracula');
+		await import('ace-builds/src-noconflict/mode-python');
+
+		pseudoEditor = ace.edit('pseudoEditor');
+		pythonEditor = ace.edit('pythonEditor');
+
+		[pseudoEditor, pythonEditor].forEach((i) => {
+			i.setTheme('ace/theme/dracula');
+			i.setFontSize(16);
+			i.resize();
+		});
 	});
 
 	function viewPastPaperPseudocode() {

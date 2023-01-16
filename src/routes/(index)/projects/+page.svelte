@@ -1,11 +1,13 @@
 <script lang="ts">
+    import { base } from '$app/paths';
     import {goto} from '$app/navigation';
+
     import Title from '$lib/Title.svelte';
 
     const images = [
         {
             id: 'image_p2p',
-            url: 'https://berkay-yalin.github.io/berkay-yalin.io/pseudocode2python',
+            url: `${base}/pseudocode2python`,
             src: 'Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg'
         },
         {

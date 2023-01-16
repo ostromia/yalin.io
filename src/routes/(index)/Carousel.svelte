@@ -1,6 +1,4 @@
 <script lang="ts">
-    import { base } from '$app/paths';
-
     import c from '$lib/devicons/c.svg';
     import css3 from '$lib/devicons/css3.svg';
     import flask from '$lib/devicons/flask.svg';
