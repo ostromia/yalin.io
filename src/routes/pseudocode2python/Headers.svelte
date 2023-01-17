@@ -5,18 +5,18 @@
 	import ocr_logo from '$lib/ocr-logo.svg';
 </script>
 
-<div class="heading-wrapper">
-	<img alt="" class="logo" src={ocr_logo}>
-	<span class="text">Pseudocode</span>
+<div>
+	<img alt="" src={ocr_logo}>
+	<span >Pseudocode</span>
 </div>
 
-<div class="heading-wrapper">
-	<img alt="" class="logo" src={$VPG_s ? ocr_logo : python_logo}>
-	<span class="text">{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
+<div>
+	<img alt="" src={$VPG_s ? ocr_logo : python_logo}>
+	<span >{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
 </div>
 
 <style lang="scss">
-	.heading-wrapper {
+	div {
 		width: 100%;
 
 		display: flex;
@@ -25,11 +25,11 @@
 		align-items: center;
 	}
 
-	.logo {
+	img {
 		height: 3vh;
 	}
 
-	.text {
+	span {
 		font-size: 2vh;
 		font-family: "Trebuchet MS";
 		color: white;

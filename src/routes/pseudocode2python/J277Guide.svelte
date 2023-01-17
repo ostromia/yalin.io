@@ -3,7 +3,7 @@
 </script>
 
 {#if $VPG_s}
-	<div id="J277Editor">
+	<div>
 		{#each [...Array(7).keys()] as i}
 			<img alt="" src="Pseudocode-Guide-J277/0{i}.jpg">
 		{/each}
@@ -11,7 +11,7 @@
 {/if}
 
 <style>
-	#J277Editor {
+	div {
 		grid-column: 2;
 		grid-row: 2;
 		z-index: 99;
