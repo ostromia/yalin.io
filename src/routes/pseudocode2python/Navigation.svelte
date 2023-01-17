@@ -18,51 +18,43 @@
 	<button id="convertPseudocodeToPython" on:click={()=>dispatch('cPTP')}>
 		Convert Pseudocode to Python
 	</button>
-
-	<button id="executePythonCode" disabled>
-		Execute Python Code
-	</button>
 </nav>
 
 <style lang="scss">
 	nav {
 		height: 5vh;
-		width: 100vw;
 
 		background-color: $fc;
 
 		align-items: center;
 
-		padding-left: 1rem;
-		padding-right: 0.5rem;
+		padding: 0.5rem;
 		box-sizing: border-box;
 
 		display: grid;
-		grid-template-columns: auto 1fr auto auto auto auto;
-		grid-template-rows: 1fr;
+		grid-template-columns: 1fr repeat(3, auto);
 		gap: 0.5rem;
 
 		overflow-y: hidden;
 		overflow-x: auto;
 	}
 
-	nav > span {
-		max-height: 5vh;
+	span {
 		color: white;
 		text-decoration: none;
-		font-size: 2vh;
-		font-family: 'cabin';
-		font-weight: bold;
+		white-space: nowrap;
+		font-size: 1.2rem;
+		font-family: "Trebuchet MS";
 		cursor: default;
 	}
 
-	nav > button {
-		height: 4vh;
+	button {
+		height: 3vh;
 
 		color: white;
 		background: #333842;
 
-		font-family: 'cabin';
+		font-family: "consolas";
 
 		border: 1;
 		border-radius: 4px;
@@ -70,12 +62,6 @@
 		box-sizing: border-box;
 
 		white-space: nowrap;
-
 		cursor: pointer;
 	}
-
-	#viewPastPaperPseudocode   { grid-column: 3 }
-	#viewPseudocodeGuide       { grid-column: 4 }
-	#convertPseudocodeToPython { grid-column: 5 }
-	#executePythonCode         { grid-column: 6; color: grey }
 </style>

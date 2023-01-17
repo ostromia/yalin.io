@@ -1,14 +1,16 @@
+<svelte:head>
+	<title>Pseudocode to Python Transpiler</title>
+</svelte:head>
+
 <script>
 	import {onMount} from 'svelte';
 
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
+	import Headers from '$r/pseudocode2python/Headers.svelte';
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
 
 	import {pastPaperPseudocode} from '$r/pseudocode2python/stores.js';
 	import {VPG_s} from '$r/pseudocode2python/stores.js';
-
-	import python_logo from '$lib/devicons/python.svg';
-	import ocr_logo from '$lib/ocr-logo.svg';
 
 	import {p2p} from '$r/pseudocode2python/transpiler/p2p';
 
@@ -60,25 +62,18 @@
 />
 
 <main>
-	<div class="heading-wrapper">
-		<img alt="" class="logo" src={ocr_logo}>
-		<span class="text">Pseudocode</span>
-	</div>
-
-	<div class="heading-wrapper">
-		<img alt="" class="logo" src={$VPG_s ? ocr_logo : python_logo}>
-		<span class="text">{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
-	</div>
-
+	<Headers/>
 	<div id="pseudoEditor"></div>
 	<div id="pythonEditor"></div>
 	<J277Guide/>
 </main>
 
 <style lang="scss">
+	:global(html) { background-color: $bc }
+	:global(body) { margin: 0 !important }
+
 	main {
 		height: 95vh;
-		width: 100vw;
 
 		padding: 0.5rem;
 		box-sizing: border-box;
@@ -88,25 +83,5 @@
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: "h0 h1" "e0 e1";
 		gap: 0.5rem;
-	}
-
-	.heading-wrapper {
-		width: 100%;
-
-		display: flex;
-		align-content: center;
-
-		align-items: center;
-	}
-
-	.logo {
-		height: 3vh;
-	}
-
-	.text {
-		font-size: 2vh;
-		font-family: 'cabin';
-		color: white;
-		margin-left: 0.5vw;
 	}
 </style>
