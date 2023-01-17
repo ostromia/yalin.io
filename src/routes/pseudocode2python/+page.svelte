@@ -69,9 +69,6 @@
 </main>
 
 <style lang="scss">
-	:global(html) { background-color: $bc }
-	:global(body) { margin: 0 !important }
-
 	main {
 		height: 95vh;
 

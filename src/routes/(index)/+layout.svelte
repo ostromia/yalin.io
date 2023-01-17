@@ -27,10 +27,7 @@
 </div>
 
 <style lang="scss">
-    :global(html) { background-color: $bc }
-
     :global(body) {
-        margin: 0 !important;
         overflow-x: hidden;
     }
 
