@@ -2,8 +2,8 @@
 	<title>Pseudocode to Python Transpiler</title>
 </svelte:head>
 
-<script>
-	import {onMount} from 'svelte';
+<script lang="ts">
+    import {onMount} from 'svelte';
 
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
 	import Headers from '$r/pseudocode2python/Headers.svelte';
@@ -14,22 +14,21 @@
 
 	import {p2p} from '$r/pseudocode2python/transpiler/p2p';
 
-	let pseudoEditor;
-	let pythonEditor;
+	let pseudoEditor: AceAjax.Editor;
+	let pythonEditor: AceAjax.Editor;
 
 	onMount(async () => {
-		const ace = await import('ace-builds/src-noconflict/ace');
+		const ace: AceAjax.Ace = await import('ace-builds/src-noconflict/ace');
 		await import('ace-builds/src-noconflict/theme-dracula');
 		await import('ace-builds/src-noconflict/mode-python');
-
 		pseudoEditor = ace.edit('pseudoEditor');
 		pythonEditor = ace.edit('pythonEditor');
-
-		[pseudoEditor, pythonEditor].forEach((i) => {
-			i.setTheme('ace/theme/dracula');
-			i.setFontSize(16);
-			i.resize();
-		});
+        pseudoEditor.setTheme('ace/theme/dracula');
+        pythonEditor.setTheme('ace/theme/dracula');
+        pseudoEditor.setFontSize('16');
+        pythonEditor.setFontSize('16');
+        pseudoEditor.resize();
+        pythonEditor.resize();
 	});
 
 	function viewPastPaperPseudocode() {
