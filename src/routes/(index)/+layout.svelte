@@ -1,38 +1,46 @@
 <script>
-    import Navigation from "$index/Navigation.svelte";
+	import Navigation from '$index/Navigation.svelte';
 </script>
 
 <svelte:head>
-    <style>
-        @font-face {
-            font-family: "roboto";
-            src: url("fonts/RobotoMono-VariableFont_wght.ttf");
-        } /* Namespace.svelte */
+	<style>
+		@font-face {
+			font-family: 'roboto';
+			src: url('fonts/RobotoMono-VariableFont_wght.ttf');
+		} /* Namespace.svelte */
 
-        @font-face {
-            font-family: "segoe";
-            src: url("fonts/Segoe-UI.ttf");
-        } /* Repositories.svelte */
+		@font-face {
+			font-family: 'segoe';
+			src: url('fonts/Segoe-UI.ttf');
+		} /* Repositories.svelte */
 
-        ::-webkit-scrollbar { width: 0.5vw }
-        ::-webkit-scrollbar-track { background: rgb(206, 206, 206) }
-        ::-webkit-scrollbar-thumb { background: rgb(136, 136, 136) }
-        ::-webkit-scrollbar-thumb:hover { background: rgb(85, 85, 85) }
-    </style>
+		::-webkit-scrollbar {
+			width: 0.5vw;
+		}
+		::-webkit-scrollbar-track {
+			background: rgb(206, 206, 206);
+		}
+		::-webkit-scrollbar-thumb {
+			background: rgb(136, 136, 136);
+		}
+		::-webkit-scrollbar-thumb:hover {
+			background: rgb(85, 85, 85);
+		}
+	</style>
 </svelte:head>
 
 <Navigation/>
 <div id="main-wrapper">
-    <slot/>
+	<slot/>
 </div>
 
 <style lang="scss">
-    :global(body) {
-        overflow-x: hidden;
-    }
+	:global(body) {
+		overflow-x: hidden;
+	}
 
-    #main-wrapper {
-        padding: 2rem;
-        box-sizing: border-box;
-    }
+	#main-wrapper {
+		padding: 2rem;
+		box-sizing: border-box;
+	}
 </style>

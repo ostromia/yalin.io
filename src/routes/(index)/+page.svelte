@@ -1,12 +1,12 @@
-<svelte:head>
-    <title>berkay-yalin.io</title>
-</svelte:head>
-
 <script>
-    import Namespace from "$index/Namespace.svelte";
-    import Carousel from "$index/Carousel.svelte";
-    import Repositories from "$index/Repositories.svelte";
+	import Namespace from '$index/Namespace.svelte';
+	import Carousel from '$index/Carousel.svelte';
+	import Repositories from '$index/Repositories.svelte';
 </script>
+
+<svelte:head>
+	<title>berkay-yalin.io</title>
+</svelte:head>
 
 <Namespace/>
 <div style="height: 1.5rem"></div>

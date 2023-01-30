@@ -1,5 +1,5 @@
 <script>
-	import {VPG_s} from '$r/pseudocode2python/stores.js';
+	import { VPG_s } from '$r/pseudocode2python/stores.js';
 
 	import python_logo from '$lib/devicons/python.svg';
 	import ocr_logo from '$lib/ocr-logo.svg';
@@ -7,12 +7,12 @@
 
 <div>
 	<img alt="" src={ocr_logo}>
-	<span >Pseudocode</span>
+	<span>Pseudocode</span>
 </div>
 
 <div>
 	<img alt="" src={$VPG_s ? ocr_logo : python_logo}>
-	<span >{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
+	<span>{$VPG_s ? 'Pseudocode Guide' : 'Python'}</span>
 </div>
 
 <style lang="scss">
@@ -31,7 +31,7 @@
 
 	span {
 		font-size: 2vh;
-		font-family: "Trebuchet MS";
+		font-family: 'Trebuchet MS';
 		color: white;
 		margin-left: 0.5vw;
 	}

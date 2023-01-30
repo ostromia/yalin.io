@@ -1,21 +1,21 @@
 <script>
-	import {createEventDispatcher} from 'svelte';
-	import {VPG_s} from '$r/pseudocode2python/stores.js';
+	import { createEventDispatcher } from 'svelte';
+	import { VPG_s } from '$r/pseudocode2python/stores.js';
 	const dispatch = createEventDispatcher();
 </script>
 
 <nav>
 	<span>Online OCR Pseudocode to Python Transpiler</span>
 
-	<button id="viewPastPaperPseudocode" on:click={()=>dispatch('vPPP')}>
+	<button id="viewPastPaperPseudocode" on:click={() => dispatch('vPPP')}>
 		View Past Paper Pseudocode
 	</button>
 
-	<button id="viewPseudocodeGuide" on:click={()=>dispatch('vPG')}>
+	<button id="viewPseudocodeGuide" on:click={() => dispatch('vPG')}>
 		{($VPG_s == false ? 'Show' : 'Hide') + ' Pseudocode Guide (J277)'}
 	</button>
 
-	<button id="convertPseudocodeToPython" on:click={()=>dispatch('cPTP')}>
+	<button id="convertPseudocodeToPython" on:click={() => dispatch('cPTP')}>
 		Convert Pseudocode to Python
 	</button>
 </nav>
@@ -44,7 +44,7 @@
 		text-decoration: none;
 		white-space: nowrap;
 		font-size: 1.2rem;
-		font-family: "Trebuchet MS";
+		font-family: 'Trebuchet MS';
 		cursor: default;
 	}
 
@@ -54,7 +54,7 @@
 		color: white;
 		background: #333842;
 
-		font-family: "consolas";
+		font-family: 'consolas';
 
 		border: 1;
 		border-radius: 4px;
