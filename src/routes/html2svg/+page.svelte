@@ -5,6 +5,11 @@
 
 	let editor;
 
+	function clear() {
+		editor.setValue('');
+		convert();
+	}
+
 	function convert() {
 		// let blob = new Blob([editor.getValue()], {type: "text/html; charset=utf-8"});
 		// document.getElementById('output').src = URL.createObjectURL(blob);
@@ -106,7 +111,7 @@
 	<title>HTML to SVG Converter</title>
 </svelte:head>
 
-<Navigation on:convert={convert} on:save={save}/>
+<Navigation on:clear={clear} on:convert={convert} on:save={save}/>
 
 
 <main>

@@ -6,6 +6,10 @@
 <nav>
 	<span>HTML to SVG Converter</span>
 
+	<button on:click={() => dispatch('clear')}>
+		Clear Example
+	</button>
+
 	<button on:click={() => dispatch('convert')}>
 		Convert HTML to SVG
 	</button>
@@ -22,7 +26,7 @@
 		overflow: hidden;
 		align-items: center;
 		display: grid;
-		grid-template-columns: 1fr repeat(2, auto);
+		grid-template-columns: 1fr repeat(3, auto);
 		gap: 0.5rem;
 		padding: 0.5rem;
 		box-sizing: border-box;
