@@ -1,71 +1,65 @@
 <script>
-	import {onMount} from 'svelte';
-	import {documentToSVG, elementToSVG, inlineResources} from 'dom-to-svg';
+	import { onMount } from 'svelte';
+	import { documentToSVG, elementToSVG } from 'dom-to-svg'
 	import Navigation from '$r/html2svg/Navigation.svelte';
 
 	let editor;
 
-	function html2svg(HTML) {
-		let output = elementToSVG(HTML);
-		// await inlineResources(output.documentElement);
-		const SVG_XML = new XMLSerializer();
-		const XML = SVG_XML.serializeToString(output);
-
-		return XML;
-
-
-	}
-
-
-
 	function convert() {
-		let frameWindow = open('url', 'output');
+		// let blob = new Blob([editor.getValue()], {type: "text/html; charset=utf-8"});
+		// document.getElementById('output').src = URL.createObjectURL(blob);
+		document.getElementById('output').srcdoc = editor.getValue();
+
+		// console.log(document.getElementById('output').src);
+		// console.log(JSON.stringify(document.getElementById('output'), null, 4))
+
+
+		// let iframe = document.getElementById('output');
+		// iframe.src = "data:text/html;charset=utf-8," + editor.getValue();
+
+		// console.log(editor.getValue());
+
+		// document.body.appendChild(iframe);
+
+
+		// let iframe = document.getElementById('output').contentDocument
+		// let frameWindow = open('url', 'outputHTML');
 		// frameWindow.document.write(editor.getValue());
+		// frameWindow.close()
 
-		let output = elementToSVG(window.frames.output.document.body);
-		// await inlineResources(output.documentElement);
-		const SVG_XML = new XMLSerializer();
-		const SVG_STR = SVG_XML.serializeToString(output);
-		console.log(SVG_STR);
-		frameWindow.document.write(
-			`<body` + SVG_STR + `</body>`
-		);
+		// let SVG = elementToSVG(window.frames.outputHTML.document.body);
 
+		// let svg_iframe = document.getElementById('outputSVG');
 
-
-		// window2.document.write(SVG_STR);
-
-		// editor.setValue(SVG_STR);
-
-
-		// const parser = new DOMParser();
-		// const xmlserializer = new XMLSerializer();
-
-		// const outputDOM = parser.parseFromString(editor.getValue(), "text/html");
-		// // const XML_STR = xmlserializer.serializeToString(HTML_DOM);
-
-		// // console.log(XML_STR);
-		// // console.log('end');
-
-		// const outputSVG = elementToSVG(outputDOM.body);
-
-		// console.log(outputSVG);
-
-
+		// const XML_S = new XMLSerializer();
+		// const SVG_STR = XML_S.serializeToString(SVG);
+		// svg_iframe.contentWindow.document.body.innerHTML = SVG_STR;
 	}
 
 	function save() {
-		let file = new Blob([window.frames.output.document.body.outerHTML]);
-		let a = document.createElement('a');
-		let url = URL.createObjectURL(file);
+		// const client_html = document.querySelector('#output').contentDocument;
+		const SVG = documentToSVG(document.querySelector('#output').contentDocument);
+		const XML = (new XMLSerializer()).serializeToString(SVG);
 
-		a.href = url;
+		let file = new Blob([XML], {type: 'image/svg+xml'});
+		let a = document.createElement('a');
+		a.href = URL.createObjectURL(file);
 		a.download = 'output.svg';
-		document.body.appendChild(a);
 		a.click();
 
 
+		// console.log(document.getElementById('output'));
+		// let file = new Blob([window.frames.outputSVG.docueent.body.outerHTML]);
+		// let a = document.createElement('a');
+		// let url = URL.createObjectURL(file);
+
+		// a.href = url;
+		// a.download = 'output.svg';
+		// document.body.appendChild(a);
+		// a.click();
 	}
+
+
 
 	onMount(async () => {
 		const ace = await import('ace-builds/src-noconflict/ace');
@@ -75,6 +69,8 @@
 		editor.setTheme('ace/theme/dracula');
 		editor.setFontSize(14);
 		editor.resize();
+
+
 
 		const exampleHTML = `<head>
 	<style>
@@ -99,10 +95,10 @@
 	<div id="circle">
 		<span id="text">SVG</span>
 	</div>
-</body>
-`;
+</body>`;
 
 		editor.setValue(exampleHTML, 1);
+		convert();
 	});
 </script>
 
@@ -112,23 +108,25 @@
 
 <Navigation on:convert={convert} on:save={save}/>
 
+
 <main>
 	<div id="editor"></div>
-	<iframe id="output" title="output" name="output"></iframe>
+	<iframe id="output" title="output" name="output" src=''></iframe>
 </main>
-<iframe id="frameHTML" style="display:none" title="output" name="frameHTML"></iframe>
-
 
 <style lang="scss">
 	main {
 		height: 95vh;
 		display: grid;
 		grid-template-columns: 1fr 1fr;
+		gap: 0.5rem;
+		padding: 0.5rem;
+		box-sizing: border-box;
 	}
 	iframe {
 		height: 100%;
 		width: 100%;
-		// overflow: hidden;
+		overflow: hidden;
 		background-color: white;
 		box-sizing: border-box;
 	}
