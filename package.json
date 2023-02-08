@@ -24,7 +24,6 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"ace-builds": "^1.15.0",
-		"dom-to-svg": "^0.12.2"
+		"ace-builds": "^1.15.0"
 	}
 }
