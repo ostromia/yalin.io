@@ -4,6 +4,7 @@
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
 	import Headers from '$r/pseudocode2python/Headers.svelte';
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
+	import Ace from '$lib/Ace.svelte';
 
 	import { pastPaperPseudocode } from '$r/pseudocode2python/stores.js';
 	import { VPG_s } from '$r/pseudocode2python/stores.js';
@@ -14,22 +15,8 @@
 	let pseudoEditor;
 	let pythonEditor;
 
-	onMount(async () => {
-		const ace = await import('ace-builds/src-noconflict/ace');
-		await import('ace-builds/src-noconflict/theme-dracula');
-		await import('ace-builds/src-noconflict/mode-python');
-		pseudoEditor = ace.edit('pseudoEditor');
-		pythonEditor = ace.edit('pythonEditor');
-		pseudoEditor.setTheme('ace/theme/dracula');
-		pythonEditor.setTheme('ace/theme/dracula');
-		pseudoEditor.setFontSize(16);
-		pythonEditor.setFontSize(16);
-		pseudoEditor.resize();
-		pythonEditor.resize();
-	});
-
 	function viewPastPaperPseudocode() {
-		pseudoEditor.setValue($pastPaperPseudocode, 1);
+		pseudoEditor.set($pastPaperPseudocode);
 	}
 
 	function viewPseudocodeGuide() {
@@ -38,22 +25,22 @@
 
 	function convertPseudocodeToPython() {
 		const PSEUDOARRAY = pseudoEditor
-			.getValue()
+			.get()
 			.split('\n')
 			.map((i) => [false, i.search(/\S|$/), i.trim()]);
 
 		const ERROR = validator(PSEUDOARRAY);
 
 		if (ERROR == '') {
-			pythonEditor.session.setMode('ace/mode/python');
+			pythonEditor.mode('python');
 			const PYTHONTEXT = transpiler(PSEUDOARRAY)
 				.filter((i) => i[2] != 'REMOVED')
 				.map((i) => ' '.repeat(i[1]) + i[2])
 				.join('\n');
-			pythonEditor.setValue(PYTHONTEXT, 1);
+			pythonEditor.set(PYTHONTEXT);
 		} else {
-			pythonEditor.session.setMode('ace/mode/text');
-			pythonEditor.setValue(ERROR, 1);
+			pythonEditor.mode('text');
+			pythonEditor.set(ERROR);
 		}
 	}
 </script>
@@ -66,8 +53,8 @@
 
 <main>
 	<Headers/>
-	<div id="pseudoEditor"></div>
-	<div id="pythonEditor"></div>
+	<Ace bind:this={pseudoEditor} id='0'/>
+	<Ace bind:this={pythonEditor} id='1'/>
 	<J277Guide/>
 </main>
 
