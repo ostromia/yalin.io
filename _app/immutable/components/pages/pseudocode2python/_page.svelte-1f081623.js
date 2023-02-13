@@ -1,4 +1,4 @@
-import{S as Y,i as q,s as F,k as P,q as E,a as k,l as w,m as x,r as B,h,c as O,n as $,b as R,G as _,L as I,u as ce,B as S,T as pe,H as L,U as me,I as W,e as ne,M as he,o as ge,w as Q,J as $e,x as H,y as J,f as U,t as j,z,V as se}from"../../../chunks/index-38fb3170.js";import{r as _e,w as ve}from"../../../chunks/index-5008b4a3.js";import{p as re}from"../../../chunks/python-80229e37.js";import{_ as D}from"../../../chunks/preload-helper-41c905a7.js";const Z=ve(!1),ye=_e(`// 2020 Sample assessment materials J277/02
+import{S as Y,i as q,s as F,k as P,q as E,a as k,l as w,m as x,r as B,h,c as O,n as $,b as R,G as _,L as I,u as ce,B as S,T as pe,H as L,U as me,I as W,e as ne,M as he,o as ge,w as Q,J as $e,x as H,y as J,f as U,t as j,z,V as se}from"../../../chunks/index-1590bc31.js";import{r as _e,w as ve}from"../../../chunks/index-ea583d0f.js";import{p as re}from"../../../chunks/python-80229e37.js";import{_ as D}from"../../../chunks/preload-helper-41c905a7.js";const Z=ve(!1),ye=_e(`// 2020 Sample assessment materials J277/02
 
 // Question 2(a)
 num1 = input("enter first number")
