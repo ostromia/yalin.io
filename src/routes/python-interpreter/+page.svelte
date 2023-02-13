@@ -4,9 +4,11 @@
 
 	var pyodide;
 	let editor;
+	let output;
 
 	function execute() {
-		pyodide.runPython(`${editor.getValue()}`)
+		pyodide.runPython(`${editor.getValue()}`);
+		output = pyodide.runPython('sys.stdout.getvalue()');
 	}
 
 	function toggle() {
@@ -26,7 +28,7 @@
 
 		// @ts-ignore
 		pyodide = await loadPyodide();
-		pyodide.runPython('print("hello world")');
+		pyodide.runPython(`import io\nimport sys\nsys.stdout=io.StringIO()`);
 	});
 </script>
 
@@ -38,7 +40,7 @@
 
 <main>
 	<div id="editor"></div>
-    <textarea id="terminal" readonly></textarea>
+    <textarea id="terminal" bind:value={output} readonly></textarea>
 </main>
 
 <style>
