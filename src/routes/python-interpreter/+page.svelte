@@ -8,7 +8,7 @@
 
 	function execute() {
 		pyodide.runPython(`${editor.getValue()}`);
-		output = pyodide.runPython('sys.stdout.getvalue()');
+		output += pyodide.runPython('sys.stdout.getvalue()');
 	}
 
 	function toggle() {
@@ -22,13 +22,16 @@
 		await import('ace-builds/src-noconflict/theme-dracula');
 		await import('ace-builds/src-noconflict/mode-python');
 		editor = ace.edit('editor');
+		editor.session.setMode('ace/mode/python');
 		editor.setTheme('ace/theme/dracula');
 		editor.setFontSize('16px');
 		editor.resize();
 
+		output = 'initializing Python interpreter...';
 		// @ts-ignore
 		pyodide = await loadPyodide();
 		pyodide.runPython(`import io\nimport sys\nsys.stdout=io.StringIO()`);
+		output = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
 	});
 </script>
 
