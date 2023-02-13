@@ -4,7 +4,7 @@
 
 	var pyodide;
 	let editor;
-	let output;
+	let terminal;
 
 	function execute() {
 		pyodide.runPython(`${editor.getValue()}`);
@@ -12,6 +12,15 @@
 	}
 
 	function toggle() {
+		let wrapper = document.querySelector('main');
+		if (terminal.style.display != 'none') {
+			terminal.style.display = 'none';
+			wrapper.style.setProperty('grid-template-columns', '1fr');
+		}
+		else {
+			terminal.style.display = 'block';
+			wrapper.style.setProperty('grid-template-columns', '1fr 1fr');
+		}
 	}
 
 	function save() {
@@ -38,11 +47,11 @@
 		editor.setFontSize('16px');
 		editor.resize();
 
-		output = 'initializing Python interpreter...';
+		terminal.value = 'initializing Python interpreter...';
 		// @ts-ignore
 		pyodide = await loadPyodide();
 		// pyodide.runPython(`import io\nimport sys\nsys.stdout=io.StringIO()`);
-		output = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
+		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
 	});
 </script>
 
@@ -54,7 +63,7 @@
 
 <main>
 	<div id="editor"></div>
-    <textarea id="terminal" bind:value={output} readonly></textarea>
+    <textarea bind:this={terminal} id="terminal" readonly></textarea>
 </main>
 
 <style>
