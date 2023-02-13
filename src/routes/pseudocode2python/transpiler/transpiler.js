@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 String.prototype.replaceBetween = function(start, stop, substring) {
 	const left = this.slice(0, start);
 	const right = this.slice(stop + 1, this.length);
@@ -382,7 +384,7 @@ function Subroutines(INDENT, INDEX)
 	python[INDEX][2] = `def ${part[1]}:`;
 }
 
-export function transpiler(pseudoArrayInput)
+export default function transpiler(pseudoArrayInput)
 {
 	python = pseudoArrayInput;
 
@@ -426,7 +428,6 @@ export function transpiler(pseudoArrayInput)
 		python.unshift([true, 0, 'from random import randint']);
 	}
 	return python;
-	// return python.filter(i => i[2] != 'REMOVED');
 }
 
 let python = [];

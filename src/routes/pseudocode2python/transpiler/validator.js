@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 // method to check if string is valid python identifier
 String.prototype.isIdentifier = function() {
 	return /^[a-zA-Z_]\w*$/.test(this);
@@ -62,7 +64,7 @@ function IterationCountControlled(INDENT, INDEX, LINE)
 	}
 }
 
-export function validator(pseudoArrayInput)
+export default function validator(pseudoArrayInput)
 {
 	python = pseudoArrayInput;
 

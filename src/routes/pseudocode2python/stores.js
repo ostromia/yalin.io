@@ -1,9 +1,9 @@
 import { writable } from 'svelte/store';
-// import { readable } from 'svelte/store';
+import { readable } from 'svelte/store';
 
 export const VPG_s = writable(false);
 
-export const pastPaperPseudocode = writable(`// 2020 Sample assessment materials J277/02
+export const pastPaperPseudocode = readable(`// 2020 Sample assessment materials J277/02
 
 // Question 2(a)
 num1 = input("enter first number")

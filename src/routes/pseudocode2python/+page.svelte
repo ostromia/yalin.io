@@ -4,14 +4,15 @@
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
 	import Ace from '$lib/Ace.svelte';
 
-	import {pastPaperPseudocode} from '$r/pseudocode2python/stores.js';
-	import {VPG_s} from '$r/pseudocode2python/stores.js';
+	import transpiler from '$r/pseudocode2python/transpiler/transpiler';
+	import validator from '$r/pseudocode2python/transpiler/validator';
 
-	import {transpiler} from '$r/pseudocode2python/transpiler/p2p_transpiler';
-	import {validator} from '$r/pseudocode2python/transpiler/p2p_validator';
+	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores.js';
+
 
 	let pseudoEditor;
 	let pythonEditor;
+
 
 	function viewPastPaperPseudocode() {
 		pseudoEditor.set($pastPaperPseudocode);
