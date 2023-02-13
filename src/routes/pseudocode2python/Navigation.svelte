@@ -7,15 +7,15 @@
 <nav>
 	<span>Online OCR Pseudocode to Python Transpiler</span>
 
-	<button id="viewPastPaperPseudocode" on:click={() => dispatch('vPPP')}>
+	<button on:click={() => dispatch('vPPP')}>
 		View Past Paper Pseudocode
 	</button>
 
-	<button id="viewPseudocodeGuide" on:click={() => dispatch('vPG')}>
+	<button on:click={() => dispatch('vPG')}>
 		{($VPG_s == false ? 'Show' : 'Hide') + ' Pseudocode Guide (J277)'}
 	</button>
 
-	<button id="convertPseudocodeToPython" on:click={() => dispatch('cPTP')}>
+	<button on:click={() => dispatch('cPTP')}>
 		Convert Pseudocode to Python
 	</button>
 </nav>

@@ -1,16 +1,14 @@
 <script>
-	import { onMount } from 'svelte';
-
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
 	import Headers from '$r/pseudocode2python/Headers.svelte';
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
 	import Ace from '$lib/Ace.svelte';
 
-	import { pastPaperPseudocode } from '$r/pseudocode2python/stores.js';
-	import { VPG_s } from '$r/pseudocode2python/stores.js';
+	import {pastPaperPseudocode} from '$r/pseudocode2python/stores.js';
+	import {VPG_s} from '$r/pseudocode2python/stores.js';
 
-	import { transpiler } from '$r/pseudocode2python/transpiler/p2p_transpiler';
-	import { validator } from '$r/pseudocode2python/transpiler/p2p_validator';
+	import {transpiler} from '$r/pseudocode2python/transpiler/p2p_transpiler';
+	import {validator} from '$r/pseudocode2python/transpiler/p2p_validator';
 
 	let pseudoEditor;
 	let pythonEditor;
@@ -20,12 +18,11 @@
 	}
 
 	function viewPseudocodeGuide() {
-		VPG_s.update((i) => (i = i ? false : true));
+		VPG_s.update(i => !i);
 	}
 
 	function convertPseudocodeToPython() {
-		const PSEUDOARRAY = pseudoEditor
-			.get()
+		const PSEUDOARRAY = pseudoEditor.get()
 			.split('\n')
 			.map((i) => [false, i.search(/\S|$/), i.trim()]);
 
