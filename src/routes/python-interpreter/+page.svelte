@@ -4,15 +4,14 @@
 
 	var pyodide;
 	let editor;
+	let wrapper;
 	let terminal;
 
 	function execute() {
 		pyodide.runPython(`${editor.getValue()}`);
-		// output += pyodide.runPython('sys.stdout.getvalue()');
 	}
 
 	function toggle() {
-		let wrapper = document.querySelector('main');
 		if (terminal.style.display != 'none') {
 			terminal.style.display = 'none';
 			wrapper.style.setProperty('grid-template-columns', '1fr');
@@ -28,19 +27,18 @@
 
 	onMount(async () => {
 		console.log = function (message) {
-		let logger = document.getElementById('terminal');
-		if (typeof message == 'object') {
-			logger.value += (JSON && JSON.stringify ? JSON.stringify(message) : message);
-		}
-		else {
-			logger.value += message;
-		}
-		logger.value += '\n';
-		}
+			if (typeof message == "object") {
+				terminal.value += JSON.stringify(message) + '\n';
+			}
+			else {
+				terminal.value += message + '\n';
+			}
+		};
 
 		const ace = await import('ace-builds/src-noconflict/ace');
 		await import('ace-builds/src-noconflict/theme-dracula');
 		await import('ace-builds/src-noconflict/mode-python');
+
 		editor = ace.edit('editor');
 		editor.session.setMode('ace/mode/python');
 		editor.setTheme('ace/theme/dracula');
@@ -50,7 +48,6 @@
 		terminal.value = 'initializing Python interpreter...';
 		// @ts-ignore
 		pyodide = await loadPyodide();
-		// pyodide.runPython(`import io\nimport sys\nsys.stdout=io.StringIO()`);
 		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
 	});
 </script>
@@ -61,7 +58,7 @@
 
 <Navigation on:ePC={execute} on:tPC={toggle} on:sPC={save}/>
 
-<main>
+<main bind:this={wrapper}>
 	<div id="editor"></div>
     <textarea bind:this={terminal} id="terminal" readonly></textarea>
 </main>
