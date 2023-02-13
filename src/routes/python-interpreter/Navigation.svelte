@@ -5,12 +5,10 @@
 
 <nav>
 	<span>Online Pythoner Interpreter</span>
-
-	<button on:click={() => dispatch('ePC')}> Execute Python Code </button>
-
-	<button on:click={() => dispatch('tPC')}> Toggle Terminal </button>
-
-	<button on:click={() => dispatch('sPC')}> Save Python Code </button>
+	<button on:click={() => dispatch('ePC')}>Execute Python Code</button>
+	<button on:click={() => dispatch('tPC')}>Toggle Terminal</button>
+	<button on:click={() => dispatch('cPC')}>Clear Terminal</button>
+	<button on:click={() => dispatch('sPC')}>Save Python Code</button>
 </nav>
 
 <style lang="scss">
@@ -25,7 +23,7 @@
 		box-sizing: border-box;
 
 		display: grid;
-		grid-template-columns: 1fr repeat(3, auto);
+		grid-template-columns: 1fr repeat(4, auto);
 		gap: 0.5rem;
 
 		overflow-y: hidden;
