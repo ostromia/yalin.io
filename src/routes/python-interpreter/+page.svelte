@@ -9,6 +9,8 @@
 
 	function execute() {
 		pyodide.runPython(`${editor.getValue()}`);
+		terminal.value += pyodide.runPython("sys.stdout.getvalue()") + '\n';
+		pyodide.runPython("sys.stdout = io.StringIO()");
 	}
 
 	function toggle() {
@@ -35,14 +37,14 @@
 	}
 
 	onMount(async () => {
-		console.log = function (message) {
-			if (typeof message == "object") {
-				terminal.value += JSON.stringify(message) + '\n';
-			}
-			else {
-				terminal.value += message + '\n';
-			}
-		};
+		// console.log = function (message) {
+		// 	if (typeof message == "object") {
+		// 		terminal.value += JSON.stringify(message) + '\n';
+		// 	}
+		// 	else {
+		// 		terminal.value += message + '\n';
+		// 	}
+		// };
 
 		const ace = await import('ace-builds/src-noconflict/ace');
 		await import('ace-builds/src-noconflict/theme-dracula');
@@ -57,6 +59,7 @@
 		terminal.value = 'initializing Python interpreter...';
 		// @ts-ignore
 		pyodide = await loadPyodide();
+		pyodide.runPython(`import io\nimport sys\nsys.stdout = io.StringIO()`);
 		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
 	});
 </script>
