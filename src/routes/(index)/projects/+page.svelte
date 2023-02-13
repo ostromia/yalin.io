@@ -8,12 +8,12 @@
 		{
 			id: 'image_p2p',
 			url: `${base}/pseudocode2python`,
-			src: 'Web capture_17-10-2022_05026_berkay-yalin.github.io.jpeg',
+			src: 'Web capture_13-2-2023_205929_localhost.jpeg',
 		},
 		{
 			id: 'image_pi',
-			url: 'https://berkay-yalin.github.io/berkay-yalin.io/s/pythonInterpreter.html',
-			src: 'Web capture_17-10-2022_05345_berkay-yalin.github.io.jpeg',
+			url: `${base}/python-interpreter`,
+			src: 'Web capture_13-2-2023_21020_localhost.jpeg',
 		},
 	];
 	const languages = [

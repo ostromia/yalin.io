@@ -37,15 +37,6 @@
 	}
 
 	onMount(async () => {
-		// console.log = function (message) {
-		// 	if (typeof message == "object") {
-		// 		terminal.value += JSON.stringify(message) + '\n';
-		// 	}
-		// 	else {
-		// 		terminal.value += message + '\n';
-		// 	}
-		// };
-
 		const ace = await import('ace-builds/src-noconflict/ace');
 		await import('ace-builds/src-noconflict/theme-dracula');
 		await import('ace-builds/src-noconflict/mode-python');
@@ -65,6 +56,7 @@
 </script>
 
 <svelte:head>
+	<title>Python Interpreter</title>
 	<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
 </svelte:head>
 
