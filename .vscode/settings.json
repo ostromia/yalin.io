@@ -11,7 +11,7 @@
 	"files.trimFinalNewlines": true,
 	"files.enableTrash": true,
 	"svelte.ask-to-enable-ts-plugin": false,
-	"svelte.enable-ts-plugin": false,
+	"svelte.enable-ts-plugin": true,
 	"svelte.plugin.svelte.format.config.singleQuote": true,
 	"svelte.plugin.html.tagComplete.enable": false,
 	"svelte.plugin.svelte.format.config.printWidth": 200,
