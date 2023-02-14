@@ -8,12 +8,12 @@
 		{
 			id: 'image_p2p',
 			url: `${base}/pseudocode2python`,
-			src: 'Web capture_13-2-2023_205929_localhost.jpeg',
+			src: 'assets/projects/pseudocode2python.jpeg',
 		},
 		{
 			id: 'image_pi',
 			url: `${base}/python-interpreter`,
-			src: 'Web capture_13-2-2023_21020_localhost.jpeg',
+			src: 'assets/projects/python-interpreter.jpeg',
 		},
 	];
 	const languages = [

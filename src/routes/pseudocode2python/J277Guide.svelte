@@ -5,7 +5,7 @@
 {#if $VPG_s}
 	<div>
 		{#each [...Array(7).keys()] as i}
-			<img alt="" src="Pseudocode-Guide-J277/0{i}.jpg">
+			<img alt="" src="assets/pseudocode2python/Pseudocode-Guide-J277/0{i}.jpg">
 		{/each}
 	</div>
 {/if}

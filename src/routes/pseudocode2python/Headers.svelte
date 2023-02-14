@@ -2,7 +2,7 @@
 	import { VPG_s } from '$r/pseudocode2python/stores.js';
 
 	import python_logo from '$lib/devicons/python.svg';
-	import ocr_logo from '$lib/ocr-logo.svg';
+	const ocr_logo = 'assets/pseudocode2python/ocr-logo.svg';
 </script>
 
 <div>
