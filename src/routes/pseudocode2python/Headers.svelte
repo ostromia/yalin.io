@@ -1,5 +1,5 @@
 <script>
-	import { VPG_s } from '$r/pseudocode2python/stores.js';
+	import { VPG_s } from '$r/pseudocode2python/stores';
 
 	import python_logo from '$lib/devicons/python.svg';
 	const ocr_logo = 'assets/pseudocode2python/ocr-logo.svg';

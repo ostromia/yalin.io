@@ -7,7 +7,7 @@
 	import transpiler from '$r/pseudocode2python/transpiler/transpiler';
 	import validator from '$r/pseudocode2python/transpiler/validator';
 
-	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores.js';
+	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores';
 
 
 	let pseudoEditor;

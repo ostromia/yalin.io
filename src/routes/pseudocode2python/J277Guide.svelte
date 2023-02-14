@@ -1,5 +1,5 @@
 <script>
-	import { VPG_s } from '$r/pseudocode2python/stores.js';
+	import { VPG_s } from '$r/pseudocode2python/stores';
 </script>
 
 {#if $VPG_s}
