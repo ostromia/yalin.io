@@ -1,16 +1,24 @@
-<script>
+<script lang="ts">
 	import { onMount } from 'svelte';
 
-	export let id;
-	let editor;
+	export let id: string;
+	let editor: AceAjax.Editor;
 
-	export function set(data, position = 1) {
-		editor.setValue(data, position);
-	}
+	// interface AceT extends AceAjax.Editor {
+	// 	get: AceAjax.Editor['getValue'];
+	// 	set: AceAjax.Editor['setValue'];
+	// 	mode: AceAjax.IEditSession['setMode'];
+	// }
+
 	export function get() {
 		return editor.getValue();
 	}
-	export function mode(language) {
+
+	export function set(data = '', position = 1) {
+		editor.setValue(data, position);
+	}
+
+	export function mode(language: string) {
 		editor.session.setMode('ace/mode/' + language);
 	}
 

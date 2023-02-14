@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
 	import Headers from '$r/pseudocode2python/Headers.svelte';
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
@@ -10,8 +10,8 @@
 	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores';
 
 
-	let pseudoEditor;
-	let pythonEditor;
+	let pseudoEditor: Ace;
+	let pythonEditor: Ace;
 
 
 	function viewPastPaperPseudocode() {
@@ -24,7 +24,7 @@
 
 	function convertPseudocodeToPython() {
 		const PSEUDOARRAY = pseudoEditor.get()
-			.split('\n')
+			.split(/\n/)
 			.map((i) => [false, i.search(/\S|$/), i.trim()]);
 
 		const ERROR = validator(PSEUDOARRAY);
