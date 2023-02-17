@@ -6,6 +6,7 @@
 
 	import transpiler from '$r/pseudocode2python/transpiler/transpiler';
 	import validator from '$r/pseudocode2python/transpiler/validator';
+	import parser from '$r/pseudocode2python/transpiler/parser';
 
 	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores';
 
@@ -23,20 +24,14 @@
 	}
 
 	function convertPseudocodeToPython() {
-		const PSEUDOARRAY = pseudoEditor.get()
-			.split(/\n/)
-			.map((i) => [false, i.search(/\S|$/), i.trim()]);
-
+		const PSEUDOARRAY = parser.toArray(pseudoEditor.get());
 		const ERROR = validator(PSEUDOARRAY);
-
-		if (ERROR == '') {
+		if (ERROR === '') {
 			pythonEditor.mode('python');
-			const PYTHONTEXT = transpiler(PSEUDOARRAY)
-				.filter((i) => i[2] != 'REMOVED')
-				.map((i) => ' '.repeat(i[1]) + i[2])
-				.join('\n');
-			pythonEditor.set(PYTHONTEXT);
-		} else {
+			const PYTHONARRAY = transpiler(PSEUDOARRAY);
+			pythonEditor.set(parser.toString(PYTHONARRAY));
+		}
+		else {
 			pythonEditor.mode('text');
 			pythonEditor.set(ERROR);
 		}
