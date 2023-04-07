@@ -68,6 +68,7 @@
 
 <style lang="scss">
 	div {
-		display: contents;
+		display: grid;
+		overflow: auto;
 	}
 </style>

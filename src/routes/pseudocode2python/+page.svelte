@@ -35,25 +35,32 @@
 	}
 </script>
 
+<Navigation
+	on:vPPP={viewPastPaperPseudocode}
+	on:vPG={viewPseudocodeGuide}
+	on:cPTP={convertPseudocodeToPython}
+/>
 
-<Navigation on:vPPP={viewPastPaperPseudocode} on:vPG={viewPseudocodeGuide} on:cPTP={convertPseudocodeToPython}/>
+<main style="position: absolute">
+	<J277Guide/>
+</main>
 
 <main>
 	<Headers/>
 	<CodeMirror bind:this={pseudoEditor}/>
 	<CodeMirror bind:this={pythonEditor} filetype={pythonLanguageSupport()}/>
-	<J277Guide/>
 </main>
 
 <style lang="scss">
 	main {
 		height: 95vh;
+		z-index: 99;
 
 		padding: 0.5rem;
 		box-sizing: border-box;
 
 		display: grid;
-		grid-template-rows: auto 1fr;
+		grid-template-rows: 3vh 1fr;
 		grid-template-columns: 1fr 1fr;
 		grid-template-areas: 'h0 h1' 'e0 e1';
 		gap: 0.5rem;
