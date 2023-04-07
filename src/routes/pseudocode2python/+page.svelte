@@ -5,17 +5,15 @@
 	import Navigation from '$r/pseudocode2python/Navigation.svelte';
 	import Headers from '$r/pseudocode2python/Headers.svelte';
 	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
-	import { pastPaperPseudocode, VPG_s } from '$r/pseudocode2python/stores';
+	import {  VPG_s } from '$r/pseudocode2python/stores';
 
-	import transpiler from '$r/pseudocode2python/transpiler/transpiler';
-	import validator from '$r/pseudocode2python/transpiler/validator';
-	import parser from '$r/pseudocode2python/transpiler/parser';
+	import { default as p2p } from '$r/pseudocode2python/transpiler/';
 
 	let pseudoEditor: CodeMirror;
 	let pythonEditor: CodeMirror;
 
 	function viewPastPaperPseudocode() {
-		pseudoEditor.setText(String(pastPaperPseudocode));
+		pseudoEditor.setText(p2p.pastPaperPseudocode);
 	}
 
 	function viewPseudocodeGuide() {
@@ -23,12 +21,12 @@
 	}
 
 	function convertPseudocodeToPython() {
-		const PSEUDOARRAY = parser.toArray(pseudoEditor.getText());
-		const ERROR = validator(PSEUDOARRAY);
+		const PSEUDOARRAY = p2p.toArray(pseudoEditor.getText());
+		const ERROR = p2p.validator(PSEUDOARRAY);
 		if (ERROR === '') {
 			pythonEditor.setSyntax(pythonLanguageSupport());
-			const PYTHONARRAY = transpiler(PSEUDOARRAY);
-			pythonEditor.setText(parser.toString(PYTHONARRAY));
+			const PYTHONARRAY = p2p.transpiler(PSEUDOARRAY);
+			pythonEditor.setText(p2p.toString(PYTHONARRAY));
 		}
 		else {
 			pythonEditor.setSyntax([]);
