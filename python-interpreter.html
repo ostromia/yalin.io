@@ -2,20 +2,22 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" href="/berkay-yalin.io/favicon.ico" />
+		<link rel="icon" href="./favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta http-equiv="content-security-policy" content="">
-		<link href="/berkay-yalin.io/_app/immutable/assets/_page-0d5e00bc.css" rel="stylesheet">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/start-8b5b7e6a.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/index-ddf3eb23.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/singletons-1e420e1e.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/index-d01a5eb0.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/paths-3fa55cf4.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/preload-helper-41c905a7.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/components/layout.svelte-93eeb35a.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/modules/pages/_layout.ts-9cbb603b.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/chunks/_layout-da46b06b.js">
-		<link rel="modulepreload" href="/berkay-yalin.io/_app/immutable/components/pages/python-interpreter/_page.svelte-bad756c5.js"><title>Python Interpreter</title><!-- HEAD_svelte-rx3onj_START --><script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script><!-- HEAD_svelte-rx3onj_END -->
+		<link href="./_app/immutable/assets/_page.0d5e00bc.css" rel="stylesheet">
+		<link href="./_app/immutable/assets/index.922b3441.css" rel="stylesheet">
+		<link rel="modulepreload" href="./_app/immutable/entry/start.5d6c2fbf.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.17ebdefe.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/singletons.4ed53692.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.c8fde6be.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/paths.e3965c6a.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/app.123f755c.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/layout.svelte.0aab07ca.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/_layout.ts.984db11e.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/_layout.da46b06b.js">
+		<link rel="modulepreload" href="./_app/immutable/entry/python-interpreter-page.svelte.3eb9fb78.js">
+		<link rel="modulepreload" href="./_app/immutable/chunks/index.b0b1abe8.js"><title>Python Interpreter</title><!-- HEAD_svelte-rx3onj_START --><script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script><!-- HEAD_svelte-rx3onj_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -30,27 +32,36 @@
 	<button class="svelte-6zja6v">Save Python Code</button>
 </nav>
 
-<main class="svelte-1bxl9v6"><div id="editor"></div>
+<main class="svelte-1bxl9v6"><div class="svelte-17nnx8r"></div>
     <textarea id="terminal" readonly class="svelte-1bxl9v6"></textarea>
 </main>
 
 
-		<script type="module" data-sveltekit-hydrate="pxxw5s">
-			import { start } from "/berkay-yalin.io/_app/immutable/start-8b5b7e6a.js";
+			
+			<script>
+				{
+					__sveltekit_1gky7xx = {
+						env: {},
+						assets: "/berkay-yalin.io",
+						base: new URL(".", location).pathname.slice(0, -1),
+						element: document.currentScript.parentElement
+					};
 
-			start({
-				assets: "/berkay-yalin.io",
-				env: {},
-				target: document.querySelector('[data-sveltekit-hydrate="pxxw5s"]').parentNode,
-				version: "1680525417960",
-				hydrate: {
-					node_ids: [0, 8],
-					data: [null,null],
-					form: null,
-					error: null
+					const data = [null,null];
+
+					Promise.all([
+						import("./_app/immutable/entry/start.5d6c2fbf.js"),
+						import("./_app/immutable/entry/app.123f755c.js")
+					]).then(([kit, app]) => {
+						kit.start(app, __sveltekit_1gky7xx.element, {
+							node_ids: [0, 8],
+							data,
+							form: null,
+							error: null
+						});
+					});
 				}
-			});
-		</script>
-	</div>
+			</script>
+		</div>
 	</body>
 </html>
