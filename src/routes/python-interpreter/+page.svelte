@@ -1,14 +1,18 @@
 <script>
+	import CodeMirror from '$lib/CodeMirror.svelte';
+	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
+
 	import { onMount } from 'svelte';
 	import Navigation from '$r/python-interpreter/Navigation.svelte';
 
 	var pyodide;
-	let editor;
+	let codemirror;
+
 	let wrapper;
 	let terminal;
 
 	function execute() {
-		pyodide.runPython(`${editor.getValue()}`);
+		pyodide.runPython(`${codemirror.getText()}`);
 		terminal.value += pyodide.runPython("sys.stdout.getvalue()") + '\n';
 		pyodide.runPython("sys.stdout = io.StringIO()");
 	}
@@ -29,7 +33,7 @@
 	}
 
 	function save() {
-		let file = new Blob([editor.getValue()]);
+		let file = new Blob([codemirror.getValue()]);
 		let a = document.createElement('a');
 		a.href = URL.createObjectURL(file);
 		a.download = 'eric.py';
@@ -37,18 +41,7 @@
 	}
 
 	onMount(async () => {
-		const ace = await import('ace-builds/src-noconflict/ace');
-		await import('ace-builds/src-noconflict/theme-dracula');
-		await import('ace-builds/src-noconflict/mode-python');
-
-		editor = ace.edit('editor');
-		editor.session.setMode('ace/mode/python');
-		editor.setTheme('ace/theme/dracula');
-		editor.setFontSize('16px');
-		editor.resize();
-
 		terminal.value = 'initializing Python interpreter...';
-		// @ts-ignore
 		pyodide = await loadPyodide();
 		pyodide.runPython(`import io\nimport sys\nsys.stdout = io.StringIO()`);
 		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
@@ -63,7 +56,7 @@
 <Navigation on:ePC={execute} on:tPC={toggle} on:cPC={clear} on:sPC={save}/>
 
 <main bind:this={wrapper}>
-	<div id="editor"></div>
+	<CodeMirror bind:this={codemirror} filetype={pythonLanguageSupport()}/>
     <textarea bind:this={terminal} id="terminal" readonly></textarea>
 </main>
 
