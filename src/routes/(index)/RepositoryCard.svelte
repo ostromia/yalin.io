@@ -1,4 +1,6 @@
 <script>
+	import "@fontsource/albert-sans";
+
 	export let username;
 	export let repository;
 	export let description;
@@ -63,7 +65,7 @@
 		border-radius: 0.5rem;
 		box-sizing: border-box;
 
-		font-family: 'segoe';
+		font-family: 'Albert Sans';
 
 		color: $color;
 		background-color: $background-color;

@@ -1,5 +1,6 @@
 <script>
 	import { base } from '$app/paths';
+	import "@fontsource/jetbrains-mono";
 	import github_devicon from '$lib/devicons/github.svg';
 </script>
 
@@ -14,7 +15,7 @@
 </nav>
 
 <style lang="scss">
-	nav {
+	nav {		
 		height: 5vh;
 		width: 100%;
 
@@ -44,8 +45,8 @@
 
 		line-height: 5vh;
 		font-size: 2vh;
-		font-family: courier;
-		font-weight: bold;
+		font-family: "JetBrains Mono";
+		font-weight: 500;
 	}
 
 	.nav-image {

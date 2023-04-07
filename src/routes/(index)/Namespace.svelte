@@ -1,3 +1,7 @@
+<script>
+	import "@fontsource/jetbrains-mono";
+</script>
+
 <div id="title">berkay-yalin.io</div>
 
 <style lang="scss">
@@ -7,7 +11,7 @@
 	text-align: center;
 
 	color: white;
-	font-family: "roboto";
+	font-family: "JetBrains Mono";
 	line-height: 10vh;
 	font-size: 8vh;
 

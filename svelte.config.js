@@ -14,6 +14,7 @@ const config = {
     kit: {
         adapter: adapter(),
         paths: {
+			relative: false,
             base: process.env.NODE_ENV == 'development' ? '' : '/berkay-yalin.io'
         },
         alias: {

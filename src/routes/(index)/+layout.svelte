@@ -4,16 +4,6 @@
 
 <svelte:head>
 	<style>
-		@font-face {
-			font-family: 'roboto';
-			src: url('fonts/RobotoMono-VariableFont_wght.ttf');
-		} /* Namespace.svelte */
-
-		@font-face {
-			font-family: 'segoe';
-			src: url('fonts/Segoe-UI.ttf');
-		} /* Repositories.svelte */
-
 		::-webkit-scrollbar {
 			width: 0.5vw;
 		}
