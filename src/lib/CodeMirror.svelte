@@ -8,7 +8,8 @@
 	import { EditorState, Compartment } from "@codemirror/state";
 
 	import { oneDark } from '@codemirror/theme-one-dark';
-	import { LanguageSupport, indentOnInput, indentUnit } from '@codemirror/language';
+	import type { LanguageSupport } from '@codemirror/language';
+	import { indentOnInput, indentUnit } from '@codemirror/language';
 	import { keymap, lineNumbers } from '@codemirror/view';
 	import { indentMore, indentLess } from "@codemirror/commands";
 
