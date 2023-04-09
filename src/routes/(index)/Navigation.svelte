@@ -5,9 +5,17 @@
 </script>
 
 <nav>
-	<a class="nav-text" id="nav-index" href="{base}/">~/berkay-yalin.io</a>
-	<a class="nav-text" style="grid-area: projects" href="{base}/projects">Projects</a>
-	<a class="nav-text" style="grid-area: articles" href="{base}/articles">Articles</a>
+	<a class="nav-text" id="nav-index" href="{base}/">
+		~/berkay-yalin.io
+	</a>
+
+	<a class="nav-text" style="grid-area: projects" href="{base}/projects">
+		Projects
+	</a>
+
+	<a class="nav-text" style="grid-area: gists" href="https://gist.github.com/berkay-yalin">
+		Gists
+	</a>
 
 	<a class="nav-image" style="grid-area: github" href="https://github.com/berkay-yalin">
 		<img alt="" src={github_devicon}>
@@ -15,10 +23,11 @@
 </nav>
 
 <style lang="scss">
-	nav {		
+	nav {
 		height: 5vh;
 		width: 100%;
 
+		font-family: "JetBrains Mono";
 		background-color: $fc;
 
 		padding: 0 1rem 0 1rem;
@@ -26,15 +35,15 @@
 
 		display: grid;
 		gap: 1rem;
-		grid-template-columns: repeat(4, min-content) auto min-content;
+		grid-template-columns: repeat(3, min-content) auto min-content;
 		grid-template-rows: 1fr;
-		grid-template-areas: "index projects articles gists . github";
+		grid-template-areas: "index projects gists . github";
 	}
 
 	#nav-index {
 		grid-area: index;
 		padding-right: 1vw;
-		font-size: 2.4vh;
+		font-size: 2vh;
 	}
 
 	.nav-text {
@@ -43,9 +52,8 @@
 		color: white;
 		text-decoration: none;
 
+		font-size: 1.5vh;
 		line-height: 5vh;
-		font-size: 2vh;
-		font-family: "JetBrains Mono";
 		font-weight: 500;
 	}
 
