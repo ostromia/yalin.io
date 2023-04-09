@@ -1,4 +1,5 @@
 <script>
+	import "@fontsource/albert-sans";
 	export let text;
 	export let style = '';
 </script>
@@ -11,7 +12,7 @@
 	$lh: 1.5rem;
 	.title {
 		line-height: $lh;
-		font-family: 'cabin';
+		font-family: "Albert Sans";
 		font-size: $lh;
 		color: white;
 		z-index: 2;
