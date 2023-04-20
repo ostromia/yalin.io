@@ -29,17 +29,17 @@
 		</div>
 
 		<div class="conference alpha">
-			<section id="incomplete-gamma-function" class="parent">
+			<section id="regularized-incomplete-gamma-function" class="parent">
 				<h1>Regularized Incomplete Gamma Function</h1>
 				{@html gamma.qplusp}
 			</section>
 
-			<section id="upper-incomplete-gamma-function" class="beta">
+			<section id="regularized-upper-incomplete-gamma-function" class="beta">
 				<h2>Regularized Upper Incomplete Gamma Function</h2>
 				{@html gamma.regularizedUpperIncompleteGammaFunction}
 			</section>
 
-			<section id="lower-incomplete-gamma-function" class="beta">
+			<section id="regularized-lower-incomplete-gamma-function" class="beta">
 				<h2>Regularized Lower Incomplete Gamma Function</h2>
 				{@html gamma.regularizedLowerIncompleteGammaFunction}
 			</section>
@@ -64,7 +64,7 @@
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
-		gap: 1rem;
+		gap: 2rem;
 	}
 
 	// article {
@@ -142,15 +142,13 @@
 		grid-template-areas: 'top top' 'left right';
 	}
 
-	#incomplete-gamma-function {
+	#incomplete-gamma-function, #regularized-incomplete-gamma-function {
 		grid-area: top;
 	}
-	#lower-incomplete-gamma-function {
+	#lower-incomplete-gamma-function, #regularized-lower-incomplete-gamma-function{
 		grid-area: left;
 	}
-	#upper-incomplete-gamma-function {
+	#upper-incomplete-gamma-function, #regularized-upper-incomplete-gamma-function {
 		grid-area: right;
 	}
-
-
 </style>

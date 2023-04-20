@@ -31,6 +31,7 @@
 		"@codemirror/theme-one-dark": "^6.1.1",
 		"@fontsource/albert-sans": "^4.5.2",
 		"@fontsource/jetbrains-mono": "^4.5.12",
+		"@fontsource/sedgwick-ave-display": "^4.5.8",
 		"codemirror": "^6.0.1"
 	}
 }
