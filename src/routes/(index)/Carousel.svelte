@@ -70,7 +70,8 @@
 
 	#devicon-container {
 		width: $width;
-		position: relative;
+		position: absolute;
+		left: 0;
 		display: flex;
 		overflow: hidden;
 	}

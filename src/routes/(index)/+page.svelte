@@ -12,6 +12,7 @@
 	<Namespace/>
 	<div style="height: 1.5rem"></div>
 	<Carousel/>
+	<div style="height: 10vh"></div>
 	<div style="height: 1.5rem"></div>
 	<Repositories/>
 </main>
