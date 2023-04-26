@@ -39,12 +39,12 @@
 
 <style lang="scss">
 	nav {
-		height: 2rem;
+		height: 2.5rem;
 		background-color: $fc;
 		align-items: center;
-		overflow: hidden;
+		// overflow: hidden;
 
-		padding: 0.5rem;
+		padding: 0 0.5rem;
 		box-sizing: border-box;
 
 		display: grid;
@@ -57,7 +57,7 @@
 		text-decoration: none;
 		white-space: nowrap;
 		font-size: 1rem;
-		line-height: 1rem;
+		line-height: 2rem;
 		font-family: "JetBrains Mono";
 		cursor: default;
 	}
@@ -66,6 +66,9 @@
 		color: white;
 		background: #333842;
 
+		height: 1.5rem;
+		line-height: 1rem;
+		font-size: 0.8rem;
 		font-family: 'consolas';
 
 		border: 1;

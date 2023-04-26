@@ -62,7 +62,7 @@
 
 <style lang="scss">
 	main {
-		height: calc(100vh - 2rem);
+		height: calc(100vh - 2.5rem);
 		padding: 0.5rem;
 		box-sizing: border-box;
 
