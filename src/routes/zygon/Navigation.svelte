@@ -39,11 +39,10 @@
 
 <style lang="scss">
 	nav {
-		height: 5vh;
-
+		height: 2rem;
 		background-color: $fc;
-
 		align-items: center;
+		overflow: hidden;
 
 		padding: 0.5rem;
 		box-sizing: border-box;
@@ -51,9 +50,6 @@
 		display: grid;
 		grid-template-columns: 1fr repeat(3, auto);
 		gap: 0.5rem;
-
-		overflow-y: hidden;
-		overflow-x: auto;
 	}
 
 	span {
@@ -67,8 +63,6 @@
 	}
 
 	button {
-		height: 3vh;
-
 		color: white;
 		background: #333842;
 
