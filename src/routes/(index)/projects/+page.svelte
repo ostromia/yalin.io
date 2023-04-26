@@ -56,7 +56,7 @@
 		</div>
 
 		<div id="image_container">
-			<Title text="Pseudocde to Python Transpiler"/>
+			<Title text="Zygon🦑"/>
 			<Title text="Online Python Interpreter"/>
 
 			<p>Convert OCR regulated pseudocode into Python</p>

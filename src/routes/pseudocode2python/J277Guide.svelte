@@ -1,5 +1,5 @@
 <script>
-	import { VPG_s } from '$r/pseudocode2python/stores';
+	import { VPG_s } from '$zygon/stores';
 </script>
 
 {#if $VPG_s}

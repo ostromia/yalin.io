@@ -1,6 +1,6 @@
-import { toArray, toString } from '$r/pseudocode2python/transpiler/parser';
-import transpiler from '$r/pseudocode2python/transpiler/transpiler';
-import validator from '$r/pseudocode2python/transpiler/validator';
+import { toArray, toString } from '$zygon/transpiler/parser';
+import transpiler from '$zygon/transpiler/transpiler';
+import validator from '$zygon/transpiler/validator';
 
 const pastPaperPseudocode = `// 2020 Sample assessment materials J277/02
 

@@ -2,12 +2,11 @@
 	import CodeMirror from '$lib/CodeMirror.svelte';
 	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
 
-	import Navigation from '$r/pseudocode2python/Navigation.svelte';
-	import Headers from '$r/pseudocode2python/Headers.svelte';
-	import J277Guide from '$r/pseudocode2python/J277Guide.svelte';
-	import {  VPG_s } from '$r/pseudocode2python/stores';
-
-	import { default as p2p } from '$r/pseudocode2python/transpiler/';
+	import Navigation from '$zygon/Navigation.svelte';
+	import Headers from '$zygon/Headers.svelte';
+	import J277Guide from '$zygon/J277Guide.svelte';
+	import {  VPG_s } from '$zygon/stores';
+	import { default as p2p } from '$zygon/transpiler/';
 
 	let pseudoEditor: CodeMirror;
 	let pythonEditor: CodeMirror;
@@ -34,6 +33,10 @@
 		}
 	}
 </script>
+
+<svelte:head>
+	<title>Zygon</title>
+</svelte:head>
 
 <Navigation
 	on:vPPP={viewPastPaperPseudocode}

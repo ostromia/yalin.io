@@ -19,7 +19,8 @@ const config = {
         },
         alias: {
             $r: path.resolve('src/routes'),
-            $index: path.resolve('src/routes/(index)')
+            $index: path.resolve('src/routes/(index)'),
+			$zygon: path.resolve('src/routes/pseudocode2python')
         }
     }
 };

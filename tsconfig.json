@@ -12,6 +12,7 @@
 	},
     "paths": {
         "$r": ["src/routes"],
-        "$index": ["src/routes/(index)"]
+        "$index": ["src/routes/(index)"],
+		"$zygon": ["src/routes/pseudocode2python"]
     }
 }
