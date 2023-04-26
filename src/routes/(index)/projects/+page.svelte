@@ -8,7 +8,7 @@
 	const images = [
 		{
 			id: 'image_p2p',
-			url: `${base}/pseudocode2python`,
+			url: `${base}/zygon`,
 			src: 'assets/projects/pseudocode2python.jpeg',
 		},
 		{
