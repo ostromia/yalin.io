@@ -40,27 +40,18 @@ String.prototype.blockify = function(r1, r2) {
 	return brackets
 }
 
+const operators_keywords: [string, string][] = [
+	['AND', 'and'],
+	['OR', 'or'],
+	['NOT', 'not'],
+	['^', '**'],
+	['MOD', '%'],
+	['DIV', '//']
+];
 
-
-function Operators(line)
-{
-	if (line.includes('AND')) {
-		return Operators(line.replace('AND', 'and'));
-	}
-	else if (line.includes('OR')) {
-		return Operators(line.replace('OR',  'or'));
-	}
-	else if (line.includes('NOT')) {
-		return Operators(line.replace('NOT', 'not'));
-	}
-	else if (line.includes('^')) {
-		return Operators(line.replace('^',   '**'));
-	}
-	else if (line.includes('MOD')) {
-		return Operators(line.replace('MOD', '%'));
-	}
-	else if (line.includes('DIV')) {
-		return Operators(line.replace('DIV', '//'));
+function Operators(line: string): string {
+	for (const i of operators_keywords) {
+		line = line.replaceAll(i[0], i[1]);
 	}
 	return line;
 }
