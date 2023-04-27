@@ -1,5 +1,5 @@
 <script>
-	import RepositoryCard from '$index/RepositoryCard.svelte';
+	import RepositoryCard from '$iindex/RepositoryCard.svelte';
 
 	const repositories = [
 		{

@@ -13,6 +13,7 @@
     "paths": {
         "$r": ["src/routes"],
         "$index": ["src/routes/(index)"],
+		"$iindex": ["src/routes/(index)/(index)"],
 		"$zygon": ["src/routes/zygon"]
     }
 }

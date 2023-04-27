@@ -1,7 +1,7 @@
 <script>
-	import Namespace from '$index/Namespace.svelte';
-	import Carousel from '$index/Carousel.svelte';
-	import Repositories from '$index/Repositories.svelte';
+	import Namespace from '$iindex/Namespace.svelte';
+	import Carousel from '$iindex/Carousel.svelte';
+	import Repositories from '$iindex/Repositories.svelte';
 </script>
 
 <svelte:head>
