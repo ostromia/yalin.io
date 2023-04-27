@@ -1,54 +1,42 @@
 <script>
-	import RepositoryCard from '$iindex/RepositoryCard.svelte';
+	import RepositoryCard from '$lib/RepositoryCard.svelte';
 
 	const repositories = [
 		{
-			username: 'berkay-yalin',
-			repository: 'berkay-yalin.io',
-			description: 'personal portfolio website',
-			language: 'JavaScript',
-			column: '1',
-			row: '1',
+			path: 'berkay-yalin/berkay-yalin.io',
+			language: ['Svelte'],
+			description: 'personal website',
+			style: 'grid-column: 1, grid-row: 1'
 		},
 		{
-			username: 'berkay-yalin',
-			repository: 'scientific-computing-with-python',
+			path: 'berkay-yalin/scientific-computing-with-python',
 			description: 'my solution links to freeCodeCamp\'s "Scientific Computing with Python" course',
-			language: 'Python',
-			column: '2 / 4',
-			row: '1',
+			language: ['Python'],
+			style: 'grid-column: 2 / 4; grid-row: 1'
 		},
 		{
-			username: 'mikeroyal',
-			repository: 'Windows-11-Guide',
+			path: 'mikeroyal/Windows-11-Guide',
 			description: 'Windows 11 Guide. Though, most of the Tools, Programs, Resources will also work for Windows 10.',
-			language: 'Shell',
-			column: '1 / 3',
-			row: '2',
+			language: ['Shell'],
+			style: 'grid-column: 1 / 3; grid-row: 2'
 		},
 		{
-			username: 'berkay-yalin',
-			repository: 'python-probabilities',
+			path: 'berkay-yalin/python-probabilities',
 			description: 'Library for accurate statistical calculations using Python.',
-			language: 'Python',
-			column: '1 / 3',
-			row: '3',
+			language: ['Python'],
+			style: 'grid-column: 1 / 3; grid-row: 3'
 		},
 		{
-			username: 'berkay-yalin',
-			repository: 'svelte-github-repo-card',
+			path: 'berkay-yalin/svelte-github-repo-card',
 			description: 'Svelte component to showcase a GitHub repository.',
-			language: 'JavaScript',
-			column: '3',
-			row: '2',
+			language: ['JavaScript'],
+			style: 'grid-column: 3; grid-row: 2'
 		},
 		{
-			username: 'berkay-yalin',
-			repository: 'dotfiles',
+			username: 'berkay-yalin/dotfiles',
 			description: 'trying to figure out how neovim works',
-			language: 'Lua',
-			column: '3',
-			row: '3',
+			language: ['Lua'],
+			style: 'grid-column: 3; grid-row: 3',
 		},
 	];
 </script>
