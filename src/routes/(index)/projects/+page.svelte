@@ -22,18 +22,22 @@
 	<div>
 		<Title text="Zygon🦑" style="margin: 1rem 1rem 0 1rem"/>
 		<RepositoryCard {...data[0]}>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img on:click={() => goto(`${base}/zygon`)} src="assets/projects/pseudocode2python.jpeg">
+			<div class="image-container">
+				<a href="{base}/zygon">
+					<img alt="" src="assets/projects/pseudocode2python.jpeg">
+				</a>
+			</div>
 		</RepositoryCard>
 	</div>
 
 	<div>
 		<Title text="Online Python Interpreter" style="margin: 1rem 1rem 0 1rem"/>
 		<RepositoryCard {...data[1]}>
-			<!-- svelte-ignore a11y-click-events-have-key-events -->
-			<!-- svelte-ignore a11y-missing-attribute -->
-			<img on:click={() => goto(`${base}/python-interpreter`)} src="assets/projects/python-interpreter.jpeg">
+			<div class="image-container">
+				<a href="{base}/python-interpreter">
+					<img alt="" src="assets/projects/python-interpreter.jpeg">
+				</a>
+			</div>
 		</RepositoryCard>
 	</div>
 </main>
@@ -51,11 +55,33 @@
 		}
 	}
 
-	img {
-		margin-top: 5px;
-		box-sizing: border-box;
+	.image-container {
 		width: 100%;
-		border: 1px lightgrey solid;
-		border-radius: 0.125rem;
+		padding: 1rem;
+		box-sizing: border-box;
+		display: flex;
+		justify-content: center;
+
+		a {
+			width: 95%;
+			padding: 0;
+			border: 0;
+			cursor: pointer;
+		}
+
+		img {
+			height: 100%;
+			width: 100%;
+			// border-radius: 0.125rem;
+			border: 1px lightgrey solid;
+			border-radius: 0.125rem;
+			cursor: pointer;
+		}
+
+		img:hover {
+			transform: scale(1.1);
+			transition: top ease 0.5s;
+			border-color: lightblue;
+		}
 	}
 </style>
