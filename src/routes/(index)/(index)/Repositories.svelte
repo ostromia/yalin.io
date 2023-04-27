@@ -51,6 +51,8 @@
 	{#each repositories as parameters}
 		<RepositoryCard {...parameters}/>
 	{/each}
+
+	<div id="placeholder"></div>
 </div>
 
 <style lang="scss">
@@ -59,5 +61,12 @@
 		grid-template-rows: repeat(4, min-content);
 		grid-template-columns: 1fr 1fr 1fr;
 		gap: 0.5rem;
+	}
+
+	#placeholder {
+		height: 100%;
+		border-radius: 0.5rem;
+		box-sizing: border-box;
+		background-color: $fc;
 	}
 </style>
