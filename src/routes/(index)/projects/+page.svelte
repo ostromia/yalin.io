@@ -12,7 +12,7 @@
 		},
 		{
 			path: 'berkay-yalin/berkay-yalin.io',
-			description: 'personal website',
+			description: 'webpage & stuff',
 			language: ['Svelte', 'TypeScript', 'Sass']
 		}
 	];
