@@ -4,7 +4,7 @@
 </script>
 
 <nav>
-	<span>Online Pythoner Interpreter</span>
+	<img alt="" src="favicon.ico">
 	<button on:click={() => dispatch('ePC')}>Execute Python Code</button>
 	<button on:click={() => dispatch('tPC')}>Toggle Terminal</button>
 	<button on:click={() => dispatch('cPC')}>Clear Terminal</button>
@@ -13,46 +13,34 @@
 
 <style lang="scss">
 	nav {
-		height: 5vh;
-
-		background-color: $fc;
-
-		align-items: center;
-
-		padding: 0.5rem;
+		height: 30px;
+		padding: 0 0.5rem;
 		box-sizing: border-box;
-
-		display: grid;
-		grid-template-columns: 1fr repeat(4, auto);
-		gap: 0.5rem;
-
-		overflow-y: hidden;
-		overflow-x: auto;
+		display: flex;
+		align-content: center;
+		align-items: center;
+		background-color: $fc;
 	}
 
-	span {
-		color: white;
-		text-decoration: none;
-		white-space: nowrap;
-		font-size: 1.2rem;
-		font-family: 'Trebuchet MS';
-		cursor: default;
+	img {
+		height: 26px;
+		width: 26px;
+		filter: invert(1);
+		margin-right: 0.5ch;
+		// box-sizing: border-box;
 	}
 
 	button {
-		height: 3vh;
+		border: 0;
+		padding: 2px 1ch;
+		background-color: transparent;
 
 		color: white;
-		background: #333842;
+		border-radius: 2px;
+		opacity: 0.9;
+	}
 
-		font-family: 'consolas';
-
-		border: 1;
-		border-radius: 4px;
-		border-color: #282c34;
-		box-sizing: border-box;
-
-		white-space: nowrap;
-		cursor: pointer;
+	button:hover {
+		background-color: rgba(220,220,220, 0.125);
 	}
 </style>

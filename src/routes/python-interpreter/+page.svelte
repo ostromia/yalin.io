@@ -10,6 +10,7 @@
 
 	let wrapper: HTMLElement;
 	let terminal: HTMLTextAreaElement;
+	let shellTitle: HTMLElement;
 
 	function execute() {
 		pyodide.runPython(`${codemirror.getText()}`);
@@ -29,7 +30,7 @@
 	}
 
 	function clear() {
-		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
+		terminal.value = '';
 	}
 
 	function save() {
@@ -41,11 +42,11 @@
 	}
 
 	onMount(async () => {
-		terminal.value = 'initializing Python interpreter...';
+		shellTitle.innerHTML = 'initializing Python interpreter...';
 		// @ts-ignore
 		pyodide = await loadPyodide();
 		pyodide.runPython(`import io\nimport sys\nsys.stdout = io.StringIO()`);
-		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
+		shellTitle.innerHTML = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
 	});
 </script>
 
@@ -58,26 +59,38 @@
 
 <main bind:this={wrapper}>
 	<CodeMirror bind:this={codemirror} filetype={pythonLanguageSupport()}/>
-    <textarea bind:this={terminal} id="terminal" readonly></textarea>
+	<div id="shell">
+		<span bind:this={shellTitle} id="shell-title"></span>
+    	<textarea bind:this={terminal} id="terminal" readonly></textarea>
+	</div>
 </main>
 
-<style>
+<style lang="scss">
 	main {
-		height: 95vh;
+		height: calc(100vh - 30px);
 		display: grid;
 		grid-template-rows: 1fr;
 		grid-template-columns: 1fr 1fr;
 		gap: 0.5rem;
-		padding: 0.5rem;
-		box-sizing: border-box;
+	}
+
+	#shell {
+		display: grid;
+		grid-template-rows: min-content 1fr;
+		font-family: Consolas, "Courier New", monospace;
+
+		span {
+			color: gray;
+			background-color: #282a36;
+			font-size: 14px;
+		}
 	}
 
 	#terminal {
 		border: none;
 		outline: none;
 		resize: none;
-		flex: 1;
-		min-width: 25vw;
+		display: flex;
 		background-color: #282a36;
 		color: white;
 	}
