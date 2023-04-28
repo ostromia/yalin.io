@@ -1,15 +1,15 @@
-<script>
+<script lang="ts">
 	import CodeMirror from '$lib/CodeMirror.svelte';
 	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
 
 	import { onMount } from 'svelte';
 	import Navigation from '$r/python-interpreter/Navigation.svelte';
 
-	var pyodide;
-	let codemirror;
+	let pyodide: any;
+	let codemirror: CodeMirror;
 
-	let wrapper;
-	let terminal;
+	let wrapper: HTMLElement;
+	let terminal: HTMLTextAreaElement;
 
 	function execute() {
 		pyodide.runPython(`${codemirror.getText()}`);
@@ -33,7 +33,7 @@
 	}
 
 	function save() {
-		let file = new Blob([codemirror.getValue()]);
+		let file = new Blob([codemirror.getText()]);
 		let a = document.createElement('a');
 		a.href = URL.createObjectURL(file);
 		a.download = 'eric.py';
@@ -42,6 +42,7 @@
 
 	onMount(async () => {
 		terminal.value = 'initializing Python interpreter...';
+		// @ts-ignore
 		pyodide = await loadPyodide();
 		pyodide.runPython(`import io\nimport sys\nsys.stdout = io.StringIO()`);
 		terminal.value = 'Pyodide 0.21.3 [Python 3.10.2] [Clang 15.0.0]\n';
@@ -50,7 +51,7 @@
 
 <svelte:head>
 	<title>Python Interpreter</title>
-	<script src="https://cdn.jsdelivr.net/pyodide/v0.21.3/full/pyodide.js"></script>
+	<script async src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script>
 </svelte:head>
 
 <Navigation on:ePC={execute} on:tPC={toggle} on:cPC={clear} on:sPC={save}/>
