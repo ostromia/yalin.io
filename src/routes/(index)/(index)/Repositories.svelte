@@ -21,8 +21,8 @@
 			style: 'grid-column: 4; grid-row: 1'
 		},
 		{
-			path: 'berkay-yalin/python-probabilities',
-			description: 'Library for accurate statistical calculations using Python.',
+			path: 'berkay-yalin/promethium',
+			description: 'Library for calculating statistical distributions, written in pure Python with zero dependencies.',
 			language: ['Python'],
 			style: 'grid-column: 1 / 2; grid-row: 2'
 		},
