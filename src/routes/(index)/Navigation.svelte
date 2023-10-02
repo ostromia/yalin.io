@@ -5,59 +5,52 @@
 </script>
 
 <nav>
-	<a class="first" href="{base}/">
-		~/berkay-yalin.io
+	<a href="{base}/">
+	    ~/berkay-yalin.io
 	</a>
 
-	<a class="text" href="{base}/projects">
+	<a href="{base}/projects">
 		Projects
 	</a>
 
-	<a class="text" href="https://gist.github.com/berkay-yalin">
+	<a href="{base}/articles">
+		Articles
+	</a>
+
+	<a href="https://gist.github.com/berkay-yalin">
 		Gists
 	</a>
 
-	<a class="last" href="https://github.com/berkay-yalin">
-		<img alt="" src={github_devicon}>
-	</a>
+	<img alt="" src={github_devicon}>
 </nav>
 
 <style lang="scss">
 	nav {
 		height: 2rem;
 		background-color: $fc;
+        padding: 0 1rem;
+        box-sizing: border-box;
 
 		display: grid;
 		gap: 1rem;
 		grid-template-columns: repeat(3, min-content) auto min-content;
-		grid-template-areas: "first a0 a1 . last";
 	}
 
-	nav > a {
-		font-family: "JetBrains Mono";
-		white-space: nowrap;
-		color: white;
-		text-decoration: none;
-		line-height: 2rem;
-	}
+    nav a:first-child {
+        padding-right: 1rem;
+    }
 
-	.first, .last {
-		padding: 0 1rem;
-	}
+    a {
+        font-family: "JetBrains Mono";
+        color: white;
+        white-space: nowrap;
+        text-decoration: none;
+        line-height: 2rem;
+    }
 
-	.text {
-		font-size: 0.8rem;
-	}
-
-	.last {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		grid-area: last;
-
-		> img {
-			height: 1.5rem;
-			width: 1.5rem;
+	img {
+        height: 100%;
+        padding: 0.2rem;
+        box-sizing: border-box;
 		}
-	}
 </style>
