@@ -6,6 +6,12 @@
 <main><slot/></main>
 
 <style lang="scss">
+    :global(body) {
+        position: relative;
+        overflow: hidden;
+        touch-action: none;
+    }
+
 	main {
 		position: fixed;
 		inset: 2rem 0 0 0;
