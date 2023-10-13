@@ -15,6 +15,5 @@
 		font-family: "Albert Sans";
 		font-size: $lh;
 		color: white;
-		z-index: 2;
 	}
 </style>
