@@ -21,7 +21,11 @@
 		Gists
 	</a>
 
-	<img alt="" src={github_devicon}>
+    <div></div>
+
+    <a href="https://github.com/berkay-yalin">
+    	<img alt="" src={github_devicon}>
+    </a>
 </nav>
 
 <style lang="scss">
@@ -33,19 +37,25 @@
 
 		display: grid;
 		gap: 1rem;
-		grid-template-columns: repeat(3, min-content) auto min-content;
+		grid-template-columns: repeat(4, min-content) auto min-content;
 	}
 
     nav a:first-child {
         padding-right: 1rem;
+        font-size: 1rem;
+    }
+
+    nav :not(a:first-child) {
+        font-size: 0.8rem;
     }
 
     a {
+        height: 2rem;
+        line-height: 2rem;
         font-family: "JetBrains Mono";
         color: white;
         white-space: nowrap;
         text-decoration: none;
-        line-height: 2rem;
     }
 
 	img {
