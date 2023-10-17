@@ -1,23 +1,25 @@
 <script>
 	import Navigation from '$r/(index)/Navigation.svelte';
+	import NavigationMobile from '$r/(index)/NavigationMobile.svelte';
+
+    let screenWidth;
 </script>
 
-<Navigation/>
-<main><slot/></main>
+<svelte:window bind:innerWidth={screenWidth}/>
+
+{#if screenWidth > 500}
+    <Navigation/>
+{:else}
+    <NavigationMobile/>
+{/if}
+
+<main>
+    <slot></slot>
+</main>
 
 <style lang="scss">
-    :global(body) {
-        position: relative;
-        overflow: hidden;
-        touch-action: none;
-    }
-
-	main {
-		position: fixed;
-		inset: 2rem 0 0 0;
-		overflow-y: auto;
-		overflow-x: hidden;
-		padding: 2rem;
+    main {
+		padding: 1rem;
 		box-sizing: border-box;
 	}
 </style>

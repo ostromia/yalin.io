@@ -116,11 +116,11 @@
             padding: 0.5rem 0;
             box-sizing: border-box;
             gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
         a {
             color: rgb(88, 166, 255);
         }
     }
-
 </style>
