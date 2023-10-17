@@ -6,14 +6,10 @@
 
 <style lang="scss">
 	div {
-		width: 100%;
-
-		text-align: center;
-
 		color: white;
+		text-align: center;
 		font-family: "JetBrains Mono";
-		line-height: 10vh;
-		font-size: 8vh;
+		font-size: min(4vw, 4vh);
 
 		text-shadow:
 			0 1px 0 #000000,

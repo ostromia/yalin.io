@@ -10,10 +10,10 @@
 
 <main>
 	<Namespace/>
-	<div style="height: 1.5rem"></div>
+	<div style="height: 1rem"></div>
 	<Carousel/>
 	<div style="height: 10vh"></div>
-	<div style="height: 1.5rem"></div>
+	<div style="height: 1rem"></div>
 	<Repositories/>
 </main>
 
