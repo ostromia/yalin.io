@@ -1,13 +1,13 @@
 <math xmlns="http://www.w3.org/1998/Math/MathML" display="block">
     <mrow>
-        <mi>Q</mi>
+        <mi>P</mi>
         <mo form="prefix" stretchy="false">(</mo>
         <mi>a</mi>
         <mo separator="true">,</mo>
         <mi>x</mi>
         <mo form="postfix" stretchy="false">)</mo>
         <mo>+</mo>
-        <mi>P</mi>
+        <mi>Q</mi>
         <mo form="prefix" stretchy="false">(</mo>
         <mi>a</mi>
         <mo separator="true">,</mo>

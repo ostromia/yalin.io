@@ -17,13 +17,13 @@
     <section>
         <h1>Incomplete Gamma Function</h1>
 
-        <div>
-            <div>
+        <div class="responsive-siblings">
+            <div class="bluebox">
                 <h2>Lower Incomplete Gamma Function</h2>
                 <LowerIncompleteGammaFunction/>
             </div>
 
-            <div>
+            <div class="bluebox">
                 <h2>Upper Incomplete Gamma Function</h2>
                 <UpperIncompleteGammaFunction/>
             </div>
@@ -32,18 +32,21 @@
 
     <section>
         <h1>Regularized Incomplete Gamma Function</h1>
-        <Qplusp/>
 
-        <div>
-            <div>
+        <div class="responsive-siblings">
+            <div class="bluebox">
                 <h2>Regularized Lower Incomplete Gamma Function</h2>
                 <RegularizedLowerIncompleteGammaFunction/>
             </div>
 
-            <div>
+            <div class="bluebox">
                 <h2>Regularized Upper Incomplete Gamma Function</h2>
                 <RegularizedUpperIncompleteGammaFunction/>
             </div>
+        </div>
+
+        <div class="bluebox">
+            <Qplusp/>
         </div>
     </section>
 </main>
@@ -51,6 +54,12 @@
 <style lang="scss">
     $color_alpha: #2c3656;
     $color_beta: #323d62;
+
+    // resetting default values
+    h1, h2 {
+        margin: 0;
+        font-weight: normal;
+    }
 
     main {
         display: flex;
@@ -61,18 +70,13 @@
     }
 
     h1, h2 {
-        margin: 0;
         font-family: "Cambria";
-        font-weight: normal;
     }
-
     h1 {
-        font-size: 26px;
+        font-size: 1.25rem
     }
-
     h2 {
-        font-size: 20px;
-        padding-bottom: 0.8rem;
+        font-size: 1rem;
     }
 
     section {
@@ -87,17 +91,19 @@
         background-color: $color_alpha;
         color: white;
         box-shadow: rgba(0, 0, 0, 0.15) 4.4px 4.4px 3.3px;
-
-        min-width: fit-content;
     }
 
-    section > div {
-		display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-		gap: 1rem;
+    .responsive-siblings {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
     }
 
-    section > div > div {
+    .responsive-siblings > div {
+        flex: 1 1 auto;
+    }
+
+    .bluebox {
         padding: 1rem;
         box-sizing: border-box;
         border-radius: 0.5rem;

@@ -7,9 +7,14 @@
 </div>
 
 <style lang="scss">
+    :global(html), :global(body) {
+        height: 100%;
+        width: 100%;
+    }
+
     #wrapper {
         display: flex;
         flex-direction: column;
-        height: 100%;
+        height: calc(100% - 2rem);
     }
 </style>

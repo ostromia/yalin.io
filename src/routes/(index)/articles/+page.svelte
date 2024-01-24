@@ -69,7 +69,7 @@
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
     }
 
     h2 {
@@ -85,11 +85,11 @@
     }
 
     ul {
-        li {
+        > li {
             color: $white-smoke;
         }
 
-        :not(li:last-child) {
+        > :not(li:last-child) {
             margin-bottom: 1rem;
         }
     }
