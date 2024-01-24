@@ -56,6 +56,8 @@
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 
     h1, h2 {

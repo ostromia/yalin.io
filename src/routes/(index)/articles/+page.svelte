@@ -18,7 +18,7 @@
     </li>
 
     <li>
-        <a href="https://gist.github.com/berkay-yalin/e6f737f32db49f72f30dde1b8fdf03ce">
+        <a href="{base}/articles/vim-indentation">
             Vim Indentation Configurations
         </a>
     </li>
