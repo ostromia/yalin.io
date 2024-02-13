@@ -26,7 +26,7 @@
                     description: "Definitions of the gamma functions"
                 },
                 {
-                    url: `${base}/articles/vim-indentation`,
+                    url: `https://gist.github.com/berkay-yalin/e6f737f32db49f72f30dde1b8fdf03ce`,
                     label: 'Vim Indentation',
                     description: "All .vimrc configurations relating to indentation"
                 },
@@ -37,8 +37,8 @@
 
 {#each sections as section}
     <div class="wrapper-section">
-        <h2>{section.heading}</h2>
-        <div>{section.description}</div>
+        <!-- <h2>{section.heading}</h2> -->
+        <!-- <div>{section.description}</div> -->
         <ul>
             {#each section.list as { url, label, description }}
                 <li>
@@ -74,8 +74,9 @@
 
     h2 {
         color: $white-smoke;
-        font-size: 1.5rem;
-        font-family: "JetBrains Mono";
+        font-size: 1.25rem;
+        font-weight: normal;
+		font-family: 'Albert Sans';
     }
 
     div {
@@ -85,6 +86,8 @@
     }
 
     ul {
+    padding: 0;
+    list-style-type: none;
         > li {
             color: $white-smoke;
         }
@@ -96,7 +99,7 @@
 
     .anchor-label, .anchor-character {
         color: lightblue;
-        font-size: 1.25rem;
+        font-size: 1rem;
 		font-family: 'Albert Sans';
         text-decoration: none;
     }
