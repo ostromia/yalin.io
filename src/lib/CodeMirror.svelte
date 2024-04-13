@@ -29,12 +29,14 @@
 
     export let doc: string = '';
     export let filetype: LanguageSupport[] = [];
+    export let readOnly: boolean;
 
     let view: EditorView;
     let dom: HTMLDivElement;
 
     const tabSize = new Compartment;
     const language = new Compartment;
+    const editable = new Compartment;
 
     export function focus(): void {
         view.focus();
@@ -108,9 +110,17 @@
 
                 history(),
                 lineNumbers(),
-                indentOnInput()
+                indentOnInput(),
+                editable.of(EditorView.editable.of(true))
             ]
         });
+
+        if (readOnly) {
+            view.dispatch({
+                effects: editable.reconfigure(EditorView.editable.of(false))
+            })
+        }
+
         return;
     });
 </script>
@@ -120,5 +130,6 @@
 <style lang="scss">
     div {
         display: grid;
+        overflow: auto;
     }
 </style>

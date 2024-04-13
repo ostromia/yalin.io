@@ -13,4 +13,20 @@
     <NavigationMobile/>
 {/if}
 
-<slot></slot>
+<main>
+    <slot></slot>
+</main>
+
+<style lang="scss">
+    :global(html) {
+        background-color: $bc;
+    }
+
+    main {
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // padding: 2rem;
+        // box-sizing: border-box;
+    }
+</style>

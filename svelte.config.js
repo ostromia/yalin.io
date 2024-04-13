@@ -1,6 +1,6 @@
 import adapter from '@sveltejs/adapter-static';
 import preprocess from 'svelte-preprocess';
-import { vitePreprocess } from '@sveltejs/kit/vite';
+// import { vitePreprocess } from '@sveltejs/kit/vite';
 import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
@@ -21,7 +21,8 @@ const config = {
             $r: path.resolve('src/routes'),
             $index: path.resolve('src/routes/(index)'),
 			$iindex: path.resolve('src/routes/(index)/(index)'),
-			$zygon: path.resolve('src/routes/zygon')
+			$zygon: path.resolve('src/routes/zygon'),
+            $articles: path.resolve("src/routes/articles")
         }
     }
 };
