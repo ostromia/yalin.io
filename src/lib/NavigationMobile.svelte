@@ -7,16 +7,22 @@
 </script>
 
 <nav>
-    <a class="wrapper-favicon" href="{base}/" on:click={() => (state = !state)}>
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
+    <!-- svelte-ignore a11y-missing-attribute -->
+    <a class="wrapper-favicon" on:click={() => (state = !state)}>
         <Favicon width="1.5rem"/>
     </a>
 
     {#if state}
-        <a class="nav-link" href="{base}/projects">
+        <a class="nav-link" on:click={() => (state = !state)} href="{base}/">
+            Home
+        </a>
+
+        <a class="nav-link" on:click={() => (state = !state)} href="{base}/projects">
             Projects
         </a>
 
-        <a class="nav-link" href="{base}/articles">
+        <a class="nav-link" on:click={() => (state = !state)} href="{base}/articles">
             Articles
         </a>
 
