@@ -35,31 +35,38 @@
     ];
 </script>
 
-{#each sections as section}
-    <div class="wrapper-section">
-        <!-- <h2>{section.heading}</h2> -->
-        <!-- <div>{section.description}</div> -->
-        <ul>
-            {#each section.list as { url, label, description }}
-                <li>
-                    <a class="anchor-label" href={url}>
-                        {label}
-                    </a>
+<main>
+    {#each sections as section}
+        <div class="wrapper-section">
+            <!-- <h2>{section.heading}</h2> -->
+            <!-- <div>{section.description}</div> -->
+            <ul>
+                {#each section.list as { url, label, description }}
+                    <li>
+                        <a class="anchor-label" href={url}>
+                            {label}
+                        </a>
 
-                    <a class="anchor-character" href={url}>
-                        ⧉
-                    </a>
+                        <a class="anchor-character" href={url}>
+                            ⧉
+                        </a>
 
-                    <div class="div-description">
-                        {description}
-                    </div>
-                </li>
-            {/each}
-        </ul>
-    </div>
-{/each}
+                        <div class="div-description">
+                            {description}
+                        </div>
+                    </li>
+                {/each}
+            </ul>
+        </div>
+    {/each}
+</main>
 
 <style lang="scss">
+    main {
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+
     $white-smoke: #f5f5f5;
 
     // resetting default margins

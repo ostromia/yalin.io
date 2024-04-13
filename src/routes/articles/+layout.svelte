@@ -1,6 +1,6 @@
 <script>
-	import Navigation from '$r/(index)/Navigation.svelte';
-	import NavigationMobile from '$r/(index)/NavigationMobile.svelte';
+	import Navigation from '$lib/Navigation.svelte';
+	import NavigationMobile from '$lib/NavigationMobile.svelte';
 
     let screenWidth;
 </script>

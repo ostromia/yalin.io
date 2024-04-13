@@ -82,6 +82,8 @@
 		display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
 		gap: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 
 	section {

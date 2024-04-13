@@ -1,6 +1,6 @@
 <script>
-	import Navigation from '$r/(index)/Navigation.svelte';
-	import NavigationMobile from '$r/(index)/NavigationMobile.svelte';
+	import Navigation from '$lib/Navigation.svelte';
+	import NavigationMobile from '$lib/NavigationMobile.svelte';
 
     let screenWidth;
 </script>
@@ -17,9 +17,9 @@
     <slot></slot>
 </main>
 
-<style lang="scss">
+<!-- <style lang="scss">
     main {
 		padding: 1rem;
 		box-sizing: border-box;
 	}
-</style>
+</style> -->
