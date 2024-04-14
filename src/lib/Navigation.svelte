@@ -42,7 +42,7 @@
         color: white;
         text-decoration: none;
         height: 1.5rem;
-        font-size: 0.8rem;
+        // font-size: 0.8rem;
         border-radius: 0.25rem;
         padding: 0.25rem 0.5rem;
         box-sizing: border-box;
