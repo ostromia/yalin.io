@@ -20,7 +20,6 @@ const config = {
         alias: {
             $r: path.resolve('src/routes'),
             $index: path.resolve('src/routes/(index)'),
-			$iindex: path.resolve('src/routes/(index)/(index)'),
 			$zygon: path.resolve('src/routes/zygon'),
             $articles: path.resolve("src/routes/articles")
         }

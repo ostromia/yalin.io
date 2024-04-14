@@ -6,3 +6,11 @@ export default {
     articles: "https://yalin.io/articles",
     github: "https://github.com/berkay-yalin"
 }
+
+// import { base } from '$app/paths';
+// export default {
+//     index: `${base}/`,
+//     projects: `${base}/projects`,
+//     articles: `${base}/articles`,
+//     github: "https://github.com/berkay-yalin"
+// }

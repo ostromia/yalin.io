@@ -46,7 +46,7 @@
 </div>
 
 <style lang="scss">
-	$height: 10vh;
+	$height: 4rem;
 	$width: var(--inner-width);
 	$n: 11;
 
@@ -69,8 +69,8 @@
 	}
 
 	#devicon-container {
-		width: $width;
-		position: absolute;
+		width: 100%;
+		position: relative;
 		left: 0;
 		display: flex;
 		overflow: hidden;
