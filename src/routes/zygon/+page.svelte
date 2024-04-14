@@ -5,14 +5,14 @@
 </script>
 
 <script lang="ts">
-	import Navigation from '$zygon/Navigation.svelte';
 	import CodeMirror from '$lib/CodeMirror.svelte';
+	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
+
+	import Navigation from '$zygon/Navigation.svelte';
 	import Headers from '$zygon/Headers.svelte';
 	import J277Guide from '$zygon/J277Guide.svelte';
 
-	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
-
-	import { VPG_s } from '$zygon/stores';
+	import { showGuide } from "$zygon/stores";
 
 	import { default as p2p } from '$zygon/transpiler';
 
@@ -83,7 +83,7 @@
 	}
 
 	async function edit_paste() {
-		if (activeEditor !== undefined && activeEditor.isRange()) {
+		if (activeEditor !== undefined) {
 			activeEditor.setText(
 			await navigator.clipboard.readText(),
 			...activeEditor.getRange()
@@ -96,7 +96,7 @@
 	}
 
 	function view_toggle_pseudocode_guide_j277() {
-		VPG_s.update(i => !i);
+		showGuide.update(i => !i);
 	}
 
 	function run_transpile_pseudocode_to_python() {
@@ -140,9 +140,11 @@
 	on:run_interpret_python_code={run_interpret_python_code}
 />
 
+{#if $showGuide}
 <main style="position: absolute">
 	<J277Guide/>
 </main>
+{/if}
 
 <main>
 	<Headers/>

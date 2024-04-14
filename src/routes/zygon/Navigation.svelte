@@ -1,8 +1,7 @@
 <script>
 	import { createEventDispatcher } from 'svelte';
 	import "@fontsource/albert-sans";
-	import { showDropdown } from '$zygon/navigation_store';
-	import { VPG_s } from '$zygon/stores';
+	import { showDropdown } from '$zygon/stores';
 	import Favicon from "$lib/Favicon.svelte";
 
 	const dispatch = createEventDispatcher();
