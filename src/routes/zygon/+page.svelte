@@ -5,13 +5,14 @@
 </script>
 
 <script lang="ts">
-	import CodeMirror from '$lib/CodeMirror.svelte';
-	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
-
 	import Navigation from '$zygon/Navigation.svelte';
+	import CodeMirror from '$lib/CodeMirror.svelte';
 	import Headers from '$zygon/Headers.svelte';
 	import J277Guide from '$zygon/J277Guide.svelte';
-	import {  VPG_s } from '$zygon/stores';
+
+	import { python as pythonLanguageSupport } from "@codemirror/lang-python";
+
+	import { VPG_s } from '$zygon/stores';
 
 	import { default as p2p } from '$zygon/transpiler';
 
@@ -84,8 +85,8 @@
 	async function edit_paste() {
 		if (activeEditor !== undefined && activeEditor.isRange()) {
 			activeEditor.setText(
-				await navigator.clipboard.readText(),
-				...activeEditor.getSelection()
+			await navigator.clipboard.readText(),
+			...activeEditor.getRange()
 			);
 		}
 	}
@@ -102,7 +103,7 @@
 		const PSEUDOARRAY = p2p.toArray(pseudoEditor.getText());
 		const ERROR = p2p.validator(PSEUDOARRAY);
 		if (ERROR === '') {
-			pythonEditor.setSyntax(pythonLanguageSupport());
+			pythonEditor.setSyntax([pythonLanguageSupport()]);
 			const PYTHONARRAY = p2p.transpiler(PSEUDOARRAY);
 			pythonEditor.setText(p2p.toString(PYTHONARRAY));
 		}
@@ -117,7 +118,7 @@
 </script>
 
 <svelte:head>
-	<title>Zygon</title>
+<title>Zygon</title>
 </svelte:head>
 
 <Navigation
@@ -152,7 +153,7 @@
 
 	<!-- svelte-ignore a11y-click-events-have-key-events -->
 	<div on:click={() => activeEditor = pythonEditor} style="display:grid">
-		<CodeMirror bind:this={pythonEditor} filetype={pythonLanguageSupport()}/>
+		<CodeMirror bind:this={pythonEditor} filetype={[pythonLanguageSupport()]}/>
 	</div>
 </main>
 
