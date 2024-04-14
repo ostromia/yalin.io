@@ -4,10 +4,6 @@
 	import Repositories from '$iindex/Repositories.svelte';
 </script>
 
-<svelte:head>
-	<title>berkay-yalin.io</title>
-</svelte:head>
-
 <main>
 	<Namespace/>
 	<div style="height: 1rem"></div>

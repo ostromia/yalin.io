@@ -1,23 +1,23 @@
 <script>
-    import { base } from '$app/paths';
     import "@fontsource/albert-sans";
+    import links from "$lib/links";
     import Favicon from "$lib/Favicon.svelte";
 </script>
 
 <nav>
-    <a class="wrapper-favicon" href="{base}/">
+    <a class="wrapper-favicon" href={links.index}>
         <Favicon width="1.5rem"/>
     </a>
 
-    <a class="nav-link" href="{base}/projects">
+    <a class="nav-link" href={links.projects}>
         Projects
     </a>
 
-    <a class="nav-link" href="{base}/articles">
+    <a class="nav-link" href={links.articles}>
         Articles
     </a>
 
-    <a class="nav-link" href="https://github.com/berkay-yalin">
+    <a class="nav-link" href={links.github}>
         GitHub
     </a>
 </nav>

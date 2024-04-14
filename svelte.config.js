@@ -15,7 +15,7 @@ const config = {
         adapter: adapter(),
         paths: {
 			relative: false,
-            base: process.env.NODE_ENV == 'development' ? '' : '/berkay-yalin.io'
+            base: process.env.NODE_ENV == 'development' ? '' : ''
         },
         alias: {
             $r: path.resolve('src/routes'),

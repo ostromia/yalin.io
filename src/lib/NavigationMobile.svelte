@@ -1,6 +1,6 @@
 <script>
-    import { base } from '$app/paths';
     import "@fontsource/jetbrains-mono";
+    import links from "$lib/links";
     import Favicon from "$lib/Favicon.svelte";
 
     let state = false;
@@ -14,19 +14,19 @@
     </a>
 
     {#if state}
-        <a class="nav-link" on:click={() => (state = !state)} href="{base}/">
+        <a class="nav-link" on:click={() => (state = !state)} href={links.index}>
             Home
         </a>
 
-        <a class="nav-link" on:click={() => (state = !state)} href="{base}/projects">
+        <a class="nav-link" on:click={() => (state = !state)} href={links.projects}>
             Projects
         </a>
 
-        <a class="nav-link" on:click={() => (state = !state)} href="{base}/articles">
+        <a class="nav-link" on:click={() => (state = !state)} href={links.articles}>
             Articles
         </a>
 
-        <a class="nav-link" href="https://github.com/berkay-yalin" style="margin-bottom: 0.5rem">
+        <a class="nav-link" href={links.github} style="margin-bottom: 0.5rem">
             GitHub
         </a>
     {/if}

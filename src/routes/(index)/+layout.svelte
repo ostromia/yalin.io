@@ -7,6 +7,10 @@
 
 <svelte:window bind:innerWidth={screenWidth}/>
 
+<svelte:head>
+    <title>yalin.io</title>
+</svelte:head>
+
 {#if screenWidth > 600}
     <Navigation/>
 {:else}
