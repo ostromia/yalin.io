@@ -1,8 +1,9 @@
 <script>
+	import { base } from '$app/paths';
     import { showGuide } from '$zygon/stores';
 
-    const python_logo = "assets/zygon/logos/python.svg";
-    const ocr_logo = "assets/zygon/logos/ocr.svg";
+    const python_logo = `${base}/assets/zygon/logos/python.svg`;
+    const ocr_logo = `${base}/assets/zygon/logos/ocr.svg`;
 </script>
 
 <div>

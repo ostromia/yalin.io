@@ -61,7 +61,7 @@
     <section>
         <RepositoryCard {...data[1]}>
             <a class="wrapper-screenshot" href="{base}/zygon">
-                <img alt="" class="screenshot" src="assets/projects/zygon.png">
+                <img alt="" class="screenshot" src="{base}/assets/projects/zygon.png">
                 <div class="click-me-text">Click Me!</div>
             </a>
         </RepositoryCard>
@@ -70,7 +70,7 @@
     <section>
         <RepositoryCard {...data[2]}>
             <a class="wrapper-screenshot" href="{base}/python-interpreter">
-                <img alt="" class="screenshot" src="assets/projects/python-interpreter.jpeg">
+                <img alt="" class="screenshot" src="{base}/assets/projects/python-interpreter.jpeg">
                 <div class="click-me-text">Click Me!</div>
             </a>
         </RepositoryCard>
