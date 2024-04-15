@@ -7,20 +7,23 @@
 		
 		<link href="/_app/immutable/assets/Navigation.2c850169.css" rel="stylesheet">
 		<link href="/_app/immutable/assets/index.457f6553.css" rel="stylesheet">
-		<link href="/_app/immutable/assets/8.d0702c0c.css" rel="stylesheet">
+		<link href="/_app/immutable/assets/8.c90dd6f6.css" rel="stylesheet">
 		<link href="/_app/immutable/assets/index.b78dcdc3.css" rel="stylesheet">
-		<link rel="modulepreload" href="/_app/immutable/entry/start.ae098545.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/start.2e7dc7b1.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/index.aba53c8a.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.764ea839.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.06dd9752.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/index.d341f143.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/paths.ecf59ce4.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.88ca72dc.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/paths.e0b50617.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.da887a08.js">
 		<link rel="modulepreload" href="/_app/immutable/nodes/0.8f33b264.js">
-		<link rel="modulepreload" href="/_app/immutable/nodes/3.2ed90e7b.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/Navigation.0a286e9a.js">
+		<link rel="modulepreload" href="/_app/immutable/nodes/3.9a430891.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/Navigation.a2aa59bd.js">
 		<link rel="modulepreload" href="/_app/immutable/chunks/Favicon.7d2dd2bd.js">
-		<link rel="modulepreload" href="/_app/immutable/nodes/8.4f3bcf8c.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.2087d5d3.js"><title>yalin.io</title><!-- HEAD_svelte-pweb0u_START --><!-- HEAD_svelte-pweb0u_END -->
+		<link rel="modulepreload" href="/_app/immutable/nodes/8.2b383616.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.2087d5d3.js"><title>yalin.io</title><!-- HEAD_svelte-pweb0u_START --><!-- HEAD_svelte-pweb0u_END --><!-- HEAD_svelte-1787ze0_START --><style>body {
+            background-color: #2e323b;
+        }
+    </style><!-- HEAD_svelte-1787ze0_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -43,15 +46,17 @@
     </a>
 </nav>
 
-<main class="svelte-1n0zq4w"><div class="header svelte-1tylr6l"><div class="title header-text svelte-1tylr6l">Leet Code 688. Knight Probability in Chessboard</div>
+
+
+<main class="svelte-vnz3em"><div class="header svelte-1tylr6l"><div class="title header-text svelte-1tylr6l">Leet Code 688. Knight Probability in Chessboard</div>
     <div class="date header-text svelte-1tylr6l">02.10.2023</div>
 </div>
 
-    <div id="problem" class="svelte-1n0zq4w"><a id="leetCodeLink" href="https://leetcode.com/problems/knight-probability-in-chessboard/" class="svelte-1n0zq4w">Leet Code 688.
+    <div id="problem" class="svelte-vnz3em"><a id="leetCodeLink" href="https://leetcode.com/problems/knight-probability-in-chessboard/" class="svelte-vnz3em">Leet Code 688.
         </a>
 
-        <div class="svelte-yz4mk3">On an <code class="svelte-1n0zq4w">n x n</code> chessboard, a knight starts at the cell <code class="svelte-1n0zq4w">(row, column)</code> and attempts to make exactly <code class="svelte-1n0zq4w">k</code> moves.
-            The rows and columns are 0-indexed, so the top-left cell is <code class="svelte-1n0zq4w">(0, 0)</code>, and the bottom-right cell is <code class="svelte-1n0zq4w">(n - 1, n - 1)</code>.
+        <div class="svelte-yz4mk3">On an <code class="svelte-vnz3em">n x n</code> chessboard, a knight starts at the cell <code class="svelte-vnz3em">(row, column)</code> and attempts to make exactly <code class="svelte-vnz3em">k</code> moves.
+            The rows and columns are 0-indexed, so the top-left cell is <code class="svelte-vnz3em">(0, 0)</code>, and the bottom-right cell is <code class="svelte-vnz3em">(n - 1, n - 1)</code>.
         
 </div>
 
@@ -60,7 +65,7 @@
         
 </div>
 
-        <img alt="" id="knightImage" src="/_app/immutable/assets/knight.7c95888c.png" class="svelte-1n0zq4w">
+        <img alt="" id="knightImage" src="/_app/immutable/assets/knight.7c95888c.png" class="svelte-vnz3em">
 
         <div class="svelte-yz4mk3">Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.
         
@@ -74,16 +79,16 @@
         
 </div></div>
 
-    <div id="solution" class="svelte-1n0zq4w"><div class="svelte-yz4mk3">The first
+    <div id="solution" class="svelte-vnz3em"><div class="svelte-yz4mk3">The first
 
-            <a href="https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/" class="svelte-1n0zq4w">solution
+            <a href="https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/" class="svelte-vnz3em">solution
             </a>
 
             presented on LeetCode for this problem is available below, which uses several iterators to store probabilities within differnt arrays.
 
             We can significantly simplify this solution however through the use of recursion and the
 
-            <a href="https://en.wikipedia.org/wiki/Law_of_total_probability" class="svelte-1n0zq4w">Law of Total Probability
+            <a href="https://en.wikipedia.org/wiki/Law_of_total_probability" class="svelte-vnz3em">Law of Total Probability
             </a>
 
             .
@@ -95,32 +100,32 @@
         <div class="svelte-9gis9f">The Law of Total Probability
 </div>
 
-        <div class="svelte-yz4mk3">Suppose the events <code class="svelte-1n0zq4w">B_1, ..., B_k</code> are mutally exclusive and exhaustive events in a sample space,
-            then for any event <code class="svelte-1n0zq4w">A</code> in that sample space <code class="svelte-1n0zq4w">P(A) = P(A n B_1) + ... + P(A n B_k)</code>.
+        <div class="svelte-yz4mk3">Suppose the events <code class="svelte-vnz3em">B_1, ..., B_k</code> are mutally exclusive and exhaustive events in a sample space,
+            then for any event <code class="svelte-vnz3em">A</code> in that sample space <code class="svelte-vnz3em">P(A) = P(A n B_1) + ... + P(A n B_k)</code>.
         
 </div>
 
-        <div class="svelte-yz4mk3">If we consider the knight starts within a red <code class="svelte-1n0zq4w">4x4</code> board, and only has <code class="svelte-1n0zq4w">1</code> move,
+        <div class="svelte-yz4mk3">If we consider the knight starts within a red <code class="svelte-vnz3em">4x4</code> board, and only has <code class="svelte-vnz3em">1</code> move,
             then only will 3 out of the 8 possible moves keep the knight within the board.
             If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
         
 </div>
 
-        <div class="svelte-yz4mk3">With an array containing the probability of each move occurring, <code class="svelte-1n0zq4w">[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]</code>,
-            and another array of the probabilities that the knight stays on the board, <code class="svelte-1n0zq4w">[1, 1, 1, 0, 0, 0, 0, 0]</code>,
+        <div class="svelte-yz4mk3">With an array containing the probability of each move occurring, <code class="svelte-vnz3em">[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]</code>,
+            and another array of the probabilities that the knight stays on the board, <code class="svelte-vnz3em">[1, 1, 1, 0, 0, 0, 0, 0]</code>,
             we can calculate the result through the sum of both arrays.
         
 </div>
 
         <div class="svelte-yz4mk3">The law of total probability sums the conditional probabilities of all cases, multiplied by the probability of each case occurring:
             <br>
-            <code class="svelte-1n0zq4w">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375</code>
+            <code class="svelte-vnz3em">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375</code>
 </div>
 
-        <img alt="" id="knight_m0" src="/_app/immutable/assets/knight_m0.45722dd8.png" class="svelte-1n0zq4w">
+        <img alt="" id="knight_m0" src="/_app/immutable/assets/knight_m0.45722dd8.png" class="svelte-vnz3em">
 
-        <div class="svelte-yz4mk3">We were able to set the probability that the knight would remain on the board as <code class="svelte-1n0zq4w">1</code> as it was the final move of the knight -
-            if the knight ends on a square within the board there is a <code class="svelte-1n0zq4w">100%</code> chance the knight has remained within the board.
+        <div class="svelte-yz4mk3">We were able to set the probability that the knight would remain on the board as <code class="svelte-vnz3em">1</code> as it was the final move of the knight -
+            if the knight ends on a square within the board there is a <code class="svelte-vnz3em">100%</code> chance the knight has remained within the board.
             Things start to get a bit more complicated after one move, as there is no guarantee the knight will remain within the board after the first move.
         
 </div>
@@ -136,22 +141,22 @@
         
 </div>
 
-        <div id="knightMovesWrapper" class="svelte-1n0zq4w"><img alt="" id="knight_m1" src="/_app/immutable/assets/knight_m1.46e314b8.png" class="svelte-1n0zq4w">
-            <img alt="" id="knight_m2" src="/_app/immutable/assets/knight_m2.ac0a42e2.png" class="svelte-1n0zq4w">
-            <img alt="" id="knight_m3" src="/_app/immutable/assets/knight_m3.77ebe86d.png" class="svelte-1n0zq4w"></div>
+        <div id="knightMovesWrapper" class="svelte-vnz3em"><img alt="" id="knight_m1" src="/_app/immutable/assets/knight_m1.46e314b8.png" class="svelte-vnz3em">
+            <img alt="" id="knight_m2" src="/_app/immutable/assets/knight_m2.ac0a42e2.png" class="svelte-vnz3em">
+            <img alt="" id="knight_m3" src="/_app/immutable/assets/knight_m3.77ebe86d.png" class="svelte-vnz3em"></div>
 
-        <code class="svelte-1n0zq4w">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
+        <code class="svelte-vnz3em">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
         </code>
 
-        <code class="svelte-1n0zq4w">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5
+        <code class="svelte-vnz3em">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5
         </code>
 
-        <code class="svelte-1n0zq4w">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
+        <code class="svelte-vnz3em">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
         </code>
 
         <div class="svelte-yz4mk3">We can plug these results back into the original equation to determine the final probability:
             <br>
-            <code class="svelte-1n0zq4w">(0.125 * 0.375) + (0.125 * 0.5) + (0.125 * 0.375) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.15625
+            <code class="svelte-vnz3em">(0.125 * 0.375) + (0.125 * 0.5) + (0.125 * 0.375) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.15625
             </code>
 </div>
 
@@ -169,7 +174,7 @@
 			
 			<script>
 				{
-					__sveltekit_17hfakb = {
+					__sveltekit_1el1gae = {
 						base: "",
 						env: {}
 					};
@@ -179,8 +184,8 @@
 					const data = [null,null,null];
 
 					Promise.all([
-						import("/_app/immutable/entry/start.ae098545.js"),
-						import("/_app/immutable/entry/app.88ca72dc.js")
+						import("/_app/immutable/entry/start.2e7dc7b1.js"),
+						import("/_app/immutable/entry/app.da887a08.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3, 8],
