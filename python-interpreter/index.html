@@ -5,17 +5,19 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		
-		<link href="/_app/immutable/assets/9.3fe9ac8c.css" rel="stylesheet">
+		<link href="/_app/immutable/assets/9.5c12cd13.css" rel="stylesheet">
+		<link href="/_app/immutable/assets/index.457f6553.css" rel="stylesheet">
 		<link href="/_app/immutable/assets/index.922b3441.css" rel="stylesheet">
-		<link rel="modulepreload" href="/_app/immutable/entry/start.1256d9da.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.0d9e5105.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.77142a19.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.91f5bfcf.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/paths.30e012f5.js">
-		<link rel="modulepreload" href="/_app/immutable/entry/app.b04e3636.js">
-		<link rel="modulepreload" href="/_app/immutable/nodes/0.cfd6d294.js">
-		<link rel="modulepreload" href="/_app/immutable/nodes/9.3a7a3236.js">
-		<link rel="modulepreload" href="/_app/immutable/chunks/index.c8afad03.js"><title>Python Interpreter</title><!-- HEAD_svelte-u7qdcm_START --><script async src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script><!-- HEAD_svelte-u7qdcm_END -->
+		<link rel="modulepreload" href="/_app/immutable/entry/start.bca0f166.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.4028b2dd.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/singletons.041f4908.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.04f6be17.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/paths.f1cf487e.js">
+		<link rel="modulepreload" href="/_app/immutable/entry/app.2b8042b0.js">
+		<link rel="modulepreload" href="/_app/immutable/nodes/0.9592224e.js">
+		<link rel="modulepreload" href="/_app/immutable/nodes/9.c929b80e.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/stores.f4380b00.js">
+		<link rel="modulepreload" href="/_app/immutable/chunks/index.c4cf54f3.js"><title>Python Interpreter</title><!-- HEAD_svelte-u7qdcm_START --><script async src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script><!-- HEAD_svelte-u7qdcm_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -24,23 +26,35 @@
 
 
 
-<nav class="svelte-1assfhz"><img alt="" src="/favicon.ico" class="svelte-1assfhz">
-	<button class="svelte-1assfhz">Execute Python Code</button>
-	<button class="svelte-1assfhz">Toggle Terminal</button>
-	<button class="svelte-1assfhz">Clear Terminal</button>
-	<button class="svelte-1assfhz">Save Python Code</button>
+
+
+
+<input style="display:none" type="file" accept=".py">
+
+
+
+<nav id="mainmenu" class="svelte-5224ej"><div class="wrapper-nav-button svelte-5224ej"><button class="nav-button svelte-5224ej">File</button>
+		</div>
+
+	<div class="wrapper-nav-button svelte-5224ej"><button class="nav-button svelte-5224ej">Edit</button>
+		</div>
+
+	<div class="wrapper-nav-button svelte-5224ej"><button class="nav-button svelte-5224ej">View</button>
+		</div>
+
+	<div class="wrapper-nav-button svelte-5224ej"><button class="nav-button svelte-5224ej">Run</button></div>
 </nav>
 
-<main class="svelte-1udrstf"><div class="svelte-17nnx8r"></div>
-	<div id="shell" class="svelte-1udrstf"><span id="shell-title" class="svelte-1udrstf"></span>
-    	<textarea id="terminal" readonly class="svelte-1udrstf"></textarea></div>
+<main class="svelte-brrl5k"><div class="svelte-17nnx8r"></div>
+	<div id="shell" class="svelte-brrl5k"><span id="shell-title" class="svelte-brrl5k"></span>
+    	<textarea id="terminal" readonly class="svelte-brrl5k"></textarea></div>
 </main>
 
 
 			
 			<script>
 				{
-					__sveltekit_6gnjg9 = {
+					__sveltekit_1rvut26 = {
 						base: "",
 						env: {}
 					};
@@ -50,8 +64,8 @@
 					const data = [null,null];
 
 					Promise.all([
-						import("/_app/immutable/entry/start.1256d9da.js"),
-						import("/_app/immutable/entry/app.b04e3636.js")
+						import("/_app/immutable/entry/start.bca0f166.js"),
+						import("/_app/immutable/entry/app.2b8042b0.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 9],
