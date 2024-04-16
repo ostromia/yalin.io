@@ -87,14 +87,6 @@
 		align-items: center;
 	}
 
-	.wrapper-favicon {
-		height: 2rem;
-		display: flex;
-		align-items: center;
-		padding-right: 0.5rem;
-		box-sizing: border-box;
-	}
-
 	.wrapper-nav-button {
 		height: 1.5rem;
 		border-radius: 0.25rem;

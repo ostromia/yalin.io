@@ -13,9 +13,6 @@
         display: flex;
         justify-content: center;
 
-        // padding: 1rem 0;
-        // box-sizing: border-box;
-
         font-size: 1.25rem;
         color: white;
         font-family: "Albert Sans";

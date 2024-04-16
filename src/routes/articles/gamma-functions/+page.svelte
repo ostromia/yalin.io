@@ -1,5 +1,6 @@
 <script>
 	import "@fontsource/jetbrains-mono";
+    import Header from "$articles/Header.svelte";
     import GammaFunction from "$r/articles/gamma-functions/GammaFunction.svelte";
     import LowerIncompleteGammaFunction from "$r/articles/gamma-functions/LowerIncompleteGammaFunction.svelte";
     import UpperIncompleteGammaFunction from "$r/articles/gamma-functions/UpperIncompleteGammaFunction.svelte";
@@ -9,6 +10,8 @@
 </script>
 
 <main>
+    <Header date={"18.04.2023"} title={"Gamma Functions"}/>
+
     <section>
         <h1>Gamma Function</h1>
         <GammaFunction/>
@@ -52,8 +55,8 @@
 </main>
 
 <style lang="scss">
-    $color_alpha: #2c3656;
-    $color_beta: #323d62;
+    $color_alpha: #1E1E1E;
+    $color_beta: #3C3C3C;
 
     // resetting default values
     h1, h2 {

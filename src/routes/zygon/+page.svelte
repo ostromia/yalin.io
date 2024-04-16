@@ -118,7 +118,13 @@
 </script>
 
 <svelte:head>
-<title>Zygon</title>
+    <title>Zygon</title>
+
+    <style>
+        html {
+            background-color: #2e323b;
+        }
+    </style>
 </svelte:head>
 
 <Navigation
@@ -160,6 +166,10 @@
 </main>
 
 <style lang="scss">
+    :global(html) {
+        background-color: $bc
+    }
+
 	main {
 		height: calc(100vh - 2rem);
 

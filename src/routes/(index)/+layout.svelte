@@ -4,6 +4,12 @@
 
 <svelte:head>
     <title>yalin.io</title>
+
+    <style>
+        html {
+            background-color: black;
+        }
+    </style>
 </svelte:head>
 
 <Navigation/>

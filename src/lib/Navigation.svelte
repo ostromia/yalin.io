@@ -6,8 +6,10 @@
 
 <nav>
     <a class="wrapper-favicon" href={links.index}>
-        <Favicon width="1.5rem"/>
+        <Favicon height="1rem" width="2rem" color="grey" colorhover="white"/>
     </a>
+
+    <div></div>
 
     <a class="nav-link" href={links.projects}>
         Projects
@@ -28,32 +30,32 @@
     }
 
     nav {
-        height: 2rem;
-        background-color: #21252b;
+        display: grid;
+        grid-template-columns: min-content auto repeat(3, min-content);
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
     }
 
     .wrapper-favicon {
         height: 2rem;
-        padding: 0 1rem;
         box-sizing: border-box;
     }
 
     .nav-link {
-        color: white;
+        color: grey;
         text-decoration: none;
         height: 1.5rem;
-        // font-size: 0.8rem;
-        border-radius: 0.25rem;
-        padding: 0.25rem 0.5rem;
         box-sizing: border-box;
     }
 
     .nav-link:hover {
         cursor: pointer;
-        background-color: rgba(128, 128, 128, 0.2);
+        color: white;
     }
 
-    nav, .wrapper-favicon, .nav-link {
+    .wrapper-favicon, .nav-link {
         display: flex;
         align-items: center;
     }
