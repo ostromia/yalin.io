@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { base } from '$app/paths';
     import Heading from "$index/Heading.svelte";
     // import Carousel from "$index/projects/Carousel.svelte";
 	import RepositoryCard from '$index/projects/RepositoryCard.svelte';
@@ -43,7 +42,7 @@
 
         <section>
             <RepositoryCard {...data[1]}>
-                <a data-sveltekit-preload-data="off" class="visit-website-link" href="{base}/zygon">
+                <a data-sveltekit-reload data-sveltekit-preload-data="off" class="visit-website-link" href="/zygon">
                     Visit Zygon ⧉
                 </a>
             </RepositoryCard>
@@ -51,7 +50,7 @@
 
         <section>
             <RepositoryCard {...data[2]}>
-                <a data-sveltekit-preload-data="off" class="visit-website-link" href="{base}/python-interpreter">
+                <a data-sveltekit-reload data-sveltekit-preload-data="off" class="visit-website-link" href="/python-interpreter">
                     Visit Python Interpreter ⧉
                 </a>
             </RepositoryCard>

@@ -11,10 +11,6 @@ const config = {
 
     kit: {
         adapter: adapter(),
-        paths: {
-			relative: false,
-            base: process.env.NODE_ENV == 'development' ? '' : ''
-        },
         alias: {
             $r: path.resolve('src/routes'),
             $index: path.resolve('src/routes/(index)'),

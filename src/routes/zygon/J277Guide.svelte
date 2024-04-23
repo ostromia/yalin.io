@@ -1,15 +1,11 @@
-<script lang="ts">
-	import { base } from '$app/paths';
-</script>
-
 <div>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/00.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/01.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/02.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/03.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/04.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/05.jpg`}/>
-	<img alt="" src={`${base}/assets/zygon/Pseudocode-Guide-J277/06.jpg`}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/00.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/01.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/02.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/03.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/04.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/05.jpg"}/>
+	<img alt="" src={"/assets/zygon/Pseudocode-Guide-J277/06.jpg"}/>
 </div>
 
 <style>

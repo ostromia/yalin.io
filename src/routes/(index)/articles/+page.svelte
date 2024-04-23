@@ -1,5 +1,4 @@
 <script>
-    import { base } from "$app/paths";
     import "@fontsource/albert-sans";
     import Heading from "$index/Heading.svelte";
 
@@ -9,7 +8,7 @@
             description: "Articles I've written on topics that interest me:",
             list: [
                 {
-                    url: `${base}/articles/knight-probability-in-chessboard`,
+                    url: `/articles/knight-probability-in-chessboard`,
                     label: "Leet Code 688. Knight probability in chessboard",
                     description: "A much more efficient solution to Leet Code question 688 using recursion and the Law of Total Probability"
                 },
@@ -20,7 +19,7 @@
             description: "Useful resources I've collected from around the internet:",
             list: [
                 {
-                    url: `${base}/articles/gamma-functions`,
+                    url: `/articles/gamma-functions`,
                     label: "Gamma Functions",
                     description: "Definitions of the gamma functions"
                 },
@@ -42,11 +41,11 @@
             {#each sections as section}
                 {#each section.list as { url, label, description }}
                     <li>
-                        <a class="anchor-label" href={url}>
+                        <a data-sveltekit-reload class="anchor-label" href={url}>
                             {label}
                         </a>
 
-                        <a class="anchor-character" href={url}>
+                        <a data-sveltekit-reload class="anchor-character" href={url}>
                             ⧉
                         </a>
 

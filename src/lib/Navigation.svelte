@@ -1,25 +1,24 @@
 <script>
     import "@fontsource/albert-sans";
-    import links from "$lib/links";
     import Favicon from "$lib/Favicon.svelte";
 </script>
 
 <nav>
-    <a class="wrapper-favicon" href={links.index}>
+    <a data-sveltekit-reload class="wrapper-favicon" href="/">
         <Favicon height="1rem" width="2rem" color="grey" colorhover="white"/>
     </a>
 
     <div></div>
 
-    <a class="nav-link" href={links.projects}>
+    <a data-sveltekit-reload class="nav-link" href="/projects">
         Projects
     </a>
 
-    <a class="nav-link" href={links.articles}>
+    <a data-sveltekit-reload class="nav-link" href="/articles">
         Articles
     </a>
 
-    <a class="nav-link" href={links.github}>
+    <a class="nav-link" href="https://github.com/berkay-yalin">
         GitHub
     </a>
 </nav>
