@@ -1,36 +1,7 @@
 <script>
     import "@fontsource/albert-sans";
     import Heading from "$index/Heading.svelte";
-
-    const sections = [
-        {
-            heading: "Articles",
-            description: "Articles I've written on topics that interest me:",
-            list: [
-                {
-                    url: `/articles/knight-probability-in-chessboard`,
-                    label: "Leet Code 688. Knight probability in chessboard",
-                    description: "A much more efficient solution to Leet Code question 688 using recursion and the Law of Total Probability"
-                },
-            ]
-        },
-        {
-            heading: "Resources",
-            description: "Useful resources I've collected from around the internet:",
-            list: [
-                {
-                    url: `/articles/gamma-functions`,
-                    label: "Gamma Functions",
-                    description: "Definitions of the gamma functions"
-                },
-                {
-                    url: `https://gist.github.com/berkay-yalin/e6f737f32db49f72f30dde1b8fdf03ce`,
-                    label: 'Vim Indentation',
-                    description: "All .vimrc configurations relating to indentation"
-                },
-            ]
-        }
-    ];
+    import articlesJSON from "$articles/articles.json";
 </script>
 
 <div class="wrapper-articles">
@@ -38,22 +9,16 @@
 
     <main>
         <ul>
-            {#each sections as section}
-                {#each section.list as { url, label, description }}
-                    <li>
-                        <a data-sveltekit-reload class="anchor-label" href={url}>
-                            {label}
-                        </a>
+            {#each Object.values(articlesJSON).reverse() as {url, title, date, description}}
+                <li>
+                    <a data-sveltekit-reload class="anchor-label" href={url}>
+                        {title} ⧉
+                    </a>
 
-                        <a data-sveltekit-reload class="anchor-character" href={url}>
-                            ⧉
-                        </a>
-
-                        <div class="div-description">
-                            {description}
-                        </div>
-                    </li>
-                {/each}
+                    <div class="div-description">
+                        {description}
+                    </div>
+                </li>
             {/each}
         </ul>
     </main>
