@@ -1,4 +1,4 @@
-import{S as g,i as b,s as v,C as E,k,q as S,a as u,y as q,J as w,l as C,m as L,r as N,h as c,c as p,z,G as d,b as $,A,D as B,E as D,F,g as h,d as y,B as G}from"../chunks/index.aba53c8a.js";import{N as J}from"../chunks/Navigation.721524a9.js";function T(l){let s,m,i,a,o,r;a=new J({});const _=l[1].default,e=E(_,l,l[0],null);return{c(){s=k("style"),m=S(`html {
+import{S as g,i as b,s as v,C as E,k,q as S,a as u,y as q,J as w,l as C,m as L,r as N,h as c,c as p,z,G as d,b as $,A,D as B,E as D,F,g as h,d as y,B as G}from"../chunks/index.aba53c8a.js";import{N as J}from"../chunks/Navigation.50fb7ce5.js";function T(l){let s,m,i,a,o,r;a=new J({});const _=l[1].default,e=E(_,l,l[0],null);return{c(){s=k("style"),m=S(`html {
             background-color: #111111;
         }`),i=u(),q(a.$$.fragment),o=u(),e&&e.c(),this.h()},l(t){const n=w("svelte-6522bw",document.head);s=C(n,"STYLE",{});var f=L(s);m=N(f,`html {
             background-color: #111111;
