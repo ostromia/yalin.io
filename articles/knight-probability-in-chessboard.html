@@ -8,25 +8,27 @@
 		<link href="../_app/immutable/assets/0.272cd032.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Navigation.ed8fa9ee.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/index.5a26339d.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/12.c174204c.css" rel="stylesheet">
-		<link href="../_app/immutable/assets/index.d9febb34.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/4.0505e8d7.css" rel="stylesheet">
 		<link href="../_app/immutable/assets/Header.f347c53e.css" rel="stylesheet">
-		<link rel="modulepreload" href="../_app/immutable/entry/start.66603051.js">
+		<link href="../_app/immutable/assets/12.83daad11.css" rel="stylesheet">
+		<link href="../_app/immutable/assets/index.d9febb34.css" rel="stylesheet">
+		<link rel="modulepreload" href="../_app/immutable/entry/start.5506f493.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index.aba53c8a.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.f3d1d414.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/singletons.0cad4d14.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/index.d341f143.js">
-		<link rel="modulepreload" href="../_app/immutable/entry/app.4888b005.js">
+		<link rel="modulepreload" href="../_app/immutable/entry/app.a319af6e.js">
 		<link rel="modulepreload" href="../_app/immutable/nodes/0.afabb2ee.js">
 		<link rel="modulepreload" href="../_app/immutable/nodes/3.5ceb62c9.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Navigation.50fb7ce5.js">
 		<link rel="modulepreload" href="../_app/immutable/chunks/Favicon.7d2dd2bd.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/5.dc574a03.js">
-		<link rel="modulepreload" href="../_app/immutable/nodes/12.2b11b9fb.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/index.5c81f6a2.js">
-		<link rel="modulepreload" href="../_app/immutable/chunks/Header.102b2485.js"><!-- HEAD_svelte-11k7y2d_START --><style>html {
+		<link rel="modulepreload" href="../_app/immutable/nodes/5.380f8024.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/Header.9d92b0aa.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/articles.ef0c9f7b.js">
+		<link rel="modulepreload" href="../_app/immutable/nodes/12.c437e213.js">
+		<link rel="modulepreload" href="../_app/immutable/chunks/index.5c81f6a2.js"><title>Leet Code 688. Knight Probability in Chessboard</title><!-- HEAD_svelte-h6fdeq_START --><style>html {
             background-color: #2e323b;
         }
-    </style><!-- HEAD_svelte-11k7y2d_END -->
+    </style><!-- HEAD_svelte-h6fdeq_END -->
 	</head>
 	<body data-sveltekit-preload-data="hover">
 		<div style="display: contents">
@@ -49,133 +51,133 @@
 
 
 
-<main class="svelte-1edovk2"><div class="header svelte-r9huqv"><div class="title header-text svelte-r9huqv">Leet Code 688. Knight Probability in Chessboard</div>
+<main class="svelte-1yxvbgi"><div class="header svelte-r9huqv"><div class="title header-text svelte-r9huqv">Leet Code 688. Knight Probability in Chessboard</div>
     <div class="date header-text svelte-r9huqv">02.10.2023</div>
 </div>
+    <div id="problem" class="svelte-u0gpl1"><a id="leetCodeLink" href="https://leetcode.com/problems/knight-probability-in-chessboard/" class="svelte-u0gpl1">Leet Code 688.
+    </a>
 
-    <div id="problem" class="svelte-1edovk2"><a id="leetCodeLink" href="https://leetcode.com/problems/knight-probability-in-chessboard/" class="svelte-1edovk2">Leet Code 688.
-        </a>
-
-        <div class="svelte-3l6799">On an <code class="svelte-1edovk2">n x n</code> chessboard, a knight starts at the cell <code class="svelte-1edovk2">(row, column)</code> and attempts to make exactly <code class="svelte-1edovk2">k</code> moves.
-            The rows and columns are 0-indexed, so the top-left cell is <code class="svelte-1edovk2">(0, 0)</code>, and the bottom-right cell is <code class="svelte-1edovk2">(n - 1, n - 1)</code>.
-        
+    <div class="svelte-3l6799">On an <code class="svelte-u0gpl1">n x n</code> chessboard, a knight starts at the cell <code class="svelte-u0gpl1">(row, column)</code> and attempts to make exactly <code class="svelte-u0gpl1">k</code> moves.
+        The rows and columns are 0-indexed, so the top-left cell is <code class="svelte-u0gpl1">(0, 0)</code>, and the bottom-right cell is <code class="svelte-u0gpl1">(n - 1, n - 1)</code>.
+    
 </div>
 
-        <div class="svelte-3l6799">A chess knight has eight possible moves it can make, as illustrated below.
-            Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.
-        
+    <div class="svelte-3l6799">A chess knight has eight possible moves it can make, as illustrated below.
+        Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.
+    
 </div>
 
-        <img alt="" id="knightImage" src="/_app/immutable/assets/knight.7c95888c.png" class="svelte-1edovk2">
+    <img alt="" id="knightImage" src="/_app/immutable/assets/knight.7c95888c.png" class="svelte-u0gpl1">
 
-        <div class="svelte-3l6799">Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.
-        
+    <div class="svelte-3l6799">Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.
+    
 </div>
 
-        <div class="svelte-3l6799">The knight continues moving until it has made exactly k moves or has moved off the chessboard.
-        
+    <div class="svelte-3l6799">The knight continues moving until it has made exactly k moves or has moved off the chessboard.
+    
 </div>
 
-        <div class="svelte-3l6799">Return the probability that the knight remains on the board after it has stopped moving.
-        
+    <div class="svelte-3l6799">Return the probability that the knight remains on the board after it has stopped moving.
+    
 </div></div>
 
-    <div id="solution" class="svelte-1edovk2"><div class="svelte-3l6799">The first
+<div id="solution" class="svelte-u0gpl1"><div class="svelte-3l6799">The first
 
-            <a href="https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/" class="svelte-1edovk2">solution
-            </a>
+        <a href="https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/" class="svelte-u0gpl1">solution
+        </a>
 
-            presented on LeetCode for this problem is available below, which uses several iterators to store probabilities within differnt arrays.
+        presented on LeetCode for this problem is available below, which uses several iterators to store probabilities within differnt arrays.
 
-            We can significantly simplify this solution however through the use of recursion and the
+        We can significantly simplify this solution however through the use of recursion and the
 
-            <a href="https://en.wikipedia.org/wiki/Law_of_total_probability" class="svelte-1edovk2">Law of Total Probability
-            </a>
+        <a href="https://en.wikipedia.org/wiki/Law_of_total_probability" class="svelte-u0gpl1">Law of Total Probability
+        </a>
 
-            .
-        
+        .
+    
 </div>
 
-        <div class="svelte-1ephmhb"></div>
+    <div class="svelte-1ephmhb"></div>
 
-        <div class="svelte-14dtst">The Law of Total Probability
+    <div class="svelte-14dtst">The Law of Total Probability
 </div>
 
-        <div class="svelte-3l6799">Suppose the events <code class="svelte-1edovk2">B_1, ..., B_k</code> are mutally exclusive and exhaustive events in a sample space,
-            then for any event <code class="svelte-1edovk2">A</code> in that sample space <code class="svelte-1edovk2">P(A) = P(A n B_1) + ... + P(A n B_k)</code>.
-        
+    <div class="svelte-3l6799">Suppose the events <code class="svelte-u0gpl1">B_1, ..., B_k</code> are mutally exclusive and exhaustive events in a sample space,
+        then for any event <code class="svelte-u0gpl1">A</code> in that sample space <code class="svelte-u0gpl1">P(A) = P(A n B_1) + ... + P(A n B_k)</code>.
+    
 </div>
 
-        <div class="svelte-3l6799">If we consider the knight starts within a red <code class="svelte-1edovk2">4x4</code> board, and only has <code class="svelte-1edovk2">1</code> move,
-            then only will 3 out of the 8 possible moves keep the knight within the board.
-            If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
-        
+    <div class="svelte-3l6799">If we consider the knight starts within a red <code class="svelte-u0gpl1">4x4</code> board, and only has <code class="svelte-u0gpl1">1</code> move,
+        then only will 3 out of the 8 possible moves keep the knight within the board.
+        If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
+    
 </div>
 
-        <div class="svelte-3l6799">With an array containing the probability of each move occurring, <code class="svelte-1edovk2">[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]</code>,
-            and another array of the probabilities that the knight stays on the board, <code class="svelte-1edovk2">[1, 1, 1, 0, 0, 0, 0, 0]</code>,
-            we can calculate the result through the sum of both arrays.
-        
+    <div class="svelte-3l6799">With an array containing the probability of each move occurring, <code class="svelte-u0gpl1">[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]</code>,
+        and another array of the probabilities that the knight stays on the board, <code class="svelte-u0gpl1">[1, 1, 1, 0, 0, 0, 0, 0]</code>,
+        we can calculate the result through the sum of both arrays.
+    
 </div>
 
-        <div class="svelte-3l6799">The law of total probability sums the conditional probabilities of all cases, multiplied by the probability of each case occurring:
-            <br>
-            <code class="svelte-1edovk2">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375</code>
+    <div class="svelte-3l6799">The law of total probability sums the conditional probabilities of all cases, multiplied by the probability of each case occurring:
+        <br>
+        <code class="svelte-u0gpl1">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375</code>
 </div>
 
-        <img alt="" id="knight_m0" src="/_app/immutable/assets/knight_m0.45722dd8.png" class="svelte-1edovk2">
+    <img alt="" id="knight_m0" src="/_app/immutable/assets/knight_m0.45722dd8.png" class="svelte-u0gpl1">
 
-        <div class="svelte-3l6799">We were able to set the probability that the knight would remain on the board as <code class="svelte-1edovk2">1</code> as it was the final move of the knight -
-            if the knight ends on a square within the board there is a <code class="svelte-1edovk2">100%</code> chance the knight has remained within the board.
-            Things start to get a bit more complicated after one move, as there is no guarantee the knight will remain within the board after the first move.
-        
+    <div class="svelte-3l6799">We were able to set the probability that the knight would remain on the board as <code class="svelte-u0gpl1">1</code> as it was the final move of the knight -
+        if the knight ends on a square within the board there is a <code class="svelte-u0gpl1">100%</code> chance the knight has remained within the board.
+        Things start to get a bit more complicated after one move, as there is no guarantee the knight will remain within the board after the first move.
+    
 </div>
 
-        <div class="svelte-3l6799">Let&#39;s consider the previous example but where the knight moves twice instead of just once.
-            We can work through this problem backwards to understand how the statistics behind the solution works.
-        
+    <div class="svelte-3l6799">Let&#39;s consider the previous example but where the knight moves twice instead of just once.
+        We can work through this problem backwards to understand how the statistics behind the solution works.
+    
 </div>
 
-        <div class="svelte-3l6799">For each of the 3 possibilities the knight can make for it&#39;s second move,
-            we can calculate the probability that the knight stays within the board like we did in the previous example,
-            as it is the final move.
-        
+    <div class="svelte-3l6799">For each of the 3 possibilities the knight can make for it&#39;s second move,
+        we can calculate the probability that the knight stays within the board like we did in the previous example,
+        as it is the final move.
+    
 </div>
 
-        <div id="knightMovesWrapper" class="svelte-1edovk2"><img alt="" id="knight_m1" src="/_app/immutable/assets/knight_m1.46e314b8.png" class="svelte-1edovk2">
-            <img alt="" id="knight_m2" src="/_app/immutable/assets/knight_m2.ac0a42e2.png" class="svelte-1edovk2">
-            <img alt="" id="knight_m3" src="/_app/immutable/assets/knight_m3.77ebe86d.png" class="svelte-1edovk2"></div>
+    <div id="knightMovesWrapper" class="svelte-u0gpl1"><img alt="" id="knight_m1" src="/_app/immutable/assets/knight_m1.46e314b8.png" class="svelte-u0gpl1">
+        <img alt="" id="knight_m2" src="/_app/immutable/assets/knight_m2.ac0a42e2.png" class="svelte-u0gpl1">
+        <img alt="" id="knight_m3" src="/_app/immutable/assets/knight_m3.77ebe86d.png" class="svelte-u0gpl1"></div>
 
-        <code class="svelte-1edovk2">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
+    <code class="svelte-u0gpl1">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
+    </code>
+
+    <code class="svelte-u0gpl1">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5
+    </code>
+
+    <code class="svelte-u0gpl1">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
+    </code>
+
+    <div class="svelte-3l6799">We can plug these results back into the original equation to determine the final probability:
+        <br>
+        <code class="svelte-u0gpl1">(0.125 * 0.375) + (0.125 * 0.5) + (0.125 * 0.375) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.15625
         </code>
-
-        <code class="svelte-1edovk2">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5
-        </code>
-
-        <code class="svelte-1edovk2">(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375
-        </code>
-
-        <div class="svelte-3l6799">We can plug these results back into the original equation to determine the final probability:
-            <br>
-            <code class="svelte-1edovk2">(0.125 * 0.375) + (0.125 * 0.5) + (0.125 * 0.375) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.15625
-            </code>
 </div>
 
-        <div class="svelte-14dtst">Solution
+    <div class="svelte-14dtst">Solution
 </div>
 
-        <div class="svelte-3l6799">The following solution uses the law of total probability to calculate the final answer
-        
+    <div class="svelte-3l6799">The following solution uses the law of total probability to calculate the final answer
+    
 </div>
 
-        <div class="svelte-1ephmhb"></div></div>
+    <div class="svelte-1ephmhb"></div>
+</div>
 </main>
 
 
 			
 			<script>
 				{
-					__sveltekit_1aqkvtg = {
+					__sveltekit_s4ubo5 = {
 						base: new URL("..", location).pathname.slice(0, -1),
 						env: {}
 					};
@@ -185,8 +187,8 @@
 					const data = [null,null,null,null];
 
 					Promise.all([
-						import("../_app/immutable/entry/start.66603051.js"),
-						import("../_app/immutable/entry/app.4888b005.js")
+						import("../_app/immutable/entry/start.5506f493.js"),
+						import("../_app/immutable/entry/app.a319af6e.js")
 					]).then(([kit, app]) => {
 						kit.start(app, element, {
 							node_ids: [0, 3, 5, 12],
