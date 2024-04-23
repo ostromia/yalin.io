@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { base } from '$app/paths';
     import Heading from "$index/Heading.svelte";
-    import Carousel from "$index/projects/Carousel.svelte";
+    // import Carousel from "$index/projects/Carousel.svelte";
 	import RepositoryCard from '$index/projects/RepositoryCard.svelte';
 
     const data = [
@@ -72,6 +72,10 @@
 </div>
 
 <style lang="scss">
+    @use "sass:map";
+    @import "./src/styles/styles.scss";
+    @import "./src/styles/onedark.scss";
+
     .wrapper-projects {
         display: flex;
         flex-direction: column;
@@ -92,7 +96,7 @@
 	section {
         border-radius: 0.5rem;
         box-sizing: border-box;
-        background-color: $fc;
+        background-color: map.get($onedark, "bg_d");
         flex: 1 1 30%;
     }
 

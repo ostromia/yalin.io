@@ -61,6 +61,8 @@
 </div>
 
 <style lang="scss">
+    @import "./src/styles/styles.scss";
+
     .wrapper-articles {
         display: flex;
         flex-direction: column;
@@ -101,7 +103,7 @@
     }
 
     .anchor-label, .anchor-character {
-        color: lightblue;
+        color: $link-color;
         font-size: 1rem;
         font-family: 'Albert Sans';
         text-decoration: none;

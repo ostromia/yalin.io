@@ -15,14 +15,6 @@
     import KnightImage_m3 from "$articles/knight-probability-in-chessboard/resources/knight_m3.png"
 </script>
 
-<svelte:head>
-    <style>
-        body {
-            background-color: #2e323b;
-        }
-    </style>
-</svelte:head>
-
 <main>
     <Header date={"02.10.2023"} title={"Leet Code 688. Knight Probability in Chessboard"}/>
 
@@ -228,7 +220,7 @@
     }
 
     #problem {
-        background-color: $fc;
+        background-color: #21252B;
         border-radius: 1rem;
     }
 

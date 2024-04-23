@@ -133,11 +133,6 @@
 <svelte:head>
 	<title>Python Interpreter</title>
 	<script async src="https://cdn.jsdelivr.net/pyodide/v0.23.0/full/pyodide.js"></script>
-    <style>
-        html {
-            background-color: #2e323b;
-        }
-    </style>
 </svelte:head>
 
 <Navigation
