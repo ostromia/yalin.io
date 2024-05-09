@@ -1,5 +1,0 @@
-import{S as g,i as b,s as v,C as E,k,q as S,a as u,y as q,J as w,l as C,m as L,r as N,h as c,c as p,z,G as d,b as $,A,D as B,E as D,F,g as h,d as y,B as G}from"../chunks/index.aba53c8a.js";import{N as J}from"../chunks/Navigation.50fb7ce5.js";function T(l){let s,m,i,a,o,r;a=new J({});const _=l[1].default,e=E(_,l,l[0],null);return{c(){s=k("style"),m=S(`html {
-            background-color: #111111;
-        }`),i=u(),q(a.$$.fragment),o=u(),e&&e.c(),this.h()},l(t){const n=w("svelte-6522bw",document.head);s=C(n,"STYLE",{});var f=L(s);m=N(f,`html {
-            background-color: #111111;
-        }`),f.forEach(c),n.forEach(c),i=p(t),z(a.$$.fragment,t),o=p(t),e&&e.l(t),this.h()},h(){document.title="yalin.io"},m(t,n){d(document.head,s),d(s,m),$(t,i,n),A(a,t,n),$(t,o,n),e&&e.m(t,n),r=!0},p(t,[n]){e&&e.p&&(!r||n&1)&&B(e,_,t,t[0],r?F(_,t[0],n,null):D(t[0]),null)},i(t){r||(h(a.$$.fragment,t),h(e,t),r=!0)},o(t){y(a.$$.fragment,t),y(e,t),r=!1},d(t){c(s),t&&c(i),G(a,t),t&&c(o),e&&e.d(t)}}}function Y(l,s,m){let{$$slots:i={},$$scope:a}=s;return l.$$set=o=>{"$$scope"in o&&m(0,a=o.$$scope)},[a,i]}class I extends g{constructor(s){super(),b(this,s,Y,T,v,{})}}export{I as component};
