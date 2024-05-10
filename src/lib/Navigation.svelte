@@ -33,19 +33,19 @@
         grid-template-columns: min-content auto repeat(3, min-content);
         align-items: center;
         gap: 1rem;
-        padding: 1rem;
+        padding: 1.5rem;
         box-sizing: border-box;
     }
 
     .wrapper-favicon {
-        height: 2rem;
+        height: 1rem;
         box-sizing: border-box;
     }
 
     .nav-link {
         color: grey;
         text-decoration: none;
-        height: 1.5rem;
+        height: 1rem;
         box-sizing: border-box;
     }
 
