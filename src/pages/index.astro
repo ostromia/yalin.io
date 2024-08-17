@@ -1,15 +1,17 @@
 ---
-import Navigation from "../components/Navigation.astro";
-import BaseHead from '../components/BaseHead.astro';
+import MetaHead from '../components/Head.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
+import Navigation from "../components/Navigation.astro";
 import Computer from "../components/Canvas";
+
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
 
 	<body>
@@ -20,8 +22,6 @@ import Computer from "../components/Canvas";
 
 <style>
     html, body {
-        height: 100%;
-        width: 100%;
         background-color: #111111;
     }
 </style>
