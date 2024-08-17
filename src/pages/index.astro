@@ -1,0 +1,27 @@
+---
+import Navigation from "../components/Navigation.astro";
+import BaseHead from '../components/BaseHead.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+
+import Computer from "../components/Canvas";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+
+	<body>
+        <Navigation/>
+        <Computer client:only="react"/>
+	</body>
+</html>
+
+<style>
+    html, body {
+        height: 100%;
+        width: 100%;
+        background-color: #111111;
+    }
+</style>
