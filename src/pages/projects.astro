@@ -29,7 +29,9 @@ import RepositoryCard from "../components/RepositoryCard.astro";
                 path={"berkay-yalin/zygon"}
                 description={"Transpile OCR GCSE & A-Level Pseudocode into Python."}
                 language={['Svelte', 'TypeScript', 'JavaScript', 'HTML', 'Sass', 'CSS']}}
-            />
+            >
+                <!-- <a class="slot-link" href="https://berkay-yalin.github.io/zygon/">Visit Zygon ⧉</a> -->
+            </RepositoryCard>
 
             <RepositoryCard
                 path={"berkay-yalin/open-with-nvim"}
@@ -61,10 +63,10 @@ import RepositoryCard from "../components/RepositoryCard.astro";
     }
 
     main {
-        width: 720px;
+        max-width: 720px;
         margin: auto;
 
-        padding: 2rem;
+        padding: 2rem 1rem;
         box-sizing: border-box;
 
         display: flex;
@@ -84,6 +86,17 @@ import RepositoryCard from "../components/RepositoryCard.astro";
 
     a {
         color: $link-color;
+    }
+
+    .slot-link {
+        display: block;
+        margin: auto;
+        font-family: sans-serif;
+        text-decoration: none;
+    }
+
+    .slot-link:hover {
+        text-decoration: underline;
     }
 
 </style>
