@@ -1,12 +1,10 @@
 ---
-import Head from '../../components/Head.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 import { getCollection } from 'astro:content';
 
+import Head from '../../components/Head.astro';
 import Navigation from "../../components/Navigation.astro";
-import FormattedDate from "../../components/Articles/FormattedDate.astro";
 
-import "../../styles/global.css";
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
 
 const posts = (await getCollection("articles")).sort(
 	(a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf(),
@@ -28,20 +26,15 @@ const posts = (await getCollection("articles")).sort(
             <ul>
                 {
                     posts.map((post) => (
-                        <li class="wrapper-blog-hero">
-                            <span class="wrapper-date">
+                        <li>
+                            <span class="date">
                                 <code>{post.data.publicationDate.getFullYear()}</code>
                                 <code>•</code>
                                 <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
                             </span>
 
-                            <a href={`/articles/${post.slug}/`}>
-                                {/* <img src={post.data.heroImage} alt="" /> */}
-                                {/* <span class="date">{post.data.publicationDate}</span> */}
-                                <span class="title">{post.data.title}</span>
-                                {/* <span><FormattedDate client:load date={post.data.publicationDate}/></span>
-                                <p class="description">{post.data.description}</p>
-                                <p class="description">{post.data.publicationDate.getMonth()}</p> */}
+                            <a class="title" href={`/articles/${post.slug}/`}>
+                                {post.data.title}
                             </a>
                         </li>
                     ))
@@ -52,76 +45,26 @@ const posts = (await getCollection("articles")).sort(
 </html>
 
 <style lang="scss">
-	$text-color: rgb(139, 148, 158);
-    $link-color: rgb(88, 166, 255);
-    $white-smoke: #f5f5f5;
+    @use "../../styles/global";
+    @use "../../styles/landing";
 
-    html, body {
-        background-color: #111111;
-    }
-
-    h1 {
-        text-align: center;
-        font-size: 1rem;
-        color: $text-color;
+    ul, li {
         margin: 0;
-        padding: 1rem 0;
-        box-sizing: border-box;
-        font-variant: small-caps;
-
-    }
-
-    main {
-        max-width: 720px;
-        margin: auto;
-
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .wrapper-blog-hero::marker {
-        color: white;
+        padding: 0;
     }
 
     ul {
         display: flex;
         flex-direction: column;
-        gap: 0.75rem;
-
-        margin: 0;
-        padding: 0;
+        gap: 0.5rem;
     }
 
     li {
-        margin: 0;
-        padding: 0;
-    }
-
-    .wrapper-blog-hero {
         list-style-type: none;
-
-        a, a:hover, a:visited, a:active {
-            color: inherit;
-        }
-
-        img {
-            width: 100%;
-        }
-
-        .title {
-            color: $link-color;
-            text-decoration: underline;
-        }
-
-        .description {
-            color: $white-smoke;
-        }
     }
 
-    .wrapper-date {
-        color: lightgrey;
-        font-size: small;
+    .date {
+        color: white;
         padding-right: 0.5rem;
         box-sizing: border-box;
     }

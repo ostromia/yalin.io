@@ -1,8 +1,8 @@
 ---
 import MetaHead from '../components/Head.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 import Navigation from "../components/Navigation.astro";
-import "../styles/global.css";
+
+import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 ---
 
 <script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -73,8 +73,7 @@ import "../styles/global.css";
 	</body>
 </html>
 
-<style>
-    html, body {
-        background-color: #111111;
-    }
+<style lang="scss">
+    @use "../styles/global";
+    @use "../styles/landing";
 </style>
