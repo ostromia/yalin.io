@@ -13,8 +13,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
         const scene = new THREE.Scene();
 
         const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-        const canvasWidth = window.innerWidth;
-        const canvasHeight = window.innerHeight - (8 * rem);
+        let canvasWidth = window.innerWidth;
+        let canvasHeight = window.innerHeight - (8 * rem);
 
         const camera = new THREE.PerspectiveCamera(50, canvasWidth / canvasHeight, 0.1, 1000);
         camera.position.set(8, 8, 8);
