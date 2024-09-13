@@ -3,10 +3,13 @@ const { path, description, language } = Astro.props;
 
 import colorsJSON from "../assets/colors.json";
 
-const languages = language.map((e: string | number) => ({
-    name: e,
-    color: colorsJSON[e].color
-}));
+interface ColorsJSON {
+    [language: string]: {
+        color: string | null;
+        url: string;
+    };
+}
+const colors: ColorsJSON = colorsJSON;
 ---
 
 <div id="card-container">
@@ -19,10 +22,10 @@ const languages = language.map((e: string | number) => ({
 
     <section id="languages">
     {
-        languages.map((e: { color: string; name: string; }) => (
+        language.map((e: string) => (
 			<div>
-				<div class="language-icon" style={`background-color:${e.color}`}></div>
-				<div class="language-text">{e.name}</div>
+				<div class="language-icon" style={`background-color:${colors[e].color}`}></div>
+				<div class="language-text">{e}</div>
 			</div>
         ))
     }
