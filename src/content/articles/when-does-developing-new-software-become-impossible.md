@@ -1,0 +1,42 @@
+---
+title: "When does developing new software become impossible?"
+description: ""
+publicationDate: "2024-09-16"
+updatedDate: "2024-09-16"
+heroImage: ""
+---
+
+At what point does developing software, whether it be due to the sheer complexity of the task, or the monopoly your competition currently holds over the market, appear to be such an arduous task that building something new that others will actually use seems practically **impossible**?
+
+[The reckless, infinite scope of web browsers](https://drewdevault.com/2020/03/18/Reckless-limitless-scope.html), a blog post detailing the almost ridiculous complexity required to develop a modern web browser begins to touch on this kind of thinking:
+
+<em><blockquote>
+"The total word count of the W3C specification catalogue is 114 million words at the time of writing. If you added the combined word counts of the C11, C++17, UEFI, USB 3.2, and POSIX specifications, all 8,754 published RFCs, and the combined word counts of everything on Wikipedia’s list of longest novels, you would be 12 million words short of the W3C specifications.
+
+I conclude that it is impossible to build a new web browser. The complexity of the web is obscene. The creation of a new web browser would be comparable in effort to the Apollo program or the Manhattan project.
+
+It is impossible to:
+- Implement the web correctly
+- Implement the web securely
+- Implement the web at all
+
+Starting a bespoke browser engine with the intention of competing with Google or Mozilla is a fool’s errand. The last serious attempt to make a new browser, Servo, has become one part incubator for Firefox refactoring, one part playground for bored Mozilla engineers to mess with technology no one wants, and zero parts viable modern web browser. But WebVR is cool, right? Right?"
+
+\- Drew DeVault 2020
+</blockquote></em>
+
+Microsoft could have dedicated a team towards rebuilding [Edge](https://en.wikipedia.org/wiki/Microsoft_Edge), but instead decided to rebuild their browser based on Google's [Chromium](https://www.chromium.org/Home/) project. In retrospect, to build something from the ground up seems much less reasonable then building upon existing software that has proven itself reliable and performant. With software as complicated as a web browser or an operating system, to achieve the level of performance and compatibility on par with existing software would be practically **impossible**.
+
+Whilst Devault's writing brilliantly puts this into perspective, others might falsely attribute the difficulty of developing such software to the tasks complexity, whereas the actual problem lies in tackling the established ecosystem of the pre-existing software.
+
+To use Microsoft as an example again, Excel has securely asserted itself as the standard tool for data handling, with decades of development put towards its range of features and integration with other Microsoft services. Trying to compete with not only the flagship product of one of the world's largest tech corporations on the planet, but to also provide integration with the numerous other pieces of enterprise software Microsoft have spent years developing compatibility with, would be practically **impossible**.
+
+Whilst software that provides a better user experience is enough to get started, what keeps software alive isn't the software itself, but the ecosystem built around it.
+
+There are several editors which provide almost if not all of the functionality present within [Visual Studio Code](https://en.wikipedia.org/wiki/Visual_Studio_Code), but the wide range of extensions available in the editor is what keeps it separate from its alternatives. Almost all widely used languages and tools have first-party extensions built natively for Visual Studio Code, whilst other editors have to strap together several community plugins with quite some configuration to achieve the same effect. To replicate this level of integration present within a large ecosystem backed by an active community would be practically **impossible**.
+
+Or would it?
+
+The significant rise in popularity for tools such as [Neovim](https://neovim.io/), forked from software with a seemingly infinite ecosystem, providing new features such as [Lua](https://www.lua.org/) integration and a built-in [LSP](https://neovim.io/doc/user/lsp.html), prove that even cult classics can run the risk of becoming obsolete.
+
+Maybe the fate of editors isn't as set in stone as that of a web browser or spreadsheet appear to be, but at what point do programs become too intertwined within the world of technology that any attempt at developing a successor becomes pointless? At what point does developing new software become **impossible**?

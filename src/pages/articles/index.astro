@@ -48,6 +48,10 @@ const posts = (await getCollection("articles")).sort(
     @use "../../styles/global";
     @use "../../styles/landing";
 
+    main {
+        max-width: 600px;
+    }
+
     ul, li {
         margin: 0;
         padding: 0;
