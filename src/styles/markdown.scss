@@ -1,0 +1,18 @@
+$link-color: rgb(88, 166, 255);
+
+article {
+    color: white;
+}
+
+a {
+    color: $link-color;
+}
+
+blockquote {
+    font-style: italic;
+    color: lightgrey;
+}
+
+.katex-html {
+    display: none !important;
+}
