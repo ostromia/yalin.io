@@ -7,18 +7,14 @@ import rehypeKatex from "rehype-katex";
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://yalin.io',
+	integrations: [mdx(), sitemap()],
 	markdown: {
 		shikiConfig: {
 			theme: "github-dark",
 			wrap: false,
-		}
-	},
-	site: 'https://yalin.io',
-	integrations: [
-		mdx({
-			remarkPlugins: [remarkMath],
-			rehypePlugins: [rehypeKatex]
-		}),
-        sitemap()
-    ],
+		},
+		remarkPlugins: [remarkMath],
+		rehypePlugins: [rehypeKatex]
+    }
 });
