@@ -1,9 +1,9 @@
 ---
-import Head from '../components/Head.astro';
-import Navigation from "../components/Navigation.astro";
-import RepositoryCard from "../components/RepositoryCard.astro";
+import Head from '@components/Head.astro';
+import Navigation from "@components/Navigation.astro";
+import RepositoryCard from "@components/RepositoryCard.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
 
 const cards = {
     "projects": [
@@ -69,6 +69,6 @@ const cards = {
 </html>
 
 <style lang="scss">
-    @use "../styles/global";
-    @use "../styles/landing";
+    @use "@styles/global";
+    @use "@styles/landing";
 </style>

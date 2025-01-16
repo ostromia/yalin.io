@@ -16,5 +16,18 @@ export default defineConfig({
 		},
 		remarkPlugins: [remarkMath],
 		rehypePlugins: [rehypeKatex]
+    },
+    vite: {
+        resolve: {
+            alias: {
+                '@src': '/src',
+                '@assets': '/src/assets',
+                '@components': '/src/components',
+                '@content': '/src/content',
+                '@layouts': '/src/layouts',
+                '@pages': '/src/pages',
+                '@styles': '/src/styles'
+            }
+        }
     }
 });

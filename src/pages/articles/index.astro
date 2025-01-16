@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
 
-import Head from '../../components/Head.astro';
-import Navigation from "../../components/Navigation.astro";
+import Head from '@components/Head.astro';
+import Navigation from "@components/Navigation.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
 
 const posts = (await getCollection("articles")).sort(
 	(a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf(),
@@ -45,8 +45,8 @@ const posts = (await getCollection("articles")).sort(
 </html>
 
 <style lang="scss">
-    @use "../../styles/global";
-    @use "../../styles/landing";
+    @use "@styles/global";
+    @use "@styles/landing";
 
     main {
         max-width: 600px;

@@ -1,8 +1,8 @@
 ---
-import MetaHead from '../components/Head.astro';
-import Navigation from "../components/Navigation.astro";
+import MetaHead from '@components/Head.astro';
+import Navigation from "@components/Navigation.astro";
 
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
 ---
 
 <script>
@@ -75,8 +75,8 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 </html>
 
 <style lang="scss">
-    @use "../styles/global";
-    @use "../styles/landing";
+    @use "@styles/global";
+    @use "@styles/landing";
 
     body {
         overflow: hidden;
