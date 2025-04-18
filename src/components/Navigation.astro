@@ -1,6 +1,10 @@
+---
+const currentPath = Astro.url.pathname;
+---
+
 <nav>
-    <a href="/projects">projects</a>
-    <a href="/articles">articles</a>
+    <a href="/projects" class={currentPath === '/projects' ? 'active' : ''}>projects</a>
+    <a href="/articles" class={currentPath === '/articles' ? 'active' : ''}>articles</a>
     <a href="https://github.com/ostromia" target="_blank">github</a>
 </nav>
 
@@ -20,6 +24,10 @@
 
     a:hover {
         cursor: pointer;
+        color: white;
+    }
+
+    .active {
         color: white;
     }
 </style>
