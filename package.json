@@ -8,6 +8,7 @@
         "build": "astro check && astro build",
         "preview": "astro preview",
         "format": "prettier --write .",
+        "deploy": "sh build.sh",
         "astro": "astro"
     },
     "dependencies": {
