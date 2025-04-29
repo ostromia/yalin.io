@@ -6,13 +6,13 @@ updatedDate: "2024-09-05"
 heroImage: ""
 ---
 
-import { Image } from 'astro:assets';
+import { Image } from "astro:assets";
 
-import knight from '@assets/knight.png';
-import knight_m0 from '@assets/knight_m0.png';
-import knight_m1 from '@assets/knight_m1.png';
-import knight_m2 from '@assets/knight_m2.png';
-import knight_m3 from '@assets/knight_m3.png';
+import knight from "@assets/knight.png";
+import knight_m0 from "@assets/knight_m0.png";
+import knight_m1 from "@assets/knight_m1.png";
+import knight_m2 from "@assets/knight_m2.png";
+import knight_m3 from "@assets/knight_m3.png";
 
 # The Problem
 
@@ -32,6 +32,7 @@ import knight_m3 from '@assets/knight_m3.png';
     *The knight continues moving until it has made exactly `k` moves or has moved off the chessboard.*
 
     *Return the probability that the knight remains on the board after it has stopped moving.*
+
 </div>
 
 # The First Solution
@@ -77,6 +78,7 @@ class Solution:
 ```
 
 # The Law of Total Probability
+
 Suppose the events $B_{1}, ..., B_{k}$ are mutally exclusive and exhaustive events in a sample space, then for any event $A$ in that sample space:
 
 $$P(A) = P(A \cup B_{1}) + ... + P(A \cup B_{k})$$
@@ -84,7 +86,7 @@ $$P(A) = P(A \cup B_{1}) + ... + P(A \cup B_{k})$$
 If we consider the knight starts within the red `(4, 4)` board below, and only has 1 move, then only will 3 out of the 8 possible moves keep the knight within the board.
 If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
 
-<Image alt="" src={knight_m0} style="height: 200px; width: 200px; display: block; margin: auto;"/>
+<Image alt="" src={knight_m0} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 With an array containing the probability of each move occurring, `[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]`, and another array of the probabilities that the knight stays on the board, `[1, 1, 1, 0, 0, 0, 0, 0]`, we can calculate the result through the sum of both arrays.
 
@@ -104,15 +106,15 @@ For each of the 3 possibilities the knight can make for it's second move,
 we can calculate the probability that the knight stays within the board like we did in the previous example,
 as it is the final move.
 
-<Image alt="" src={knight_m1} style="height: 200px; width: 200px; display: block; margin: auto;"/>
+<Image alt="" src={knight_m1} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
-<Image alt="" src={knight_m2} style="height: 200px; width: 200px; display: block; margin: auto;"/>
+<Image alt="" src={knight_m2} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5`
 
-<Image alt="" src={knight_m3} style="height: 200px; width: 200px; display: block; margin: auto;"/>
+<Image alt="" src={knight_m3} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 

@@ -1,12 +1,11 @@
 ---
-import Head from '@components/Head.astro';
+import Head from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
 import RepositoryCard from "@components/RepositoryCard.astro";
-
-import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 
 const cards = {
-    "projects": [
+    projects: [
         {
             path: "ostromia/promethium",
             description: "Library for calculating statistical distributions, written in pure Python with zero dependencies.",
@@ -20,10 +19,10 @@ const cards = {
         {
             path: "ostromia/zygon",
             description: "Transpile OCR GCSE & A-Level Pseudocode into Python.",
-            language: ['Svelte', 'TypeScript', 'SCSS']
-        },
+            language: ["Svelte", "TypeScript", "SCSS"]
+        }
     ],
-    "other_repositories": [
+    other_repositories: [
         {
             path: "ostromia/dotfiles",
             description: "trying to figure out how VimScript works",
@@ -40,32 +39,23 @@ const cards = {
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
+    <head>
+        <Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
 
-	<body>
-        <Navigation/>
+    <body>
+        <Navigation />
 
         <main>
             <h1>projects</h1>
 
-            {
-                cards.projects.map((e) => (
-                    <RepositoryCard path={e.path} description={e.description} language={e.language}/>
-                ))
-            }
+            {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
 
             <h1>other repositories</h1>
 
-            {
-                cards.other_repositories.map((e) => (
-                    <RepositoryCard path={e.path} description={e.description} language={e.language}/>
-                ))
-            }
+            {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
         </main>
-
-	</body>
+    </body>
 </html>
 
 <style lang="scss">

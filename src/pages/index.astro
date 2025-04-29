@@ -1,15 +1,14 @@
 ---
-import MetaHead from '@components/Head.astro';
+import MetaHead from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
-
-import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 ---
 
 <script>
-    import * as THREE from 'three';
-    import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+    import * as THREE from "three";
+    import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener("DOMContentLoaded", () => {
         const scene = new THREE.Scene();
 
         // set canvas dimensions
@@ -37,7 +36,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
         // import 90s_computer.glb
         // https://sketchfab.com/3d-models/90s-computer-c5e4fed8e05e41719165148e4bcf6795
         const loader = new GLTFLoader();
-        loader.load('/90s_computer.glb', function(gltf) {
+        loader.load("/90s_computer.glb", function (gltf) {
             let model = gltf.scene;
             model.rotation.set(0.25, 0, 0);
             scene.add(gltf.scene);
@@ -53,7 +52,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
         });
 
         // handle window resizing
-        window.addEventListener('resize', () => {
+        window.addEventListener("resize", () => {
             canvasWidth = window.innerWidth;
             canvasHeight = window.innerHeight - 100;
             camera.aspect = canvasWidth / canvasHeight;
@@ -63,15 +62,14 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '@src/consts';
     });
 </script>
 
-<!doctype html>
 <html lang="en">
-	<head>
-		<MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
 
-	<body>
-        <Navigation/>
-	</body>
+    <body>
+        <Navigation />
+    </body>
 </html>
 
 <style lang="scss">

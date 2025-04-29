@@ -1,12 +1,11 @@
 ---
-import type { CollectionEntry } from 'astro:content';
+import type { CollectionEntry } from "astro:content";
 
-import Head from '@components/Head.astro';
+import Head from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
-
 import "@styles/markdown.scss";
 
-type Props = CollectionEntry<'articles'>['data'];
+type Props = CollectionEntry<"articles">["data"];
 const { title, description, publicationDate, updatedDate, heroImage } = Astro.props;
 
 function formatDate(date: Date) {
@@ -14,35 +13,36 @@ function formatDate(date: Date) {
         weekday: "long",
         year: "numeric",
         month: "long",
-        day: "numeric",
+        day: "numeric"
     }).format(date);
 }
 ---
 
 <html lang="en">
-	<head>
-		<Head title={title} description={description} />
-	</head>
+    <head>
+        <Head title={title} description={description} />
+    </head>
 
-	<body>
-        <Navigation/>
-		<main>
-			<article>
+    <body>
+        <Navigation />
+        <main>
+            <article>
                 <div class="hero-wrapper">
                     <div class="date">{formatDate(publicationDate)}</div>
                     <div class="title">{title}</div>
                 </div>
 
-                <slot/>
+                <slot />
             </article>
-		</main>
-	</body>
+        </main>
+    </body>
 </html>
 
 <style lang="scss">
     @use "@styles/global.scss";
 
-    html, body {
+    html,
+    body {
         background-color: #111111;
     }
 
