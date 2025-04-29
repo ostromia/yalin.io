@@ -1,6 +1,11 @@
 ---
 import colorsJSON from "@assets/colors.json";
 
+interface Props {
+    path: string;
+    description: string;
+    language: string[];
+}
 const { path, description, language } = Astro.props;
 
 interface ColorsJSON {
