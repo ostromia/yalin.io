@@ -48,15 +48,15 @@ const cards = {
         <Navigation />
 
         <main>
-            <h1>websites i've built</h1>
+            <h1>Websites I've Built</h1>
 
             <WebsiteCarousel />
 
-            <h1>projects</h1>
+            <h1>Projects</h1>
 
             {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
 
-            <h1>other repositories</h1>
+            <h1>Other Repositories</h1>
 
             {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
         </main>
