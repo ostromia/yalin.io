@@ -1,0 +1,108 @@
+---
+import { Image } from "astro:assets";
+import www_kjj_co_uk from "@assets/websites_ive_built/www_kjj_co_uk.png";
+import yalin_io_zygon from "@assets/websites_ive_built/yalin_io_zygon.png";
+
+const websites = [
+    { url: "https://www.kjj.co.uk", image: www_kjj_co_uk },
+    { url: "https://yalin.io/zygon", image: yalin_io_zygon }
+];
+---
+
+<script>
+    const websites = ["https://www.kjj.co.uk", "https://yalin.io/zygon"];
+    let currentIndex = 0;
+
+    const portfolioPreviousButton = document.getElementById("portfolio-previous-button") as HTMLImageElement;
+    const portfolioCurrentButton = document.getElementById("portfolio-current-button") as HTMLAnchorElement;
+    const portfolioNextButton = document.getElementById("portfolio-next-button") as HTMLImageElement;
+
+    portfolioPreviousButton.addEventListener("click", () => {
+        currentIndex = currentIndex === 0 ? websites.length - 1 : currentIndex - 1;
+        updateCarousel();
+    });
+
+    portfolioNextButton.addEventListener("click", () => {
+        currentIndex = currentIndex === websites.length - 1 ? 0 : currentIndex + 1;
+        updateCarousel();
+    });
+
+    function updateCarousel() {
+        const imageElements = document.querySelectorAll(".slide");
+        imageElements.forEach((image, index) => {
+            (image as HTMLImageElement).style.display = index === currentIndex ? "block" : "none";
+        });
+
+        portfolioCurrentButton.href = websites[currentIndex];
+        portfolioCurrentButton.innerHTML = websites[currentIndex].replace("https://", "");
+    }
+
+    document.addEventListener("DOMContentLoaded", updateCarousel);
+</script>
+
+<div id="portfolio-wrapper">
+    <div id="portfolio-carousel-wrapper">
+        {
+            websites.map((website, index) => (
+                <div>
+                    <a href={website.url}>
+                        <Image alt="" class="slide" src={website.image} loading="eager" />
+                    </a>
+                </div>
+            ))
+        }
+    </div>
+
+    <div id="portfolio-buttons-wrapper">
+        <button id="portfolio-previous-button">&lt;</button>
+        <a id="portfolio-current-button" href=""></a>
+        <button id="portfolio-next-button">&gt;</button>
+    </div>
+</div>
+
+<style lang="scss">
+    $background-color: #21252b;
+
+    #portfolio-wrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        box-sizing: border-box;
+
+        background-color: $background-color;
+        border-radius: 0.5rem;
+    }
+
+    .slide {
+        height: 100%;
+        width: 100%;
+        display: none;
+        border-radius: 0.5rem;
+    }
+
+    #portfolio-buttons-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+
+        color: white;
+
+        button {
+            all: unset;
+            cursor: pointer;
+        }
+
+        #portfolio-current-button {
+            width: 10ch;
+            text-align: center;
+        }
+
+        a,
+        a:visited,
+        a:active,
+        a:hover {
+            color: inherit;
+        }
+    }
+</style>

@@ -2,6 +2,7 @@
 import Head from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
 import RepositoryCard from "@components/RepositoryCard.astro";
+import WebsiteCarousel from "@components/WebsiteCarousel.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 
 const cards = {
@@ -47,6 +48,10 @@ const cards = {
         <Navigation />
 
         <main>
+            <h1>websites i've built</h1>
+
+            <WebsiteCarousel />
+
             <h1>projects</h1>
 
             {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
