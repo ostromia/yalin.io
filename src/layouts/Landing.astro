@@ -3,6 +3,11 @@ import MetaHead from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 import "@styles/global.scss";
+
+interface Props {
+    style?: string;
+}
+const { style = "" } = Astro.props;
 ---
 
 <html lang="en">
@@ -13,7 +18,7 @@ import "@styles/global.scss";
     <body>
         <Navigation />
 
-        <main>
+        <main style={style}>
             <slot />
         </main>
     </body>

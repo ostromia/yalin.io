@@ -5,7 +5,7 @@ import Landing from "@layouts/Landing.astro";
 const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<Landing>
+<Landing style="max-width: 600px">
     <h1>Articles</h1>
 
     <ul>
