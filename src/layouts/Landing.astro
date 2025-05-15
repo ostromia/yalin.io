@@ -1,0 +1,21 @@
+---
+import MetaHead from "@components/Head.astro";
+import Navigation from "@components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import "@styles/global.scss";
+import "@styles/landing.scss";
+---
+
+<html lang="en">
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main>
+            <slot />
+        </main>
+    </body>
+</html>

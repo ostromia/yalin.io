@@ -1,9 +1,7 @@
 ---
-import Head from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
 import RepositoryCard from "@components/RepositoryCard.astro";
 import WebsiteCarousel from "@components/WebsiteCarousel.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import Landing from "@layouts/Landing.astro";
 
 const cards = {
     projects: [
@@ -38,32 +36,16 @@ const cards = {
 };
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+<Landing>
+    <!-- <h1>Websites I've Built</h1>
 
-    <body>
-        <Navigation />
+    <WebsiteCarousel /> -->
 
-        <main>
-            <!-- <h1>Websites I've Built</h1>
+    <h1>Projects</h1>
 
-            <WebsiteCarousel /> -->
+    {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
 
-            <h1>Projects</h1>
+    <h1>Other Repositories</h1>
 
-            {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
-
-            <h1>Other Repositories</h1>
-
-            {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
-        </main>
-    </body>
-</html>
-
-<style lang="scss">
-    @use "@styles/global";
-    @use "@styles/landing";
-</style>
+    {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
+</Landing>

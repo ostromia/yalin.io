@@ -1,7 +1,5 @@
 ---
-import MetaHead from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import Landing from "@layouts/Landing.astro";
 ---
 
 <script>
@@ -62,21 +60,4 @@ import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
     });
 </script>
 
-<html lang="en">
-    <head>
-        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-
-    <body>
-        <Navigation />
-    </body>
-</html>
-
-<style lang="scss">
-    @use "@styles/global";
-    @use "@styles/landing";
-
-    body {
-        overflow: hidden;
-    }
-</style>
+<Landing />

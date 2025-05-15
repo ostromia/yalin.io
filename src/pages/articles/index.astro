@@ -1,54 +1,33 @@
 ---
 import { getCollection } from "astro:content";
-
-import Head from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import Landing from "@layouts/Landing.astro";
 
 const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<!doctype html>
-<html lang="en">
-    <head>
-        <Head title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+<Landing>
+    <h1>Articles</h1>
 
-    <body>
-        <Navigation />
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <span class="date">
+                        <code>{post.data.publicationDate.getFullYear()}</code>
+                        <code>•</code>
+                        <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
+                    </span>
 
-        <main>
-            <h1>Articles</h1>
-
-            <ul>
-                {
-                    posts.map((post) => (
-                        <li>
-                            <span class="date">
-                                <code>{post.data.publicationDate.getFullYear()}</code>
-                                <code>•</code>
-                                <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
-                            </span>
-
-                            <a class="title" href={`/articles/${post.slug}/`}>
-                                {post.data.title}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </main>
-    </body>
-</html>
+                    <a class="title" href={`/articles/${post.slug}/`}>
+                        {post.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</Landing>
 
 <style lang="scss">
-    @use "@styles/global";
-    @use "@styles/landing";
-
-    main {
-        max-width: 600px;
-    }
-
     ul,
     li {
         margin: 0;
