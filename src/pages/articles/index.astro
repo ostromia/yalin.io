@@ -28,6 +28,8 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
 </Landing>
 
 <style lang="scss">
+    @use "@styles/landing";
+
     ul,
     li {
         margin: 0;
