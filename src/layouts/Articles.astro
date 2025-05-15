@@ -3,6 +3,7 @@ import type { CollectionEntry } from "astro:content";
 import Head from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
 import "@styles/global.scss";
+import "@styles/markdown.scss";
 
 type Props = CollectionEntry<"articles">["data"];
 const { title, description, publicationDate, updatedDate, heroImage } = Astro.props;
@@ -38,8 +39,6 @@ function formatDate(date: Date) {
 </html>
 
 <style lang="scss">
-    @use "@styles/markdown";
-
     article {
         max-width: 720px;
         margin: auto;
