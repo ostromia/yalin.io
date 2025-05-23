@@ -35,7 +35,12 @@ const cards = {
 };
 ---
 
+<script>
+    import "@scripts/projects";
+</script>
 <Landing>
+    <div id="canvas-wrapper"></div>
+
     <h1>Projects</h1>
 
     {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
@@ -47,4 +52,9 @@ const cards = {
 
 <style lang="scss">
     @use "@styles/landing";
+
+    #canvas-wrapper {
+        height: calc(100dvh - 97px - 2rem);
+        width: 100%;
+    }
 </style>
