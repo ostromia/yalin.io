@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
-
 import { type GLTF } from "three/addons/loaders/GLTFLoader.js";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -34,21 +33,27 @@ document.addEventListener("DOMContentLoaded", () => {
     let model: GLTF["scene"];
     let rotate = true;
     let animating = false;
-    let quatProgress = 0;
-    const startQuat = new THREE.Quaternion();
-    const endQuat = new THREE.Quaternion();
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
     const desiredScale = new THREE.Vector3(3, 3, 3);
+    const startScale = new THREE.Vector3(1, 1, 1);
+    const startQuat = new THREE.Quaternion();
+    const endQuat = new THREE.Quaternion();
+    const animationDuration = 1;
+    const clock = new THREE.Clock();
+    let animationElapsed = 0;
 
     const loader = new GLTFLoader();
     loader.load("/90s_computer.glb", function (gltf) {
         model = gltf.scene;
         model.rotation.set(0.25, 0, 0);
+        model.scale.copy(startScale);
         scene.add(model);
 
         function animate() {
             requestAnimationFrame(animate);
+
+            const delta = clock.getDelta();
 
             if (model) {
                 if (rotate) {
@@ -56,18 +61,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
 
                 if (animating) {
-                    model.scale.lerp(desiredScale, 0.1);
+                    animationElapsed += delta;
+                    const progress = Math.min(animationElapsed / animationDuration, 1);
 
-                    quatProgress += 0.05;
-                    if (quatProgress > 1) {
-                        quatProgress = 1;
-                    }
+                    model.scale.copy(startScale.clone().lerp(desiredScale, progress));
 
                     const slerpedQuat = new THREE.Quaternion();
-                    slerpedQuat.slerpQuaternions(startQuat, endQuat, quatProgress);
+                    slerpedQuat.slerpQuaternions(startQuat, endQuat, progress);
                     model.quaternion.copy(slerpedQuat);
 
-                    if (model.scale.distanceTo(desiredScale) < 0.01 && quatProgress >= 1) {
+                    if (progress >= 1) {
                         animating = false;
                         window.location.href = "/projects";
                     }
@@ -90,7 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
             if (intersects.length > 0) {
                 rotate = false;
                 animating = true;
-                quatProgress = 0;
+                animationElapsed = 0;
+                clock.elapsedTime = 0;
+                clock.start();
 
                 startQuat.copy(model.quaternion);
 
