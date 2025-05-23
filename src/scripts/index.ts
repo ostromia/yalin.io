@@ -1,0 +1,117 @@
+import * as THREE from "three";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+
+import { type GLTF } from "three/addons/loaders/GLTFLoader.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+    const scene = new THREE.Scene();
+
+    // set canvas dimensions
+    let canvasWidth = window.innerWidth;
+    let canvasHeight = window.innerHeight - 100;
+
+    // set perspective camera
+    const camera = new THREE.PerspectiveCamera(50, canvasWidth / canvasHeight, 0.1, 1000);
+    camera.position.set(8, 8, 8);
+    camera.lookAt(0, 0, 0);
+
+    // set lighting
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
+    directionalLight.position.set(5, 10, 0);
+    scene.add(directionalLight);
+
+    const light = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(light);
+
+    // render canvas
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setSize(canvasWidth, canvasHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // model and variables to track its state
+    let model: GLTF["scene"];
+    let rotate = true;
+    let animating = false;
+    let quatProgress = 0;
+    const startQuat = new THREE.Quaternion();
+    const endQuat = new THREE.Quaternion();
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+    const desiredScale = new THREE.Vector3(3, 3, 3);
+
+    const loader = new GLTFLoader();
+    loader.load("/90s_computer.glb", function (gltf) {
+        model = gltf.scene;
+        model.rotation.set(0.25, 0, 0);
+        scene.add(model);
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            if (model) {
+                if (rotate) {
+                    model.rotation.y += 0.002;
+                }
+
+                if (animating) {
+                    model.scale.lerp(desiredScale, 0.1);
+
+                    quatProgress += 0.05;
+                    if (quatProgress > 1) {
+                        quatProgress = 1;
+                    }
+
+                    const slerpedQuat = new THREE.Quaternion();
+                    slerpedQuat.slerpQuaternions(startQuat, endQuat, quatProgress);
+                    model.quaternion.copy(slerpedQuat);
+
+                    if (model.scale.distanceTo(desiredScale) < 0.01 && quatProgress >= 1) {
+                        animating = false;
+                        window.location.href = "/projects";
+                    }
+                }
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    });
+
+    window.addEventListener("click", (event) => {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+        if (model) {
+            const intersects = raycaster.intersectObject(model, true);
+            if (intersects.length > 0) {
+                rotate = false;
+                animating = true;
+                quatProgress = 0;
+
+                startQuat.copy(model.quaternion);
+
+                const modelPos = new THREE.Vector3();
+                model.getWorldPosition(modelPos);
+
+                const lookTarget = camera.position.clone();
+                const lookMatrix = new THREE.Matrix4();
+                lookMatrix.lookAt(modelPos, lookTarget, model.up);
+                endQuat.setFromRotationMatrix(lookMatrix);
+
+                const correction = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2);
+                endQuat.multiply(correction);
+            }
+        }
+    });
+
+    // handle window resizing
+    window.addEventListener("resize", () => {
+        canvasWidth = window.innerWidth;
+        canvasHeight = window.innerHeight - 100;
+        camera.aspect = canvasWidth / canvasHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvasWidth, canvasHeight);
+    });
+});
