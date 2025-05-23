@@ -6,9 +6,11 @@ import { type GLTF } from "three/addons/loaders/GLTFLoader.js";
 document.addEventListener("DOMContentLoaded", () => {
     const scene = new THREE.Scene();
 
+    const wrapper = document.getElementById("canvas-wrapper")!;
+
     // set canvas dimensions
-    let canvasWidth = window.innerWidth;
-    let canvasHeight = window.innerHeight - 100;
+    let canvasWidth = wrapper.offsetWidth;
+    let canvasHeight = wrapper.offsetHeight;
 
     // set perspective camera
     const camera = new THREE.PerspectiveCamera(50, canvasWidth / canvasHeight, 0.1, 1000);
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // render canvas
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(canvasWidth, canvasHeight);
-    document.body.appendChild(renderer.domElement);
+    wrapper.appendChild(renderer.domElement);
 
     // model and variables to track its state
     let model: GLTF["scene"];
@@ -108,8 +110,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // handle window resizing
     window.addEventListener("resize", () => {
-        canvasWidth = window.innerWidth;
-        canvasHeight = window.innerHeight - 100;
+        canvasWidth = wrapper.offsetWidth;
+        canvasHeight = wrapper.offsetHeight;
         camera.aspect = canvasWidth / canvasHeight;
         camera.updateProjectionMatrix();
         renderer.setSize(canvasWidth, canvasHeight);

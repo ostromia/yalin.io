@@ -6,8 +6,15 @@ import Landing from "@layouts/Landing.astro";
     import "@scripts/index";
 </script>
 
-<Landing />
+<Landing style="max-width: 100%">
+    <div id="canvas-wrapper"></div>
+</Landing>
 
 <style lang="scss">
     @use "@styles/landing";
+
+    #canvas-wrapper {
+        height: calc(100dvh - 97px - 2rem);
+        width: 100%;
+    }
 </style>
