@@ -1,6 +1,5 @@
 ---
 import RepositoryCard from "@components/RepositoryCard.astro";
-import WebsiteCarousel from "@components/WebsiteCarousel.astro";
 import Landing from "@layouts/Landing.astro";
 
 const cards = {
@@ -37,10 +36,6 @@ const cards = {
 ---
 
 <Landing>
-    <!-- <h1>Websites I've Built</h1>
-
-    <WebsiteCarousel /> -->
-
     <h1>Projects</h1>
 
     {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
