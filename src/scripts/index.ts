@@ -72,7 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (progress >= 1) {
                         animating = false;
-                        window.location.href = "/projects";
+
+                        document.getElementById("anchor2projects")!.click();
                     }
                 }
             }
