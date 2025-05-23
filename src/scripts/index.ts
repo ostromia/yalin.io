@@ -17,12 +17,11 @@ document.addEventListener("DOMContentLoaded", () => {
     camera.lookAt(0, 0, 0);
 
     // set lighting
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    directionalLight.position.set(5, 10, 0);
-    scene.add(directionalLight);
+    const hemisphereLight = new THREE.HemisphereLight(0x000000, 0xffffff, 1);
+    scene.add(hemisphereLight);
 
-    const light = new THREE.AmbientLight(0xffffff, 0.1);
-    scene.add(light);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
 
     // render canvas
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let animating = false;
     const raycaster = new THREE.Raycaster();
     const mouse = new THREE.Vector2();
-    const desiredScale = new THREE.Vector3(3, 3, 3);
+    const desiredScale = new THREE.Vector3(4.5, 4.5, 4.5);
     const startScale = new THREE.Vector3(1, 1, 1);
     const startQuat = new THREE.Quaternion();
     const endQuat = new THREE.Quaternion();
@@ -72,8 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     if (progress >= 1) {
                         animating = false;
-
-                        document.getElementById("anchor2projects")!.click();
+                        window.removeEventListener("click", _90scomputerClicked);
                     }
                 }
             }
@@ -84,7 +82,9 @@ document.addEventListener("DOMContentLoaded", () => {
         animate();
     });
 
-    window.addEventListener("click", (event) => {
+    window.addEventListener("click", _90scomputerClicked);
+
+    function _90scomputerClicked(event: MouseEvent) {
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 endQuat.multiply(correction);
             }
         }
-    });
+    }
 
     // handle window resizing
     window.addEventListener("resize", () => {

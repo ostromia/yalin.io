@@ -16,12 +16,11 @@ document.addEventListener("DOMContentLoaded", () => {
     camera.lookAt(0, 0, 0);
 
     // set lighting
-    const directionalLight = new THREE.DirectionalLight(0xffffff, 0.6);
-    directionalLight.position.set(5, 10, 0);
-    scene.add(directionalLight);
+    const hemisphereLight = new THREE.HemisphereLight(0x000000, 0xffffff, 1);
+    scene.add(hemisphereLight);
 
-    const light = new THREE.AmbientLight(0xffffff, 0.1);
-    scene.add(light);
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+    scene.add(ambientLight);
 
     // render canvas
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
@@ -33,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const model = gltf.scene;
 
         // model and variables to track its state
-        model.scale.set(3, 3, 3);
+        model.scale.set(4.5, 4.5, 4.5);
 
         const modelPos = new THREE.Vector3();
         model.getWorldPosition(modelPos);
