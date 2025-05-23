@@ -42,6 +42,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const clock = new THREE.Clock();
     let animationElapsed = 0;
 
+    let isHovered = false;
+    const baseScale = new THREE.Vector3(1, 1, 1);
+    const hoverScale = new THREE.Vector3(1.25, 1.25, 1.25);
+
     const loader = new GLTFLoader();
     loader.load("/90s_computer.glb", function (gltf) {
         model = gltf.scene;
@@ -69,11 +73,21 @@ document.addEventListener("DOMContentLoaded", () => {
                     slerpedQuat.slerpQuaternions(startQuat, endQuat, progress);
                     model.quaternion.copy(slerpedQuat);
 
+                    if (isHovered) {
+                        model.scale.lerp(desiredScale, 0.1);
+                    }
+
                     if (progress >= 1) {
                         animating = false;
-                        window.removeEventListener("click", _90scomputerClicked);
+                        baseScale.copy(model.scale);
+                        hoverScale.copy(model.scale.clone());
                     }
                 }
+            }
+
+            if (!animating) {
+                const target = isHovered ? hoverScale : baseScale;
+                model.scale.lerp(target, 0.1);
             }
 
             renderer.render(scene, camera);
@@ -82,9 +96,24 @@ document.addEventListener("DOMContentLoaded", () => {
         animate();
     });
 
+    window.addEventListener("mousemove", _90scomputerHovered);
+
+    function _90scomputerHovered(event: MouseEvent) {
+        mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+        mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+
+        raycaster.setFromCamera(mouse, camera);
+
+        const intersects = raycaster.intersectObject(model, true);
+        isHovered = intersects.length > 0;
+    }
+
     window.addEventListener("click", _90scomputerClicked);
 
     function _90scomputerClicked(event: MouseEvent) {
+        window.removeEventListener("mousemove", _90scomputerHovered);
+        window.removeEventListener("click", _90scomputerClicked);
+
         mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
         mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
 
