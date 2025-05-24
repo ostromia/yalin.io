@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // render canvas
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setPixelRatio(window.devicePixelRatio);
     renderer.setSize(canvasWidth, canvasHeight);
     wrapper.appendChild(renderer.domElement);
 
