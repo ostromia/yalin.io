@@ -2,10 +2,14 @@
 import { getCollection } from "astro:content";
 import MetaHead from "@components/Head.astro";
 import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import { SITE_TITLE } from "@src/consts";
 import "@styles/global.scss";
 
-const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
+const articles = await getCollection("articles");
+const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.publicationDate.valueOf());
+const titles = articles.map((i) => i.data.title);
+
+const SITE_DESCRIPTION = `Some articles I've written: ${titles.slice(0, 3).join(", ")}`;
 ---
 
 <html lang="en">

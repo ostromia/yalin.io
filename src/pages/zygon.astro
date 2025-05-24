@@ -1,12 +1,13 @@
 ---
 import MetaHead from "@components/Head.astro";
-// import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
 import "@styles/global.scss";
+
+const SITE_TITLE = "Zygon";
+const SITE_DESCRIPTION = "Transpile GCSE & A-Level Pseudocode into Python.";
 ---
 
 <script>
-    // window.location.href = "https://ostromia.github.io/zygon/";
+    window.location.href = "https://ostromia.github.io/zygon/";
 </script>
 
 <html lang="en">
@@ -15,8 +16,6 @@ import "@styles/global.scss";
     </head>
 
     <body>
-        <!-- <Navigation /> -->
-
         <main>
             <slot />
         </main>
