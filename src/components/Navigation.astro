@@ -3,7 +3,7 @@ const currentPath = Astro.url.pathname;
 ---
 
 <nav>
-    <a href="/projects" id="anchor2projects" class={currentPath === "/projects/" ? "active" : ""} data-astro-prefetch="load">projects</a>
+    <a href="/projects" class={currentPath === "/projects/" ? "active" : ""}>projects</a>
     <a href="/articles" class={currentPath === "/articles/" ? "active" : ""}>articles</a>
     <a href="https://github.com/ostromia">github</a>
 </nav>

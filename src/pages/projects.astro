@@ -35,12 +35,7 @@ const cards = {
 };
 ---
 
-<script>
-    import "@scripts/projects";
-</script>
-<Landing>
-    <div id="canvas-wrapper"></div>
-
+<Landing style="max-width: 600px">
     <h1>Projects</h1>
 
     {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
