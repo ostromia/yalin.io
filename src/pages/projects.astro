@@ -1,6 +1,9 @@
 ---
+import MetaHead from "@components/Head.astro";
+import Navigation from "@components/Navigation.astro";
 import RepositoryCard from "@components/RepositoryCard.astro";
-import Landing from "@layouts/Landing.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import "@styles/global.scss";
 
 const cards = {
     projects: [
@@ -35,21 +38,30 @@ const cards = {
 };
 ---
 
-<Landing style="max-width: 600px">
-    <h1>Projects</h1>
+<html lang="en">
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
 
-    {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
+    <body>
+        <Navigation />
 
-    <h1>Other Repositories</h1>
+        <main>
+            <h1>Projects</h1>
 
-    {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
-</Landing>
+            {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
+
+            <h1>Other Repositories</h1>
+
+            {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
+        </main>
+    </body>
+</html>
 
 <style lang="scss">
     @use "@styles/landing";
 
-    #canvas-wrapper {
-        height: calc(100dvh - 97px - 2rem);
-        width: 100%;
+    main {
+        max-width: 600px;
     }
 </style>

@@ -1,34 +1,51 @@
 ---
 import { getCollection } from "astro:content";
-import Landing from "@layouts/Landing.astro";
+import MetaHead from "@components/Head.astro";
+import Navigation from "@components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import "@styles/global.scss";
 
 const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<Landing style="max-width: 600px">
-    <h1>Articles</h1>
+<html lang="en">
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
 
-    <ul>
-        {
-            posts.map((post) => (
-                <li>
-                    <span class="date">
-                        <code>{post.data.publicationDate.getFullYear()}</code>
-                        <code>•</code>
-                        <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
-                    </span>
+    <body>
+        <Navigation />
 
-                    <a class="title" href={`/articles/${post.slug}/`}>
-                        {post.data.title}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
-</Landing>
+        <main>
+            <h1>Articles</h1>
+
+            <ul>
+                {
+                    posts.map((post) => (
+                        <li>
+                            <span class="date">
+                                <code>{post.data.publicationDate.getFullYear()}</code>
+                                <code>•</code>
+                                <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
+                            </span>
+
+                            <a class="title" href={`/articles/${post.slug}/`}>
+                                {post.data.title}
+                            </a>
+                        </li>
+                    ))
+                }
+            </ul>
+        </main>
+    </body>
+</html>
 
 <style lang="scss">
     @use "@styles/landing";
+
+    main {
+        max-width: 600px;
+    }
 
     ul,
     li {

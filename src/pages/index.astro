@@ -1,17 +1,34 @@
 ---
-import Landing from "@layouts/Landing.astro";
+import MetaHead from "@components/Head.astro";
+import Navigation from "@components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
+import "@styles/global.scss";
 ---
 
 <script>
     import "@scripts/index";
 </script>
 
-<Landing style="max-width: 100%">
-    <div id="canvas-wrapper"></div>
-</Landing>
+<html lang="en">
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main>
+            <div id="canvas-wrapper"></div>
+        </main>
+    </body>
+</html>
 
 <style lang="scss">
     @use "@styles/landing";
+
+    main {
+        max-width: 100%;
+    }
 
     #canvas-wrapper {
         height: calc(100dvh - 97px - 2rem);
