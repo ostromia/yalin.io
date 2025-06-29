@@ -2,17 +2,13 @@
 title: "Leet Code 688. Knight Probability in Chessboard"
 description: "A more efficient solution to Leet Code question 688 using recursion and the Law of Total Probability"
 publicationDate: "2023-10-02"
-updatedDate: "2024-09-05"
+updatedDate: "2025-06-29"
 heroImage: ""
 ---
 
 import { Image } from "astro:assets";
 
-import knight from "~assets/knight.png";
-import knight_m0 from "~assets/knight_m0.png";
-import knight_m1 from "~assets/knight_m1.png";
-import knight_m2 from "~assets/knight_m2.png";
-import knight_m3 from "~assets/knight_m3.png";
+import { assets } from "~assets/content/leet-code-688-knight-probability-in-chessboard";
 
 # The Problem
 
@@ -25,7 +21,7 @@ import knight_m3 from "~assets/knight_m3.png";
     *A chess knight has eight possible moves it can make, as illustrated below.
     Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.*
 
-    <Image alt="" src={knight} style="height: 200px; width: 200px; display: block; margin: auto;"/>
+    <Image alt="" src={assets.knight} style="height: 200px; width: 200px; display: block; margin: auto;"/>
 
     *Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.*
 
@@ -86,7 +82,7 @@ $$P(A) = P(A \cup B_{1}) + ... + P(A \cup B_{k})$$
 If we consider the knight starts within the red `(4, 4)` board below, and only has 1 move, then only will 3 out of the 8 possible moves keep the knight within the board.
 If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
 
-<Image alt="" src={knight_m0} style="height: 200px; width: 200px; display: block; margin: auto;" />
+<Image alt="" src={assets.knight_m0} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 With an array containing the probability of each move occurring, `[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]`, and another array of the probabilities that the knight stays on the board, `[1, 1, 1, 0, 0, 0, 0, 0]`, we can calculate the result through the sum of both arrays.
 
@@ -106,15 +102,15 @@ For each of the 3 possibilities the knight can make for it's second move,
 we can calculate the probability that the knight stays within the board like we did in the previous example,
 as it is the final move.
 
-<Image alt="" src={knight_m1} style="height: 200px; width: 200px; display: block; margin: auto;" />
+<Image alt="" src={assets.knight_m1} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
-<Image alt="" src={knight_m2} style="height: 200px; width: 200px; display: block; margin: auto;" />
+<Image alt="" src={assets.knight_m2} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5`
 
-<Image alt="" src={knight_m3} style="height: 200px; width: 200px; display: block; margin: auto;" />
+<Image alt="" src={assets.knight_m3} style="height: 200px; width: 200px; display: block; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
