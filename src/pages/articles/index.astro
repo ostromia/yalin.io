@@ -2,14 +2,13 @@
 import { getCollection } from "astro:content";
 import MetaHead from "~components/Head.astro";
 import Navigation from "~components/Navigation.astro";
-import { SITE_TITLE } from "~src/consts";
 import "~styles/global.scss";
+
+const SITE_TITLE = "articles | yalin.io";
+const SITE_DESCRIPTION = "articles i've written";
 
 const articles = await getCollection("articles");
 const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.publicationDate.valueOf());
-const titles = articles.map((i) => i.data.title);
-
-const SITE_DESCRIPTION = `Some articles I've written: ${titles.slice(0, 3).join(", ")}`;
 ---
 
 <html lang="en">
