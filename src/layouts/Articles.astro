@@ -1,9 +1,9 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import Head from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
-import "@styles/global.scss";
-import "@styles/markdown.scss";
+import Head from "~components/Head.astro";
+import Navigation from "~components/Navigation.astro";
+import "~styles/global.scss";
+import "~styles/markdown.scss";
 
 type Props = CollectionEntry<"articles">["data"];
 const { title, description, publicationDate, updatedDate, heroImage } = Astro.props;

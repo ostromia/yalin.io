@@ -1,12 +1,12 @@
 ---
-import MetaHead from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "@src/consts";
-import "@styles/global.scss";
+import MetaHead from "~components/Head.astro";
+import Navigation from "~components/Navigation.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "~src/consts";
+import "~styles/global.scss";
 ---
 
 <script>
-    import "@scripts/index";
+    import "~scripts/index";
 </script>
 
 <html lang="en">
@@ -24,7 +24,7 @@ import "@styles/global.scss";
 </html>
 
 <style lang="scss">
-    @use "@styles/landing";
+    @use "~styles/landing";
 
     main {
         max-width: 100%;

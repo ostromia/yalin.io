@@ -21,14 +21,14 @@ export default defineConfig({
     vite: {
         resolve: {
             alias: {
-                "@src": "/src",
-                "@assets": "/src/assets",
-                "@components": "/src/components",
-                "@content": "/src/content",
-                "@layouts": "/src/layouts",
-                "@pages": "/src/pages",
-                "@styles": "/src/styles",
-                "@scripts": "/src/scripts"
+                "~src": "/src",
+                "~assets": "/src/assets",
+                "~components": "/src/components",
+                "~content": "/src/content",
+                "~layouts": "/src/layouts",
+                "~pages": "/src/pages",
+                "~styles": "/src/styles",
+                "~scripts": "/src/scripts"
             }
         }
     }

@@ -1,9 +1,9 @@
 ---
 import { getCollection } from "astro:content";
-import MetaHead from "@components/Head.astro";
-import Navigation from "@components/Navigation.astro";
-import { SITE_TITLE } from "@src/consts";
-import "@styles/global.scss";
+import MetaHead from "~components/Head.astro";
+import Navigation from "~components/Navigation.astro";
+import { SITE_TITLE } from "~src/consts";
+import "~styles/global.scss";
 
 const articles = await getCollection("articles");
 const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.publicationDate.valueOf());
@@ -45,7 +45,7 @@ const SITE_DESCRIPTION = `Some articles I've written: ${titles.slice(0, 3).join(
 </html>
 
 <style lang="scss">
-    @use "@styles/landing";
+    @use "~styles/landing";
 
     main {
         max-width: 600px;
