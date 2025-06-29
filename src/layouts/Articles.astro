@@ -6,7 +6,7 @@ import "~styles/global.scss";
 import "~styles/markdown.scss";
 
 type Props = CollectionEntry<"articles">["data"];
-const { title, description, publicationDate, updatedDate, heroImage } = Astro.props;
+const { title, description, publicationDate } = Astro.props;
 
 function formatDate(date: Date) {
     return new Intl.DateTimeFormat("en-US", {
