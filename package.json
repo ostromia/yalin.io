@@ -16,7 +16,6 @@
         "@astrojs/mdx": "^4.2.4",
         "@astrojs/rss": "^4.0.11",
         "@astrojs/sitemap": "^3.3.0",
-        "@fontsource/atkinson-hyperlegible": "^5.2.5",
         "astro": "^5.7.4",
         "three": "^0.172.0"
     },

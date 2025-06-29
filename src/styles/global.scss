@@ -1,9 +1,11 @@
+@use "~styles/fonts";
+
 $background-color: #111111;
 $link-color: rgb(88, 166, 255);
 
 html,
 body {
-    font-family: "Atkinson Hyperlegible", sans-serif;
+    @include fonts.atkinson;
     margin: 0;
     padding: 0;
     background-color: $background-color;

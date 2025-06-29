@@ -1,4 +1,4 @@
-import { defineConfig } from "astro/config";
+import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
@@ -31,5 +31,14 @@ export default defineConfig({
                 "~scripts": "/src/scripts"
             }
         }
+    },
+    experimental: {
+        fonts: [
+            {
+                provider: fontProviders.fontsource(),
+                name: "Atkinson Hyperlegible",
+                cssVariable: "--font-atkinson-hyperlegible"
+            }
+        ]
     }
 });
