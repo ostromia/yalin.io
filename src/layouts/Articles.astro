@@ -4,6 +4,7 @@ import Head from "~components/Head.astro";
 import Navigation from "~components/Navigation.astro";
 import "~styles/global.scss";
 import "~styles/markdown.scss";
+import "katex/dist/katex.min.css";
 
 type Props = CollectionEntry<"articles">["data"];
 const { title, description, publicationDate } = Astro.props;
