@@ -2,8 +2,14 @@
 const currentPath = Astro.url.pathname;
 ---
 
-<nav>
-    <a href="/" class={currentPath === "/" ? "active" : ""}>home</a>
+<nav class={currentPath == "/" ? "home" : "other"}>
+    {
+        currentPath != "/" && (
+            <a href="/" class={currentPath === "/" ? "active" : ""}>
+                home
+            </a>
+        )
+    }
     <a href="/projects" class={currentPath === "/projects/" ? "active" : ""}>projects</a>
     <a href="/articles" class={currentPath === "/articles/" ? "active" : ""}>articles</a>
     <a href="https://github.com/ostromia">github</a>
@@ -12,10 +18,18 @@ const currentPath = Astro.url.pathname;
 <style lang="scss">
     nav {
         display: grid;
-        grid-template-columns: 1fr repeat(3, min-content);
         gap: 1rem;
         padding: 1rem;
         box-sizing: border-box;
+    }
+
+    .home {
+        grid-template-columns: repeat(3, min-content);
+        justify-content: end;
+    }
+
+    .other {
+        grid-template-columns: 1fr repeat(3, min-content);
     }
 
     a {
