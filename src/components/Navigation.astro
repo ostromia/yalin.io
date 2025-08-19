@@ -11,8 +11,8 @@ const currentPath = Astro.url.pathname;
 
 <style lang="scss">
     nav {
-        display: flex;
-        justify-content: end;
+        display: grid;
+        grid-template-columns: 1fr repeat(3, min-content);
         gap: 1rem;
         padding: 1rem;
         box-sizing: border-box;
