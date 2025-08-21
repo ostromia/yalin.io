@@ -7,6 +7,19 @@ import "~styles/global.scss";
 const SITE_TITLE = "projects | yalin.io";
 const SITE_DESCRIPTION = "projects i've been working on";
 
+const websites = [
+    {
+        path: "https://gentsandginger.com/",
+        name: "gentsandginger.com",
+        date: "08.2025"
+    },
+    {
+        path: "https://www.kjj.co.uk",
+        name: "kjj.co.uk",
+        date: "06.2024"
+    }
+];
+
 const cards = {
     projects: [
         {
@@ -49,6 +62,20 @@ const cards = {
         <Navigation />
 
         <main>
+            <h1>Websites I've Built</h1>
+
+            <div class="websitesivebuilt">
+                {
+                    websites.map((e) => (
+                        <div>
+                            <code>{e.date}</code>
+                            <code>•</code>
+                            <a href={e.path}>{e.name}</a>
+                        </div>
+                    ))
+                }
+            </div>
+
             <h1>Projects</h1>
 
             {cards.projects.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
@@ -65,5 +92,27 @@ const cards = {
 
     main {
         max-width: 600px;
+    }
+
+    .websitesivebuilt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        a {
+            display: block;
+            text-decoration: none;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        code {
+            color: white;
+            padding-right: 0.5rem;
+            box-sizing: border-box;
+        }
     }
 </style>
