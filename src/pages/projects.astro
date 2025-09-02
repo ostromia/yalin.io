@@ -11,17 +11,17 @@ const websites = [
     {
         path: "https://gentsandginger.com/",
         name: "gentsandginger.com",
-        date: "08.2025"
+        date: "2025.08.26"
     },
     {
         path: "https://www.kjj.co.uk",
         name: "kjj.co.uk",
-        date: "06.2024"
+        date: "2024.07.19"
     },
     {
         path: "https://yalin.io/zygon",
         name: "yalin.io/zygon",
-        date: "09.2022"
+        date: "2022.08.22"
     }
 ];
 
@@ -73,8 +73,9 @@ const cards = {
                 {
                     websites.map((e) => (
                         <div>
-                            <code>{e.date}</code>
+                            <code>{new Date(e.date).getFullYear()}</code>
                             <code>•</code>
+                            <code>{`0${new Date(e.date).getMonth() + 1}`.slice(-2)}</code>
                             <a href={e.path}>{e.name}</a>
                         </div>
                     ))
