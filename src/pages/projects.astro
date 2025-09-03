@@ -1,5 +1,6 @@
 ---
 import MetaHead from "~components/Head.astro";
+import Footer from "~components/Footer.astro";
 import Navigation from "~components/Navigation.astro";
 import RepositoryCard from "~components/RepositoryCard.astro";
 import "~styles/global.scss";
@@ -90,6 +91,8 @@ const cards = {
 
             {cards.other_repositories.map((e) => <RepositoryCard path={e.path} description={e.description} language={e.language} />)}
         </main>
+
+        <Footer />
     </body>
 </html>
 

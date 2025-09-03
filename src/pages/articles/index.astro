@@ -1,6 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import MetaHead from "~components/Head.astro";
+import Footer from "~components/Footer.astro";
 import Navigation from "~components/Navigation.astro";
 import "~styles/global.scss";
 
@@ -40,6 +41,8 @@ const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.
                 }
             </ul>
         </main>
+
+        <Footer />
     </body>
 </html>
 
