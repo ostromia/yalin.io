@@ -1,7 +1,8 @@
 article {
     color: white;
 
-    > p {
+    > p,
+    > pre {
         margin: 16px 0;
     }
 }
@@ -11,7 +12,8 @@ blockquote {
     color: lightgrey;
 }
 
-p {
+p,
+pre {
     margin: 0;
 }
 
