@@ -1,8 +1,16 @@
 article {
     color: white;
+
+    > p {
+        margin: 16px 0;
+    }
 }
 
 blockquote {
     font-style: italic;
     color: lightgrey;
+}
+
+p {
+    margin: 0;
 }
