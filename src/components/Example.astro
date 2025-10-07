@@ -1,0 +1,57 @@
+---
+
+---
+
+<div class="wrapper">
+    <div class="eg">e.g.,</div>
+
+    <div class="title">
+        <slot name="title" />
+    </div>
+
+    <div class="body">
+        <slot name="body" />
+    </div>
+</div>
+
+<style lang="scss">
+    @use "~styles/global";
+
+    .wrapper {
+        display: grid;
+        grid-template-areas:
+            "eg title"
+            "body body";
+
+        grid-template-columns: auto 1fr;
+
+        gap: 0.5rem;
+
+        border: 1px solid global.$link-color;
+        border-radius: 10px;
+
+        padding: 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .eg {
+        grid-area: eg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        color: global.$link-color;
+        font-size: 1.25rem;
+        font-family: serif;
+    }
+
+    .title {
+        grid-area: title;
+        display: flex;
+        align-items: center;
+    }
+
+    .body {
+        grid-area: body;
+    }
+</style>
