@@ -74,9 +74,7 @@ const cards = {
                 {
                     websites.map((e) => (
                         <div>
-                            <code>{new Date(e.date).getFullYear()}</code>
                             <code>•</code>
-                            <code>{`0${new Date(e.date).getMonth() + 1}`.slice(-2)}</code>
                             <a href={e.path}>{e.name}</a>
                         </div>
                     ))
