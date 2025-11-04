@@ -1,15 +1,11 @@
 {
     "name": "crawler",
-    "version": "1.0.0",
+    "version": "0.0.1",
     "type": "module",
     "main": "src/index.ts",
     "scripts": {
         "dev": "node ."
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
-    "description": "",
     "devDependencies": {
         "@types/axios": "^0.9.36"
     },
