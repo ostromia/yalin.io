@@ -1,0 +1,78 @@
+---
+import MetaHead from "~components/Head.astro";
+import Footer from "~components/Footer.astro";
+import Navigation from "~components/Navigation.astro";
+import RepositoryCard from "~components/RepositoryCard.astro";
+import repositories from "~pages/projects/repositories.json";
+import websites from "~pages/projects/websites.json";
+import "~styles/global.scss";
+
+const SITE_TITLE = "projects | yalin.io";
+const SITE_DESCRIPTION = "projects i've been working on";
+---
+
+<html lang="en">
+    <head>
+        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main>
+            <h1>Websites I've Built</h1>
+
+            <div class="websitesivebuilt">
+                {
+                    websites.map((e) => (
+                        <div>
+                            <code>•</code>
+                            <a href={e.path}>{e.name}</a>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <h1>Projects</h1>
+
+            {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+
+            <h1>Other Repositories</h1>
+
+            {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+        </main>
+
+        <Footer />
+    </body>
+</html>
+
+<style lang="scss">
+    @use "~styles/landing";
+
+    main {
+        max-width: 600px;
+    }
+
+    .websitesivebuilt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        a {
+            display: block;
+            text-decoration: none;
+            padding-left: 0.25rem;
+        }
+
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        code {
+            color: white;
+            padding-right: 0.25rem;
+            box-sizing: border-box;
+        }
+    }
+</style>

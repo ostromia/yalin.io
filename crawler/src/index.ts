@@ -46,7 +46,7 @@ async function main() {
         other: repositories.filter((r) => !projects.includes(r.full_name.split("/")[1]))
     };
 
-    writeFileSync(join(__root, "crawler", "src", "data.json"), JSON.stringify(result, null, 4), "utf-8");
+    writeFileSync(join(__root, "src", "pages", "projects", "repositories.json"), JSON.stringify(result, null, 4), "utf-8");
 }
 
 main();
