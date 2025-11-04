@@ -1,35 +1,52 @@
 import { readFileSync, writeFileSync } from "fs";
-import path from "path";
+import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
 import axios from "axios";
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const __root = dirname(dirname(dirname(fileURLToPath(import.meta.url))));
 
-async function getUserData(username: string) {
-    const url = {
-        user: `https://api.github.com/users/${username}`,
-        repos: `https://api.github.com/users/${username}/repos`
-    };
+async function getUserRepos(username: string, names: string[] = []) {
+    const url = `https://api.github.com/users/${username}/repos`;
+    let response = (await axios.get(url)).data;
 
-    const [user, repos] = await Promise.all([axios.get(url.user), axios.get(url.repos)]);
+    if (names.length !== 0) {
+        response = response.filter((i) => names.includes(i.name));
+    }
 
-    return { user: user.data, repos: repos.data };
-}
+    await Promise.all(
+        response.map(async (i: any) => {
+            const languagesData = await axios.get(`${i.url}/languages`);
+            i.languages = Object.keys(languagesData.data);
+        })
+    );
 
-function filterRepos(repos: Record<string, any>[], names: string[], keys: string[]) {
-    return repos.filter((repo) => names.includes(repo.name)).map((obj) => Object.fromEntries(Object.entries(obj).filter(([key]) => keys.includes(key))));
+    return response;
 }
 
 async function main() {
     const USERNAME = "ostromia";
-    const names = ["promethium", "reglup", "throughtheterminal", "dotfiles", "yalin.io"];
-    const keys = ["full_name", "description", "language"];
+    const names = ["promethium", "reglup", "zygon", "dotfiles", "yalin.io"];
+    const keys = ["full_name", "description", "languages"];
 
-    const data = await getUserData(USERNAME);
-    const result = filterRepos(data.repos, names, keys);
+    const repositories = await getUserRepos(USERNAME, names);
 
-    writeFileSync(path.join(__dirname, "data.json"), JSON.stringify(result, null, 4), "utf-8");
+    for (const object of repositories) {
+        for (const key in object) {
+            if (!keys.includes(key)) {
+                delete object[key];
+            }
+        }
+    }
+
+    const projects = ["promethium", "reglup", "zygon"];
+
+    const result = {
+        projects: repositories.filter((r) => projects.includes(r.full_name.split("/")[1])),
+        other: repositories.filter((r) => !projects.includes(r.full_name.split("/")[1]))
+    };
+
+    writeFileSync(join(__root, "crawler", "src", "data.json"), JSON.stringify(result, null, 4), "utf-8");
 }
 
 main();
