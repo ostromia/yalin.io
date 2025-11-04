@@ -11,7 +11,7 @@ async function getUserRepos(username: string, names: string[] = []) {
     let response = (await axios.get(url)).data;
 
     if (names.length !== 0) {
-        response = response.filter((i) => names.includes(i.name));
+        response = response.filter((i: any) => names.includes(i.name));
     }
 
     await Promise.all(
@@ -42,8 +42,8 @@ async function main() {
     const projects = ["promethium", "reglup", "zygon"];
 
     const result = {
-        projects: repositories.filter((r) => projects.includes(r.full_name.split("/")[1])),
-        other: repositories.filter((r) => !projects.includes(r.full_name.split("/")[1]))
+        projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1])),
+        other: repositories.filter((r: any) => !projects.includes(r.full_name.split("/")[1]))
     };
 
     writeFileSync(join(__root, "src", "pages", "projects", "repositories.json"), JSON.stringify(result, null, 4), "utf-8");
