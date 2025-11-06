@@ -1,7 +1,5 @@
 ---
-import MetaHead from "~components/Head.astro";
-import "~styles/global.scss";
-
+import Primary from "~layouts/Primary.astro";
 const SITE_TITLE = "Zygon";
 const SITE_DESCRIPTION = "Transpile GCSE & A-Level Pseudocode into Python.";
 ---
@@ -10,14 +8,4 @@ const SITE_DESCRIPTION = "Transpile GCSE & A-Level Pseudocode into Python.";
     window.location.href = "https://ostromia.github.io/zygon/";
 </script>
 
-<html lang="en">
-    <head>
-        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
-
-    <body>
-        <main>
-            <slot />
-        </main>
-    </body>
-</html>
+<Primary title={SITE_TITLE} description={SITE_DESCRIPTION} />
