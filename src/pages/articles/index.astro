@@ -9,8 +9,7 @@ import "~styles/global.scss";
 const SITE_TITLE = "articles | yalin.io";
 const SITE_DESCRIPTION = "articles i've written";
 
-const articles = await getCollection("articles");
-const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.publicationDate.valueOf());
+const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
 <html lang="en">
@@ -34,7 +33,7 @@ const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.
                                 <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
                             </span>
 
-                            <a class="title" href={`/articles/${post.slug}/`}>
+                            <a class="title" href={`/articles/${post.id}/`}>
                                 {post.data.title}
                             </a>
                         </li>
