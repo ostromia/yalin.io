@@ -6,11 +6,6 @@
             "languages": ["Python", "Shell"]
         },
         {
-            "full_name": "ostromia/reglup",
-            "description": "static react template",
-            "languages": ["TypeScript", "CSS", "HTML"]
-        },
-        {
             "full_name": "ostromia/zygon",
             "description": "Transpile OCR GCSE & A-Level Pseudocode into Python.",
             "languages": ["Svelte", "TypeScript", "JavaScript", "HTML", "Shell", "SCSS"]
