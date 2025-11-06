@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import MetaHead from "~components/Head.astro";
 import Footer from "~components/Footer.astro";
 import Navigation from "~components/Navigation.astro";
+import { H1 } from "~components/elements";
 import "~styles/global.scss";
 
 const SITE_TITLE = "articles | yalin.io";
@@ -21,7 +22,7 @@ const posts = articles.sort((i, j) => j.data.publicationDate.valueOf() - i.data.
         <Navigation />
 
         <main>
-            <h1>Articles</h1>
+            <H1>Articles</H1>
 
             <ul>
                 {
