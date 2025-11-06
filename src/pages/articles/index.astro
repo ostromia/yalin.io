@@ -17,9 +17,9 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
             posts.map((post) => (
                 <li>
                     <span class="date">
-                        <code>{post.data.publicationDate.getFullYear()}</code>
-                        <code>•</code>
-                        <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
+                        <code>
+                            {post.data.publicationDate.getFullYear()}•{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}
+                        </code>
                     </span>
 
                     <A href={`/articles/${post.id}/`}>{post.data.title}</A>
@@ -30,6 +30,8 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
 </Primary>
 
 <style lang="scss">
+    @use "~styles/colors";
+
     ul,
     li {
         margin: 0;
@@ -47,7 +49,7 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
     }
 
     .date {
-        color: white;
+        color: colors.$grey;
         padding-right: 0.5rem;
         box-sizing: border-box;
     }
