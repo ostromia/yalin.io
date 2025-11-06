@@ -1,7 +1,6 @@
 @use "~styles/fonts";
 
 $background-color: #111111;
-$link-color: rgb(88, 166, 255);
 
 html,
 body {
@@ -9,8 +8,4 @@ body {
     margin: 0;
     padding: 0;
     background-color: $background-color;
-}
-
-a {
-    color: $link-color;
 }

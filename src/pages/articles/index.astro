@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Primary from "~layouts/Primary.astro";
-import { H1 } from "~components/elements";
+import { H1, A } from "~components/elements";
 
 const SITE_TITLE = "articles | yalin.io";
 const SITE_DESCRIPTION = "articles i've written";
@@ -22,9 +22,7 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
                         <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
                     </span>
 
-                    <a class="title" href={`/articles/${post.id}/`}>
-                        {post.data.title}
-                    </a>
+                    <A href={`/articles/${post.id}/`}>{post.data.title}</A>
                 </li>
             ))
         }

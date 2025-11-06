@@ -1,3 +1,5 @@
+@use "~styles/colors";
+
 article {
     color: white;
 
@@ -20,4 +22,13 @@ pre {
 .astro-code {
     padding: 0.25rem;
     box-sizing: border-box;
+}
+
+a {
+    color: colors.$link;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }

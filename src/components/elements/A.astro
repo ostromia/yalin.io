@@ -1,0 +1,23 @@
+---
+interface Props {
+    href: string;
+}
+const { href } = Astro.props;
+---
+
+<a href={href}>
+    <slot />
+</a>
+
+<style lang="scss">
+    @use "~styles/colors";
+
+    a {
+        color: colors.$link;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>

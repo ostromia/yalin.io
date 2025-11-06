@@ -109,7 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
         isHovered = intersects.length > 0;
     }
 
-    // window.addEventListener("click", _90scomputerClicked);
+    window.addEventListener("click", _90scomputerClicked);
 
     function _90scomputerClicked(event: MouseEvent) {
         window.removeEventListener("mousemove", _90scomputerHovered);
