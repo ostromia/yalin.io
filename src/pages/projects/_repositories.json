@@ -3,12 +3,12 @@
         {
             "full_name": "ostromia/promethium",
             "description": "Library for calculating statistical distributions, written in pure Python with zero dependencies.",
-            "languages": ["Python", "Shell"]
+            "languages": ["Python"]
         },
         {
             "full_name": "ostromia/zygon",
             "description": "Transpile OCR GCSE & A-Level Pseudocode into Python.",
-            "languages": ["Svelte", "TypeScript", "JavaScript", "HTML", "Shell", "SCSS"]
+            "languages": ["Svelte", "TypeScript", "SCSS"]
         }
     ],
     "other": [
@@ -20,7 +20,7 @@
         {
             "full_name": "ostromia/yalin.io",
             "description": "website & stuff",
-            "languages": ["MDX", "Astro", "TypeScript", "JavaScript", "SCSS", "Shell"]
+            "languages": ["Astro", "TypeScript", "SCSS"]
         }
     ]
 }

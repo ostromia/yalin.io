@@ -47,6 +47,15 @@ async function main() {
         other: repositories.filter((r: any) => !projects.includes(r.full_name.split("/")[1]))
     };
 
+    for (const p of result.projects) {
+        if (p.full_name == "ostromia/promethium") p.languages = ["Python"];
+        if (p.full_name == "ostromia/zygon") p.languages = ["Svelte", "TypeScript", "SCSS"];
+    }
+
+    for (const p of result.other) {
+        if (p.full_name == "ostromia/yalin.io") p.languages = ["Astro", "TypeScript", "SCSS"];
+    }
+
     writeFileSync(join(__root, "src", "pages", "projects", "_repositories.json"), JSON.stringify(result, null, 4), "utf-8");
 
     execSync("npm run format", { cwd: __root, stdio: "inherit" });
