@@ -56,7 +56,7 @@ async function main() {
         if (p.full_name == "ostromia/yalin.io") p.languages = ["Astro", "TypeScript", "SCSS"];
     }
 
-    writeFileSync(join(__root, "src", "pages", "projects", "_repositories.json"), JSON.stringify(result, null, 4), "utf-8");
+    writeFileSync(join(__root, "src", "assets", "projects", "repositories.json"), JSON.stringify(result, null, 4), "utf-8");
 
     execSync("npm run format", { cwd: __root, stdio: "inherit" });
 }
