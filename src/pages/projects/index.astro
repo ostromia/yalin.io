@@ -1,61 +1,40 @@
 ---
-import MetaHead from "~components/Head.astro";
-import Footer from "~components/Footer.astro";
-import Navigation from "~components/Navigation.astro";
+import Primary from "~layouts/Primary.astro";
 import { H1 } from "~components/elements";
 import RepositoryCard from "~components/RepositoryCard.astro";
 import repositories from "~pages/projects/_repositories.json";
 import websites from "~pages/projects/_websites.json";
-import "~styles/global.scss";
 
 const SITE_TITLE = "projects | yalin.io";
 const SITE_DESCRIPTION = "projects i've been working on";
 ---
 
-<html lang="en">
-    <head>
-        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <H1>Websites I've Built</H1>
 
-    <body>
-        <Navigation />
+    <div class="websitesivebuilt">
+        {
+            websites.map((e) => (
+                <div>
+                    <code>{new Date(e.date).getFullYear()}</code>
+                    <code>•</code>
+                    <code>{`0${new Date(e.date).getMonth() + 1}`.slice(-2)}</code>
+                    <a href={e.path}>{e.name}</a>
+                </div>
+            ))
+        }
+    </div>
 
-        <main>
-            <H1>Websites I've Built</H1>
+    <H1>Projects</H1>
 
-            <div class="websitesivebuilt">
-                {
-                    websites.map((e) => (
-                        <div>
-                            <code>{new Date(e.date).getFullYear()}</code>
-                            <code>•</code>
-                            <code>{`0${new Date(e.date).getMonth() + 1}`.slice(-2)}</code>
-                            <a href={e.path}>{e.name}</a>
-                        </div>
-                    ))
-                }
-            </div>
+    {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
 
-            <H1>Projects</H1>
+    <H1>Other Repositories</H1>
 
-            {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
-
-            <H1>Other Repositories</H1>
-
-            {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
-        </main>
-
-        <Footer />
-    </body>
-</html>
+    {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+</Primary>
 
 <style lang="scss">
-    @use "~styles/landing";
-
-    main {
-        max-width: 600px;
-    }
-
     .websitesivebuilt {
         padding: 1rem;
         border-radius: 0.5rem;

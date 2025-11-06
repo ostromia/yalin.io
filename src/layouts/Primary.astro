@@ -1,0 +1,38 @@
+---
+import Head from "~components/Head.astro";
+import Navigation from "~components/Navigation.astro";
+import Footer from "~components/Footer.astro";
+import "~styles/global.scss";
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+    <head>
+        <Head title={title} description={description} />
+    </head>
+
+    <body>
+        <Navigation />
+
+        <main>
+            <slot />
+        </main>
+
+        <Footer />
+    </body>
+</html>
+
+<style lang="scss">
+    main {
+        max-width: 600px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+        box-sizing: border-box;
+    }
+</style>

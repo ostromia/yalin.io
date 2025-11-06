@@ -1,10 +1,7 @@
 ---
 import { getCollection } from "astro:content";
-import MetaHead from "~components/Head.astro";
-import Footer from "~components/Footer.astro";
-import Navigation from "~components/Navigation.astro";
+import Primary from "~layouts/Primary.astro";
 import { H1 } from "~components/elements";
-import "~styles/global.scss";
 
 const SITE_TITLE = "articles | yalin.io";
 const SITE_DESCRIPTION = "articles i've written";
@@ -12,47 +9,29 @@ const SITE_DESCRIPTION = "articles i've written";
 const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<html lang="en">
-    <head>
-        <MetaHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-    </head>
+<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <H1>Articles</H1>
 
-    <body>
-        <Navigation />
+    <ul>
+        {
+            posts.map((post) => (
+                <li>
+                    <span class="date">
+                        <code>{post.data.publicationDate.getFullYear()}</code>
+                        <code>•</code>
+                        <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
+                    </span>
 
-        <main>
-            <H1>Articles</H1>
-
-            <ul>
-                {
-                    posts.map((post) => (
-                        <li>
-                            <span class="date">
-                                <code>{post.data.publicationDate.getFullYear()}</code>
-                                <code>•</code>
-                                <code>{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}</code>
-                            </span>
-
-                            <a class="title" href={`/articles/${post.id}/`}>
-                                {post.data.title}
-                            </a>
-                        </li>
-                    ))
-                }
-            </ul>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+                    <a class="title" href={`/articles/${post.id}/`}>
+                        {post.data.title}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</Primary>
 
 <style lang="scss">
-    @use "~styles/landing";
-
-    main {
-        max-width: 600px;
-    }
-
     ul,
     li {
         margin: 0;
