@@ -1,11 +1,10 @@
 @use "~styles/fonts";
-
-$background-color: #111111;
+@use "~styles/colors";
 
 html,
 body {
     @include fonts.atkinson;
     margin: 0;
     padding: 0;
-    background-color: $background-color;
+    background-color: colors.$background-color;
 }
