@@ -1,4 +1,4 @@
 {
-    "recommendations": ["astro-build.astro-vscode", "unifiedjs.vscode-mdx", "esbenp.prettier-vscode"],
+    "recommendations": ["astro-build.astro-vscode", "dbaeumer.vscode-eslint", "esbenp.prettier-vscode", "unifiedjs.vscode-mdx", "DavidAnson.vscode-markdownlint", "streetsidesoftware.code-spell-checker"],
     "unwantedRecommendations": []
 }
