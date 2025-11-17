@@ -16,6 +16,8 @@ const currentPath = Astro.url.pathname;
 </nav>
 
 <style lang="scss">
+    @use "~styles/colors";
+
     nav {
         display: grid;
         gap: 1rem;
@@ -34,7 +36,7 @@ const currentPath = Astro.url.pathname;
 
     a {
         justify-self: start;
-        color: grey;
+        color: colors.$grey;
         text-decoration: none;
     }
 
@@ -44,6 +46,6 @@ const currentPath = Astro.url.pathname;
     }
 
     .active {
-        color: white;
+        color: colors.$white;
     }
 </style>
