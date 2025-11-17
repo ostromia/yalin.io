@@ -27,7 +27,7 @@ async function getUserRepos(username: string, names: string[] = []) {
 
 async function main() {
     const USERNAME = "ostromia";
-    const names = ["promethium", "zygon", "dotfiles", "yalin.io"];
+    const names = ["promethium", "reglup", "dotfiles", "yalin.io"];
     const keys = ["full_name", "description", "languages"];
 
     const repositories = await getUserRepos(USERNAME, names);
@@ -40,7 +40,7 @@ async function main() {
         }
     }
 
-    const projects = ["promethium", "zygon"];
+    const projects = ["promethium", "reglup"];
 
     const result = {
         projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1])),
@@ -50,6 +50,7 @@ async function main() {
     for (const p of result.projects) {
         if (p.full_name == "ostromia/promethium") p.languages = ["Python"];
         if (p.full_name == "ostromia/zygon") p.languages = ["Svelte", "TypeScript", "SCSS"];
+        if (p.full_name == "ostromia/reglup") p.languages = ["TypeScript"];
     }
 
     for (const p of result.other) {

@@ -6,9 +6,9 @@
             "languages": ["Python"]
         },
         {
-            "full_name": "ostromia/zygon",
-            "description": "Transpile OCR GCSE & A-Level Pseudocode into Python.",
-            "languages": ["Svelte", "TypeScript", "SCSS"]
+            "full_name": "ostromia/reglup",
+            "description": "react template for github pages",
+            "languages": ["TypeScript"]
         }
     ],
     "other": [
