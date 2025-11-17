@@ -9,6 +9,11 @@
             "full_name": "ostromia/reglup",
             "description": "react template for github pages",
             "languages": ["TypeScript"]
+        },
+        {
+            "full_name": "ostromia/throughtheterminal",
+            "description": "A simple yet customizable script to open files in the terminal.",
+            "languages": ["Rust"]
         }
     ],
     "other": [
