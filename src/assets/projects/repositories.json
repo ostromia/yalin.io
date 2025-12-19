@@ -6,6 +6,11 @@
             "languages": ["Python"]
         },
         {
+            "full_name": "ostromia/nucleo-f303k8-16x2-lcd",
+            "description": "16x2 LCD Library for NUCLEO-F303K8",
+            "languages": ["C"]
+        },
+        {
             "full_name": "ostromia/reglup",
             "description": "react template for github pages",
             "languages": ["TypeScript"]
