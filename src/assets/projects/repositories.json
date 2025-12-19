@@ -11,9 +11,9 @@
             "languages": ["TypeScript"]
         },
         {
-            "full_name": "ostromia/throughtheterminal",
-            "description": "A simple yet customizable script to open files in the terminal.",
-            "languages": ["Rust"]
+            "full_name": "ostromia/zygon",
+            "description": "Transpile OCR GCSE & A-Level Pseudocode into Python.",
+            "languages": ["Svelte", "TypeScript", "SCSS"]
         }
     ],
     "other": [
