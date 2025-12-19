@@ -8,6 +8,8 @@ import "~styles/global.scss";
 
 import { H1, A } from "~components/elements";
 import identicon from "~assets/identicon.png";
+import social from "~assets/about/social.json";
+import Box_arrow_up_right from "~assets/box-arrow-up-right.svg";
 
 const title = "about | yalin.io";
 const description = "about";
@@ -28,9 +30,16 @@ const description = "about";
                 </div>
             </div>
 
-            <!-- <div class="links">
-                <A href="https://github.com/ostromia">github.com/ostromia</A>
-            </div> -->
+            <div class="links">
+                {
+                    social.map((e) => (
+                        <div>
+                            <Box_arrow_up_right />
+                            <A href={e.url}>{e.name}</A>
+                        </div>
+                    ))
+                }
+            </div>
         </main>
 
         <Footer />
@@ -52,17 +61,19 @@ const description = "about";
         box-sizing: border-box;
 
         > div {
+            display: flex;
+            gap: 1rem;
+
             padding: 1rem;
             box-sizing: border-box;
+
             border-radius: 5px;
+
+            background-color: #21252b;
         }
     }
 
     .profile {
-        display: flex;
-        gap: 1rem;
-        background-color: #21252b;
-
         .text {
             display: flex;
             flex-direction: column;
@@ -75,6 +86,23 @@ const description = "about";
                 font-size: 1.5rem;
                 line-height: 1.5rem;
             }
+        }
+    }
+
+    .links {
+        display: flex;
+        flex-direction: column;
+
+        color: colors.$link;
+
+        svg {
+            margin-right: 0.5rem;
+            box-sizing: border-box;
+        }
+
+        > div {
+            display: flex;
+            align-items: center;
         }
     }
 </style>
