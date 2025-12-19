@@ -9,7 +9,6 @@ import "~styles/global.scss";
 import { H1, A } from "~components/elements";
 import identicon from "~assets/identicon.png";
 import social from "~assets/about/social.json";
-import Box_arrow_up_right from "~assets/box-arrow-up-right.svg";
 
 const title = "about | yalin.io";
 const description = "about";
@@ -33,10 +32,9 @@ const description = "about";
             <div class="links">
                 {
                     social.map((e) => (
-                        <div>
-                            <Box_arrow_up_right />
-                            <A href={e.url}>{e.name}</A>
-                        </div>
+                        <A href={e.url} icon>
+                            {e.name}
+                        </A>
                     ))
                 }
             </div>
@@ -92,17 +90,5 @@ const description = "about";
     .links {
         display: flex;
         flex-direction: column;
-
-        color: colors.$link;
-
-        svg {
-            margin-right: 0.5rem;
-            box-sizing: border-box;
-        }
-
-        > div {
-            display: flex;
-            align-items: center;
-        }
     }
 </style>
