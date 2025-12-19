@@ -1,0 +1,80 @@
+---
+import { Image } from "astro:assets";
+
+import Head from "~components/Head.astro";
+import Navigation from "~components/Navigation.astro";
+import Footer from "~components/Footer.astro";
+import "~styles/global.scss";
+
+import { H1, A } from "~components/elements";
+import identicon from "~assets/identicon.png";
+
+const title = "about | yalin.io";
+const description = "about";
+---
+
+<html lang="en">
+    <Head title={title} description={description} />
+
+    <body>
+        <Navigation />
+        <main>
+            <div class="profile">
+                <Image alt="identicon" src={identicon} height="100" width="100" />
+                <div class="text">
+                    <div class="name">Berkay Yalin</div>
+                    <div class="username">ostromia</div>
+                    <div class="email">example@example.com</div>
+                </div>
+            </div>
+
+            <!-- <div class="links">
+                <A href="https://github.com/ostromia">github.com/ostromia</A>
+            </div> -->
+        </main>
+
+        <Footer />
+    </body>
+</html>
+
+<style lang="scss">
+    @use "~styles/colors";
+
+    main {
+        max-width: 720px;
+        margin: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        padding: 1rem;
+        box-sizing: border-box;
+
+        > div {
+            padding: 1rem;
+            box-sizing: border-box;
+            border-radius: 5px;
+        }
+    }
+
+    .profile {
+        display: flex;
+        gap: 1rem;
+        background-color: #21252b;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 0.5rem;
+
+            color: white;
+
+            .name {
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+            }
+        }
+    }
+</style>

@@ -12,7 +12,7 @@ const currentPath = Astro.url.pathname;
     }
     <a href="/projects" class={currentPath === "/projects/" ? "active" : ""}>projects</a>
     <a href="/articles" class={currentPath === "/articles/" ? "active" : ""}>articles</a>
-    <a href="https://github.com/ostromia">github</a>
+    <a href="/about" class={currentPath === "/about/" ? "active" : ""}>about</a>
 </nav>
 
 <style lang="scss">
