@@ -25,11 +25,11 @@ const description = "about";
                 <div class="text">
                     <div class="name">Berkay Yalin</div>
                     <div class="username">ostromia</div>
-                    <div class="email">example@example.com</div>
+                    <!-- <div class="email">example@example.com</div> -->
                 </div>
             </div>
 
-            <div class="links">
+            <div class="social">
                 {
                     social.map((e) => (
                         <A href={e.url} icon>
@@ -57,38 +57,42 @@ const description = "about";
 
         padding: 1rem;
         box-sizing: border-box;
+    }
 
-        > div {
-            display: flex;
-            gap: 1rem;
+    .profile,
+    .social {
+        display: flex;
+        gap: 1rem;
 
-            padding: 1rem;
-            box-sizing: border-box;
+        padding: 1rem;
+        box-sizing: border-box;
 
-            border-radius: 5px;
+        border-radius: 5px;
 
-            background-color: #21252b;
-        }
+        background-color: #21252b;
     }
 
     .profile {
+        flex-direction: row;
+
         .text {
             display: flex;
             flex-direction: column;
             justify-content: center;
             gap: 0.5rem;
 
-            color: white;
-
             .name {
                 font-size: 1.5rem;
                 line-height: 1.5rem;
             }
+
+            .username {
+                color: colors.$grey;
+            }
         }
     }
 
-    .links {
-        display: flex;
+    .social {
         flex-direction: column;
     }
 </style>
