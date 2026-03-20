@@ -8,7 +8,6 @@ import "~styles/global.scss";
 
 import { A } from "~components/elements";
 import identicon from "~assets/identicon.png";
-import social from "~assets/about/social.json";
 
 const title = "about | yalin.io";
 const description = "about";
@@ -30,13 +29,11 @@ const description = "about";
             </div>
 
             <div class="social">
-                {
-                    social.map((e) => (
-                        <A href={e.url} icon>
-                            {e.name}
-                        </A>
-                    ))
-                }
+                <A href="https://github.com/ostromia" icon>github.com/ostromia</A>
+                <A href="https://gitlab.com/ostromia" icon>gitlab.com/ostromia</A>
+                <A href="https://pypi.org/user/ostromia/" icon>pypi.org/user/ostromia</A>
+                <A href="https://www.npmjs.com/~ostromia" icon>npmjs.com/~ostromia</A>
+                <A href="https://crates.io/users/ostromia" icon>crates.io/users/ostromia</A>
             </div>
         </main>
 
