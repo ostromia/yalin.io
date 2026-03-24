@@ -6,7 +6,7 @@ interface Props {
 const { href, icon = false } = Astro.props;
 ---
 
-<a href={href}>
+<div>
     {
         icon && (
             <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" fill="currentColor" viewBox="0 0 16 16">
@@ -15,17 +15,19 @@ const { href, icon = false } = Astro.props;
             </svg>
         )
     }
-
-    <slot />
-</a>
+    <a href={href}><slot /></a>
+</div>
 
 <style lang="scss">
     @use "~styles/colors";
 
-    a {
-        height: 1.2rem;
-        line-height: 1.2rem;
+    div {
+        display: inline-flex;
+        align-items: center;
+        color: colors.$link;
+    }
 
+    a {
         color: colors.$link;
         text-decoration: none;
     }
