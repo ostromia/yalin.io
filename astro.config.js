@@ -29,15 +29,20 @@ export default defineConfig({
                 "~styles": "/src/styles",
                 "~scripts": "/src/scripts"
             }
+        },
+        css: {
+            preprocessorOptions: {
+                scss: {
+                    loadPaths: ["src"]
+                }
+            }
         }
     },
-    experimental: {
-        fonts: [
-            {
-                provider: fontProviders.fontsource(),
-                name: "Atkinson Hyperlegible",
-                cssVariable: "--font-atkinson-hyperlegible"
-            }
-        ]
-    }
+    fonts: [
+        {
+            provider: fontProviders.fontsource(),
+            name: "Atkinson Hyperlegible",
+            cssVariable: "--font-atkinson-hyperlegible"
+        }
+    ]
 });
