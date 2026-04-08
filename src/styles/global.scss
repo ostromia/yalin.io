@@ -1,10 +1,12 @@
 @use "styles/colors";
 
-html,
+html {
+    color-scheme: dark;
+    background-color: colors.$background-color;
+}
+
 body {
-    font-family: var(--font-atkinson-hyperlegible);
     margin: 0;
     padding: 0;
-    background-color: colors.$background-color;
-    color: white;
+    font-family: var(--font-atkinson-hyperlegible);
 }
