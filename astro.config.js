@@ -35,7 +35,8 @@ export default defineConfig({
         {
             provider: fontProviders.fontsource(),
             name: "Atkinson Hyperlegible",
-            cssVariable: "--font-atkinson-hyperlegible"
+            cssVariable: "--font-atkinson-hyperlegible",
+            fallbacks: ["system-ui"]
         }
     ]
 });
