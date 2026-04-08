@@ -1,5 +1,5 @@
 ---
-import Primary from "~layouts/Primary.astro";
+import Layout from "~layouts/Layout.astro";
 import { H1, A } from "~components/elements";
 import RepositoryCard from "~components/RepositoryCard.astro";
 import repositories from "~assets/projects/repositories.json";
@@ -9,7 +9,7 @@ const SITE_TITLE = "projects | yalin.io";
 const SITE_DESCRIPTION = "projects i've been working on";
 ---
 
-<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <H1>Websites</H1>
 
     <ul>
@@ -35,7 +35,7 @@ const SITE_DESCRIPTION = "projects i've been working on";
     <H1>Other Repositories</H1>
 
     {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
-</Primary>
+</Layout>
 
 <style lang="scss">
     @use "styles/colors";

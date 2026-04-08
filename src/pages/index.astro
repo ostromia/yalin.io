@@ -1,5 +1,5 @@
 ---
-import Primary from "~layouts/Primary.astro";
+import Layout from "~layouts/Layout.astro";
 import "~styles/global.scss";
 ---
 
@@ -7,9 +7,9 @@ import "~styles/global.scss";
     import "~scripts/index";
 </script>
 
-<Primary title="yalin.io" description="website & stuff">
+<Layout title="yalin.io" description="website & stuff">
     <div id="canvas-wrapper"></div>
-</Primary>
+</Layout>
 
 <style lang="scss">
     #canvas-wrapper {

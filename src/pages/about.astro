@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 
-import Primary from "~layouts/Primary.astro";
+import Layout from "~layouts/Layout.astro";
 import { A } from "~components/elements";
 import identicon from "~assets/identicon.png";
 
@@ -9,7 +9,7 @@ const SITE_TITLE = "about | yalin.io";
 const SITE_DESCRIPTION = "about";
 ---
 
-<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <div class="profile">
         <Image alt="identicon" src={identicon} height="100" width="100" />
         <div class="text">
@@ -33,7 +33,7 @@ const SITE_DESCRIPTION = "about";
     <div class="social">
         <A href="https://monkeytype.com/profile/ostromia" icon>monkeytype.com/profile/ostromia</A>
     </div>
-</Primary>
+</Layout>
 
 <style lang="scss">
     @use "styles/colors";

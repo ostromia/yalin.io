@@ -1,6 +1,6 @@
 ---
 import { getCollection } from "astro:content";
-import Primary from "~layouts/Primary.astro";
+import Layout from "~layouts/Layout.astro";
 import { H1, A } from "~components/elements";
 
 const SITE_TITLE = "articles | yalin.io";
@@ -9,7 +9,7 @@ const SITE_DESCRIPTION = "articles i've written";
 const posts = (await getCollection("articles")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
 ---
 
-<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+<Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <H1>Articles</H1>
 
     <ul>
@@ -27,7 +27,7 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
             ))
         }
     </ul>
-</Primary>
+</Layout>
 
 <style lang="scss">
     @use "styles/colors";
