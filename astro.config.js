@@ -37,6 +37,12 @@ export default defineConfig({
             name: "Atkinson Hyperlegible",
             cssVariable: "--font-atkinson-hyperlegible",
             fallbacks: ["system-ui"]
+        },
+        {
+            provider: fontProviders.fontsource(),
+            name: "Ubuntu Sans Mono",
+            cssVariable: "--font-ubuntu-sans-mono",
+            fallbacks: ["monospace"]
         }
     ]
 });
