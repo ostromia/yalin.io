@@ -10,3 +10,9 @@ body {
     padding: 0;
     font-family: var(--font-atkinson-hyperlegible);
 }
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
