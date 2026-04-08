@@ -1,5 +1,6 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection } from "astro:content";
 import { glob } from "astro/loaders";
+import { z } from "astro/zod";
 
 const articles = defineCollection({
     loader: glob({ base: "./src/content/articles", pattern: "**/*.{md,mdx}" }),
@@ -9,7 +10,7 @@ const articles = defineCollection({
             description: z.string(),
             publicationDate: z.coerce.date(),
             updatedDate: z.coerce.date(),
-            heroImage: image().optional()
+            heroImage: z.optional(image())
         })
 });
 
