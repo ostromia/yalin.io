@@ -1,6 +1,5 @@
 ---
-import MetaHead from "~components/Head.astro";
-import Navigation from "~components/Navigation.astro";
+import Primary from "~layouts/Primary.astro";
 import "~styles/global.scss";
 ---
 
@@ -8,27 +7,14 @@ import "~styles/global.scss";
     import "~scripts/index";
 </script>
 
-<html lang="en">
-    <head>
-        <MetaHead title="yalin.io" description="website & stuff" />
-    </head>
-
-    <body>
-        <Navigation />
-
-        <main>
-            <div id="canvas-wrapper"></div>
-        </main>
-    </body>
-</html>
+<Primary title="yalin.io" description="website & stuff">
+    <div id="canvas-wrapper"></div>
+</Primary>
 
 <style lang="scss">
-    main {
-        max-width: 100%;
-    }
-
     #canvas-wrapper {
-        height: calc(100dvh - 97px - 2rem);
-        width: 100%;
+        position: fixed;
+        inset: 0;
+        z-index: -1;
     }
 </style>

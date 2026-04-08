@@ -1,52 +1,39 @@
 ---
 import { Image } from "astro:assets";
 
-import Head from "~components/Head.astro";
-import Navigation from "~components/Navigation.astro";
-import Footer from "~components/Footer.astro";
-import "~styles/global.scss";
-
+import Primary from "~layouts/Primary.astro";
 import { A } from "~components/elements";
 import identicon from "~assets/identicon.png";
 
-const title = "about | yalin.io";
-const description = "about";
+const SITE_TITLE = "about | yalin.io";
+const SITE_DESCRIPTION = "about";
 ---
 
-<html lang="en">
-    <Head title={title} description={description} />
+<Primary title={SITE_TITLE} description={SITE_DESCRIPTION}>
+    <div class="profile">
+        <Image alt="identicon" src={identicon} height="100" width="100" />
+        <div class="text">
+            <div class="name">Berkay Yalin</div>
+            <div class="username">ostromia</div>
+        </div>
+    </div>
 
-    <body>
-        <Navigation />
-        <main>
-            <div class="profile">
-                <Image alt="identicon" src={identicon} height="100" width="100" />
-                <div class="text">
-                    <div class="name">Berkay Yalin</div>
-                    <div class="username">ostromia</div>
-                </div>
-            </div>
+    <div class="social">
+        <A href="https://github.com/ostromia" icon>github.com/ostromia</A>
+        <A href="https://gitlab.com/ostromia" icon>gitlab.com/ostromia</A>
+        <A href="https://codeberg.org/ostromia" icon>codeberg.org/ostromia</A>
+    </div>
 
-            <div class="social">
-                <A href="https://github.com/ostromia" icon>github.com/ostromia</A>
-                <A href="https://gitlab.com/ostromia" icon>gitlab.com/ostromia</A>
-                <A href="https://codeberg.org/ostromia" icon>codeberg.org/ostromia</A>
-            </div>
+    <div class="social">
+        <A href="https://pypi.org/user/ostromia/" icon>pypi.org/user/ostromia</A>
+        <A href="https://www.npmjs.com/~ostromia" icon>npmjs.com/~ostromia</A>
+        <A href="https://crates.io/users/ostromia" icon>crates.io/users/ostromia</A>
+    </div>
 
-            <div class="social">
-                <A href="https://pypi.org/user/ostromia/" icon>pypi.org/user/ostromia</A>
-                <A href="https://www.npmjs.com/~ostromia" icon>npmjs.com/~ostromia</A>
-                <A href="https://crates.io/users/ostromia" icon>crates.io/users/ostromia</A>
-            </div>
-
-            <div class="social">
-                <A href="https://monkeytype.com/profile/ostromia" icon>monkeytype.com/profile/ostromia</A>
-            </div>
-        </main>
-
-        <Footer />
-    </body>
-</html>
+    <div class="social">
+        <A href="https://monkeytype.com/profile/ostromia" icon>monkeytype.com/profile/ostromia</A>
+    </div>
+</Primary>
 
 <style lang="scss">
     @use "styles/colors";

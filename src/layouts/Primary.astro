@@ -4,7 +4,14 @@ import Navigation from "~components/Navigation.astro";
 import Footer from "~components/Footer.astro";
 import "~styles/global.scss";
 
+interface Props {
+    title: string;
+    description: string;
+}
+
 const { title, description } = Astro.props;
+
+const isIndex = Astro.url.pathname == "/";
 ---
 
 <html lang="en">
@@ -13,17 +20,16 @@ const { title, description } = Astro.props;
     <body>
         <Navigation />
 
-        <main>
+        <main style={isIndex ? undefined : "max-width: 600px"}>
             <slot />
         </main>
 
-        <Footer />
+        {!isIndex && <Footer />}
     </body>
 </html>
 
 <style lang="scss">
     main {
-        max-width: 600px;
         margin: auto;
 
         display: flex;
