@@ -1,9 +1,8 @@
-@use "styles/fonts";
 @use "styles/colors";
 
 html,
 body {
-    @include fonts.atkinson;
+    font-family: var(--font-atkinson-hyperlegible, system-ui);
     margin: 0;
     padding: 0;
     background-color: colors.$background-color;
