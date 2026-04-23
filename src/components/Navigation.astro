@@ -1,18 +1,22 @@
 ---
-const currentPath = Astro.url.pathname;
+const isHome = Astro.url.pathname === "/";
+
+const links = [
+    { href: "/projects/", label: "projects" },
+    { href: "/articles/", label: "articles" },
+    { href: "/about/", label: "about" }
+];
 ---
 
-<nav class={currentPath == "/" ? "home" : "other"}>
+<nav class={isHome ? "home" : "other"}>
+    {!isHome && <a href="/">home</a>}
     {
-        currentPath != "/" && (
-            <a href="/" class={currentPath === "/" ? "active" : ""}>
-                home
+        links.map(({ href, label }) => (
+            <a href={href} class={Astro.url.pathname === href ? "active" : undefined}>
+                {label}
             </a>
-        )
+        ))
     }
-    <a href="/projects" class={currentPath === "/projects/" ? "active" : ""}>projects</a>
-    <a href="/articles" class={currentPath === "/articles/" ? "active" : ""}>articles</a>
-    <a href="/about" class={currentPath === "/about/" ? "active" : ""}>about</a>
 </nav>
 
 <style lang="scss">
@@ -21,7 +25,7 @@ const currentPath = Astro.url.pathname;
     nav {
         display: grid;
         gap: 1rem;
-        padding: 1.5rem;
+        padding: 1rem;
     }
 
     .home {
@@ -40,7 +44,6 @@ const currentPath = Astro.url.pathname;
     }
 
     a:hover {
-        cursor: pointer;
         color: white;
     }
 
