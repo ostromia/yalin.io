@@ -3,8 +3,8 @@ const isHome = Astro.url.pathname === "/";
 
 const links = [
     { href: "/projects/", label: "projects" },
-    { href: "/articles/", label: "articles" },
-    { href: "/about/", label: "about" }
+    { href: "/articles/", label: "articles" }
+    // { href: "/about/", label: "about" }
 ];
 ---
 
@@ -17,6 +17,7 @@ const links = [
             </a>
         ))
     }
+    <a href="https://github.com/ostromia">github</a>
 </nav>
 
 <style lang="scss">
