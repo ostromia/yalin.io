@@ -27,7 +27,7 @@ async function getUserRepos(username: string, names: string[] = []) {
 
 async function main() {
     const USERNAME = "ostromia";
-    const names = ["promethium", "nucleo-f303k8-16x2-lcd", "reglup", "zygon", "dotfiles", "yalin.io"];
+    const names = ["reglup", "nucleo-f303k8-16x2-lcd", "promethium", "dotfiles", "yalin.io"];
     const keys = ["full_name", "description", "languages"];
 
     const repositories = await getUserRepos(USERNAME, names);
@@ -40,18 +40,17 @@ async function main() {
         }
     }
 
-    const projects = ["promethium", "nucleo-f303k8-16x2-lcd", "reglup", "zygon"];
+    const projects = ["reglup", "nucleo-f303k8-16x2-lcd", "promethium"];
 
     let result = {
-        projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1])),
+        projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1])).sort((a: any, b: any) => projects.indexOf(a.full_name.split("/")[1]) - projects.indexOf(b.full_name.split("/")[1])),
         other: repositories.filter((r: any) => !projects.includes(r.full_name.split("/")[1]))
     };
 
     for (const p of result.projects) {
-        if (p.full_name == "ostromia/promethium") p.languages = ["Python"];
-        if (p.full_name == "ostromia/zygon") p.languages = ["Svelte", "TypeScript", "SCSS"];
         if (p.full_name == "ostromia/reglup") p.languages = ["TypeScript"];
         if (p.full_name == "ostromia/nucleo-f303k8-16x2-lcd") p.languages = ["C"];
+        if (p.full_name == "ostromia/promethium") p.languages = ["Python"];
     }
 
     for (const p of result.other) {
