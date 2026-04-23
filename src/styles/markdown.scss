@@ -3,11 +3,6 @@
 article {
     color: white;
 
-    > p,
-    > pre {
-        margin: 16px 0;
-    }
-
     code {
         font-family: var(--font-ubuntu-sans-mono);
     }
@@ -20,6 +15,11 @@ article {
     p,
     pre {
         margin: 0;
+    }
+
+    > p,
+    > pre {
+        margin: 16px 0;
     }
 
     .astro-code {
