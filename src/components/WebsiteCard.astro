@@ -1,0 +1,64 @@
+---
+interface Props {
+    title: string;
+    path: string;
+    image: string;
+}
+
+const { title, path, image } = Astro.props;
+---
+
+<a href={path} class="wrapper">
+    <img src={image} alt="" />
+    <div class="text">
+        <div class="title">{title}</div>
+        <div class="path">{path.replace("https://", "")}</div>
+    </div>
+</a>
+
+<style lang="scss">
+    @use "styles/colors";
+
+    .wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        flex: 1 1 200px;
+        min-width: 0;
+
+        border-radius: 5px;
+
+        color: lightgrey;
+        background-color: colors.$foreground-color;
+
+        text-decoration: none;
+    }
+
+    .wrapper:hover .path {
+        text-decoration: underline;
+    }
+
+    .wrapper:hover .title {
+        color: white;
+    }
+
+    img {
+        border-radius: inherit;
+        width: 100%;
+    }
+
+    .text {
+        padding: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .title {
+        text-decoration: none;
+    }
+
+    .path {
+        color: colors.$link;
+    }
+</style>

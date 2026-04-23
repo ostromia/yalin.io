@@ -1,9 +1,14 @@
 ---
 import Layout from "~layouts/Layout.astro";
 import { H1, A } from "~components/elements";
+import WebsiteCard from "~components/WebsiteCard.astro";
 import RepositoryCard from "~components/RepositoryCard.astro";
 import repositories from "~assets/projects/repositories.json";
 import websites from "~assets/projects/websites.json";
+
+import _0001 from "~assets/projects/0001.webp";
+import _0002 from "~assets/projects/0002.webp";
+import _0003 from "~assets/projects/0003.webp";
 
 const SITE_TITLE = "projects | yalin.io";
 const SITE_DESCRIPTION = "projects i've been working on";
@@ -12,21 +17,11 @@ const SITE_DESCRIPTION = "projects i've been working on";
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <H1>Websites</H1>
 
-    <ul>
-        {
-            websites.map((e) => (
-                <li>
-                    <span class="date">
-                        <code>
-                            {new Date(e.date).getFullYear()}•{`0${new Date(e.date).getMonth() + 1}`.slice(-2)}
-                        </code>
-                    </span>
-
-                    <A href={e.path}>{e.name}</A>
-                </li>
-            ))
-        }
-    </ul>
+    <div class="websites">
+        <WebsiteCard title="Zygon" path="https://ostromia.github.io/zygon" image={_0001.src} />
+        <WebsiteCard title="A Mann's Backpack" path="https://ostromia.github.io/amannsbackpack" image={_0002.src} />
+        <WebsiteCard title="Gents & Ginger" path="https://gentsandginger.com" image={_0003.src} />
+    </div>
 
     <H1>Projects</H1>
 
@@ -39,6 +34,12 @@ const SITE_DESCRIPTION = "projects i've been working on";
 
 <style lang="scss">
     @use "styles/colors";
+
+    .websites {
+        display: flex;
+        flex-wrap: wrap-reverse;
+        gap: 1rem;
+    }
 
     ul,
     li {
