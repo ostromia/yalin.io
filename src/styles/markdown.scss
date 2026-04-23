@@ -7,31 +7,31 @@ article {
     > pre {
         margin: 16px 0;
     }
-}
 
-code {
-    font-family: var(--font-ubuntu-sans-mono);
-}
+    code {
+        font-family: var(--font-ubuntu-sans-mono);
+    }
 
-blockquote {
-    font-style: italic;
-    color: lightgrey;
-}
+    blockquote {
+        font-style: italic;
+        color: lightgrey;
+    }
 
-p,
-pre {
-    margin: 0;
-}
+    p,
+    pre {
+        margin: 0;
+    }
 
-.astro-code {
-    padding: 0.25rem;
-}
+    .astro-code {
+        padding: 0.25rem;
+    }
 
-a {
-    color: colors.$link;
-    text-decoration: none;
-}
+    a {
+        color: colors.$link;
+        text-decoration: none;
+    }
 
-a:hover {
-    text-decoration: underline;
+    a:hover {
+        text-decoration: underline;
+    }
 }
