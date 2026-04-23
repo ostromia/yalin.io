@@ -16,3 +16,14 @@ body {
 *::after {
     box-sizing: border-box;
 }
+
+@layer reset {
+    a {
+        color: colors.$link;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
