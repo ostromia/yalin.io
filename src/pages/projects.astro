@@ -15,21 +15,24 @@ const SITE_DESCRIPTION = "projects i've been working on";
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
-    <H1>Websites</H1>
+    <section>
+        <H1>Websites</H1>
+        <div class="websites">
+            <WebsiteCard title="Zygon" path="https://ostromia.github.io/zygon" image={_0001.src} />
+            <WebsiteCard title="A Mann's Backpack" path="https://ostromia.github.io/amannsbackpack" image={_0002.src} />
+            <WebsiteCard title="Gents & Ginger" path="https://gentsandginger.com" image={_0003.src} />
+        </div>
+    </section>
 
-    <div class="websites">
-        <WebsiteCard title="Zygon" path="https://ostromia.github.io/zygon" image={_0001.src} />
-        <WebsiteCard title="A Mann's Backpack" path="https://ostromia.github.io/amannsbackpack" image={_0002.src} />
-        <WebsiteCard title="Gents & Ginger" path="https://gentsandginger.com" image={_0003.src} />
-    </div>
+    <section>
+        <H1>Projects</H1>
+        {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+    </section>
 
-    <H1>Projects</H1>
-
-    {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
-
-    <H1>Other Repositories</H1>
-
-    {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+    <section>
+        <H1>Other Repositories</H1>
+        {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+    </section>
 </Layout>
 
 <style lang="scss">
@@ -59,5 +62,15 @@ const SITE_DESCRIPTION = "projects i've been working on";
 
     .date {
         color: colors.$grey;
+    }
+
+    section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    section:nth-of-type(2) {
+        padding: 2rem 0;
     }
 </style>
