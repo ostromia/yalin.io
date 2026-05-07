@@ -34,16 +34,14 @@ const SITE_DESCRIPTION = "about";
     </div>
 </Layout>
 
-<style lang="scss">
-    @use "styles/colors";
-
+<style>
     .profile,
     .social {
         display: flex;
         gap: 1rem;
         padding: 1rem;
         border-radius: 5px;
-        background-color: colors.$foreground-color;
+        background-color: var(--foreground-color);
     }
 
     .profile {
@@ -60,7 +58,7 @@ const SITE_DESCRIPTION = "about";
             }
 
             .username {
-                color: colors.$grey;
+                color: var(--color-grey);
             }
         }
     }

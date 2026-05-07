@@ -16,9 +16,7 @@ const { title, path, image } = Astro.props;
     </div>
 </a>
 
-<style lang="scss">
-    @use "styles/colors";
-
+<style>
     .wrapper {
         position: relative;
         display: flex;
@@ -28,8 +26,7 @@ const { title, path, image } = Astro.props;
 
         border-radius: 5px;
 
-        color: lightgrey;
-        background-color: colors.$foreground-color;
+        background-color: var(--foreground-color);
 
         text-decoration: none;
     }
@@ -55,6 +52,7 @@ const { title, path, image } = Astro.props;
     }
 
     .title {
+        color: lightgrey;
         text-decoration: none;
     }
 

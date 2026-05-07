@@ -2,7 +2,7 @@
 import Head from "~components/Head.astro";
 import Navigation from "~components/Navigation.astro";
 import Footer from "~components/Footer.astro";
-import "~styles/global.scss";
+import "~styles/global.css";
 
 interface Props {
     title: string;
@@ -28,7 +28,7 @@ const isIndex = Astro.url.pathname == "/";
     </body>
 </html>
 
-<style lang="scss">
+<style>
     main {
         margin: auto;
 

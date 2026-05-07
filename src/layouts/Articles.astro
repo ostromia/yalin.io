@@ -3,8 +3,8 @@ import type { CollectionEntry } from "astro:content";
 import Head from "~components/Head.astro";
 import Navigation from "~components/Navigation.astro";
 import Footer from "~components/Footer.astro";
-import "~styles/global.scss";
-import "~styles/markdown.scss";
+import "~styles/global.css";
+import "~styles/markdown.css";
 import "katex/dist/katex.min.css";
 
 type Props = CollectionEntry<"articles">["data"];
@@ -41,7 +41,7 @@ function formatDate(date: Date) {
     </body>
 </html>
 
-<style lang="scss">
+<style>
     article {
         max-width: 720px;
         margin: auto;

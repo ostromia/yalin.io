@@ -91,6 +91,6 @@
 }
 
 .markdown-alert .markdown-alert-title svg.octicon {
-    margin-right: 8px !important;
+    margin-right: 8px;
     fill: currentColor;
 }

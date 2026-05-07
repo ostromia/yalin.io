@@ -43,10 +43,10 @@ const colors: ColorsJSON = colorsJSON;
     <slot />
 </div>
 
-<style lang="scss">
-    @use "styles/colors";
-
+<style>
     .wrapper {
+        --l_lh: 8px;
+
         display: flex;
         flex-direction: column;
         gap: 0.5rem;
@@ -54,8 +54,8 @@ const colors: ColorsJSON = colorsJSON;
         padding: 1rem;
         border-radius: 5px;
 
-        color: colors.$grey;
-        background-color: colors.$foreground-color;
+        color: var(--color-grey);
+        background-color: var(--foreground-color);
     }
 
     .title {
@@ -63,12 +63,10 @@ const colors: ColorsJSON = colorsJSON;
         align-items: center;
 
         > svg {
-            fill: colors.$grey;
+            fill: var(--color-grey);
             padding-right: 0.25rem;
         }
     }
-
-    $l_lh: 8px;
 
     .languages {
         display: flex;
@@ -82,8 +80,8 @@ const colors: ColorsJSON = colorsJSON;
     }
 
     .language-icon {
-        height: $l_lh;
-        width: $l_lh;
+        height: var(--l_lh);
+        width: var(--l_lh);
         border-radius: 100%;
     }
 

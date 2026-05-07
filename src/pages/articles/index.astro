@@ -29,9 +29,7 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
     </ul>
 </Layout>
 
-<style lang="scss">
-    @use "styles/colors";
-
+<style>
     ul,
     li {
         margin: 0;
@@ -49,6 +47,6 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
     }
 
     .date {
-        color: colors.$grey;
+        color: var(--color-grey);
     }
 </style>

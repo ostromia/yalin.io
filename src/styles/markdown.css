@@ -1,5 +1,4 @@
-@use "styles/colors";
-@use "styles/remark-github-blockquote-alert";
+@import "~styles/remark-github-blockquote-alert.css";
 
 article {
     display: flex;
