@@ -1,7 +1,6 @@
 import { defineConfig, fontProviders } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { remarkAlert } from "remark-github-blockquote-alert";
@@ -23,11 +22,15 @@ export default defineConfig({
     },
 
     vite: {
-        css: {
-            preprocessorOptions: {
-                scss: {
-                    loadPaths: ["src", "node_modules"]
-                }
+        resolve: {
+            alias: {
+                "~assets": "/src/assets",
+                "~components": "/src/components",
+                "~content": "/src/content",
+                "~layouts": "/src/layouts",
+                "~pages": "/src/pages",
+                "~scripts": "/src/scripts",
+                "~styles": "/src/styles"
             }
         }
     },
