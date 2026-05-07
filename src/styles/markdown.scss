@@ -12,26 +12,7 @@ article {
         font-family: var(--font-ubuntu-sans-mono);
     }
 
-    blockquote {
-        font-style: italic;
-        color: lightgrey;
-    }
-
-    p,
-    pre {
-        margin: 0;
-    }
-
     .astro-code {
         padding: 0.25rem;
-    }
-
-    a {
-        color: colors.$link;
-        text-decoration: none;
-    }
-
-    a:hover {
-        text-decoration: underline;
     }
 }
