@@ -27,9 +27,11 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
 </Layout>
 
 <style>
-    ul,
+    ul {
+        padding: 0;
+    }
+
     li {
-        margin: 0;
         padding: 0;
     }
 
