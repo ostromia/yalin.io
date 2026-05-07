@@ -2,6 +2,10 @@
 @use "styles/remark-github-blockquote-alert";
 
 article {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
     color: white;
 
     code {
@@ -16,11 +20,6 @@ article {
     p,
     pre {
         margin: 0;
-    }
-
-    > p,
-    > pre {
-        margin: 16px 0;
     }
 
     .astro-code {
