@@ -1,7 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import Layout from "~layouts/Layout.astro";
-import { H1 } from "~components/elements";
+import { H1, Time } from "~components/elements";
 
 const SITE_TITLE = "articles | yalin.io";
 const SITE_DESCRIPTION = "articles i've written";
@@ -16,12 +16,9 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
         {
             posts.map((post) => (
                 <li>
-                    <span class="date">
-                        <code>
-                            {post.data.publicationDate.getFullYear()}•{("0" + (post.data.publicationDate.getMonth() + 1).toString()).slice(-2)}
-                        </code>
-                    </span>
-
+                    <code>
+                        <Time date={post.data.publicationDate} format="YYYY-MM" />
+                    </code>
                     <a href={`/articles/${post.id}/`}>{post.data.title}</a>
                 </li>
             ))
@@ -46,7 +43,7 @@ const posts = (await getCollection("articles")).sort((a, b) => b.data.publicatio
         list-style-type: none;
     }
 
-    .date {
+    code {
         color: var(--color-grey);
     }
 </style>
