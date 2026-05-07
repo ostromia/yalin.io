@@ -28,10 +28,10 @@ function formatDate(date: Date) {
         <Navigation />
         <main>
             <article>
-                <div class="hero-wrapper">
-                    <div class="date">{formatDate(publicationDate)}</div>
-                    <div class="title">{title}</div>
-                </div>
+                <header>
+                    <time datetime={publicationDate.toISOString().slice(0, 10)}>{formatDate(publicationDate)}</time>
+                    <h1>{title}</h1>
+                </header>
 
                 <slot />
             </article>
@@ -42,17 +42,14 @@ function formatDate(date: Date) {
 </html>
 
 <style>
-    .hero-wrapper {
-        margin: auto;
-        text-align: center;
+    header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
     }
 
-    .date {
-        font-size: 1rem;
-    }
-
-    .title {
-        font-size: 1.25rem;
-        padding: 0.5rem 0;
+    h1 {
+        margin: 0;
     }
 </style>
