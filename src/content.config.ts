@@ -7,10 +7,9 @@ const articles = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
-            description: z.string(),
+            description: z.string().optional(),
             publicationDate: z.coerce.date(),
-            updatedDate: z.coerce.date(),
-            heroImage: z.optional(image())
+            updatedDate: z.coerce.date()
         })
 });
 
