@@ -26,8 +26,6 @@ const thoughts = (await getCollection("thoughts")).sort((a, b) => b.data.publica
         }
     </ul>
 
-    <H1>Thoughts</H1>
-
     <ul>
         {
             thoughts.map((i) => (
@@ -35,7 +33,7 @@ const thoughts = (await getCollection("thoughts")).sort((a, b) => b.data.publica
                     <code>
                         <Time date={i.data.publicationDate} format="YYYY-MM" />
                     </code>
-                    <a href={`/thoughts/${i.id}/`}>{i.data.title}</a>
+                    <a href={`/articles/${i.id}/`}>{i.data.title}</a>
                 </li>
             ))
         }
@@ -45,7 +43,6 @@ const thoughts = (await getCollection("thoughts")).sort((a, b) => b.data.publica
 <style>
     ul {
         padding: 0;
-        margin: 0;
     }
 
     li {
