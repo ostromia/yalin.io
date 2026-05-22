@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // set perspective camera
     const camera = new THREE.PerspectiveCamera(50, canvasWidth / canvasHeight, 0.1, 1000);
-    camera.position.set(8, 8, 8);
+    camera.position.set(10, 10, 10);
     camera.lookAt(0, 0, 0);
 
     // set lighting
