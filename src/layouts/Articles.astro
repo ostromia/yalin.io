@@ -1,5 +1,4 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import Head from "~components/Head.astro";
 import Navigation from "~components/Navigation.astro";
 import Footer from "~components/Footer.astro";
@@ -8,12 +7,18 @@ import "~styles/global.css";
 import "~styles/markdown.css";
 import "katex/dist/katex.min.css";
 
-type Props = CollectionEntry<"articles">["data"];
-const { title, description, publicationDate } = Astro.props;
+interface Props {
+    title: string;
+    description?: string;
+    publicationDate: Date;
+    remarkPluginFrontmatter?: Record<string, string>;
+    [key: string]: unknown;
+}
+const { title, description, publicationDate, remarkPluginFrontmatter } = Astro.props;
 ---
 
 <html lang="en">
-    <Head title={title} description={description!} />
+    <Head title={title} description={description ?? remarkPluginFrontmatter?.description ?? ""} />
 
     <body>
         <Navigation />

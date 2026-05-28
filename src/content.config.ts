@@ -18,7 +18,7 @@ const thoughts = defineCollection({
     schema: ({ image }) =>
         z.object({
             title: z.string(),
-            description: z.string(),
+            description: z.string().optional(),
             hero: z.optional(image()),
             publicationDate: z.coerce.date(),
             updatedDate: z.coerce.date()

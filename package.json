@@ -19,7 +19,8 @@
         "astro": "^6.1.4",
         "remark-attributes": "^0.3.2",
         "remark-github-blockquote-alert": "^2.1.0",
-        "three": "^0.172.0"
+        "three": "^0.172.0",
+        "unist-util-visit": "^5.1.0"
     },
     "devDependencies": {
         "@types/three": "^0.172.0",
