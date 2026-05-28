@@ -9,7 +9,7 @@ import "katex/dist/katex.min.css";
 
 interface Props {
     title: string;
-    description: string;
+    description?: string;
     publicationDate: Date;
 }
 
@@ -17,7 +17,8 @@ const { title, description, publicationDate } = Astro.props;
 ---
 
 <html lang="en">
-    <Head title={title} description={description} />
+    <!-- TODO: scheme type set to optional string yet custom loader ensures description is present -->
+    <Head title={title} description={description || ""} />
 
     <body>
         <Navigation />
