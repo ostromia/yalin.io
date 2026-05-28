@@ -4,35 +4,24 @@ publicationDate: "2023-10-02"
 updatedDate: "2024-09-05"
 ---
 
-import { Image } from "astro:assets";
+## The Problem
 
-import knight from "./knight.png";
+[Leet Code 688.](https://leetcode.com/problems/knight-probability-in-chessboard/)
 
-# The Problem
+On an `n x n` chessboard, a knight starts at the cell `(row, column)` and attempts to make exactly `k` moves.
+The rows and columns are 0-indexed, so the top-left cell is `(0, 0)`, and the bottom-right cell is `(n - 1, n - 1)`.
+A chess knight has eight possible moves it can make, as illustrated below.
+Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.
 
-<div style="padding: 0 1rem; border: 1px solid white">
-    [Leet Code 688.](https://leetcode.com/problems/knight-probability-in-chessboard/)
+![knight](knight.png)
 
-    *On an `n x n` chessboard, a knight starts at the cell `(row, column)` and attempts to make exactly `k` moves.
-    The rows and columns are 0-indexed, so the top-left cell is `(0, 0)`, and the bottom-right cell is `(n - 1, n - 1)`.*
+Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.
+The knight continues moving until it has made exactly `k` moves or has moved off the chessboard.
+Return the probability that the knight remains on the board after it has stopped moving.
 
-    *A chess knight has eight possible moves it can make, as illustrated below.
-    Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.*
+## The First Solution
 
-    ![knight](knight.png)
-    {/* <Image alt="" src={knight} style="height: 200px; width: 200px; display: block; margin: auto;"/> */}
-
-    *Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.*
-
-    *The knight continues moving until it has made exactly `k` moves or has moved off the chessboard.*
-
-    *Return the probability that the knight remains on the board after it has stopped moving.*
-
-</div>
-
-# The First Solution
-
-The [first solution](https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/) presented on LeetCode for this problem is available below, which uses several iterators to store probabilities within differnt arrays.
+The [first solution](https://leetcode.com/problems/knight-probability-in-chessboard/solutions/3322846/688-space-97-74-solution-with-step-by-step-explanation/) presented on LeetCode for this problem is available below, which uses several iterators to store probabilities within different arrays.
 We can significantly simplify this solution however through the use of recursion and the [Law of Total Probability](https://en.wikipedia.org/wiki/Law_of_total_probability).
 
 ```python
@@ -72,9 +61,9 @@ class Solution:
         return memo[row][column]
 ```
 
-# The Law of Total Probability
+## The Law of Total Probability
 
-Suppose the events $B_{1}, ..., B_{k}$ are mutally exclusive and exhaustive events in a sample space, then for any event $A$ in that sample space:
+Suppose the events $B_{1}, ..., B_{k}$ are mutually exclusive and exhaustive events in a sample space, then for any event $A$ in that sample space:
 
 $$
 P(A) = P(A \cup B_{1}) + ... + P(A \cup B_{k})
@@ -84,7 +73,6 @@ If we consider the knight starts within the red `(4, 4)` board below, and only h
 If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
 
 ![knight](./knight_m0.png)
-{/* <Image alt="" src={assets.knight_m0} style="height: 200px; width: 200px; display: block; margin: auto;" /> */}
 
 With an array containing the probability of each move occurring, `[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]`, and another array of the probabilities that the knight stays on the board, `[1, 1, 1, 0, 0, 0, 0, 0]`, we can calculate the result through the sum of both arrays.
 
@@ -92,33 +80,23 @@ The law of total probability sums the conditional probabilities of all cases, mu
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
-We were able to set the probability that the knight would remain on the board to $1$ as it was the final move of the knight -
-if the knight ends on a square within the board there is a $100%$ chance the knight has remained within the board.
-Things start to get a bit more complicated after one move,
-as there is no guarantee the knight will remain within the board after the first move.
+We were able to set the probability that the knight would remain on the board to $1$ as it was the final move of the knight - if the knight ends on a square within the board there is a $100%$ chance the knight has remained within the board.
+Things start to get a bit more complicated after one move, as there is no guarantee the knight will remain within the board after the first move.
 
 Let's consider the previous example but where the knight moves twice instead of just once.
 We can work through this problem backwards to understand how the statistics behind the solution works.
 
-For each of the 3 possibilities the knight can make for it's second move,
-we can calculate the probability that the knight stays within the board like we did in the previous example,
-as it is the final move.
+For each of the 3 possibilities the knight can make for it's second move, we can calculate the probability that the knight stays within the board like we did in the previous example, as it is the final move.
 
 ![knight](./knight_m1.png)
-
-{/* <Image alt="" src={assets.knight_m1} style="height: 200px; width: 200px; display: block; margin: auto;" /> */}
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
 ![knight](./knight_m2.png)
 
-{/* <Image alt="" src={assets.knight_m2} style="height: 200px; width: 200px; display: block; margin: auto;" /> */}
-
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5`
 
 ![knight](./knight_m3.png)
-
-{/* <Image alt="" src={assets.knight_m3} style="height: 200px; width: 200px; display: block; margin: auto;" /> */}
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
@@ -126,7 +104,7 @@ We can plug these results back into the original equation to determine the final
 
 `(0.125 * 0.375) + (0.125 * 0.500) + (0.125 * 0.375) + (0.125 * 0.000) + (0.125 * 0.000) + (0.125 * 0.000) + (0.125 * 0.000) + (0.125 * 0.000) = 0.15625`
 
-# The Solution
+## The Solution
 
 The following solution uses the law of total probability to calculate the final answer
 

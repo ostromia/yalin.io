@@ -10,7 +10,7 @@ import remarkAttributes from "remark-attributes";
 export default defineConfig({
     site: "https://yalin.io",
 
-    integrations: [mdx(), sitemap()],
+    integrations: [sitemap()],
 
     markdown: {
         shikiConfig: {
