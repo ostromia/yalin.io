@@ -9,16 +9,15 @@ import "katex/dist/katex.min.css";
 
 interface Props {
     title: string;
-    description?: string;
+    description: string;
     publicationDate: Date;
-    remarkPluginFrontmatter?: Record<string, string>;
-    [key: string]: unknown;
 }
-const { title, description, publicationDate, remarkPluginFrontmatter } = Astro.props;
+
+const { title, description, publicationDate } = Astro.props;
 ---
 
 <html lang="en">
-    <Head title={title} description={description ?? remarkPluginFrontmatter?.description ?? ""} />
+    <Head title={title} description={description} />
 
     <body>
         <Navigation />

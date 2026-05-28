@@ -5,7 +5,6 @@ import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { remarkAlert } from "remark-github-blockquote-alert";
 import remarkAttributes from "remark-attributes";
-import remarkDescription from "./src/plugins/markdown/remark-description.mjs";
 
 // https://astro.build/config
 export default defineConfig({
@@ -19,7 +18,7 @@ export default defineConfig({
             wrap: false
         },
 
-        remarkPlugins: [remarkMath, remarkAlert, remarkAttributes, remarkDescription],
+        remarkPlugins: [remarkMath, remarkAlert, remarkAttributes],
 
         rehypePlugins: [rehypeKatex]
     },
