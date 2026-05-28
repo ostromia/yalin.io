@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import remarkMath from "remark-math";
 import rehypeKatex from "rehype-katex";
 import { remarkAlert } from "remark-github-blockquote-alert";
-import remarkAttributes from "remark-attributes";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,7 +17,7 @@ export default defineConfig({
             wrap: false
         },
 
-        remarkPlugins: [remarkMath, remarkAlert, remarkAttributes],
+        remarkPlugins: [remarkMath, remarkAlert],
 
         rehypePlugins: [rehypeKatex]
     },
