@@ -1,8 +1,33 @@
-import { defineCollection } from "astro:content";
-import { glob, type Loader } from "astro/loaders";
+import { defineCollection, type DataEntry } from "astro:content";
+import { type Loader, glob } from "astro/loaders";
 import { z } from "astro/zod";
 
-const contentLoader: Loader = {
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkMdx from "remark-mdx";
+import { visit, EXIT } from "unist-util-visit";
+import { toString } from "mdast-util-to-string";
+import remarkMath from "remark-math";
+
+function mutateEntry(entry: DataEntry) {
+    const tree = unified().use(remarkParse).use(remarkMath).use(remarkMdx).parse(entry.body);
+
+    let first;
+    visit(tree, "paragraph", (node) => {
+        first = node;
+        return EXIT;
+    });
+
+    return {
+        ...entry,
+        data: {
+            ...entry.data,
+            description: toString(first)
+        }
+    };
+}
+
+const writingLoader: Loader = {
     ...glob,
     name: "Content Loader",
     load: async (loaderContext) => {
@@ -15,24 +40,18 @@ const contentLoader: Loader = {
 
         await globLoader.load.call(this, loaderContext);
 
-        const result = Array.from(store.entries(), ([, value]) => ({
-            ...value,
-            data: {
-                ...value.data,
-                locale: value.filePath!.replace(/\.(md|mdx)$/, "")
-            }
-        }));
+        const storeValues = Array.from(store.values());
 
         store.clear();
 
-        result.forEach((item) => {
-            store.set({ ...item });
-        });
+        for (const i of storeValues) {
+            store.set(mutateEntry(i));
+        }
     }
 };
 
 const writing = defineCollection({
-    loader: contentLoader,
+    loader: writingLoader,
     schema: ({ image }) =>
         z.object({
             title: z.string(),
