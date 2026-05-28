@@ -9,7 +9,7 @@ import { remarkAlert } from "remark-github-blockquote-alert";
 export default defineConfig({
     site: "https://yalin.io",
 
-    integrations: [sitemap()],
+    integrations: [mdx(), sitemap()],
 
     markdown: {
         shikiConfig: {

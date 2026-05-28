@@ -4,6 +4,14 @@ publicationDate: "2023-10-02"
 updatedDate: "2024-09-05"
 ---
 
+import { Image } from "astro:assets";
+
+import knight from "./knight.png";
+import knight_m0 from "./knight_m0.png";
+import knight_m1 from "./knight_m1.png";
+import knight_m2 from "./knight_m2.png";
+import knight_m3 from "./knight_m3.png";
+
 ## The Problem
 
 [Leet Code 688.](https://leetcode.com/problems/knight-probability-in-chessboard/)
@@ -13,7 +21,7 @@ The rows and columns are 0-indexed, so the top-left cell is `(0, 0)`, and the bo
 A chess knight has eight possible moves it can make, as illustrated below.
 Each move is two cells in a cardinal direction, then one cell in an orthogonal direction.
 
-![knight](knight.png)
+<Image alt="" src={knight} style="height: 300px; width: 300px; margin: auto;" />
 
 Each time the knight is to move, it chooses one of eight possible moves uniformly at random (even if the piece would go off the chessboard) and moves there.
 The knight continues moving until it has made exactly `k` moves or has moved off the chessboard.
@@ -72,7 +80,7 @@ $$
 If we consider the knight starts within the red `(4, 4)` board below, and only has 1 move, then only will 3 out of the 8 possible moves keep the knight within the board.
 If we consider this first example, we can manually set out the numbers to visualise the problem before writing a general solution.
 
-![knight](./knight_m0.png)
+<Image alt="" src={knight_m0} style="height: 400px; width: 400px; margin: auto;" />
 
 With an array containing the probability of each move occurring, `[0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125, 0.125]`, and another array of the probabilities that the knight stays on the board, `[1, 1, 1, 0, 0, 0, 0, 0]`, we can calculate the result through the sum of both arrays.
 
@@ -88,15 +96,15 @@ We can work through this problem backwards to understand how the statistics behi
 
 For each of the 3 possibilities the knight can make for it's second move, we can calculate the probability that the knight stays within the board like we did in the previous example, as it is the final move.
 
-![knight](./knight_m1.png)
+<Image alt="" src={knight_m1} style="height: 400px; width: 400px; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
-![knight](./knight_m2.png)
+<Image alt="" src={knight_m2} style="height: 400px; width: 400px; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.5`
 
-![knight](./knight_m3.png)
+<Image alt="" src={knight_m3} style="height: 400px; width: 400px; margin: auto;" />
 
 `(0.125 * 1) + (0.125 * 1) + (0.125 * 1) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) + (0.125 * 0) = 0.375`
 
