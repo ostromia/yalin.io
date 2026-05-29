@@ -1,28 +1,28 @@
 ---
 import { getCollection } from "astro:content";
-import Layout from "~layouts/Layout.astro";
 import { H1, Time } from "~components/elements";
+import Layout from "~layouts/Layout.astro";
 
 const SITE_TITLE = "writing | yalin.io";
 const SITE_DESCRIPTION = "things i've written on various topics that interest me";
 
-const writing = (await getCollection("writing")).sort((a, b) => b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf());
+const writing = (await getCollection("writing")).sort((a, b) =>
+    b.data.publicationDate.valueOf() - a.data.publicationDate.valueOf()
+);
 ---
 
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
     <H1>Writing</H1>
 
     <ul>
-        {
-            writing.map((i) => (
-                <li>
-                    <code>
-                        <Time date={i.data.publicationDate} format="YYYY-MM" />
-                    </code>
-                    <a href={`/writing/${i.id}/`}>{i.data.title}</a>
-                </li>
-            ))
-        }
+        {writing.map((i) => (
+            <li>
+                <code>
+                    <Time date={i.data.publicationDate} format="YYYY-MM" />
+                </code>
+                <a href={`/writing/${i.id}/`}>{i.data.title}</a>
+            </li>
+        ))}
     </ul>
 </Layout>
 

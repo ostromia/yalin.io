@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const hoverScale = new THREE.Vector3(1.25, 1.25, 1.25);
 
     const loader = new GLTFLoader();
-    loader.load("/90s_computer.glb", function (gltf) {
+    loader.load("/90s_computer.glb", function(gltf) {
         model = gltf.scene;
         model.rotation.set(0.25, 0, 0);
         model.scale.copy(startScale);
@@ -138,7 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 lookMatrix.lookAt(modelPos, lookTarget, model.up);
                 endQuat.setFromRotationMatrix(lookMatrix);
 
-                const correction = new THREE.Quaternion().setFromAxisAngle(new THREE.Vector3(0, 1, 0), Math.PI / 2);
+                const correction = new THREE.Quaternion().setFromAxisAngle(
+                    new THREE.Vector3(0, 1, 0),
+                    Math.PI / 2
+                );
                 endQuat.multiply(correction);
             }
         }

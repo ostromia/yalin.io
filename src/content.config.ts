@@ -1,13 +1,13 @@
-import { defineCollection, type DataEntry } from "astro:content";
-import { type Loader, glob } from "astro/loaders";
+import { glob, type Loader } from "astro/loaders";
 import { z } from "astro/zod";
+import { type DataEntry, defineCollection } from "astro:content";
 
-import { unified } from "unified";
-import remarkParse from "remark-parse";
-import remarkMdx from "remark-mdx";
-import { visit, EXIT } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
 import remarkMath from "remark-math";
+import remarkMdx from "remark-mdx";
+import remarkParse from "remark-parse";
+import { unified } from "unified";
+import { EXIT, visit } from "unist-util-visit";
 
 function mutateEntry(entry: DataEntry) {
     const tree = unified().use(remarkParse).use(remarkMath).use(remarkMdx).parse(entry.body);

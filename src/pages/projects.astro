@@ -1,10 +1,10 @@
 ---
-import Layout from "~layouts/Layout.astro";
-import { H1 } from "~components/elements";
-import WebsiteCard from "~components/WebsiteCard.astro";
-import RepositoryCard from "~components/RepositoryCard.astro";
 import repositories from "~assets/projects/repositories.json";
 import websites from "~assets/projects/websites.json";
+import { H1 } from "~components/elements";
+import RepositoryCard from "~components/RepositoryCard.astro";
+import WebsiteCard from "~components/WebsiteCard.astro";
+import Layout from "~layouts/Layout.astro";
 
 import _0001 from "~assets/projects/0001.webp";
 import _0002 from "~assets/projects/0002.webp";
@@ -19,19 +19,31 @@ const SITE_DESCRIPTION = "projects i've been working on";
         <H1>Websites</H1>
         <div class="websites">
             <WebsiteCard title="Zygon" path="https://ostromia.github.io/zygon" image={_0001.src} />
-            <WebsiteCard title="A Mann's Backpack" path="https://ostromia.github.io/amannsbackpack" image={_0002.src} />
-            <WebsiteCard title="Gents & Ginger" path="https://gentsandginger.com" image={_0003.src} />
+            <WebsiteCard
+                title="A Mann's Backpack"
+                path="https://ostromia.github.io/amannsbackpack"
+                image={_0002.src}
+            />
+            <WebsiteCard
+                title="Gents & Ginger"
+                path="https://gentsandginger.com"
+                image={_0003.src}
+            />
         </div>
     </section>
 
     <section>
         <H1>Projects</H1>
-        {repositories.projects.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+        {repositories.projects.map((e) => (
+            <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />
+        ))}
     </section>
 
     <section>
         <H1>Other Repositories</H1>
-        {repositories.other.map((e) => <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />)}
+        {repositories.other.map((e) => (
+            <RepositoryCard path={e.full_name} description={e.description} language={e.languages} />
+        ))}
     </section>
 </Layout>
 

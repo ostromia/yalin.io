@@ -10,13 +10,11 @@ const links = [
 
 <nav class={isHome ? "home" : "other"}>
     {!isHome && <a href="/">home</a>}
-    {
-        links.map(({ href, label }) => (
-            <a href={href} class={Astro.url.pathname === href ? "active" : undefined}>
-                {label}
-            </a>
-        ))
-    }
+    {links.map(({ href, label }) => (
+        <a href={href} class={Astro.url.pathname === href ? "active" : undefined}>
+            {label}
+        </a>
+    ))}
     <a href="https://github.com/ostromia">github</a>
 </nav>
 

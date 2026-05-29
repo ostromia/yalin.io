@@ -43,7 +43,11 @@ async function main() {
     const projects = ["reglup", "nucleo-f303k8-16x2-lcd", "promethium"];
 
     let result = {
-        projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1])).sort((a: any, b: any) => projects.indexOf(a.full_name.split("/")[1]) - projects.indexOf(b.full_name.split("/")[1])),
+        projects: repositories.filter((r: any) => projects.includes(r.full_name.split("/")[1]))
+            .sort((a: any, b: any) =>
+                projects.indexOf(a.full_name.split("/")[1])
+                - projects.indexOf(b.full_name.split("/")[1])
+            ),
         other: repositories.filter((r: any) => !projects.includes(r.full_name.split("/")[1]))
     };
 
@@ -57,7 +61,11 @@ async function main() {
         if (p.full_name == "ostromia/yalin.io") p.languages = ["Astro", "TypeScript", "SCSS"];
     }
 
-    writeFileSync(join(__root, "src", "assets", "projects", "repositories.json"), JSON.stringify(result, null, 4), "utf-8");
+    writeFileSync(
+        join(__root, "src", "assets", "projects", "repositories.json"),
+        JSON.stringify(result, null, 4),
+        "utf-8"
+    );
 
     execSync("npm run format", { cwd: __root, stdio: "inherit" });
 }
