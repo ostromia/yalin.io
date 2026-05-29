@@ -10,7 +10,7 @@
         "start": "astro dev",
         "build": "astro check && astro build",
         "preview": "astro preview",
-        "format": "prettier --write .",
+        "format": "dprint fmt",
         "deploy": "sh build.sh",
         "astro": "astro"
     },
@@ -21,6 +21,7 @@
         "@astrojs/sitemap": "^3.7.3",
         "astro": "^6.4.2",
         "axios": "^1.16.1",
+        "dprint": "^0.54.0",
         "rehype-katex": "^7.0.1",
         "remark-github-blockquote-alert": "^2.1.0",
         "remark-math": "^6.0.0",
@@ -33,10 +34,7 @@
         "@eslint/markdown": "^8.0.2",
         "@types/three": "^0.184.1",
         "eslint": "^10.4.0",
-        "eslint-plugin-astro": "^1.7.0",
         "globals": "^17.6.0",
-        "prettier": "^3.8.3",
-        "prettier-plugin-astro": "^0.14.1",
         "typescript": "^6.0.3",
         "typescript-eslint": "^8.60.0"
     }

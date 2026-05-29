@@ -2,5 +2,5 @@
     "typescript.tsdk": "node_modules/typescript/lib",
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "gplane.dprint2"
 }
