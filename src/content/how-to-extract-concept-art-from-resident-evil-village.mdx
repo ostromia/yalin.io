@@ -13,13 +13,6 @@ export const listFile = "RE8_STM_Release";
 export const pakPath = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\Resident Evil Village BIOHAZARD VILLAGE\\re_chunk_000.pak";
 export const shortTitle = "re8";
 
-After not being able to find a proper guide online on how to extract the concept art from <a href={steamLink}>{title}</a>, I decided to make one myself.
-For simplicity's sake, I've written this tutorial to consist of a list of commands you can simply enter into a PowerShell terminal:
-the commands will handle everything inside a `kennedy` folder in your root directory.
-
-> [!WARNING]
-> This tutorial is written for users on Windows who have installed {title} via Steam.
-
 ## tl;dr
 
 1. Extract the `re_chunk_000.pak` file using [REE.PAK.Tool](https://github.com/Ekey/REE.PAK.Tool).
@@ -29,11 +22,18 @@ the commands will handle everything inside a `kennedy` folder in your root direc
 
 ## Prerequisites
 
+After not being able to find a proper guide online on how to extract the concept art from <a href={steamLink}>{title}</a>, I decided to make one myself.
+For simplicity's sake, I've written this tutorial to consist of a list of commands you can simply enter into a PowerShell terminal:
+the commands will handle everything inside a `kennedy` folder in your root directory.
+
+> [!WARNING]
+> This tutorial is written for users on Windows who have installed {title} via Steam.
+
 To be able to extract the concept art, there are a few pieces of software you need to install first.
 Run the following command to create the `kennedy` folder in your root directory and install the necessary software inside it:
 
 <Code lang="powershell" code={`& {
-    cd \; mkdir kennedy; cd kennedy
+    cd \\; mkdir kennedy; cd kennedy
 
     curl.exe -L -o REE.Unpacker-x64.zip https://github.com/Ekey/REE.PAK.Tool/releases/download/Latest/REE.Unpacker-x64.zip
     tar.exe -xf REE.Unpacker-x64.zip
