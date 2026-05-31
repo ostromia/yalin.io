@@ -35,7 +35,7 @@ const writingLoader: Loader = {
 
         const globLoader = glob({
             pattern: "**/*.{md,mdx}",
-            base: "./src/content"
+            base: "./src/content/writing"
         });
 
         await globLoader.load.call(this, loaderContext);
