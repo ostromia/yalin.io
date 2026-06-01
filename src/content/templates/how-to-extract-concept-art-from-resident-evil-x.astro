@@ -1,0 +1,134 @@
+---
+import { Code } from "astro:components";
+
+interface Props {
+    title: "Resident Evil Village" | "Resident Evil 2" | "Resident Evil 3" | "Resident Evil 4";
+    link: string;
+    texSubPath: string;
+    listFileName: string;
+    pakPath: string;
+}
+
+const { title, link, texSubPath, listFileName, pakPath } = Astro.props;
+
+let shortTitle: string;
+switch (title) {
+    case "Resident Evil Village":
+        shortTitle = "re8";
+        break;
+    case "Resident Evil 2":
+        shortTitle = "re2";
+        break;
+    case "Resident Evil 3":
+        shortTitle = "re3";
+        break;
+    case "Resident Evil 4":
+        shortTitle = "re4";
+        break;
+}
+---
+
+<h2>tl;dr</h2>
+
+<ol>
+    <li>Extract the <code>re_chunk_000.pak</code> file using <a href="https://github.com/Ekey/REE.PAK.Tool">REE.PAK.Tool</a>.</li>
+    <li>The necessary <code>.tex</code> files are located at <code>{texSubPath}</code>.
+    <li>Convert the <code>.tex</code> files to <code>.dss</code> using <code>Texture-Conv-All-TEX.bat</code> from <a href="https://fluffyquack.com/tools/">REtool.zip</a>.</li>
+    <li>Convert the <code>.dss</code> files to <code>.png</code> using <code>Textconv.exe</code> from <a href="https://github.com/microsoft/DirectXTex">DirectXTex</a>.</li>
+</ol>
+
+<h2>Prerequisites</h2>
+
+<p>
+    After not being able to find a proper guide online on how to extract the concept art from <a href={link}>{title}</a>, I decided to make one myself.
+    For simplicity's sake, I've written this tutorial to consist of a list of commands you can simply enter into a PowerShell terminal:
+    the commands will handle everything inside a <code>kennedy</code> folder in your root directory.
+</p>
+
+<div class="markdown-alert markdown-alert-warning" dir="auto">
+    <p class="markdown-alert-title" dir="auto">
+        <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path>
+        </svg>
+        WARNING
+    </p>
+    <p>This tutorial is written for users on Windows who have installed {title} via Steam.</p>
+</div>
+
+<p>
+    To be able to extract the concept art, there are a few pieces of software you need to install first.
+    Run the following command to create the <code>kennedy</code> folder in your root directory and install the necessary software inside it:
+</p>
+
+<Code lang="powershell" code={`& {
+    cd \\; mkdir kennedy; cd kennedy
+
+    curl.exe -L -o REE.Unpacker-x64.zip https://github.com/Ekey/REE.PAK.Tool/releases/download/Latest/REE.Unpacker-x64.zip
+    tar.exe -xf REE.Unpacker-x64.zip
+
+    curl.exe -L --create-dirs -o Projects/${listFileName}.list https://raw.githubusercontent.com/Ekey/REE.PAK.Tool/refs/heads/main/Projects/${listFileName}.list
+
+    curl.exe -L -o REtool.zip https://fluffyquack.com/tools/REtool.zip
+    tar.exe -xf REtool.zip
+
+    curl.exe -L -o Texconv.exe https://github.com/microsoft/DirectXTex/releases/download/mar2026/Texconv.exe
+}`} />
+
+<div class="markdown-alert markdown-alert-note" dir="auto">
+    <p class="markdown-alert-title" dir="auto">
+        <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+        </svg>
+        NOTE
+    </p>
+
+    <p>
+        Any software 'installed' during this tutorial will simply place the software inside the <code>kennedy</code> folder,
+        so don't worry about random software getting installed across your machine.
+    </p>
+</div>
+
+<h2>Extraction</h2>
+
+<p>
+    Run the following command to extract the contents of the <code>re_chunk_000.pak</code> file:
+</p>
+
+<Code lang="powershell" code={`.\\REE.Unpacker.exe "${listFileName}" "${pakPath}" "re_chunk_000" *> $null`} />
+
+<div class="markdown-alert markdown-alert-note" dir="auto">
+    <p class="markdown-alert-title" dir="auto">
+        <svg class="octicon" viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path>
+        </svg>
+        NOTE
+    </p>
+
+    <p>
+        The output for the command above is redirected to <code>$null</code>,
+        as it can cause certain terminals to become unresponsive,
+        so don't worry if you don't see anything happening in your terminal just wait for the command to complete as it can take a while.
+    </p>
+</div>
+
+<h2>Conversion</h2>
+
+<p>
+    Run the following command to convert the necessary <code>.tex</code> asset files to <code>.png</code> files:
+</p>
+
+<Code lang="powershell" code={`& {
+    mkdir ${shortTitle}; cpi ${texSubPath}*.tex.30 .
+
+    .\\Texture-Conv-All-TEX.bat
+
+    .\\texconv.exe -ft png *dds
+
+    mkdir ${shortTitle}; cpi .\\*.png ${shortTitle}
+}`} />
+
+<p>
+    The concept art should now be available inside the <code>{shortTitle}</code> folder inside the <code>kennedy</code> folder.
+</p>
+
+

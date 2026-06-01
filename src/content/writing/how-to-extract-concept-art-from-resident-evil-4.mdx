@@ -4,72 +4,18 @@ publicationDate: "2026-05-30T19:55"
 updatedDate: "2026-05-30T19:55"
 ---
 
-import { Code } from "astro:components";
+import Template from "~content/templates/how-to-extract-concept-art-from-resident-evil-x.astro";
 
 export const title = "Resident Evil 4";
-export const steamLink = "https://store.steampowered.com/app/2050650/";
+export const link = "https://store.steampowered.com/app/2050650/";
 export const texSubPath = "natives\\stm\\_chainsaw\\ui\\ui4000\\tex\\";
 export const listFile = "RE4_STM_Release";
 export const pakPath = "C:\\Program Files (x86)\\Steam\\steamapps\\common\\RESIDENT EVIL 4  BIOHAZARD RE4\\re_chunk_000.pak";
-export const shortTitle = "re4";
 
-## tl;dr
-
-1. Extract the `re_chunk_000.pak` file using [REE.PAK.Tool](https://github.com/Ekey/REE.PAK.Tool).
-2. The necessary `.tex` files are located at <code>{texSubPath}</code>.
-3. Convert the `.tex` files to `.dss` using `Texture-Conv-All-TEX.bat` from [REtool.zip](https://fluffyquack.com/tools/).
-4. Convert the `.dss` files to `.png` using `Textconv.exe` from [DirectXTex](https://github.com/microsoft/DirectXTex).
-
-## Prerequisites
-
-After not being able to find a proper guide online on how to extract the concept art from <a href={steamLink}>{title}</a>, I decided to make one myself.
-For simplicity's sake, I've written this tutorial to consist of a list of commands you can simply enter into a PowerShell terminal:
-the commands will handle everything inside a `kennedy` folder in your root directory.
-
-> [!WARNING]
-> This tutorial is written for users on Windows who have installed {title} via Steam.
-
-To be able to extract the concept art, there are a few pieces of software you need to install first.
-Run the following command to create the `kennedy` folder in your root directory and install the necessary software inside it:
-
-<Code lang="powershell" code={`& {
-    cd \\; mkdir kennedy; cd kennedy
-
-    curl.exe -L -o REE.Unpacker-x64.zip https://github.com/Ekey/REE.PAK.Tool/releases/download/Latest/REE.Unpacker-x64.zip
-    tar.exe -xf REE.Unpacker-x64.zip
-
-    curl.exe -L --create-dirs -o Projects/${listFile}.list https://raw.githubusercontent.com/Ekey/REE.PAK.Tool/refs/heads/main/Projects/${listFile}.list
-
-    curl.exe -L -o REtool.zip https://fluffyquack.com/tools/REtool.zip
-    tar.exe -xf REtool.zip
-
-    curl.exe -L -o Texconv.exe https://github.com/microsoft/DirectXTex/releases/download/mar2026/Texconv.exe
-}`} />
-
-> [!NOTE]
-> Any software 'installed' during this tutorial will simply place the software inside the `kennedy` folder, so don't worry about random software getting installed across your machine.
-
-## Extraction
-
-Run the following command to extract the contents of the `re_chunk_000.pak` file:
-
-<Code lang="powershell" code={`.\\REE.Unpacker.exe "${listFile}" "${pakPath}" "re_chunk_000" *> $null`} />
-
-> [!Note]
-> The output for the command above is redirected to `$null`, as it can cause certain terminals to become unresponsive, so don't worry if you don't see anything happening in your terminal just wait for the command to complete as it can take a while.
-
-## Conversion
-
-Run the following command to convert the necessary `.tex` asset files to `.png` files:
-
-<Code lang="powershell" code={`& {
-    mkdir ${shortTitle}; cpi ${texSubPath}*.tex.30 .
-
-    .\\Texture-Conv-All-TEX.bat
-
-    .\\texconv.exe -ft png *dds
-
-    mkdir ${shortTitle}; cpi .\\*.png ${shortTitle}
-}`} />
-
-The concept art should now be available inside the <code>{shortTitle}</code> folder inside the `kennedy` folder.
+<Template
+    title={title}
+    link={link}
+    texSubPath={texSubPath}
+    listFileName={listFile}
+    pakPath={pakPath}
+/>

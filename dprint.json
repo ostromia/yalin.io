@@ -16,7 +16,7 @@
     "json": {
     },
     "markdown": {
-        "printWidth": 200,
+        "printWidth": 300,
         "styleIndent": true
     },
     "toml": {
