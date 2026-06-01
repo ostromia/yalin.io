@@ -118,13 +118,18 @@ switch (title) {
 </p>
 
 <Code lang="powershell" code={`& {
-    mkdir ${shortTitle}; cpi ${texSubPath}*.tex.30 .
+    cpi .\\re_chunk_000\\${texSubPath}*.tex.30 .
 
     .\\Texture-Conv-All-TEX.bat
 
     .\\texconv.exe -ft png *dds
 
-    mkdir ${shortTitle}; cpi .\\*.png ${shortTitle}
+    mkdir ${shortTitle} -force
+
+    mi .\\*.png ${shortTitle} -force
+    mi .\\*.tex.30 ${shortTitle} -force
+
+    gci -filter *.dds -file -r | ri -force
 }`} />
 
 <p>
