@@ -5,11 +5,12 @@ interface Props {
     title: "Resident Evil Village" | "Resident Evil 2" | "Resident Evil 3" | "Resident Evil 4";
     link: string;
     texSubPath: string;
+    texFileExtension: string;
     listFileName: string;
     pakPath: string;
 }
 
-const { title, link, texSubPath, listFileName, pakPath } = Astro.props;
+const { title, link, texSubPath, texFileExtension, listFileName, pakPath } = Astro.props;
 
 let shortTitle: string;
 switch (title) {
@@ -118,7 +119,7 @@ switch (title) {
 </p>
 
 <Code lang="powershell" code={`& {
-    cpi .\\re_chunk_000\\${texSubPath}*.tex.30 .
+    cpi .\\re_chunk_000\\${texSubPath}*.${texFileExtension} .
 
     .\\Texture-Conv-All-TEX.bat
 
@@ -127,7 +128,7 @@ switch (title) {
     mkdir ${shortTitle} -force
 
     mi .\\*.png ${shortTitle} -force
-    mi .\\*.tex.30 ${shortTitle} -force
+    mi .\\*.${texFileExtension} ${shortTitle} -force
 
     gci -filter *.dds -file -r | ri -force
 }`} />
