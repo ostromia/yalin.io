@@ -5,6 +5,8 @@ import { fileURLToPath } from "url";
 
 import axios from "axios";
 
+// TODO: terrible code but it works rewrite at some point
+
 const __root = dirname(dirname(fileURLToPath(import.meta.url)));
 
 async function getUserRepos(username: string, names: string[] = []) {

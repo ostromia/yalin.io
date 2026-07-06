@@ -8,6 +8,7 @@ const links = [
 ];
 ---
 
+<!-- TODO: there has to be a better approach (maybe request url and pass through as prop -->
 <nav class={isHome ? "home" : "other"}>
     {!isHome && <a href="/">home</a>}
     {links.map(({ href, label }) => (

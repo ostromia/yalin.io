@@ -4,6 +4,8 @@ publicationDate: "2025-10-07"
 updatedDate: "2025-10-07"
 ---
 
+<!-- TODO: rewrite -->
+
 In [WezTerm](https://wezterm.org/index.html), actions are special objects used to interact with the terminal environment; they're objects that represent operations that're executed in response to a trigger.
 
 Actions are used to create mouse & key bindings, custom menu commands, and event handlers.

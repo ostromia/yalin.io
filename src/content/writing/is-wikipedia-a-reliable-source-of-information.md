@@ -4,6 +4,8 @@ publicationDate: "2025-01-16"
 updatedDate: "2025-01-19"
 ---
 
+<!-- TODO: rewrite -->
+
 It always kind of bothers me when I hear people say something along the lines of "Wikipedia isn't a reliable source of information". Not only does this sort of idea come up online and in pop culture, but many universities around the world don't allow the citation of Wikipedia for academic work. A lot of people believe that this is simply because "anybody can edit a Wikipedia article", but this isn't really the case at all. Now whilst there are valid reasons for disallowing the usage of Wikipedia in academic work, the general rhetoric that Wikipedia isn't a reliable source of information displays a fundamental misunderstanding of how an open source model operates.
 
 First the idea that "anybody can edit a Wikipedia article" is misleading. Whilst misinformation can appear on Wikipedia, it usually only does on controversial articles, which through strict community moderation and [page history](https://en.wikipedia.org/wiki/Help:Page_history) keep these occurrences quite rare. If you were let's say viewing an article about a controversial political figure, then maybe there might be a few things in there which shouldn't be, but if you're just reading general articles on topics such as [photosynthesis](https://en.wikipedia.org/wiki/Photosynthesis) or the [telescope](https://en.wikipedia.org/wiki/Telescope), chances are everything in there is going to be completely accurate.

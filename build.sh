@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# TODO: rewrite in typescript
+
 # options
 set -e
 

@@ -4,6 +4,8 @@ publicationDate: "2024-09-16"
 updatedDate: "2026-05-22"
 ---
 
+<!-- TODO: rewrite -->
+
 At what point does developing software, whether it be due to the sheer complexity of the task, or the monopoly your competition currently holds over the market, appear to be such an arduous task that building something new that others will actually use seems practically **impossible**?
 
 [The reckless, infinite scope of web browsers](https://drewdevault.com/2020/03/18/Reckless-limitless-scope.html), a blog post detailing the almost ridiculous complexity required to develop a modern web browser begins to touch on this kind of thinking:

@@ -4,6 +4,8 @@ publicationDate: "2023-04-18"
 updatedDate: "2024-09-05"
 ---
 
+<!-- TODO: rewrite -->
+
 _The following page includes the definitions of the gamma functions and their relations to each other.
 These functions were particularly useful in the development of [promethium](https://github.com/berkay-yalin/promethium)._
 
